@@ -1,0 +1,175 @@
+body{
+    height: 100vh;
+}
+
+.signup-main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3%;
+    height: 80%;
+}
+
+.signup-main img{
+    width: 10%;
+    opacity: 0.3;
+}
+
+.design-img{
+    width: 10%;
+    opacity: 0.3;
+    height: 8%;
+}
+
+.signup-container{
+    background-color: white;
+    height: 95%;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:stretch;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.082);
+}
+
+.signup-head{
+    height: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.signup-head h2{
+    color: var(--brown);
+    font-size: 1.7rem;
+    height: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+.signup-head h4{
+    font-size: 1.1rem;
+    height: 50%;
+    width: 65%;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.signup-form{
+    height: 50%;
+    width: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    
+}
+
+.form-mobile{
+    height: 60%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.form-mobile input{
+    font-family: 'alata';
+    color: var(--brown);
+    width: 100%;
+    height: 35%;
+    border-radius: 17px;
+    padding-left: 6%;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid gainsboro;
+}
+
+.form-mobile input:focus{
+    border: 1px solid var(--brown);
+    box-shadow: 0px 0px 5px var(--brown);
+}
+
+.form-mobile input:valid{
+    border: 1px solid var(--brown);
+}
+
+.instruction-cont{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.instruction-cont a{
+    color: var(--brown);
+    font-family: 'alata';
+    font-size: 0.85rem;
+    position: relative;
+}
+
+.instruction-cont a::after{
+    content: '';
+    height: 5%;
+    width: 0%;
+    background-color: var(--brown);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.instruction-cont a:hover::after{
+    width: 99%;
+}
+
+.signup-container input[type="submit"]{
+    font-family: 'alata';
+    width: 100%;
+    height: 20%;
+    background-color: var(--brown);
+    color: var(--peach);
+    border-radius: 17px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.legal-container{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.legal-container h5{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+}
+
+.legal-links{
+    height: 50%;
+    display: flex;
+    align-items: end;
+    text-align: center;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.legal-links a{
+    position: relative;
+    font-size: 0.8rem;
+    color: black;
+}
+

@@ -1,0 +1,298 @@
+.offer-container {
+  width: 100%;
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--peach);
+  background-color: var(--brown);
+}
+
+.items {
+  width: 100%;
+  height: min(24vw, 50vh);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--lpeach);
+}
+
+.top-head {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: end;
+}
+
+.top-head h3 {
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.top-items {
+  width: 96%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-food-info {
+  width: 18%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.top-food-name {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-food-name p {
+  text-align: center;
+}
+
+.top-food-image {
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  width: 73%;
+  height: 60%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.top-food-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.top-food-image:hover,
+.top-food-image:active {
+  scale: 0.97;
+}
+
+.food-restaurant {
+  width: 100%;
+  height: min(24vw, 50vh);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.restaurant-head {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: end;
+}
+
+.restaurant-head h3 {
+  font-size: 1.6rem;
+}
+
+.restaurants-container {
+  width: 90%;
+  height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.restaurant-info {
+  width: 21%;
+  height: 88%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  justify-content: center;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.restaurant-info:hover,
+.restaurant-info:active{
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  scale: 0.97;
+}
+
+.restaurant-photo {
+  height: 70%;
+  width: 90%;
+  border-radius: 20px;
+  position: relative;
+}
+
+.restaurant-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: brightness(90%);
+}
+
+.restaurant-photo h4 {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: white;
+  font-family: 'outfit';
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.restaurant-details {
+  height: 20%;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.restaurant-name {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.restaurant-name h4 {
+  font-size: 1rem;
+
+}
+
+.restaurant-name p {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.restaurant-ratings {
+  width: 25%;
+  height: 70%;
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+}
+
+.restaurant-ratings>img {
+  width: 27%;
+}
+
+.most-ordered {
+  width: 100%;
+  height: min(24vw, 50vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--lpeach);
+}
+
+.most-head {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.most-head h3 {
+  font-size: 1.6rem;
+}
+
+.ordered-food {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.most-ordered-foods {
+  width: 18%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column
+}
+
+.ordered-foods-image {
+  width: 100%;
+  height: 80%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ordered-foods-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ordered-foods-name {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customer-review {
+  width: 100%;
+  height: min(24vw, 50vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.review-head {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.review-head h3 {
+  font-size: 1.6rem;
+}
+
+.review-info {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customer-review-data {
+  width: 30%;
+  height: 90%;
+  border-radius: 30px;
+}
+
+.customer-review-data img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+footer {
+  width: 100%;
+  height: 15vw;
+  background-color: var(--brown)
+}

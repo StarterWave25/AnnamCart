@@ -1,0 +1,106 @@
+
+
+.restaurant-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 300px;
+  margin: 20px 0;
+  row-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.restaurant-card{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--peach);
+  width: 90%;
+  height: 90%;
+  border-radius: 25px;
+  align-items: center;
+  border: 1px solid var(--brown);
+  justify-content: space-around;
+  justify-self: center;
+}
+
+.heading{
+  width: 90%;
+  text-align: left;
+  font-size: 1rem;
+  height: 20%;
+  display: flex;
+  align-items: end;
+}
+
+.food-details{
+  height: 80%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.res-name-img-con > img{
+  width: 90%;
+  border-radius: 20px;
+  border: 1px solid var(--brown);
+}
+
+.res-name-img-con{
+  width: 60%;
+  height: 80%;
+  display: flex;
+}
+
+.res-details{
+  display: flex;
+  align-items: left;
+  justify-content:space-between;
+  flex-direction: column;
+  width: 35%;
+  height: 80%;
+}
+
+.res-details > .review{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.star{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.star > img{
+  width: 11%;
+  height: 100%;
+  margin-right: 5px;
+}
+
+.res-details > h2{
+  font-size: 2rem;
+  color: var(--brown);
+}
+
+.res-details > h3{
+  font-size: 1.4rem;
+  color: var(--brown);
+}
+
+.res-details > button{
+  background-color: var(--brown);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 70%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
