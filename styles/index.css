@@ -122,7 +122,7 @@
 }
 
 .restaurant-info:hover,
-.restaurant-info:active{
+.restaurant-info:active {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
   scale: 0.97;
 }
@@ -213,43 +213,112 @@
 
 .ordered-food {
   width: 90%;
-  height: 80%;
+  height: 75%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .most-ordered-foods {
-  width: 18%;
-  height: 100%;
+  width: 21%;
+  height: 95%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+.most-ordered-foods:hover {
+  scale: 0.97;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 }
 
 .ordered-foods-image {
-  width: 100%;
-  height: 80%;
+  width: 90%;
+  height: 65%;
   border-radius: 8px;
   cursor: pointer;
+
 }
 
 .ordered-foods-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .ordered-foods-name {
-  width: 100%;
+  width: 90%;
   height: 20%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
 }
 
+.most-order-details {
+  width: 50%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.most-order-food-name {
+  width: 100%;
+  height: 50%;
+  font-size: 1.35rem;
+}
+
+.order-place {
+  font-size: 0.85rem;
+  color: gray;
+  width: 100%;
+  height: 25%;
+}
+
+.orginal-price {
+  font-size: 0.75rem;
+}
+
+.offer-price {
+  font-size: 1.2rem;
+  color: var(--brown);
+}
+
+.order-ratings {
+  width: 30%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.order-price {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  align-items: last baseline;
+  justify-content: space-around;
+}
+
+.star-rating {
+  width: 90%;
+  height: 43%;
+  display: flex;
+  align-items: last baseline;
+  justify-content: end;
+}
+
+.star-rating img {
+  width: 20%;
+  height: 60%;
+}
 .customer-review {
   width: 100%;
   height: min(24vw, 50vh);
