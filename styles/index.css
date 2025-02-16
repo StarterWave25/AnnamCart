@@ -19,7 +19,7 @@
 }
 
 .top-head {
-  width: 90%;
+  width: 93%;
   height: 20%;
   display: flex;
   align-items: end;
@@ -256,29 +256,26 @@
   height: 20%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .most-order-details {
-  width: 50%;
-  height: 95%;
+  width: 65%;
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   flex-direction: column;
 }
 
 .most-order-food-name {
   width: 100%;
+  font-size: 1.15rem;
   height: 50%;
-  font-size: 1.35rem;
 }
 
 .order-place {
   font-size: 0.85rem;
   color: gray;
   width: 100%;
-  height: 25%;
 }
 
 .orginal-price {
@@ -291,8 +288,8 @@
 }
 
 .order-ratings {
-  width: 30%;
-  height: 95%;
+  width: 35%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
