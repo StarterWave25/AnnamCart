@@ -169,8 +169,11 @@
 }
 
 .restaurant-name h4 {
-  font-size: 1rem;
-
+  font-size: 1.05rem;
+  white-space: nowrap;       
+  overflow: hidden;          
+  text-overflow:ellipsis;   
+  max-width: 100%;             
 }
 
 .restaurant-name p {
@@ -268,14 +271,17 @@
 
 .most-order-food-name {
   width: 100%;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   height: 50%;
 }
 
 .order-place {
+  white-space: nowrap;
   font-size: 0.85rem;
   color: gray;
-  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .orginal-price {

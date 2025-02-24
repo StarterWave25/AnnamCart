@@ -50,7 +50,7 @@ fetch('data/restaurants.php').then((response) => {
                 </div>
                 <div class="restaurant-ratings">
                     <img src="img/star.png" alt="">
-                    <h5>${restaurant.res_ratings}</h5>
+                    <h5>${restaurant.ratings}</h5>
                 </div>
             </div>
       </div>

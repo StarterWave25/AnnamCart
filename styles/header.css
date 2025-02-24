@@ -280,7 +280,7 @@ nav ul li a {
     color: var(--brown);
 }
 
-.restaurant-container>#img-con {
+.restaurant-name-container>#img-con {
     width: 11%;
     height: 80%;
     display: flex;
@@ -315,14 +315,14 @@ nav ul li a {
     max-height: 100vh;
 }
 
-.restaurant-container {
+.restaurant-name-container {
     width: 95%;
     min-height: 3vh;
     display: flex;
     align-items: center;
 }
 
-.restaurant-container>h3 {
+.restaurant-name-container>h3 {
     color: var(--brown);
     display: flex;
     justify-self: flex-end;
