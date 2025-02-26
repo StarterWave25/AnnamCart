@@ -49,7 +49,6 @@
         <img src="img/shanka.png" alt="shankam">
     </div>
     <img src="img/design.png" alt="design" class="design-img">
-    <script src="scripts/headfoot.js"></script>
     <script src="scripts/logsign.js"></script>
 </body>
 

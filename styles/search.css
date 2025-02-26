@@ -11,6 +11,15 @@
   justify-content: center;
 }
 
+.restaurant-container>.search-result{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+}
+
 .restaurant-card{
   display: flex;
   flex-direction: column;

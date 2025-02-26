@@ -1,5 +1,6 @@
 body{
   background: linear-gradient(white 0%, var(--peach));
+  height: 100vh;
 }
 
 .popular-heading{

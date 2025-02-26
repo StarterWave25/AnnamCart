@@ -141,6 +141,10 @@ body{
     cursor: pointer;
 }
 
+.verify-container input[type="submit"]:active,.verify-container input[type="submit"]:hover{
+    scale: 0.98;
+}
+
 .legal-container{
     height: 25%;
     width: 100%;

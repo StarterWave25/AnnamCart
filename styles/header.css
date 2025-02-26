@@ -222,6 +222,8 @@ nav ul li a {
     height: 57%;
     background-color: transparent;
     cursor: pointer;
+    pointer-events: none;
+    opacity: 0.6;
 }
 
 .search-container .search-btn:hover {

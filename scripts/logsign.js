@@ -1,6 +1,7 @@
 const inputName = document.getElementById('input-name');
 const inputMobile = document.getElementById('input-mobile');
 
+
 inputName.addEventListener('input',()=>{
     let nameValue = inputName.value.replace(/[^a-zA-Z]/g,'');
     inputName.value = nameValue;

@@ -1,9 +1,3 @@
-function checkKey(event) {
-    if (event.key === 'Enter') {
-        searchAction();
-    }
-}
-
 
 const popularContainer = document.querySelector('.popular-container');
 const popularHeading = document.querySelector('.popular-heading');
@@ -28,6 +22,22 @@ const restaurantContainer = document.querySelector('.restaurant-container');
 const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 
+searchInput.addEventListener('input',()=>{
+    if(searchInput.value.length<3){
+        searchBtn.style.opacity='0.8';
+        searchBtn.style.pointerEvents='none';
+    }
+    else{
+        searchBtn.style.opacity='1';
+        searchBtn.style.pointerEvents='all';
+    }
+});
+
+function checkKey(event) {
+    if (event.key === 'Enter' && searchInput.value.length>=3) {
+        searchAction();
+    }
+}
 
 function searchAction() {
     popularContainer.style.display = 'none';
@@ -39,6 +49,12 @@ function searchAction() {
     fetch(`data/search.php?query=${searchValue}`).then((response) => {
         return response.json();
     }).then((searchItems) => {
+        if(searchItems.length<1){
+            restaurantContainer.innerHTML+=`
+                <h2 class="search-result">No Results Found :(</h2>    
+            `
+            return;
+        }
         searchItems.forEach((searchItem)=>{
             restaurantContainer.innerHTML+=`
             <div class="restaurant-card">
