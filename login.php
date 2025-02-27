@@ -7,7 +7,7 @@
     <title>AnnamCart</title>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap"
@@ -19,14 +19,14 @@
             opacity: 1;
         }
         .login {
-            border: 1px solid var(--brown);
-            background-color: transparent;
-            color: var(--brown);
-        }
-        .signup {
             pointer-events: none;
+            border: 1px solid var(--brown);
             background-color: var(--brown);
             color: var(--white);
+        }
+        .signup {
+            background-color: transparent;
+            color: var(--brown);
             border: 1px solid var(--brown);
         }
     </style>
@@ -34,24 +34,22 @@
 
 <body>
     <header id="header"></header>
-    <div class="signup-main">
+    <div class="login-main">
         <img src="img/chakra.png" alt="chakram">
-        <div class="signup-container">
-            <div class="signup-head">
-                <h2>SIGN UP</h2>
-                <h4>Namaskaram, Enter your details to create your account !</h4>
+        <div class="login-container">
+            <div class="login-head">
+                <h2>LOGIN</h2>
+                <h4>Namaskaram, Enter your mobile number to login your account !</h4>
             </div>
-            <form action="data/auth-signup.php" class="signup-form" method="post">
+            <form action="data/auth-login.php" class="login-form" method="post">
                 <div class="form-mobile">
-                    <input type="text" name="name" id="input-name" required placeholder="Enter Your Name">
-                    <span><?php if(isset($_GET['ename'])) { echo $_GET['ename']; }?></span>
-                    <input type="tel" name="mobile" id="input-mobile" required placeholder="Enter Mobile Number" pattern="[0-9]{10}">
+                    <input type="tel" name="mobile" id="input-mobile" required placeholder="Enter Mobile Number">
                     <span><?php if(isset($_GET['emob'])) { echo $_GET['emob']; }?></span>
                     <div class="instruction-cont">
-                        <a href="login.php">Already have an Account ? Login Now.</a>
+                        <a href="signup.php">Don't have an Account ? Create Now.</a>
                     </div>
                 </div>
-                <input type="submit" value="Sign up" name="submit">
+                <input type="submit" value="Log in" name="submit">
             </form>
             <div class="legal-container">
                 <h5>Do you want to know ?</h5>

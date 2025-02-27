@@ -268,7 +268,7 @@ nav ul li a {
     height: 100%;
     width: 18%;
     cursor: pointer;
-    display: flex;
+    display: none;
 }
 
 .cart-label img {
