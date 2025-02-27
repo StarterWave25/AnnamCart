@@ -1,16 +1,17 @@
 <?php
 include 'conn.php';
 $mobile = trim($_POST['mobile']);
-
+session_start();
 if (isset($_POST['submit'])) {
     if(strlen($mobile)!=10){
-        header("Location: ../signup.php?emob=Enter a valid mobile number");
+        header("Location: ../login.php?emob=Enter a valid mobile number");
     }
     try {
         $sql = "SELECT * FROM users WHERE mobile=$mobile";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         if($row){
+            $_SESSION['username']=$row['name'];
             header("Location: ../verify.html");
         }
         else{
