@@ -12,6 +12,10 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
         if($row){
             $_SESSION['username']=$row['name'];
+            $_SESSION['mobile']=$row['mobile'];
+            $_SESSION['email']=$row['email'];
+            $_SESSION['address']=$row['address'];
+            $_SESSION['updated']='';
             header("Location: ../verify.html");
         }
         else{

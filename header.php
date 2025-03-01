@@ -48,7 +48,7 @@
             <img src="img/user.png" alt="" srcset="">
             <h3 class="user-name"></h3>
             <div class="profile-menu">
-                <a href="profile.html">My Profile</a>
+                <a href="profile.php">My Profile</a>
                 <a href="myOrders.html">My Orders</a>
                 <a href="" class="logout-btn">Log Out</a>
             </div>

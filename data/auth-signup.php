@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO users (mobile, name) VALUES ($mobile,'$name')";
         mysqli_query($conn, $sql);
         $_SESSION['username'] = $name;
+        $_SESSION['mobile']=$mobile;
         header("Location: ../verify.html");
     } catch (mysqli_sql_exception $e) {
         header("Location: ../signup.php?emob=Your account already exists, Login Now !" . $e);

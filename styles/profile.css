@@ -69,23 +69,24 @@ input{
 }
 
 .name a,.email a,.address a{
-
     position: absolute;
     left: 78%;
     top: 32%;
     text-decoration: none;
     color: var(--brown);
     font-weight: 400;
+    cursor: pointer;
 }
 .user-addr{
-
     height:100%;
 }
 label{
-    
     font-weight: 400;
     font-size: 1rem;
     color: var(--brown);
     padding-left: 2%;
 
+}
+.onsucess-head{
+    color: rgb(0, 169, 0);
 }
