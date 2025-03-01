@@ -27,7 +27,7 @@
     <div class="image-container">
         <img src="img/user.png" alt="">
     </div>
-    <h3 class="onsucess-head"><?php if($_SESSION['updated']) { echo $_SESSION['updated'];  $_SESSION['updated']='';} ?></h3>
+    <h3 class="onsucess-head"><?php if(isset($_SESSION['updated'])) { echo $_SESSION['updated'];  $_SESSION['updated']='';} ?></h3>
     <div class="profile">
         <div class="name">
             <label for="">Name:</label>

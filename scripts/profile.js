@@ -1,5 +1,5 @@
 const changeBtns = document.querySelectorAll('.profile-change');
-let temp = '';
+let temp = null;
 changeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         const changeInput = document.getElementById(btn.dataset.element);

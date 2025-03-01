@@ -24,7 +24,7 @@ const searchBtn = document.querySelector('.search-btn');
 
 searchInput.addEventListener('input',()=>{
     if(searchInput.value.length<3){
-        searchBtn.style.opacity='0.8';
+        searchBtn.style.opacity='0.5';
         searchBtn.style.pointerEvents='none';
     }
     else{
