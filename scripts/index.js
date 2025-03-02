@@ -1,8 +1,10 @@
 const mostOrderedContainer = document.querySelector('.ordered-food');
 
-fetch('data/most-ordered-items.php').then((response) => {
+fetch('data/most-ordered-items.php')
+.then((response) => {
     return response.json();
-}).then((mostOrderedItems) => {
+})
+.then((mostOrderedItems) => {
     mostOrderedItems.forEach((item) => {
         mostOrderedContainer.innerHTML += `
         <div class="most-ordered-foods">
@@ -33,9 +35,11 @@ fetch('data/most-ordered-items.php').then((response) => {
 
 const restaurantsContainer = document.querySelector('.restaurants-container');
 
-fetch('data/restaurants.php').then((response) => {
+fetch('data/restaurants.php')
+.then((response) => {
     return response.json();
-}).then((restaurants) => {
+})
+.then((restaurants) => {
     restaurants.forEach((restaurant) => {
         restaurantsContainer.innerHTML += `
         <div class="restaurant-info">

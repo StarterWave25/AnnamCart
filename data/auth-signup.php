@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['email']='';
         $_SESSION['address']='';
         header("Location: ../verify.html");
-    } catch (mysqli_sql_exception $e) {
+    } catch (mysqli_sql_exception) {
         header("Location: ../signup.php?emob=Your account already exists, Login Now !" . $e);
     }
 } else if (!isset($_POST['submit'])) {

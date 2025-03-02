@@ -30,6 +30,10 @@ html,body{
    justify-content: center;
 
 }
+.profile-error{
+    font-size: 0.8rem;
+    color: red;
+}
 img{
     height: 100px;
     width: 100px;

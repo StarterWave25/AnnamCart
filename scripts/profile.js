@@ -5,7 +5,9 @@ changeBtns.forEach((btn) => {
         const changeInput = document.getElementById(btn.dataset.element);
         const beforeValue = changeInput.value;
         if (temp === beforeValue) {
-            changeProfile({ element: btn.dataset.element, value: temp });
+            if(isValidValue(btn.dataset.element,temp)){
+                changeProfile({ element: btn.dataset.element, value: temp });
+            }
         }
         btn.style.opacity = '0.5';
         btn.style.pointerEvents = 'none';
@@ -35,4 +37,39 @@ async function changeProfile(data) {
     });
     const response = await request.json();
     (response==='Success') ? location.reload() : '';
+}
+
+
+function isValidValue(element,value){
+    const profileErrors = document.querySelectorAll('.profile-error');
+    if(element==='profile-name'){
+        if(value.length>2){
+            return true;
+        }
+        else{
+            profileErrors[0].textContent=`Enter a Valid Name`;
+            return false;
+        }
+    }
+
+    else if(element==='profile-mail'){
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if(emailPattern.test(value)){
+            return true;
+        }
+        else{
+            profileErrors[1].textContent=`Enter a valid Email address`;
+            return false;
+        }
+    }
+
+    else if(element==='profile-address'){
+        if(value.length>5){
+            return true;
+        }
+        else{
+            profileErrors[2].textContent=`Enter a valid Adddress`;
+            return false;
+        }
+    }
 }

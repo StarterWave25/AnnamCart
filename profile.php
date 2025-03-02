@@ -33,18 +33,21 @@
             <label for="">Name:</label>
             <input type="text" id="profile-name" value="<?php echo $_SESSION['username'] ?>" readonly>
             <a class="profile-change" data-element="profile-name">Change</a>
+            <span class="profile-error"></span>
         </div>
 
         <div class="email">
             <label for="">Email:</label>
-            <input type="text" id="profile-mail" value="<?php echo $_SESSION['email'] ?>" readonly>
+            <input type="email" id="profile-mail" value="<?php echo $_SESSION['email'] ?>" readonly>
             <a class="profile-change" data-element="profile-mail">Change</a>
+            <span class="profile-error"></span>
         </div>
 
         <div class="address">
             <label for="">Address:</label>
             <input name="" id="profile-address" value="<?php echo $_SESSION['address'] ?>" readonly cols="6" class="user-addr">
             <a class="profile-change" data-element="profile-address">Change</a>
+            <span class="profile-error"></span>
         </div>
     </div>
     <script>

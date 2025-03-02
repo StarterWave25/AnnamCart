@@ -22,41 +22,40 @@ const restaurantContainer = document.querySelector('.restaurant-container');
 const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 
-searchInput.addEventListener('input',()=>{
-    if(searchInput.value.length<3){
-        searchBtn.style.opacity='0.5';
-        searchBtn.style.pointerEvents='none';
+searchInput.addEventListener('input', () => {
+    if (searchInput.value.length < 3) {
+        searchBtn.style.opacity = '0.5';
+        searchBtn.style.pointerEvents = 'none';
     }
-    else{
-        searchBtn.style.opacity='1';
-        searchBtn.style.pointerEvents='all';
+    else {
+        searchBtn.style.opacity = '1';
+        searchBtn.style.pointerEvents = 'all';
     }
 });
 
 function checkKey(event) {
-    if (event.key === 'Enter' && searchInput.value.length>=3) {
+    if (event.key === 'Enter' && searchInput.value.length >= 3) {
         searchAction();
     }
 }
 
-function searchAction() {
+async function searchAction() {
     popularContainer.style.display = 'none';
     popularHeading.style.display = 'none';
     restaurantContainer.style.display = 'grid';
 
     let searchValue = searchInput.value;
-    restaurantContainer.innerHTML='';
-    fetch(`data/search.php?query=${searchValue}`).then((response) => {
-        return response.json();
-    }).then((searchItems) => {
-        if(searchItems.length<1){
-            restaurantContainer.innerHTML+=`
+    restaurantContainer.innerHTML = '';
+    const request = await fetch(`data/search.php?query=${searchValue}`);
+    const searchItems = await request.json();
+    if (searchItems.length < 1) {
+        restaurantContainer.innerHTML += `
                 <h2 class="search-result">No Results Found :(</h2>    
             `
-            return;
-        }
-        searchItems.forEach((searchItem)=>{
-            restaurantContainer.innerHTML+=`
+        return;
+    }
+    searchItems.forEach((searchItem) => {
+        restaurantContainer.innerHTML += `
             <div class="restaurant-card">
                 <div class="heading">
                     <h2>${searchItem.res_name}</h2>
@@ -80,10 +79,9 @@ function searchAction() {
                 </div>
             </div>
             `
-        })
     });
 }
 
 searchBtn.addEventListener('click', () => {
-    searchAction();   
+    searchAction();
 });
