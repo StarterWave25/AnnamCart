@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2025 at 03:14 PM
+-- Generation Time: Mar 02, 2025 at 05:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,17 +42,17 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `item_name`, `res_id`, `price`, `dprice`, `ratings`, `rperson`) VALUES
-(701, 'Idly(3) & Sambar', 6901, 40, 60, 4.5, 120),
+(701, 'Idli(3) & Sambar', 6901, 40, 60, 4.5, 120),
 (702, 'Dosa', 6902, 50, 75, 4.7, 200),
 (703, 'Vada(3) & Sambar', 6902, 30, 45, 4.3, 150),
 (704, 'Upma', 6901, 35, 52, 4.2, 80),
 (705, 'Pongal', 6903, 45, 67, 4.4, 90),
 (706, 'Masala Dosa', 6904, 70, 105, 4.8, 250),
 (707, 'Rava Dosa', 6903, 65, 97, 4.6, 180),
-(708, 'Pesarattu', 6904, 60, 90, 4.5, 140),
+(708, 'Karam Dosa', 6904, 60, 90, 4.5, 140),
 (709, 'Gobi Rice', 6901, 80, 120, 4.7, 220),
 (710, 'Lemon Rice', 6902, 50, 75, 4.3, 130),
-(711, 'Rava Idly', 6902, 50, 80, 4.4, 20),
+(711, 'Rava Idli', 6902, 50, 80, 4.4, 20),
 (712, 'Chapathi(2)', 6903, 40, 70, 4.2, 15);
 
 -- --------------------------------------------------------
@@ -105,6 +105,27 @@ INSERT INTO `restaurants` (`res_id`, `res_name`, `ratings`, `best_item`, `offer`
 (6903, 'Sri Lakshmi Varaha Hotel', 4.1, 705, 'Starts at ₹80'),
 (6904, 'Gufha Restaurant', 4.6, 706, 'Starts at ₹90');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `mobile` bigint(10) NOT NULL,
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `address` longtext NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`mobile`, `name`, `email`, `address`, `created_at`) VALUES
+(9014709040, 'Harsha Vardhan', 'harsha@gmail.com', 'Teachers Colony, Rayadurgam', '2025-03-02 10:27:18');
+
 --
 -- Indexes for dumped tables
 --
@@ -126,6 +147,12 @@ ALTER TABLE `most_ordered_items`
 --
 ALTER TABLE `restaurants`
   ADD PRIMARY KEY (`res_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`mobile`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

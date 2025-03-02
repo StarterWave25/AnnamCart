@@ -3,7 +3,7 @@ const inputMobile = document.getElementById('input-mobile');
 
 if (inputName) {
     inputName.addEventListener('input', () => {
-        let nameValue = inputName.value.replace(/[^a-zA-Z]/g, '');
+        let nameValue = inputName.value.replace(/[^a-zA-Z\s]/g,'');
         inputName.value = nameValue;
     });
 }

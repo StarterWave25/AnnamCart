@@ -43,7 +43,7 @@
             </div>
             <form action="data/auth-login.php" class="login-form" method="post">
                 <div class="form-mobile">
-                    <input type="tel" name="mobile" id="input-mobile" required placeholder="Enter Mobile Number">
+                    <input type="tel" name="mobile" id="input-mobile" required pattern="[0-9]{10}" placeholder="Enter Mobile Number">
                     <span><?php if(isset($_GET['emob'])) { echo $_GET['emob']; }?></span>
                     <div class="instruction-cont">
                         <a href="signup.php">Don't have an Account ? Create Now.</a>

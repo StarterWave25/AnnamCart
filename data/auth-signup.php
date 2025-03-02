@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['address']='';
         header("Location: ../verify.html");
     } catch (mysqli_sql_exception) {
-        header("Location: ../signup.php?emob=Your account already exists, Login Now !" . $e);
+        header("Location: ../signup.php?emob=Your account already exists, Login Now !");
     }
 } else if (!isset($_POST['submit'])) {
     header("Location: ../signup.php?emob=Access Denied !&ename=Access Denied !");

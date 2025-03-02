@@ -1,5 +1,7 @@
 const changeBtns = document.querySelectorAll('.profile-change');
 let temp = null;
+
+
 changeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
         const changeInput = document.getElementById(btn.dataset.element);
@@ -27,18 +29,6 @@ changeBtns.forEach((btn) => {
     });
 });
 
-async function changeProfile(data) {
-    const request = await fetch('data/auth-profile.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    const response = await request.json();
-    (response==='Success') ? location.reload() : '';
-}
-
 
 function isValidValue(element,value){
     const profileErrors = document.querySelectorAll('.profile-error');
@@ -64,7 +54,7 @@ function isValidValue(element,value){
     }
 
     else if(element==='profile-address'){
-        if(value.length>5){
+        if(value.length>9){
             return true;
         }
         else{
@@ -72,4 +62,17 @@ function isValidValue(element,value){
             return false;
         }
     }
+}
+
+
+async function changeProfile(data) {
+    const request = await fetch('data/auth-profile.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    const response = await request.json();
+    (response==='Success') ? location.reload() : '';
 }

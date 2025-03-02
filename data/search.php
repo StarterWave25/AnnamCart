@@ -1,6 +1,6 @@
 <?php
 include 'conn.php';
-$sql = "SELECT * FROM items";
+$sql = "SELECT * FROM search_items";
 $result = mysqli_query($conn,$sql);
 $items = [];
 if(isset($_GET['query'])){

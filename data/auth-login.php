@@ -3,7 +3,7 @@ include 'conn.php';
 $mobile = trim($_POST['mobile']);
 session_start();
 if (isset($_POST['submit'])) {
-    if(strlen($mobile)!=10){
+    if (!preg_match("/^\d{10}$/", $mobile)) {
         header("Location: ../login.php?emob=Enter a valid mobile number");
         exit();
     }
@@ -11,21 +11,18 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT * FROM users WHERE mobile=$mobile";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        if($row){
-            $_SESSION['username']=$row['name'];
-            $_SESSION['mobile']=$row['mobile'];
-            $_SESSION['email']=$row['email'];
-            $_SESSION['address']=$row['address'];
+        if ($row) {
+            $_SESSION['username'] = $row['name'];
+            $_SESSION['mobile'] = $row['mobile'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['address'] = $row['address'];
             header("Location: ../verify.html");
-        }
-        else{
+        } else {
             header("Location: ../login.php?emob=Your account does'nt exists, Signup Now !");
         }
-    } catch (mysqli_sql_exception $e) {
-        header("Location: ../login.php?emob=Your account doesn't exists, Signup Now !".$e);
+    } catch (mysqli_sql_exception) {
+        header("Location: ../login.php?emob=Your account doesn't exists, Signup Now !");
     }
-} 
-
-else if (!isset($_POST['submit'])) {
+} else if (!isset($_POST['submit'])) {
     header("Location: ../login.php?emob=Access Denied !&ename=Access Denied !");
 }

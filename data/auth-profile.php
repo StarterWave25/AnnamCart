@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $result = mysqli_query($conn,$sql);
         $_SESSION['username']=$value;
         $_SESSION['updated']='Your Profile Updated Successfully !';
-;        echo json_encode("Success");
+;       echo json_encode("Success");
     }
     else if($element=='profile-mail'){
         $sql = "UPDATE users SET email='$value' WHERE mobile='$mobile'";
@@ -27,5 +27,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $_SESSION['updated']='Your Profile Updated Successfully !';
         echo json_encode("Success");
     }
+    else{
+        echo json_encode("Failed");
+    }
+}
+
+else{
+    echo json_encode("Failed");
 }
 ?>
