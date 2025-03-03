@@ -1,0 +1,32 @@
+img{
+  width: 40px;
+}
+
+.restaurant-main-container{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-head{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-offer{
+  background-color: red;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.offer{
+  width: 10%;
+  display: flex;
+  
+}
+
