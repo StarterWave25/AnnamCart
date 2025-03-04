@@ -173,7 +173,8 @@
   white-space: nowrap;       
   overflow: hidden;          
   text-overflow:ellipsis;   
-  max-width: 100%;             
+  max-width: 100%;
+  color: black;           
 }
 
 .restaurant-name p {
@@ -187,6 +188,10 @@
   display: flex;
   align-items: start;
   justify-content: space-evenly;
+}
+
+.restaurant-ratings h5{
+  color: black;
 }
 
 .restaurant-ratings>img {

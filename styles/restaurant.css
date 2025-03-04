@@ -26,27 +26,28 @@
 }
 
 .title-offer > h4{
- color: var(--brown);
  font-size: 1.2rem;
 }
 
 .title-offer > h2{
   font-size: 1.8rem;
+  color: var(--brown);
 }
 
 .offer{
-  width: 8%;
+  width: 12%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .offer > img{
-  width: 30%;
+  width: 17%;
 }
 
 .offer > h4{
-  font-size: 1.2rem;
+  font-size: 1rem;
+  width: 80%;
 }
 
 .details-restaurant{
