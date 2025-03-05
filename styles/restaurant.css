@@ -85,10 +85,10 @@
   height: auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 220px;
-  gap: 3em 2em;
-  padding:2em;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 250px;
+  gap: 3em 4em;
+  padding:4em;
 }
 
 .card-food-item{
@@ -141,23 +141,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 42%;
+}
+
+.item-name > h3{
+  font-size: 1rem;
 }
 
 .item-cost > h2{
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   color: var(--brown);
+}
+
+.item-cost > del{
+  font-size: .9rem;
 }
 
 .item-review{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  width: 20%;
+}
+
+.item-review > h4{
+  font-size: .9rem;
 }
 
 .item-review > img {
-  width: 20%;
+  width: 40%;
 }
 
 .item-add{
