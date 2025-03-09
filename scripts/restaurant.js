@@ -1,7 +1,6 @@
 async function getRestaurantData(restaurantId) {
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
   const restaurantData = await response.json();
-  console.log(restaurantData)
 
   const resHead = document.querySelector('.restaurant-head');
   resHead.innerHTML = `
@@ -28,8 +27,9 @@ async function getRestaurantData(restaurantId) {
   </div>
   `;
 
+
   const resBody = document.querySelector('.restaurant-body');
-  restaurantData.resBody.forEach((item)=>{
+  restaurantData.resBody.forEach((item) => {
     resBody.innerHTML += `
     <div class="card-food-item">
         <div class="item-image">
@@ -55,6 +55,9 @@ async function getRestaurantData(restaurantId) {
       </div>
   `;
   })
+
+
   
+
 }
 
