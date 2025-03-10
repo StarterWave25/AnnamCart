@@ -4,9 +4,9 @@ const popularHeading = document.querySelector('.popular-heading');
 fetch('data/search.php').then((response) => {
     return response.json();
 })
-.then((popularItems) => {
-    popularItems.forEach((item) => {
-        popularContainer.innerHTML += `
+    .then((popularItems) => {
+        popularItems.forEach((item) => {
+            popularContainer.innerHTML += `
         <div class="food-name">
             <a class="food">
                 <img src="img/img2.jpeg" alt="" onclick="searchAction('${item.item_name}')">
@@ -15,8 +15,8 @@ fetch('data/search.php').then((response) => {
                 ${item.item_name}
             </div>
         </div>`;
+        });
     });
-});
 
 
 const restaurantContainer = document.querySelector('.restaurant-container');
@@ -77,12 +77,21 @@ async function searchAction(query) {
                                 <p>&nbsp;&nbsp;(${searchItem.rperson})</p>
                             </div>
                         </div>
-                        <button><span style="font-size: 1.9rem; margin-right: 5%;">+</span> Add</button>
+                        <button class="search-add-btn" data-restaurant-id="${searchItem.res_id}"><span style="font-size: 1.9rem; margin-right: 5%;">+</span> Add</button>
                     </div>
                 </div>
             </div>
             `
     });
+
+    const searchAddBtns = document.querySelectorAll('.search-add-btn');
+    searchAddBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const restaurantId = btn.dataset.restaurantId;
+            location.href=`restaurant.php?restaurant-id=${restaurantId}`;
+        });
+    });
+    
 }
 
 searchBtn.addEventListener('click', () => {
