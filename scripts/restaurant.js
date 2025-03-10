@@ -27,6 +27,7 @@ async function getRestaurantData(restaurantId) {
   </div>
   `;
 
+
   const resBody = document.querySelector('.restaurant-body');
   restaurantData.resBody.forEach((item) => {
     resBody.innerHTML += `
