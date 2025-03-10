@@ -50,15 +50,45 @@ async function getRestaurantData(restaurantId) {
             <h4>${item.ratings}</h4>
           </div>
           <div class="item-add">
-            <button><span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add</button>
+            <button class="addBtn" data-item-id="${item.item_id}"><span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add</button>
           </div>
         </div>
       </div>
   `;
-  })
+  });
+
+  const addBtn = document.querySelectorAll('.addBtn');
+  addBtn.forEach((foodItem) => {
+    foodItem.addEventListener('click', () => {
+      let quantity = 1;
+      function updateQuantity() {
+        foodItem.innerHTML =
+        `<button class="minBtn">-</button>
+        ${quantity}
+        <button class="maxBtn">+</button>`;
+        foodItem.classList.add('quantity-btn');
+       
+      }
 
 
+      foodItem.querySelector('.minBtn').addEventListener('click', () => {
+        if(quantity > 1){
+          quantity--;
+          updateQuantity();
+        }
+        else{
+          foodItem.innerHTML = `<span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add`;
+          foodItem.classList.remove('quantity-btn');
+        }
+      });
 
+      foodItem.querySelector('.maxBtn').addEventListener('click', ()=>{
+        quantity++;
+        updateQuantity();
+      });
 
+      updateQuantity();
+    });
+  });
 }
 
