@@ -3,6 +3,7 @@ async function getRestaurantData(restaurantId) {
   const restaurantData = await response.json();
 
   const resHead = document.querySelector('.restaurant-head');
+  document.title = restaurantData.resHead.res_name;
   resHead.innerHTML = `
   <div class="title-offer">
     <h4>Best in ${restaurantData.resHead.item_name}</h4>
@@ -68,6 +69,7 @@ async function getRestaurantData(restaurantId) {
         foodItem.classList.add('quantity-btn');
        
       }
+
 
       foodItem.querySelector('.minBtn').addEventListener('click', () => {
         if(quantity > 1){
