@@ -10,3 +10,13 @@ while($row = mysqli_fetch_assoc($result)){
     $items[] = $row;
 }
 echo json_encode($items);
+
+
+
+if($_SERVER['REQUEST_METHOD']==='POST'){
+    $input = json_decode(file_get_contents("php://input"),true);
+    $itemId = $input['itemId'];
+    $quantity = $input['quantity'];
+    $sql = "INSERT INTO cart (mobile,item_id,quantity) VALUES ($mobile,$itemId,$quantity)";
+    mysqli_query($conn,$sql);
+}

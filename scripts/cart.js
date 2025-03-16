@@ -24,7 +24,7 @@ async function getCart() {
             <div class="img-con-saved">
                 <img src="img/rupee (2).png" alt="saved-icon">
             </div>
-            <h3>You have Saved ₹${dummyTotal-total} !</h3>
+            <h3>You have Saved ₹${dummyTotal - total} !</h3>
         </div>
         <div class="cart-items">
             <div class="timing">
@@ -57,7 +57,7 @@ async function getCart() {
                 <div class="bill-img"><img src="img/invoice.png" alt="bill-image"></div>
                 <div class="bill-saving">
                     <h3>To Pay</h3>
-                    <h4>Saved ${dummyTotal-total} !</h4>
+                    <h4>Saved ${dummyTotal - total} !</h4>
                 </div>
                 <div class="total-amount">
                     <del>₹${dummyTotal}</del>
@@ -132,3 +132,4 @@ getCart();
 function getItemPrice(quantity, price) {
     return quantity * price;
 }
+
