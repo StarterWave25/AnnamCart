@@ -58,5 +58,5 @@
     </aside>
 </div>
 
-<script src="scripts/cart.js"></script>
+<script src="scripts/cart.js" type="module"></script>
 

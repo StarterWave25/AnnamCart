@@ -203,16 +203,13 @@
   font-weight: 500;
 }
 
-.quantity-btn .minBtn, .quantity-btn .maxBtn {
+.min-btn, .max-btn {
   height: 100%;
   background-color: var(--brown);
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  width: 30%;
 }
 
-.quantity-btn .minBtn{
-  height: 90%;
-  align-self: flex-start;
-}
 
