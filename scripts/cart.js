@@ -2,7 +2,6 @@ async function getCart() {
     let total = 0, dummyTotal = 0;
     let cartItemsResponse = await fetch('data/data-cart.php');
     let cartItems = await cartItemsResponse.json();
-    console.log(cartItems);
 
     let cartHTML = '';
     let cartItemListHTML = '';
@@ -124,12 +123,21 @@ async function getCart() {
     cartContainer.innerHTML = cartHTML;
 
     const cartItemList = document.querySelector('.items-list');
-    cartItemList.innerHTML = cartItemListHTML;
+    if (cartItemList) {
+        cartItemList.innerHTML = cartItemListHTML;
+    }
 }
 
 getCart();
 
+const cartBtn = document.querySelector('.cart-label');
+cartBtn.addEventListener('click', () => {
+    getCart();
+});
+
 function getItemPrice(quantity, price) {
     return quantity * price;
 }
+
+
 

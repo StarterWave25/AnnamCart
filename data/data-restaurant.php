@@ -6,17 +6,28 @@
   $result = mysqli_query($conn, $sql);
   $head = mysqli_fetch_assoc($result);
 
-  $sql = " SELECT * FROM items where $restaurantId = res_id ";
+  $sql = " SELECT * FROM items WHERE $restaurantId = res_id ";
 
   $result = mysqli_query($conn, $sql);
   $body = [];
   while($row = mysqli_fetch_assoc($result)){
     $body[] = $row;
   }
+
+
+  $sql = "SELECT * FROM cart";
+  $result = mysqli_query($conn,$sql);
+  $cart = [];
+  while($row = mysqli_fetch_assoc($result)){
+    $cart[] = $row;
+  }
+
   $response = [
     "resHead" => $head,
-    "resBody" => $body
+    "resBody" => $body,
+    "cart" => $cart
   ];
+  
   echo json_encode($response);
 
 exit();

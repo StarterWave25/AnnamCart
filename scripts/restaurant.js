@@ -1,11 +1,10 @@
 
-
 let restaurantData;
 
 async function getRestaurantData(restaurantId) {
+
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
   restaurantData = await response.json();
-
   const resHead = document.querySelector('.restaurant-head');
   document.title = restaurantData.resHead.res_name;
   resHead.innerHTML = `
@@ -31,7 +30,7 @@ async function getRestaurantData(restaurantId) {
     <h3>${restaurantData.resHead.ratings} (43)</h3>
   </div>
   `;
-  
+
 
   const resBody = document.querySelector('.restaurant-body');
   restaurantData.resBody.forEach((item) => {
@@ -54,12 +53,34 @@ async function getRestaurantData(restaurantId) {
             <h4>${item.ratings}</h4>
           </div>
           <div class="item-add js-add-${item.item_id}">
-            <button class="addBtn" data-item-id="${item.item_id}"><span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add</button>
+            ${getAddBtnHTML(item.item_id)}
           </div>
         </div>
       </div>
   `;
   });
+
+
+  function getAddBtnHTML(itemId) {
+    let quantity;
+
+    restaurantData.cart.forEach((cartItem) => {
+      if (cartItem.item_id === itemId) {
+        quantity = cartItem.quantity;
+      }
+    });
+
+    if (!quantity) {
+      return `<button class="addBtn" data-item-id="${itemId}"><span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add</button>`;
+    }
+    else {
+      return `
+        <button class="minBtn-${itemId} min-btn">-</button>
+        <span class="quantity-${itemId}">${quantity}</span>
+        <button class="maxBtn-${itemId} max-btn">+</button>
+      `;
+    }
+  }
 
   getAddBtns();
 
@@ -83,20 +104,23 @@ async function getRestaurantData(restaurantId) {
         const minBtn = document.querySelector(`.minBtn-${itemId}`);
         const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
 
+        if (quantity === 1) {
+          sendItemData(itemId, quantity);
+        }
+
         if (minBtn) {
           minBtn.addEventListener('click', () => {
             if (quantity > 1) {
               quantity--;
               document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-              sendItemData(itemId,quantity);
+              sendItemData(itemId, quantity);
             }
             else {
-              addBtnContainer.innerHTML = `
-              <button class="addBtn" data-item-id="${itemId}">
-                <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
+              addBtnContainer.innerHTML = `<button class="addBtn" data-item-id="${itemId}">
+              <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
               Add</button>`;
-              sendItemData(itemId,0);
               getAddBtns();
+              sendItemData(itemId, 0);
             }
           });
         }
@@ -105,22 +129,23 @@ async function getRestaurantData(restaurantId) {
           maxBtn.addEventListener('click', () => {
             quantity++;
             document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-            sendItemData(itemId,quantity);
+            sendItemData(itemId, quantity);
           });
         }
       });
     });
+    
   }
 
 }
 
 async function sendItemData(itemId, quantity) {
   const postRequest = await fetch('data/data-cart.php', {
-      method: 'POST',
-      headers: {
-          'Content-type': 'application/json'
-      },
-      body: JSON.stringify({ itemId, quantity })
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({ itemId, quantity })
   });
 
   const response = await postRequest.json();
