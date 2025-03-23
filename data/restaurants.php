@@ -6,4 +6,5 @@ $restaurants = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $restaurants[] = $row;
 }
-echo json_encode($restaurants);
+$topRestaurants = [$restaurants[0], $restaurants[1], $restaurants[2], $restaurants[3]];
+echo json_encode([$topRestaurants, $restaurants]);

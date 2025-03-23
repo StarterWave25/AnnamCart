@@ -1,5 +1,4 @@
 const mostOrderedContainer = document.querySelector('.ordered-food');
-
 fetch('data/most-ordered-items.php')
   .then((response) => {
     return response.json();
@@ -39,8 +38,8 @@ fetch('data/restaurants.php')
   .then((response) => {
     return response.json();
   })
-  .then((restaurants) => {
-    restaurants.forEach((restaurant) => {
+  .then((topRestaurants) => {
+    topRestaurants[0].forEach((restaurant) => {
       restaurantsContainer.innerHTML += `
         <a href="restaurant.php?restaurant-id=${restaurant.res_id}" class="restaurant-info">
             <div class="restaurant-photo">

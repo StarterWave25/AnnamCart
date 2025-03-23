@@ -14,7 +14,6 @@
     $body[] = $row;
   }
 
-
   $sql = "SELECT * FROM cart";
   $result = mysqli_query($conn,$sql);
   $cart = [];
