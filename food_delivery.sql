@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2025 at 05:33 AM
+-- Generation Time: Mar 24, 2025 at 08:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,10 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`cart_id`, `mobile`, `item_id`, `quantity`, `created at`) VALUES
 (1, 9014709040, 702, 3, '2025-03-09'),
 (2, 9014709040, 703, 2, '2025-03-09'),
-(3, 9014709040, 711, 2, '2025-03-09');
+(3, 9014709040, 711, 2, '2025-03-09'),
+(5, 9398927019, 707, 1, '2025-03-23'),
+(6, 9398927019, 718, 3, '2025-03-24'),
+(16, 9398927019, 723, 1, '2025-03-24');
 
 -- --------------------------------------------------------
 
@@ -140,7 +143,8 @@ INSERT INTO `restaurants` (`res_id`, `res_name`, `ratings`, `best_item`, `offer`
 (6901, 'Saarangi Fine Dine restaurant', 3.9, 701, 'Starts at ₹40'),
 (6902, 'Southern Spice', 4.3, 703, 'Starts at ₹70'),
 (6903, 'Sri Lakshmi Varaha Hotel', 4.1, 705, 'Starts at ₹80'),
-(6904, 'Gufha Restaurant', 4.6, 706, 'Starts at ₹90');
+(6904, 'Gufha Restaurant', 4.6, 706, 'Starts at ₹90'),
+(6905, 'Mahesh Family Dhaba', 4.5, 703, 'Starts at ₹90');
 
 -- --------------------------------------------------------
 
@@ -191,7 +195,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`mobile`, `name`, `email`, `address`, `created_at`) VALUES
 (7981629173, 'Jasu', '', '', '2025-03-09 21:18:21'),
-(9014709040, 'Harsha Vardhan', 'harsha@gmail.com', 'Rambagicha Bus stand', '2025-03-02 10:27:18');
+(9014709040, 'Harsha Vardhan', 'harsha@gmail.com', 'Rambagicha Bus stand', '2025-03-02 10:27:18'),
+(9398927019, 'Prudvi', 'Prudvi@ceo.com', '2-street, oumers, new york', '2025-03-23 11:46:34');
 
 --
 -- Indexes for dumped tables
@@ -245,7 +250,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `most_ordered_items`
