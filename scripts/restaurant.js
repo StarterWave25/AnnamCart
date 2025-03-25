@@ -53,16 +53,16 @@ async function getRestaurantData(restaurantId) {
             <h4>${item.ratings}</h4>
           </div>
           <div class="item-add js-add-${item.item_id}">
-            ${getAddBtnHTML(item.item_id)}
           </div>
         </div>
       </div>
   `;
+    getAddBtnHTML(item.item_id);
   });
 
 
   function getAddBtnHTML(itemId) {
-    let quantity;
+    let quantity = undefined;
 
     restaurantData.cart.forEach((cartItem) => {
       if (cartItem.item_id === itemId) {
@@ -71,14 +71,15 @@ async function getRestaurantData(restaurantId) {
     });
 
     if (!quantity) {
-      return `<button class="addBtn" data-item-id="${itemId}"><span style="font-size: 1.7rem; margin-right: 5%;">+</span>Add</button>`;
+      let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
+      addBtnContainer.innerHTML = `
+      <button class="addBtn" data-item-id="${itemId}">
+        <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
+        Add
+      </button>` ;
     }
     else {
-      return `
-        <button class="minBtn-${itemId} min-btn">-</button>
-        <span class="quantity-${itemId}">${quantity}</span>
-        <button class="maxBtn-${itemId} max-btn">+</button>
-      `;
+      addMinMaxBtn(itemId, quantity);
     }
   }
 
@@ -101,43 +102,61 @@ async function getRestaurantData(restaurantId) {
         <button class="maxBtn-${itemId} max-btn">+</button>
         `;
 
-        const minBtn = document.querySelector(`.minBtn-${itemId}`);
-        const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
-
         if (quantity === 1) {
           sendItemData(itemId, quantity);
         }
 
-        if (minBtn) {
-          minBtn.addEventListener('click', () => {
-            if (quantity > 1) {
-              quantity--;
-              document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-              sendItemData(itemId, quantity);
-            }
-            else {
-              addBtnContainer.innerHTML = `<button class="addBtn" data-item-id="${itemId}">
-              <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
-              Add</button>`;
-              getAddBtns();
-              sendItemData(itemId, 0);
-            }
-          });
-        }
-
-        if (maxBtn) {
-          maxBtn.addEventListener('click', () => {
-            quantity++;
-            document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-            sendItemData(itemId, quantity);
-          });
-        }
+        addMinMaxBtn(itemId, quantity);
       });
     });
-    
+
+  }
+
+
+  function addMinMaxBtn(itemId, quantity) {
+    let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
+    addBtnContainer.innerHTML = `
+      <button class="minBtn-${itemId} min-btn">-</button>
+      <span class="quantity-${itemId}">${quantity}</span>
+      <button class="maxBtn-${itemId} max-btn">+</button>
+    `;
+
+
+    setTimeout(() => {
+      const minBtn = document.querySelector(`.minBtn-${itemId}`);
+      const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
+      if (minBtn) {
+        minBtn.addEventListener('click', () => {
+          if (quantity > 1) {
+            console.log(minBtn);
+            quantity--;
+            document.querySelector(`.quantity-${itemId}`).textContent = quantity;
+            sendItemData(itemId, quantity);
+          }
+          else {
+            addBtnContainer.innerHTML = `<button class="addBtn" data-item-id="${itemId}">
+              <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
+              Add</button>`;
+            getAddBtns();
+            sendItemData(itemId, 0);
+          }
+        });
+      }
+
+      if (maxBtn) {
+        maxBtn.addEventListener('click', () => {
+          quantity++;
+          document.querySelector(`.quantity-${itemId}`).textContent = quantity;
+          sendItemData(itemId, quantity);
+        });
+      }
+    },100);
   }
 
 }
+
+
+
 
 async function sendItemData(itemId, quantity) {
   const postRequest = await fetch('data/data-cart.php', {
@@ -149,7 +168,6 @@ async function sendItemData(itemId, quantity) {
   });
 
   const response = await postRequest.json();
-  console.log(response);
 }
 
 

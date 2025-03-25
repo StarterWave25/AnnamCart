@@ -1,5 +1,7 @@
 <?php
   include 'conn.php';
+  session_start();
+  $mobile = $_SESSION['mobile'];
   $restaurantId = $_GET['restaurant-id'];
   $sql = "SELECT restaurants.*, most_ordered_items.item_name FROM restaurants JOIN most_ordered_items ON restaurants.res_id = $restaurantId ";
   
@@ -14,7 +16,7 @@
     $body[] = $row;
   }
 
-  $sql = "SELECT * FROM cart";
+  $sql = "SELECT * FROM cart WHERE mobile=$mobile";
   $result = mysqli_query($conn,$sql);
   $cart = [];
   while($row = mysqli_fetch_assoc($result)){
