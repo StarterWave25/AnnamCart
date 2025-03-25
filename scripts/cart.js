@@ -35,6 +35,7 @@ async function getCart() {
             <div class="items-list">
                 
             </div>
+            <span class="wait-animation"></span>
         </div>
         <div class="coupons-container">
             <div class="coupon-heading">
@@ -107,9 +108,9 @@ async function getCart() {
             <div class="item">
                 <h4>${item.item_name}</h4>
                 <div class="update-quantity">
-                    <button class="decrement-quantity">-</button>
-                    <h3>${item.quantity}</h3>
-                    <button class="increment-quantity">+</button>
+                    <button class="decrement-quantity decrement-${item.item_id}">-</button>
+                    <h3 class="quantity-${item.item_id}">${item.quantity}</h3>
+                    <button class="increment-quantity increment-${item.item_id}">+</button>
                 </div>
                 <div class="item-price">
                     <del>₹${getItemPrice(item.quantity, item.dprice)}</del>
@@ -117,7 +118,71 @@ async function getCart() {
                 </div>
             </div>
         `;
+
+        setTimeout(() => {
+            const minBtn = document.querySelector(`.decrement-${item.item_id}`);
+            const maxBtn = document.querySelector(`.increment-${item.item_id}`);
+
+            if (minBtn) {
+                minBtn.addEventListener('click', async () => {
+                    if (await getQuantity(item.item_id) > 1) {
+                        let quantity = await getQuantity(item.item_id);
+                        quantity--;
+                        document.querySelector(`.quantity-${item.item_id}`).textContent = quantity;
+                        sendItemData(item.item_id, quantity);
+                    }
+                    else {
+                        sendItemData(item.item_id, 0);
+                    }
+                    document.querySelector('.wait-animation').style.animation = 'waiter 0.6s alternate infinite linear';
+                    document.querySelector('.wait-animation').style.height = '2px';
+                    document.querySelector('.items-list').style.opacity='0.5';
+                    document.querySelector('.items-list').style.pointerEvents='none';
+                    setTimeout(async () => {
+                        await getCart();
+                    }, 1200);
+                });
+            }
+
+            if (maxBtn) {
+                maxBtn.addEventListener('click', async () => {
+                    let quantity = await getQuantity(item.item_id);
+                    quantity++;
+                    document.querySelector(`.quantity-${item.item_id}`).textContent = quantity;
+                    sendItemData(item.item_id, quantity);
+                    document.querySelector('.wait-animation').style.animation = 'waiter 0.6s alternate infinite linear';
+                    document.querySelector('.wait-animation').style.height = '2px';
+                    document.querySelector('.items-list').style.opacity='0.5';
+                    document.querySelector('.items-list').style.pointerEvents='none';
+                    setTimeout(async () => {
+                        await getCart();
+                    }, 1200);
+                });
+            }
+        }, 100);
+
     });
+
+    let respondQuantity;
+
+    async function getQuantity(itemId) {
+        const response = await fetch(`data/data-quantity.php?itemId=${itemId}`);
+        respondQuantity = await response.json();
+        return respondQuantity.quantity;
+    }
+
+    async function sendItemData(itemId, quantity) {
+        console.log(quantity);
+        const postRequest = await fetch('data/data-cart.php', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({ itemId, quantity })
+        });
+
+        const response = await postRequest.json();
+    }
 
     const cartContainer = document.querySelector('.cart');
     cartContainer.innerHTML = cartHTML;
@@ -125,18 +190,14 @@ async function getCart() {
     const cartItemList = document.querySelector('.items-list');
     if (cartItemList) {
         cartItemList.innerHTML = cartItemListHTML;
+    } else {
+        cartContainer.innerHTML = "<p>You didn't carted Items.</p>";
     }
+
 }
 
 getCart();
 
-const cartBtn = document.querySelector('.cart-label');
-cartBtn.addEventListener('click', () => {
-    getCart();
-});
-
 function getItemPrice(quantity, price) {
     return quantity * price;
 }
-
-

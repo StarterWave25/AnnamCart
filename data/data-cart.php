@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_query($conn, $sql);
 }
 
-$sql = "SELECT cart.*,items.*,restaurants.* FROM cart JOIN items ON cart.item_id=items.item_id JOIN restaurants ON items.res_id = restaurants.res_id WHERE mobile=$mobile";
+$sql = "SELECT cart.*,items.*,restaurants.* FROM cart JOIN items ON cart.item_id=items.item_id JOIN restaurants ON items.res_id = restaurants.res_id WHERE mobile=$mobile ORDER BY cart_id";
 $result = mysqli_query($conn, $sql);
 $items = [];
 

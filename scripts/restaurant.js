@@ -93,7 +93,6 @@ async function getRestaurantData(restaurantId) {
 
       let quantity = 1;
       const itemId = btn.dataset.itemId;
-
       btn.addEventListener('click', () => {
         addBtnContainer = document.querySelector(`.js-add-${itemId}`);
         addBtnContainer.innerHTML = `
@@ -112,8 +111,7 @@ async function getRestaurantData(restaurantId) {
 
   }
 
-
-  function addMinMaxBtn(itemId, quantity) {
+  async function addMinMaxBtn(itemId, quantity) {
     let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
     addBtnContainer.innerHTML = `
       <button class="minBtn-${itemId} min-btn">-</button>
@@ -121,19 +119,19 @@ async function getRestaurantData(restaurantId) {
       <button class="maxBtn-${itemId} max-btn">+</button>
     `;
 
-
-    setTimeout(() => {
+    setTimeout(async () => {
       const minBtn = document.querySelector(`.minBtn-${itemId}`);
       const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
       if (minBtn) {
-        minBtn.addEventListener('click', () => {
-          if (quantity > 1) {
-            console.log(minBtn);
+        minBtn.addEventListener('click', async () => {
+          if (await getQuantity(itemId) > 1) {
+            let quantity = await getQuantity(itemId);
             quantity--;
             document.querySelector(`.quantity-${itemId}`).textContent = quantity;
             sendItemData(itemId, quantity);
           }
           else {
+            let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
             addBtnContainer.innerHTML = `<button class="addBtn" data-item-id="${itemId}">
               <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
               Add</button>`;
@@ -144,19 +142,27 @@ async function getRestaurantData(restaurantId) {
       }
 
       if (maxBtn) {
-        maxBtn.addEventListener('click', () => {
+        maxBtn.addEventListener('click', async () => {
+          let quantity = await getQuantity(itemId);
           quantity++;
+          console.log(quantity);
           document.querySelector(`.quantity-${itemId}`).textContent = quantity;
           sendItemData(itemId, quantity);
         });
       }
-    },100);
+    }, 100);
   }
 
 }
 
+let respondQuantity;
 
-
+async function getQuantity(itemId) {
+  const response = await fetch(`data/data-quantity.php?itemId=${itemId}`);
+  respondQuantity = await response.json();
+  console.log(respondQuantity.quantity);
+  return Number(respondQuantity.quantity);
+}
 
 async function sendItemData(itemId, quantity) {
   const postRequest = await fetch('data/data-cart.php', {
@@ -169,8 +175,3 @@ async function sendItemData(itemId, quantity) {
 
   const response = await postRequest.json();
 }
-
-
-
-
-

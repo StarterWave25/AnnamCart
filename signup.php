@@ -43,7 +43,7 @@
             </div>
             <form action="data/auth-signup.php" class="signup-form" method="post">
                 <div class="form-mobile">
-                    <input type="text" name="name" id="input-name" required placeholder="Enter Your Name" minlength="3">
+                    <input type="text" name="name" id="input-name" autofocus required placeholder="Enter Your Name" minlength="3">
                     <span><?php if(isset($_GET['ename'])) { echo $_GET['ename']; }?></span>
                     <input type="tel" name="mobile" id="input-mobile" required placeholder="Enter Mobile Number" pattern="[0-9]{10}">
                     <span><?php if(isset($_GET['emob'])) { echo $_GET['emob']; }?></span>

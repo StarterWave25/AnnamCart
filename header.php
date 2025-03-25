@@ -47,16 +47,9 @@
             <a href="" class="logout-btn">Log Out</a>
         </div>
     </div>
-    <label for="cart-button" class="cart-label">
+    <a href="cart.html" class="cart-label">
         <img src="img/cart.png" alt="">
         <h3>Cart</h3>
-    </label>
-    <input type="checkbox" id="cart-button" class="check">
-    <label class="overlay" for="cart-button"></label>
-    <aside class="cart">
-        <!--js code goes here -->
-    </aside>
+    </a>
+    
 </div>
-
-<script src="scripts/cart.js"></script>
-
