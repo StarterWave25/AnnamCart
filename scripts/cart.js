@@ -1,8 +1,6 @@
 async function getCart() {
     let total = 0, dummyTotal = 0;
-    let cartItemsResponse = await fetch('data/data-cart.php');
-    let cartItems = await cartItemsResponse.json();
-
+    let cartItems = await getQuantityStorage();
     let cartHTML = '';
     let cartItemListHTML = '';
     cartItems.forEach((item) => {
@@ -10,9 +8,9 @@ async function getCart() {
         dummyTotal += getItemPrice(item.quantity, item.dprice);
         cartHTML = `
         <div class="restaurant-name-container">
-            <label id="img-con" for="cart-button">
+            <a id="img-con" href="restaurant.php?restaurant-id=${item.res_id}">
                 <img class="cart-back" src="img/out-arrow.png" alt="out-cart-symbol">
-            </label>
+            </a>
             <h3>${item.res_name}</h3>
         </div>
         <button class="location-container">
@@ -104,6 +102,7 @@ async function getCart() {
             </div>
         </div>
         `;
+
         cartItemListHTML += `
             <div class="item">
                 <h4>${item.item_name}</h4>
@@ -125,46 +124,38 @@ async function getCart() {
 
             if (minBtn) {
                 minBtn.addEventListener('click', async () => {
-                    if (await getQuantity(item.item_id) > 1) {
-                        let quantity = await getQuantity(item.item_id);
-                        quantity--;
-                        document.querySelector(`.quantity-${item.item_id}`).textContent = quantity;
-                        sendItemData(item.item_id, quantity);
+                    item.quantity--;
+                    if (quantity >= 1) {
+                        document.querySelector(`.quantity-${item.item_id}`).textContent = item.quantity;
+                        setQuantityStorage(item.item_id, item.quantity, 6901);
                     }
                     else {
-                        sendItemData(item.item_id, 0);
+                        let cartItems = await getQuantityStorage();
+                        cartItems.forEach((cartItem) => {
+                            if (cartItem.itemId === item.item_id) {
+                                cartItems.splice(cartItems.indexOf(cartItem), 1);
+                            }
+                        })
+                        localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
                     }
-                    document.querySelector('.wait-animation').style.animation = 'waiter 0.6s alternate infinite linear';
-                    document.querySelector('.wait-animation').style.height = '2px';
-                    document.querySelector('.items-list').style.opacity='0.5';
-                    document.querySelector('.items-list').style.pointerEvents='none';
-                    setTimeout(async () => {
-                        await getCart();
-                    }, 1200);
+                    loadingCart();
                 });
             }
 
             if (maxBtn) {
                 maxBtn.addEventListener('click', async () => {
-                    let quantity = await getQuantity(item.item_id);
                     quantity++;
                     document.querySelector(`.quantity-${item.item_id}`).textContent = quantity;
-                    sendItemData(item.item_id, quantity);
-                    document.querySelector('.wait-animation').style.animation = 'waiter 0.6s alternate infinite linear';
-                    document.querySelector('.wait-animation').style.height = '2px';
-                    document.querySelector('.items-list').style.opacity='0.5';
-                    document.querySelector('.items-list').style.pointerEvents='none';
-                    setTimeout(async () => {
-                        await getCart();
-                    }, 1200);
+                    setQuantityStorage(item.item_id, quantity, item.res_id);
+                    loadingCart();
                 });
             }
         }, 100);
 
     });
 
+    /*
     let respondQuantity;
-
     async function getQuantity(itemId) {
         const response = await fetch(`data/data-quantity.php?itemId=${itemId}`);
         respondQuantity = await response.json();
@@ -182,7 +173,7 @@ async function getCart() {
         });
 
         const response = await postRequest.json();
-    }
+    } */
 
     const cartContainer = document.querySelector('.cart');
     cartContainer.innerHTML = cartHTML;
@@ -197,6 +188,38 @@ async function getCart() {
 }
 
 getCart();
+
+async function setQuantityStorage(itemId, quantity, restaurantId) {
+    let cartItems = await getQuantityStorage() || [];
+    cartItems.forEach((item) => {
+        if (item.itemId === itemId) {
+            item.quantity = quantity;
+            console.log(cartItems);
+            localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+            return new Promise();
+        }
+    });
+    cartItems.push({ itemId, quantity, restaurantId });
+    localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+}
+
+async function getQuantityStorage() {
+    let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
+    console.log(cartItems);
+    return cartItems;
+}
+
+
+
+function loadingCart() {
+    document.querySelector(`.wait-animation`).style.animation = 'waiter 0.6s alternate infinite linear';
+    document.querySelector('.wait-animation').style.height = '2px';
+    document.querySelector('.items-list').style.opacity = '0.5';
+    document.querySelector('.items-list').style.pointerEvents = 'none';
+    setTimeout(async () => {
+        await getCart();
+    }, 1200);
+}
 
 function getItemPrice(quantity, price) {
     return quantity * price;

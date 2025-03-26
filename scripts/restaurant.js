@@ -35,7 +35,7 @@ async function getRestaurantData(restaurantId) {
   const resBody = document.querySelector('.restaurant-body');
   restaurantData.resBody.forEach((item) => {
     resBody.innerHTML += `
-    <div class="card-food-item">
+    <div class="card-food-item js-food-card-${item.item_id}">
         <div class="item-image">
           <img src="img/dosa.jpg" alt="">
         </div>
@@ -55,21 +55,22 @@ async function getRestaurantData(restaurantId) {
           <div class="item-add js-add-${item.item_id}">
           </div>
         </div>
+        <span class="wait-animation wait-animation-${item.item_id}"></span>
       </div>
   `;
     getAddBtnHTML(item.item_id);
   });
 
 
-  function getAddBtnHTML(itemId) {
+  async function getAddBtnHTML(itemId) {
     let quantity = undefined;
+    let cartItems = await getQuantityStorage();
 
-    restaurantData.cart.forEach((cartItem) => {
-      if (cartItem.item_id === itemId) {
+    cartItems.forEach((cartItem) => {
+      if (cartItem.itemId === itemId) {
         quantity = cartItem.quantity;
       }
     });
-
     if (!quantity) {
       let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
       addBtnContainer.innerHTML = `
@@ -83,14 +84,12 @@ async function getRestaurantData(restaurantId) {
     }
   }
 
-  getAddBtns();
+  setTimeout(getAddBtns, 100);
 
-  function getAddBtns() {
+  async function getAddBtns() {
     const addBtn = document.querySelectorAll('.addBtn');
-
     let addBtnContainer;
     addBtn.forEach((btn) => {
-
       let quantity = 1;
       const itemId = btn.dataset.itemId;
       btn.addEventListener('click', () => {
@@ -102,7 +101,7 @@ async function getRestaurantData(restaurantId) {
         `;
 
         if (quantity === 1) {
-          sendItemData(itemId, quantity);
+          setQuantityStorage(itemId, 1, 6901);
         }
 
         addMinMaxBtn(itemId, quantity);
@@ -124,11 +123,10 @@ async function getRestaurantData(restaurantId) {
       const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
       if (minBtn) {
         minBtn.addEventListener('click', async () => {
-          if (await getQuantity(itemId) > 1) {
-            let quantity = await getQuantity(itemId);
-            quantity--;
+          quantity--;
+          if (quantity >= 1) {
             document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-            sendItemData(itemId, quantity);
+            setQuantityStorage(itemId, quantity, 6901);
           }
           else {
             let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
@@ -136,18 +134,24 @@ async function getRestaurantData(restaurantId) {
               <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
               Add</button>`;
             getAddBtns();
-            sendItemData(itemId, 0);
+            let cartItems = await getQuantityStorage();
+            cartItems.forEach((item) => {
+              if (item.itemId === itemId) {
+                cartItems.splice(cartItems.indexOf(item), 1);
+              }
+            })
+            localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
           }
+          loadingCart(itemId);
         });
       }
 
       if (maxBtn) {
         maxBtn.addEventListener('click', async () => {
-          let quantity = await getQuantity(itemId);
           quantity++;
-          console.log(quantity);
           document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-          sendItemData(itemId, quantity);
+          setQuantityStorage(itemId, quantity, 6901);
+          loadingCart(itemId);
         });
       }
     }, 100);
@@ -155,23 +159,38 @@ async function getRestaurantData(restaurantId) {
 
 }
 
-let respondQuantity;
-
-async function getQuantity(itemId) {
-  const response = await fetch(`data/data-quantity.php?itemId=${itemId}`);
-  respondQuantity = await response.json();
-  console.log(respondQuantity.quantity);
-  return Number(respondQuantity.quantity);
+async function setQuantityStorage(itemId, quantity, restaurantId) {
+  let cartItems = await getQuantityStorage() || [];
+  let itemFound = false;
+  cartItems.forEach((item) => {
+    if (item.itemId === itemId) {
+      itemFound = true;
+      item.quantity = quantity;
+      localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+    }
+  });
+  if (!itemFound) {
+    cartItems.push({ itemId, quantity, restaurantId });
+    localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+  }
 }
 
-async function sendItemData(itemId, quantity) {
-  const postRequest = await fetch('data/data-cart.php', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify({ itemId, quantity })
-  });
+async function getQuantityStorage() {
+  let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
+  return cartItems;
+}
 
-  const response = await postRequest.json();
+
+
+function loadingCart(itemId) {
+  document.querySelector(`.wait-animation-${itemId}`).style.animation = 'waiter 0.6s alternate infinite linear';
+  document.querySelector(`.wait-animation-${itemId}`).style.height = '0.7%';
+  document.querySelector(`.js-food-card-${itemId}`).style.opacity = '0.5';
+  document.querySelector(`.js-food-card-${itemId}`).style.pointerEvents = 'none';
+  setTimeout(async () => {
+    document.querySelector(`.wait-animation-${itemId}`).style.animation = 'none';
+    document.querySelector(`.wait-animation-${itemId}`).style.height = '0%';
+    document.querySelector(`.js-food-card-${itemId}`).style.opacity = '1';
+    document.querySelector(`.js-food-card-${itemId}`).style.pointerEvents = 'all';
+  }, 1200);
 }

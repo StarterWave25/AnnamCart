@@ -194,7 +194,8 @@
     width: 27%;
     justify-content: space-around;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px var(--brown);
 }
 
 .update-quantity>h3 {
@@ -205,23 +206,27 @@
 .increment-quantity {
     color: var(--brown);
     background-color: transparent;
-    font-size: 1.5rem;
-    height: 100%;
+    font-size: 1.2rem;
+    height: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 24%;
     cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid var(--brown);
+    padding-bottom: 1px;
+    font-weight: 500;
 }
 
-.decrement-quantity {
-    height: 80%;
-    align-self: flex-start;
+.decrement-quantity{
+    padding-bottom: 4px;
 }
 
 .decrement-quantity:active,
 .increment-quantity:active {
-    font-size: 1.8rem;
+    background-color: var(--brown);
+    color: var(--peach);
 }
 
 .item-price {

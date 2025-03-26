@@ -1,5 +1,4 @@
-
-.restaurant-main-container{
+.restaurant-main-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -7,7 +6,7 @@
   font-family: 'Outfit';
 }
 
-.restaurant-head{
+.restaurant-head {
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,7 +16,7 @@
   justify-content: space-around;
 }
 
-.title-offer{
+.title-offer {
   width: 100%;
   height: 20%;
   display: flex;
@@ -25,32 +24,32 @@
   justify-content: space-around;
 }
 
-.title-offer > h4{
- font-size: 1.2rem;
+.title-offer>h4 {
+  font-size: 1.2rem;
 }
 
-.title-offer > h2{
+.title-offer>h2 {
   font-size: 1.8rem;
   color: var(--brown);
 }
 
-.offer{
+.offer {
   width: 12%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.offer > img{
+.offer>img {
   width: 17%;
 }
 
-.offer > h4{
+.offer>h4 {
   font-size: 1rem;
   width: 80%;
 }
 
-.details-restaurant{
+.details-restaurant {
   height: 20%;
   width: 100%;
   display: flex;
@@ -58,29 +57,29 @@
   align-items: center;
 }
 
-.details-restaurant ul{
+.details-restaurant ul {
   display: flex;
   width: 60%;
   justify-content: space-around;
   color: var(--brown);
 }
 
-.ratings-container{
+.ratings-container {
   width: 80%;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.ratings-container > img{
+.ratings-container>img {
   width: 2%;
 }
 
-.ratings-container > h3{
+.ratings-container>h3 {
   font-size: 1rem;
 }
 
-.restaurant-body{
+.restaurant-body {
   min-height: 100vh;
   height: auto;
   width: 100%;
@@ -88,11 +87,11 @@
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 260px;
   gap: 3em 6em;
-  padding:6em;
+  padding: 6em;
 }
 
-.card-food-item{
-  display: flex;
+.card-food-item {
+  position: relative;
   background-color: white;
   display: flex;
   align-items: center;
@@ -101,7 +100,7 @@
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
-.item-image{
+.item-image {
   width: 50%;
   height: 80%;
   display: flex;
@@ -109,14 +108,14 @@
   justify-content: center;
 }
 
-.item-image > img{
+.item-image>img {
   width: 85%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
 }
 
-.item-details{
+.item-details {
   width: 45%;
   height: 75%;
   display: flex;
@@ -124,61 +123,94 @@
   justify-content: space-between;
 }
 
-.item-name{
+.item-name {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.item-name > img {
+.item-name>img {
   width: 12%;
   height: 100%;
   cursor: pointer;
   aspect-ratio: 1/1;
 }
 
-.item-name > h3{
+.item-name>h3 {
   font-size: 1.1rem;
 }
 
-.item-cost{
+.item-cost {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 34%;
 }
 
-.item-cost > h2{
+.item-cost>h2 {
   font-size: 1.2rem;
   color: var(--brown);
 }
 
-.item-cost > del{
+.item-cost>del {
   font-size: .9rem;
 }
 
-.item-review{
+.item-review {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 20%;
 }
 
-.item-review > h4{
+.item-review>h4 {
   font-size: .9rem;
 }
 
-.item-review > img {
+.item-review>img {
   width: 40%;
 }
 
-.item-add{
+.item-add {
   width: 35%;
   height: 20%;
+  background-color: var(--peach);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px var(--brown);
 }
 
-.addBtn{
+.item-add>span{
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.wait-animation {
+  width: 20%;
+  height: 0%;
+  background-color: var(--brown);
+  position: absolute;
+  bottom: 0%;
+  left: 3%;
+  border-radius: 10px;
+}
+
+@keyframes waiter {
+  from {
+      left: 3%;
+  }
+
+  to {
+      left: 77%;
+  }
+}
+
+
+.addBtn {
   background-color: var(--brown);
   color: white;
   border-radius: 7px;
@@ -191,11 +223,11 @@
   justify-content: center;
 }
 
-.addBtn:hover{
+.addBtn:hover {
   scale: 0.95;
 }
 
-.quantity-btn{
+.quantity-btn {
   height: 100%;
   justify-content: space-around;
   font-family: 'Outfit';
@@ -203,13 +235,29 @@
   font-weight: 500;
 }
 
-.min-btn, .max-btn {
-  height: 100%;
-  background-color: var(--brown);
-  color: white;
-  font-size: 1.5rem;
+.min-btn,
+.max-btn {
+  color: var(--brown);
+  background-color: transparent;
+  font-size: 1.2rem;
+  height: 57%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
   cursor: pointer;
-  width: 30%;
+  border-radius: 50%;
+  border: 1px solid var(--brown);
+  padding-bottom: 1px;
+  font-weight: 500;
 }
 
+.min-btn{
+  padding-bottom: 3px;
+}
 
+.min-btn:active,
+.max-btn:active {
+    background-color: var(--brown);
+    color: var(--peach);
+}

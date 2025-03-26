@@ -47,7 +47,7 @@
             <a href="" class="logout-btn">Log Out</a>
         </div>
     </div>
-    <a href="cart.html" class="cart-label">
+    <a href="cart.php" class="cart-label">
         <img src="img/cart.png" alt="">
         <h3>Cart</h3>
     </a>
