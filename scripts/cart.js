@@ -1,17 +1,39 @@
 async function getCart() {
     let total = 0, dummyTotal = 0;
+    let response = await fetch('data/data-restaurant.php?restaurant-id=6901');
+    let restaurantData = await response.json();
     let cartItems = await getQuantityStorage();
     let cartHTML = '';
     let cartItemListHTML = '';
     cartItems.forEach((item) => {
-        total += getItemPrice(item.quantity, item.price);
-        dummyTotal += getItemPrice(item.quantity, item.dprice);
+
+        restaurantData.resBody.forEach((resItem) => {
+            if (resItem.item_id === item.itemId) {
+                cartItemListHTML += `
+                    <div class="item">
+                        <h4>${resItem.item_name}</h4>
+                        <div class="update-quantity">
+                            <button class="decrement-quantity decrement-${item.itemId}">-</button>
+                            <h3 class="quantity-${item.itemId}">${item.quantity}</h3>
+                            <button class="increment-quantity increment-${item.itemId}">+</button>
+                        </div>
+                        <div class="item-price">
+                            <del>₹${getItemPrice(item.quantity, resItem.dprice)}</del>
+                            <h3>₹${getItemPrice(item.quantity, resItem.price)}</h3>
+                        </div>
+                    </div>`;
+                total += getItemPrice(item.quantity, resItem.price);
+                dummyTotal += getItemPrice(item.quantity, resItem.dprice);
+            }
+        });
+
+
         cartHTML = `
         <div class="restaurant-name-container">
-            <a id="img-con" href="restaurant.php?restaurant-id=${item.res_id}">
+            <a id="img-con" href="restaurant.php?restaurant-id=${restaurantData.resHead.res_id}">
                 <img class="cart-back" src="img/out-arrow.png" alt="out-cart-symbol">
             </a>
-            <h3>${item.res_name}</h3>
+            <h3>${restaurantData.resHead.res_name}</h3>
         </div>
         <button class="location-container">
             <img src="img/place.png" alt="location-image">
@@ -103,36 +125,32 @@ async function getCart() {
         </div>
         `;
 
-        cartItemListHTML += `
-            <div class="item">
-                <h4>${item.item_name}</h4>
-                <div class="update-quantity">
-                    <button class="decrement-quantity decrement-${item.item_id}">-</button>
-                    <h3 class="quantity-${item.item_id}">${item.quantity}</h3>
-                    <button class="increment-quantity increment-${item.item_id}">+</button>
-                </div>
-                <div class="item-price">
-                    <del>₹${getItemPrice(item.quantity, item.dprice)}</del>
-                    <h3>₹${getItemPrice(item.quantity, item.price)}</h3>
-                </div>
-            </div>
-        `;
+        const cartContainer = document.querySelector('.cart');
+        cartContainer.innerHTML = cartHTML;
+
+        const cartItemList = document.querySelector('.items-list');
+        if (cartItemList) {
+            cartItemList.innerHTML = cartItemListHTML;
+        } else {
+            cartContainer.innerHTML = "<p>You didn't carted Items.</p>";
+        }
+
 
         setTimeout(() => {
-            const minBtn = document.querySelector(`.decrement-${item.item_id}`);
-            const maxBtn = document.querySelector(`.increment-${item.item_id}`);
+            const minBtn = document.querySelector(`.decrement-${item.itemId}`);
+            const maxBtn = document.querySelector(`.increment-${item.itemId}`);
 
             if (minBtn) {
                 minBtn.addEventListener('click', async () => {
                     item.quantity--;
-                    if (quantity >= 1) {
-                        document.querySelector(`.quantity-${item.item_id}`).textContent = item.quantity;
-                        setQuantityStorage(item.item_id, item.quantity, 6901);
+                    if (item.quantity >= 1) {
+                        document.querySelector(`.quantity-${item.itemId}`).textContent = item.quantity;
+                        setQuantityStorage(item.itemId, item.quantity, 6901);
                     }
                     else {
                         let cartItems = await getQuantityStorage();
                         cartItems.forEach((cartItem) => {
-                            if (cartItem.itemId === item.item_id) {
+                            if (cartItem.itemId === item.itemId) {
                                 cartItems.splice(cartItems.indexOf(cartItem), 1);
                             }
                         })
@@ -144,9 +162,9 @@ async function getCart() {
 
             if (maxBtn) {
                 maxBtn.addEventListener('click', async () => {
-                    quantity++;
-                    document.querySelector(`.quantity-${item.item_id}`).textContent = quantity;
-                    setQuantityStorage(item.item_id, quantity, item.res_id);
+                    item.quantity++;
+                    document.querySelector(`.quantity-${item.itemId}`).textContent = item.quantity;
+                    setQuantityStorage(item.itemId, item.quantity, item.res_id);
                     loadingCart();
                 });
             }
@@ -175,32 +193,25 @@ async function getCart() {
         const response = await postRequest.json();
     } */
 
-    const cartContainer = document.querySelector('.cart');
-    cartContainer.innerHTML = cartHTML;
-
-    const cartItemList = document.querySelector('.items-list');
-    if (cartItemList) {
-        cartItemList.innerHTML = cartItemListHTML;
-    } else {
-        cartContainer.innerHTML = "<p>You didn't carted Items.</p>";
-    }
-
 }
 
 getCart();
 
 async function setQuantityStorage(itemId, quantity, restaurantId) {
     let cartItems = await getQuantityStorage() || [];
+    let itemFound = false;
+    console.log(cartItems);
     cartItems.forEach((item) => {
         if (item.itemId === itemId) {
+            itemFound = true;
             item.quantity = quantity;
-            console.log(cartItems);
             localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
-            return new Promise();
         }
     });
-    cartItems.push({ itemId, quantity, restaurantId });
-    localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+    if (!itemFound) {
+        cartItems.push({ itemId, quantity, restaurantId });
+        localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+    }
 }
 
 async function getQuantityStorage() {
