@@ -20,14 +20,14 @@
         }
         .login {
             border: 1px solid var(--brown);
-            background-color: transparent;
-            color: var(--brown);
+            background: transparent;
+            color:var(--brown);
         }
         .signup {
             pointer-events: none;
-            background-color: var(--brown);
+            background: linear-gradient(130deg, var(--brown), #ff520271);
             color: var(--white);
-            border: 1px solid var(--brown);
+            border: none;
         }
     </style>
 </head>

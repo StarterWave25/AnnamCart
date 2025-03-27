@@ -21,7 +21,7 @@ fetch('data/most-ordered-items.php')
               <h4 class="offer-price">₹${item.price}</h4>
             </div>
             <div class="star-rating">
-              <img src="img/star.png" alt="">
+              <img src="img/star2.png" alt="">
               <h4>${item.ratings}</h4>
             </div>
           </div>
@@ -52,7 +52,7 @@ fetch('data/restaurants.php')
                     <p>${restaurant.item_name}</p>
                 </div>
                 <div class="restaurant-ratings">
-                    <img src="img/star.png" alt="">
+                    <img src="img/star2.png" alt="">
                     <h5>${restaurant.ratings}</h5>
                 </div>
             </div>

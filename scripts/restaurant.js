@@ -49,7 +49,7 @@ async function getRestaurantData(restaurantId) {
             <h2>₹${item.price}</h2>
           </div>
           <div class="item-review">
-            <img src="img/star.png" alt="">
+            <img src="img/star2.png" alt="">
             <h4>${item.ratings}</h4>
           </div>
           <div class="item-add js-add-${item.item_id}">

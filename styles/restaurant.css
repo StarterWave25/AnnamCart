@@ -1,9 +1,9 @@
-
 .restaurant-main-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-family: 'Outfit';
 }
 
@@ -12,8 +12,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 30vh;
-  background-color: white;
+  min-height: 35vh;
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
   justify-content: space-around;
 }
 
@@ -26,28 +26,39 @@
 }
 
 .title-offer>h4 {
-  font-size: 1.2rem;
+  color: white;
+  font-size: 1.4rem;
+  width: 32%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title-offer>h2 {
-  font-size: 1.8rem;
-  color: var(--brown);
+  font-size: 2rem;
+  color: var(--peach);
+  width: 32%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .offer {
-  width: 12%;
+  width: 32%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .offer>img {
-  width: 17%;
+  width: 6%;
 }
 
 .offer>h4 {
-  font-size: 1rem;
-  width: 80%;
+  font-size: 1.3rem;
+  width: 30%;
+  color: white;
+  margin-left: 10px;
 }
 
 .details-restaurant {
@@ -62,7 +73,8 @@
   display: flex;
   width: 60%;
   justify-content: space-around;
-  color: var(--brown);
+  color: white;
+  font-size: 1.2rem;
 }
 
 .ratings-container {
@@ -77,7 +89,8 @@
 }
 
 .ratings-container>h3 {
-  font-size: 1rem;
+  color: white;
+  font-size: 1.2rem;
 }
 
 .restaurant-body {
@@ -157,7 +170,7 @@
 .item-cost>del {
   font-size: .9rem;
 }
-  
+
 .item-review {
   display: flex;
   align-items: center;
@@ -184,7 +197,7 @@
   box-shadow: 0px 0px 2px var(--brown);
 }
 
-.item-add>span{
+.item-add>span {
   font-weight: 400;
   font-family: system-ui;
 }
@@ -202,17 +215,16 @@
 
 @keyframes waiter {
   from {
-      left: 3%;
+    left: 3%;
   }
 
   to {
-      left: 77%;
+    left: 77%;
   }
 }
 
-
 .addBtn {
-  background-color: var(--brown);
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
   color: white;
   border-radius: 7px;
   font-size: .9rem;
@@ -225,7 +237,7 @@
 }
 
 .addBtn:hover {
-  scale: 0.95;
+  scale: 0.97;
 }
 
 .quantity-btn {
@@ -241,7 +253,7 @@
   color: var(--brown);
   background-color: transparent;
   font-size: 1.2rem;
-  height: 57%;
+  height: 53%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,12 +265,12 @@
   font-weight: 500;
 }
 
-.min-btn{
+.min-btn {
   padding-bottom: 3px;
 }
 
 .min-btn:active,
 .max-btn:active {
-    background-color: var(--brown);
-    color: var(--peach);
+  background-color: var(--brown);
+  color: var(--peach);
 }

@@ -18,7 +18,7 @@ fetch('data/restaurants.php')
                     <p>${restaurant.item_name}</p>
                 </div>
                 <div class="restaurant-ratings">
-                    <img src="img/star.png" alt="">
+                    <img src="img/star2.png" alt="">
                     <h5>${restaurant.ratings}</h5>
                 </div>
             </div>

@@ -29,7 +29,7 @@ body {
     flex-direction: column;
     align-items: center;
     background: linear-gradient(white 10%, var(--peach));
-    padding-top: 6vw;
+    padding-top: 5vw;
     position: relative;
 }
 
@@ -220,20 +220,22 @@ nav ul li a {
 
 .login {
     border: 1px solid var(--brown);
-    background-color: transparent;
+    background: transparent;
 }
 
 .login:hover {
-    background-color: var(--brown);
+    background: linear-gradient(130deg ,var(--brown),#ff520271);
     color: var(--white);
+    border: transparent;
 }
 
 .signup {
-    background-color: var(--brown);
+    background: linear-gradient(130deg ,var(--brown),#ff520271);
     color: var(--white);
+    border: none;
 }
 
-.signup:hover {
+.signup:hover,.login:hover{
     box-shadow: 0px 0px 3px var(--brown);
 }
 

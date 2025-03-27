@@ -135,16 +135,16 @@ body{
     font-family: 'alata';
     width: 100%;
     height: 33%;
-    background-color: var(--brown);
-    color: var(--peach);
-    border-radius: 17px;
+    background: linear-gradient(130deg ,var(--brown) 30%,#ff520271);
+    color: white;
+    border-radius: 15px;
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
 }
 
 .login-container input[type="submit"]:active,.login-container input[type="submit"]:hover{
-    scale: 0.98;
+    scale: 0.97;
 }
 
 .legal-container{

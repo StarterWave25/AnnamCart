@@ -18,16 +18,18 @@
         nav ul>li:first-child {
             opacity: 1;
         }
+
         .login {
             pointer-events: none;
-            border: 1px solid var(--brown);
-            background-color: var(--brown);
+            background: linear-gradient(130deg, var(--brown), #ff520271);
             color: var(--white);
+            border: none;
         }
+
         .signup {
-            background-color: transparent;
-            color: var(--brown);
             border: 1px solid var(--brown);
+            background: transparent;
+            color:var(--brown);
         }
     </style>
 </head>
@@ -44,7 +46,9 @@
             <form action="data/auth-login.php" class="login-form" method="post">
                 <div class="form-mobile">
                     <input type="tel" name="mobile" id="input-mobile" autofocus required pattern="[0-9]{10}" placeholder="Enter Mobile Number">
-                    <span><?php if(isset($_GET['emob'])) { echo $_GET['emob']; }?></span>
+                    <span><?php if (isset($_GET['emob'])) {
+                                echo $_GET['emob'];
+                            } ?></span>
                     <div class="instruction-cont">
                         <a href="signup.php">Don't have an Account ? Create Now.</a>
                     </div>

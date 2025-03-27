@@ -72,7 +72,7 @@ async function searchAction(query) {
                         <h2>₹${searchItem.price}</h2>
                         <div class="review">
                             <div class="star">
-                                <img src="img/star.png" alt="">
+                                <img src="img/star2.png" alt="">
                                 <p>${searchItem.ratings}</p>
                                 <p>&nbsp;&nbsp;(${searchItem.rperson})</p>
                             </div>
