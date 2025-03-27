@@ -145,20 +145,20 @@ nav ul li a {
     position: relative;
 }
 
-.user-profile{
-    width:50%;
+.user-profile {
+    width: 50%;
     height: 60%;
     display: none;
     align-items: center;
-    cursor:default;
+    cursor: default;
 }
 
-.user-profile > img{
+.user-profile>img {
     height: 80%;
     width: 25%;
 }
 
-.user-profile > h3{
+.user-profile>h3 {
     color: var(--brown);
     font-size: 1rem;
     margin-left: 7%;
@@ -167,12 +167,12 @@ nav ul li a {
     overflow-x: hidden;
 }
 
-.user-profile:hover > .profile-menu{
+.user-profile:hover>.profile-menu {
     opacity: 1;
     visibility: visible;
 }
 
-.profile-menu{
+.profile-menu {
     position: absolute;
     top: 100%;
     width: 50%;
@@ -187,7 +187,7 @@ nav ul li a {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
-.profile-menu>a{
+.profile-menu>a {
     color: var(--brown);
     width: 100%;
     height: 33%;
@@ -197,7 +197,7 @@ nav ul li a {
     font-size: 0.9rem;
 }
 
-.profile-menu>a:hover{
+.profile-menu>a:hover {
     background-color: var(--brown);
     color: var(--lpeach);
 }
@@ -299,13 +299,19 @@ nav ul li a {
 
 .cart-label {
     height: 50%;
-    width: 20%;
+    width: 30%;
     cursor: pointer;
     display: none;
+    justify-content: space-around;
+    position: relative;
+}
+
+.cart-label:hover{
+    scale: 0.95;
 }
 
 .cart-label img {
-    width: 100%;
+    width: 40%;
     height: 100%;
 }
 
@@ -313,4 +319,18 @@ nav ul li a {
     display: flex;
     align-items: center;
     color: var(--brown);
+}
+
+.cart-label-quantity{
+    width: 20%;
+    height: 50%;
+    position: absolute;
+    left: 13%;
+    bottom: 10%;
+    color: var(--brown);
+    font-weight: 500;
+    font-family: system-ui;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

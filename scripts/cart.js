@@ -1,3 +1,4 @@
+
 async function getCart() {
     let total = 0, dummyTotal = 0, response, restaurantData;
     let cartItems = await getQuantityStorage();
@@ -50,6 +51,7 @@ async function getCart() {
                             }
                         })
                         localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+                        getCartQuantity();
                     }
                     loadingCart();
                 });
@@ -174,7 +176,7 @@ async function getCart() {
         if (cartItems.length > 0) {
             cartItemList.innerHTML = cartItemListHTML;
         } else {
-            cartContainer.innerHTML = `<p class="item-list-error">You didn't carted any items :(</p>`;
+            cartContainer.innerHTML = `<p class="item-list-error">Your cart is empty :(</p>`;
         }
     }
 
@@ -218,6 +220,7 @@ async function setQuantityStorage(itemId, quantity, restaurantId) {
         cartItems.push({ itemId, quantity, restaurantId });
         localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
     }
+    getCartQuantity();
 }
 
 async function getQuantityStorage() {

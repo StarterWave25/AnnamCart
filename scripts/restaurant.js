@@ -88,7 +88,6 @@ async function getRestaurantData(restaurantId) {
 
   async function getAddBtns() {
     const addBtn = document.querySelectorAll('.addBtn');
-    let addBtnContainer;
     addBtn.forEach((btn) => {
       let quantity = 1;
       const itemId = btn.dataset.itemId;
@@ -149,8 +148,9 @@ async function getRestaurantData(restaurantId) {
               if (item.itemId === itemId) {
                 cartItems.splice(cartItems.indexOf(item), 1);
               }
-            })
+            });
             localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+            getCartQuantity();
           }
           loadingCart(itemId);
         });
@@ -183,6 +183,7 @@ async function setQuantityStorage(itemId, quantity, restaurantId) {
     cartItems.push({ itemId, quantity, restaurantId });
     localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
   }
+  getCartQuantity();
 }
 
 async function getQuantityStorage() {

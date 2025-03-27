@@ -2,6 +2,8 @@
 <script>
     <?php session_start(); ?>
     const username = '<?php echo $_SESSION['username']; ?>';
+    const headerUserMobile = <?php echo $_SESSION['mobile']; ?>;
+    localStorage.setItem('userMobile', headerUserMobile);
     if (username) {
         const userProfile = document.querySelector('.user-profile');
         const userLinks = document.querySelectorAll('.user-links');
@@ -18,8 +20,22 @@
     //logout session
     const logoutBtn = document.querySelector('.logout-btn');
     logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('userMobile');
         logoutBtn.href = 'data/logout.php';
     });
+
+    async function getCartQuantity() {
+        let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${headerUserMobile}`));
+        const cartQuantityLabel = document.querySelector('.cart-label-quantity');
+        if(cartItems.length>0){
+            cartQuantityLabel.textContent = cartItems.length;
+        }
+        else{
+            cartQuantityLabel.textContent = '';
+        }
+    }
+
+    getCartQuantity();
 </script>
 
 <div class="logo-container">
@@ -50,6 +66,7 @@
     <a href="cart.php" class="cart-label">
         <img src="img/cart.png" alt="">
         <h3>Cart</h3>
+        <span class="cart-label-quantity"></span>
     </a>
-    
+
 </div>
