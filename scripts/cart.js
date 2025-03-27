@@ -176,7 +176,14 @@ async function getCart() {
         if (cartItems.length > 0) {
             cartItemList.innerHTML = cartItemListHTML;
         } else {
-            cartContainer.innerHTML = `<p class="item-list-error">Your cart is empty :(</p>`;
+            cartContainer.innerHTML =
+            `<div class="cart-empty-container">
+                <img src="img/empty-cart.png" class="cart-error-img">
+                <p class="item-list-error">Your cart is empty :(</p>
+                <a href="restaurants.html"><button>Browse Restaurants</button></a>
+            </div>`;
+            cartContainer.style.backgroundColor = 'white';
+            cartContainer.style.justifyContent = 'center';
         }
     }
 
