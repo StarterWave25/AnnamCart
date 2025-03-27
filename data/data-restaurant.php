@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 session_start();
-$mobile = $_SESSION['mobile'];
+
 $restaurantId = $_GET['restaurant-id'];
 $sql = "SELECT restaurants.*, most_ordered_items.item_name FROM restaurants JOIN most_ordered_items ON restaurants.res_id = $restaurantId ";
 

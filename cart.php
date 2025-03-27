@@ -18,10 +18,6 @@
     <aside class="cart">
         <!--js code goes here -->
     </aside>
-
-    <script>
-        const userMobile = <?php session_start(); echo $_SESSION['mobile']; ?>;
-    </script>
     <script src="scripts/cart.js"></script>
 </body>
 </html>

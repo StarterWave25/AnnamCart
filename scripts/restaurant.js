@@ -1,6 +1,6 @@
 
 let restaurantData;
-
+const userMobile = JSON.parse(localStorage.getItem('userMobile'));
 async function getRestaurantData(restaurantId) {
 
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
@@ -71,7 +71,7 @@ async function getRestaurantData(restaurantId) {
         quantity = cartItem.quantity;
       }
     });
-    if (!quantity) {
+    if (!quantity || !userMobile) {
       let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
       addBtnContainer.innerHTML = `
       <button class="addBtn" data-item-id="${itemId}">
@@ -93,25 +93,29 @@ async function getRestaurantData(restaurantId) {
       const itemId = btn.dataset.itemId;
       btn.addEventListener('click', async () => {
 
-        let cartItems = await getQuantityStorage();
-        if (await cartItems.length > 0) {
-          if (cartItems[0].restaurantId === restaurantId) {
-            setQuantityStorage(itemId, 1, restaurantId);
-            addMinMaxBtn(itemId, quantity);
-          }
-          else {
-            let cartAction = confirm('Do you want to change the restaurant ?');
-            if (cartAction) {
-              cartItems.splice(0, cartItems.length);
-              localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+        if (userMobile) {
+          let cartItems = await getQuantityStorage();
+          if (await cartItems.length > 0) {
+            if (cartItems[0].restaurantId === restaurantId) {
               setQuantityStorage(itemId, 1, restaurantId);
               addMinMaxBtn(itemId, quantity);
             }
+            else {
+              let cartAction = confirm('Do you want to change the restaurant ?');
+              if (cartAction) {
+                cartItems.splice(0, cartItems.length);
+                localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+                setQuantityStorage(itemId, 1, restaurantId);
+                addMinMaxBtn(itemId, quantity);
+              }
+            }
           }
-        }
-        else {
-          setQuantityStorage(itemId, 1, restaurantId);
-          addMinMaxBtn(itemId, quantity);
+          else {
+            setQuantityStorage(itemId, 1, restaurantId);
+            addMinMaxBtn(itemId, quantity);
+          }
+        }else{
+          confirm('Please login')
         }
 
       });
@@ -190,8 +194,6 @@ async function getQuantityStorage() {
   let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
   return cartItems;
 }
-
-
 
 function loadingCart(itemId) {
   document.querySelector(`.wait-animation-${itemId}`).style.animation = 'waiter 0.6s alternate infinite linear';

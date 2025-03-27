@@ -38,7 +38,6 @@ $restaurantId = $_GET['restaurant-id'];
 
   <script>
     const restaurantId = <?php echo $restaurantId; ?>;
-    const userMobile = <?php session_start(); echo $_SESSION['mobile'];?>;
     getRestaurantData(restaurantId);
   </script>
 </body>
