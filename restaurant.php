@@ -22,6 +22,25 @@ $restaurantId = $_GET['restaurant-id'];
 
 <body>
   <header id="header"></header>
+  <div class="restaurant-overlay"></div>
+  <div class="login-addItems-popup">
+    <div class="close-btn">
+      <div class="close-border">
+        <p>x</p>
+      </div>
+    </div>
+    <div class="info-touser">
+      <div class="heading">
+        <h2>To add items into Cart!</h2>
+      </div>
+      <p>Please Login First.</p>
+      <p>Don't have an account then, SignUp now.</p>
+    </div>
+    <div class="signup-login-btns">
+      <a href="login.php"><button class="login-btn">Login</button></a>
+      <a href="signup.php"><button class="signup-btn">Sign Up</button></a>
+    </div>
+  </div>
   <div class="restaurant-main-container">
     <div class="restaurant-head">
       <!-- js-code-injected -->

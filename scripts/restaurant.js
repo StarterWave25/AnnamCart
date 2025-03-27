@@ -114,8 +114,10 @@ async function getRestaurantData(restaurantId) {
             setQuantityStorage(itemId, 1, restaurantId);
             addMinMaxBtn(itemId, quantity);
           }
-        }else{
-          confirm('Please login')
+        } else {
+          document.querySelector('.restaurant-overlay').style.display = "block";
+          document.querySelector('.login-addItems-popup').style.display = "flex"; 
+          document.body.style.overflow = "hidden";
         }
 
       });

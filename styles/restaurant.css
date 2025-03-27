@@ -274,3 +274,115 @@
   background-color: var(--brown);
   color: var(--peach);
 }
+
+.restaurant-overlay{
+  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 999;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.126);
+}
+
+.login-addItems-popup{
+  background-color: white;
+  flex-direction: column;
+  width: 35%;
+  height: 350px;
+  border-radius: 15px;
+  display: none;
+  position: fixed;
+  top: 20%;
+  z-index: 1000;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.146);
+}
+.close-btn{
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 25px;
+  margin-top: 5px;
+}
+
+.close-border{
+  height: 40%;
+  width: 6.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1.3px solid gray;
+  padding-bottom: 3px;
+  padding-left: 1.6px;
+}
+
+.close-border > p{
+  padding: 9px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: gray;
+}
+
+.info-touser{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  text-align: left;
+  height: 40%;
+}
+
+.info-touser .heading{
+  height: 60%;
+  color: var(--brown);
+}
+
+.info-touser p{
+  height: 20%;
+  font-weight: 500;
+}
+
+.signup-login-btns{
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.signup-login-btns a{
+  margin: 20px;
+  width: 23%;
+  height: 30%;
+}
+
+.signup-login-btns a > button{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.signup-login-btns a:nth-child(1) > button{
+  background-color: white;
+  border: 1.5px solid var(--brown);
+}
+
+.signup-login-btns a:nth-child(2) > button{
+  background: linear-gradient(130deg ,var(--brown),#ff520271);
+  border: none;
+  color: white;
+}
+
+.signup-login-btns a:nth-child(1) > button:hover{
+  background: linear-gradient(130deg ,var(--brown),#ff520271);
+  border: 1px solid var(--brown);
+  color: white;
+}
+
+.signup-login-btns a:nth-child(2) > button:hover{
+  box-shadow: 0px 0px 3px var(--brown);
+}
