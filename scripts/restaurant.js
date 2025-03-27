@@ -92,19 +92,29 @@ async function getRestaurantData(restaurantId) {
     addBtn.forEach((btn) => {
       let quantity = 1;
       const itemId = btn.dataset.itemId;
-      btn.addEventListener('click', () => {
-        addBtnContainer = document.querySelector(`.js-add-${itemId}`);
-        addBtnContainer.innerHTML = `
-        <button class="minBtn-${itemId} min-btn">-</button>
-        <span class="quantity-${itemId}">${quantity}</span>
-        <button class="maxBtn-${itemId} max-btn">+</button>
-        `;
+      btn.addEventListener('click', async () => {
 
-        if (quantity === 1) {
-          setQuantityStorage(itemId, 1, 6901);
+        let cartItems = await getQuantityStorage();
+        if (await cartItems.length > 0) {
+          if (cartItems[0].restaurantId === restaurantId) {
+            setQuantityStorage(itemId, 1, restaurantId);
+            addMinMaxBtn(itemId, quantity);
+          }
+          else {
+            let cartAction = confirm('Do you want to change the restaurant ?');
+            if (cartAction) {
+              cartItems.splice(0, cartItems.length);
+              localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+              setQuantityStorage(itemId, 1, restaurantId);
+              addMinMaxBtn(itemId, quantity);
+            }
+          }
+        }
+        else {
+          setQuantityStorage(itemId, 1, restaurantId);
+          addMinMaxBtn(itemId, quantity);
         }
 
-        addMinMaxBtn(itemId, quantity);
       });
     });
 
@@ -126,7 +136,7 @@ async function getRestaurantData(restaurantId) {
           quantity--;
           if (quantity >= 1) {
             document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-            setQuantityStorage(itemId, quantity, 6901);
+            setQuantityStorage(itemId, quantity, restaurantId);
           }
           else {
             let addBtnContainer = document.querySelector(`.js-add-${itemId}`);
@@ -150,7 +160,7 @@ async function getRestaurantData(restaurantId) {
         maxBtn.addEventListener('click', async () => {
           quantity++;
           document.querySelector(`.quantity-${itemId}`).textContent = quantity;
-          setQuantityStorage(itemId, quantity, 6901);
+          setQuantityStorage(itemId, quantity, restaurantId);
           loadingCart(itemId);
         });
       }

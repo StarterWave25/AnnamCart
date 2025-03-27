@@ -23,7 +23,7 @@
     overflow-y: scroll;
     scrollbar-width: none;
     max-height: 100vh;
-    padding: 0.5%;
+    padding: 0.3%;
     box-sizing: content-box;
 }
 
@@ -148,6 +148,14 @@
     grid-auto-rows: 8vh;
     width: 100%;
     align-items: center;
+}
+
+.item-list-error{
+    text-align: center;
+    color: red;
+    display: flex;
+    align-items: center;
+    height: 90%;
 }
 
 .wait-animation {
