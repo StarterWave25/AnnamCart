@@ -296,18 +296,20 @@
   background-color: white;
   flex-direction: column;
   width: 35%;
-  height: 350px;
+  height: 300px;
   border-radius: 15px;
   display: flex;
   opacity: 0;
   visibility: hidden;
   position: fixed;
-  top: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   z-index: 1000;
   box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.146);
 }
 .close-btn{
-  height: 20%;
+  height: 25%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -322,10 +324,18 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 1.3px solid gray;
+  border: 1.5px solid gray;
   padding-bottom: 5px;
   padding-left: 1.6px;
   aspect-ratio: 1/1;
+}
+
+.close-border:hover,.close-border:active{
+  background-color: gray;
+}
+
+.close-border:hover > p,.close-border:active > p{
+  color: white;
 }
 
 .close-border > p{
@@ -366,7 +376,7 @@
 .signup-login-btns a{
   margin: 20px;
   width: 20%;
-  height: 30%;
+  height: 35%;
 }
 
 .signup-login-btns a > button{
@@ -374,12 +384,13 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .signup-login-btns a:nth-child(1) > button{
   background-color: white;
-  border: 1.5px solid var(--brown);
+  border: 1px solid var(--brown);
+  color: var(--brown);
 }
 
 .signup-login-btns a:nth-child(2) > button{
