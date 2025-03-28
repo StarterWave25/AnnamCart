@@ -101,13 +101,7 @@ async function getRestaurantData(restaurantId) {
               addMinMaxBtn(itemId, quantity);
             }
             else {
-              let cartAction = confirm('Do you want to change the restaurant ?');
-              if (cartAction) {
-                cartItems.splice(0, cartItems.length);
-                localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
-                setQuantityStorage(itemId, 1, restaurantId);
-                addMinMaxBtn(itemId, quantity);
-              }
+              getChangeRestaurantPopup(cartItems, itemId, restaurantId);
             }
           }
           else {
@@ -169,6 +163,29 @@ async function getRestaurantData(restaurantId) {
         });
       }
     }, 100);
+  }
+
+  function getChangeRestaurantPopup(cartItems, itemId, restaurantId) {
+    document.querySelector('.restaurant-overlay').style.opacity = '1';
+    document.querySelector('.restaurant-overlay').style.visibility = 'visible';
+    document.querySelector('.changeItems-popup').style.opacity = '1';
+    document.querySelector('.changeItems-popup').style.visibility = 'visible';
+    document.querySelector('.clear-btn').addEventListener('click', () => {
+      document.querySelector('.restaurant-overlay').style.opacity = '0';
+      document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+      document.querySelector('.changeItems-popup').style.opacity = '0';
+      document.querySelector('.changeItems-popup').style.visibility = 'hidden';
+      cartItems.splice(0, cartItems.length);
+      localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+      setQuantityStorage(itemId, 1, restaurantId);
+      addMinMaxBtn(itemId, 1);
+    })
+    document.querySelector('.no-btn').addEventListener('click', () => {
+      document.querySelector('.restaurant-overlay').style.opacity = '0';
+      document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+      document.querySelector('.changeItems-popup').style.opacity = '0';
+      document.querySelector('.changeItems-popup').style.visibility = 'hidden';
+    })
   }
 
 }

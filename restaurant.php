@@ -41,6 +41,20 @@ $restaurantId = $_GET['restaurant-id'];
       <a href="signup.php"><button class="signup-btn">Sign Up</button></a>
     </div>
   </div>
+  
+  <div class="changeItems-popup">
+    <div class="info-touser">
+      <div class="heading">
+        <h2>Cart update required !</h2>
+      </div>
+      <p>Your cart has items from another restaurant.</p>
+      <p>Clear it to add new items?</p>
+    </div>
+    <div class="changeItems-btns">
+      <a><button class="login-btn no-btn">No</button></a>
+      <a><button class="signup-btn clear-btn">Clear</button></a>
+    </div>
+  </div>
   <div class="restaurant-main-container">
     <div class="restaurant-head">
       <!-- js-code-injected -->
