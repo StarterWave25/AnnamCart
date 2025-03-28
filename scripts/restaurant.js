@@ -1,6 +1,6 @@
 
 let restaurantData;
-const userMobile = JSON.parse(localStorage.getItem('userMobile'));
+const userMobile = sessionStorage.getItem('userMobile');
 async function getRestaurantData(restaurantId) {
 
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
@@ -115,9 +115,7 @@ async function getRestaurantData(restaurantId) {
             addMinMaxBtn(itemId, quantity);
           }
         } else {
-          document.querySelector('.restaurant-overlay').style.display = "block";
-          document.querySelector('.login-addItems-popup').style.display = "flex"; 
-          document.body.style.overflow = "hidden";
+          getLoginPopup();
         }
 
       });
@@ -208,4 +206,19 @@ function loadingCart(itemId) {
     document.querySelector(`.js-food-card-${itemId}`).style.opacity = '1';
     document.querySelector(`.js-food-card-${itemId}`).style.pointerEvents = 'all';
   }, 1200);
+}
+
+function getLoginPopup() {
+  document.querySelector('.restaurant-overlay').style.opacity = '1';
+  document.querySelector('.restaurant-overlay').style.visibility = 'visible';
+  document.querySelector('.login-addItems-popup').style.opacity = '1';
+  document.querySelector('.login-addItems-popup').style.visibility = 'visible';
+  document.body.style.overflow = "hidden";
+  document.querySelector('.close-border').addEventListener('click', () => {
+    document.querySelector('.restaurant-overlay').style.opacity = '0';
+    document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+    document.querySelector('.login-addItems-popup').style.opacity = '0';
+    document.querySelector('.login-addItems-popup').style.visibility = 'hidden';
+    document.body.style.overflow = 'unset';
+  });
 }

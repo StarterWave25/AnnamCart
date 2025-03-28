@@ -142,7 +142,8 @@ body{
 }
 
 .verify-container input[type="submit"]:active,.verify-container input[type="submit"]:hover{
-    scale: 0.98;
+    filter: brightness(1.3);
+    font-size: 1.05rem;
 }
 
 .legal-container{

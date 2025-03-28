@@ -1,4 +1,4 @@
-const userMobile = JSON.parse(localStorage.getItem('userMobile'));
+const userMobile = sessionStorage.getItem('userMobile');
 async function getCart() {
     let total = 0, dummyTotal = 0, response, restaurantData;
     let cartItems = await getQuantityStorage();

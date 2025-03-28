@@ -9,6 +9,10 @@
   background: linear-gradient(130deg ,var(--brown) 40%,#ff520271);
 }
 
+.offer-container:hover{
+  filter: brightness(1.3);
+}
+
 .items {
   width: 100%;
   height: min(24vw, 50vh);

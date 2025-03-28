@@ -144,7 +144,8 @@ body{
 }
 
 .login-container input[type="submit"]:active,.login-container input[type="submit"]:hover{
-    scale: 0.97;
+    filter: brightness(1.3);
+    font-size: 1.05rem;
 }
 
 .legal-container{

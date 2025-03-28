@@ -3,7 +3,7 @@
     <?php session_start(); ?>
     const username = '<?php echo $_SESSION['username']; ?>';
     const headerUserMobile = <?php echo $_SESSION['mobile']; ?>;
-    localStorage.setItem('userMobile', headerUserMobile);
+    sessionStorage.setItem('userMobile', headerUserMobile);
     if (username) {
         const userProfile = document.querySelector('.user-profile');
         const userLinks = document.querySelectorAll('.user-links');
@@ -20,17 +20,16 @@
     //logout session
     const logoutBtn = document.querySelector('.logout-btn');
     logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('userMobile');
+        sessionStorage.removeItem('userMobile');
         logoutBtn.href = 'data/logout.php';
     });
 
     async function getCartQuantity() {
         let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${headerUserMobile}`));
         const cartQuantityLabel = document.querySelector('.cart-label-quantity');
-        if(cartItems.length>0){
+        if (cartItems.length > 0) {
             cartQuantityLabel.textContent = cartItems.length;
-        }
-        else{
+        } else {
             cartQuantityLabel.textContent = '';
         }
     }

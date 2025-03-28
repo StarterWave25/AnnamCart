@@ -33,8 +33,8 @@ $restaurantId = $_GET['restaurant-id'];
       <div class="heading">
         <h2>To add items into Cart!</h2>
       </div>
-      <p>Please Login First.</p>
-      <p>Don't have an account then, SignUp now.</p>
+      <p>Please Log in First.</p>
+      <p>Don't have an account then, Sign Up now.</p>
     </div>
     <div class="signup-login-btns">
       <a href="login.php"><button class="login-btn">Login</button></a>
