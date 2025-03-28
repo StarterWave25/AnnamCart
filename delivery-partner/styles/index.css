@@ -96,10 +96,10 @@ header {
 }
 
 .todaydasbord {
+    background-color: rgb(108, 61, 61);
     width: 30%;
     height: 50%;
-    border-radius: 7px;
-    background-color: aquamarine;
+    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -154,8 +154,8 @@ header {
 }
 
 .prsentorders {
-    background-color: aqua;
-    border-radius: 7px;
+    background-color: rgb(108, 61, 61);
+    border-radius: 25px;
     width: 20%;
     height: 70%;
     display: flex;
