@@ -5,6 +5,11 @@ async function getRestaurantData(restaurantId) {
 
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
   restaurantData = await response.json();
+  const resBody = document.querySelector('.restaurant-body');
+  if (restaurantData === "Sorry, you can't have access to this restaurant page !") {
+    resBody.textContent = "Sorry, you can't have access to this restaurant page !";
+    return 0;
+  }
   const resHead = document.querySelector('.restaurant-head');
   document.title = restaurantData.resHead.res_name;
   resHead.innerHTML = `
@@ -31,8 +36,6 @@ async function getRestaurantData(restaurantId) {
   </div>
   `;
 
-
-  const resBody = document.querySelector('.restaurant-body');
   restaurantData.resBody.forEach((item) => {
     resBody.innerHTML += `
     <div class="card-food-item js-food-card-${item.item_id}">
@@ -170,7 +173,10 @@ async function getRestaurantData(restaurantId) {
     document.querySelector('.restaurant-overlay').style.visibility = 'visible';
     document.querySelector('.changeItems-popup').style.opacity = '1';
     document.querySelector('.changeItems-popup').style.visibility = 'visible';
+    document.body.style.overflow = "hidden";
+
     document.querySelector('.clear-btn').addEventListener('click', () => {
+      document.body.style.overflow = 'unset';
       document.querySelector('.restaurant-overlay').style.opacity = '0';
       document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
       document.querySelector('.changeItems-popup').style.opacity = '0';
@@ -213,7 +219,7 @@ async function getQuantityStorage() {
 }
 
 function loadingCart(itemId) {
-  document.querySelector(`.wait-animation-${itemId}`).style.animation = 'waiter 0.6s alternate infinite linear';
+  document.querySelector(`.wait-animation-${itemId}`).style.animation = 'waiter 0.5s alternate infinite linear';
   document.querySelector(`.wait-animation-${itemId}`).style.height = '0.7%';
   document.querySelector(`.js-food-card-${itemId}`).style.opacity = '0.5';
   document.querySelector(`.js-food-card-${itemId}`).style.pointerEvents = 'none';
@@ -222,7 +228,7 @@ function loadingCart(itemId) {
     document.querySelector(`.wait-animation-${itemId}`).style.height = '0%';
     document.querySelector(`.js-food-card-${itemId}`).style.opacity = '1';
     document.querySelector(`.js-food-card-${itemId}`).style.pointerEvents = 'all';
-  }, 1200);
+  }, 1000);
 }
 
 function getLoginPopup() {

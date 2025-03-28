@@ -21,6 +21,13 @@ $response = [
   "resBody" => $body
 ];
 
-echo json_encode($response);
+if($head && $body){
+  echo json_encode($response);
+}
+
+else{
+  echo json_encode("Sorry, you can't have access to this restaurant page !");
+}
+
 
 exit();

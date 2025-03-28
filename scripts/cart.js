@@ -238,13 +238,13 @@ async function getQuantityStorage() {
 
 
 async function loadingCart() {
-    document.querySelector(`.wait-animation`).style.animation = 'waiter 0.6s alternate infinite linear';
+    document.querySelector(`.wait-animation`).style.animation = 'waiter 0.5s alternate infinite linear';
     document.querySelector('.wait-animation').style.height = '2px';
     document.querySelector('.items-list').style.opacity = '0.5';
     document.querySelector('.items-list').style.pointerEvents = 'none';
     setTimeout(async () => {
         await getCart();
-    }, 1200);
+    }, 1000);
 }
 
 function getItemPrice(quantity, price) {

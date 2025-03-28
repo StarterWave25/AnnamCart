@@ -1,14 +1,21 @@
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact-container{
   display: flex;
   width: 70%;
-  height: 88vh;
+  height: 80vh;
   border-radius: 35px;
   background-color: white;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.242);
 }
 
 .info{
-  background-color: var(--brown);
+  background: linear-gradient(130deg ,var(--brown) 50%,#ff520279);
   width: 33%;
   border-radius: 35px;
   display: flex;
@@ -16,6 +23,10 @@
   justify-content: space-between;
   padding: 10px 0;
   align-items: center;
+}
+
+.info:hover{
+  filter: brightness(1.2);
 }
 
 .logo{
@@ -46,7 +57,7 @@
 }
 
 .social-modes .social{
-  width: 21%;
+  width: 20%;
   height: 42%;
 }
 
@@ -64,6 +75,7 @@
   margin-left: 10px;
   width: fit-content;
   position: relative;
+  color: white;
 }
 
 .mobile-mail > a::after{
@@ -71,7 +83,7 @@
   content: '';
   width: 0%;
   height: 5%;
-  background-color: var(--peach);
+  background-color: white;
   bottom: 0;
   left: 0;
   transition: all .3s;
@@ -111,7 +123,7 @@ form{
 form input , form textarea, form button{
   width: 90%;
   height: 12%;
-  border-radius: 20px;
+  border-radius: 15px;
   border: 2px solid rgba(128, 128, 128, 0.413);
   padding: 10px 20px;
   color: var(--brown);
@@ -130,8 +142,8 @@ form input:focus, form textarea:focus{
 }
 
 form button{
-  background-color: var(--brown);
-  color: var(--peach);
+  background: linear-gradient(130deg ,var(--brown) 30%,#ff520271);
+  color: var(--lpeach);
   font-size: 1.1rem;
   display: flex;
   align-items: center;
@@ -139,8 +151,10 @@ form button{
   font-weight: 400;
   cursor: pointer;
   transition: all .3s;
+  border: none;
 }
 
 form button:hover{
-  scale: .95;
+  font-size: 1rem;
+  filter: brightness(1.4);
 }

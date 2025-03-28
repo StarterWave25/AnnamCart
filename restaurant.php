@@ -1,7 +1,3 @@
-<?php
-$restaurantId = $_GET['restaurant-id'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +18,13 @@ $restaurantId = $_GET['restaurant-id'];
 
 <body>
   <header id="header"></header>
+  <?php
+  if (isset($_GET['restaurant-id'])) {
+    $restaurantId = $_GET['restaurant-id'];
+  } else {
+    echo "Sorry, you can't have access to this restaurant page !";
+    exit(0);
+  } ?>
   <div class="restaurant-overlay"></div>
   <div class="login-addItems-popup">
     <div class="close-btn">
@@ -41,7 +44,7 @@ $restaurantId = $_GET['restaurant-id'];
       <a href="signup.php"><button class="signup-btn">Sign Up</button></a>
     </div>
   </div>
-  
+
   <div class="changeItems-popup">
     <div class="info-touser">
       <div class="heading">

@@ -365,7 +365,7 @@
 
 .info-touser p {
   height: 20%;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .signup-login-btns,
@@ -379,9 +379,9 @@
 
 .signup-login-btns a,
 .changeItems-btns a {
-  margin: 20px;
+  margin: 25px;
   width: 20%;
-  height: 35%;
+  height: 40%;
 }
 
 .signup-login-btns a>button,
@@ -434,6 +434,7 @@
   transform: translate(-50%, -50%);
   z-index: 1010;
   box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.146);
+  overflow: hidden;
 }
 
 .changeItems-popup .info-touser{
@@ -449,5 +450,5 @@
 
 .changeItems-popup .info-touser p {
   height: 20%;
-  font-size: .9rem;
+  font-size: 1rem;
 }

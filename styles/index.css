@@ -86,7 +86,7 @@
 
 .food-restaurant {
   width: 100%;
-  min-height: 80vh;
+  min-height: 90vh;
   overflow: auto;
   display: flex;
   align-items: center;
