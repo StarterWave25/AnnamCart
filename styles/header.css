@@ -80,6 +80,9 @@ header {
 .logo-container h1 {
     color: var(--brown);
     font-size: 2.7rem;
+    background: linear-gradient(130deg ,var(--brown) 40%,#ff520271);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 nav {
