@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ordercontainar {
+    background-color:bisque;
+    width: 60%;
+    height: 18vw;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.resutrantname-order,
+.customername-order {
+    width: 100%;
+    height: 31%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resturant-name-location,
+.Coustomer-Name-Location {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resturant-name-location p,
+.Coustomer-Name-Location p {
+    width: 70%;
+    font-size: 1.5rem;
+}
+
+.resturant-name-location-button,
+.Coustomer-Name-Location-button {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.resturant-name-location-button button,
+.Coustomer-Name-Location-button button {
+    width: 60%;
+    height: 55%;
+    font-size: 1.1rem;
+    background-color: rgb(108, 61, 61);
+    color: white;
+}
+
+.customername-order {
+    width: 100%;
+    height: 31%;
+}
+
+.orderdetails {
+    width: 90%;
+    height: 31%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.moneyfororder {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.moneyfororder p {
+    font-size: 2rem;
+}
+
+.recject-accept {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reject-offer {
+    width: 46%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.accept-offer {
+    width: 46%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Accept-button {
+    width: 85%;
+    height: 50%;
+    background-color: rgb(108, 61, 61);
+    color: white;
+}
+
+.reject-button {
+    width: 85%;
+    height: 50%;
+    background-color: rgb(108, 61, 61);
+    color: white;
+}
+
+.reject-button,
+.Accept-button,
+.resturant-name-location-button button,
+.Coustomer-Name-Location-button button {
+    border: 0px solid transparent;
+    cursor: pointer;
+    border-radius:  10px;
+}
+
+.reject-button:hover,
+.Accept-button:hover,
+.resturant-name-location-button button:hover,
+.Coustomer-Name-Location-button button:hover{
+    transform: scale(0.93);
+}

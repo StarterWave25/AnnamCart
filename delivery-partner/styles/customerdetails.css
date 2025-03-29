@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+.customer-deatils-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+.customer-details{
+    background-color: bisque;
+    width: 60%;
+    height: 16vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 35px;
+}
+
+.customer-information{
+    width: 85%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customer-banner{
+    width: 30%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.customer-banner p{
+    font-size: 1.8rem;
+}
+
+.customer-location{
+    width: 20%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.customer-location button{
+    width: 85%;
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+.food-reached-status{
+    width: 85%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customer-contact{
+    width: 13%;
+    height: 50%;
+}
+
+.customer-contact button{
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+.customer-payment{
+    width: 20%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-payment p{
+    font-size: 1.6rem;
+}
+
+.customer-status{
+    width: 17%;
+    height: 53%;
+}
+
+.customer-status button{
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+}
+
+.customer-status button,.customer-contact button,.customer-location button{
+    border: 0px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(108, 61, 61);
+    color: white;
+    cursor: pointer;
+}
+
+.customer-status button:hover,.customer-contact button:hover,.customer-location button:hover{
+    transform: scale(0.93);
+}
