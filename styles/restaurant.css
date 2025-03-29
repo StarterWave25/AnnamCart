@@ -103,8 +103,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 260px;
-  gap: 3em 10em;
+  grid-auto-rows: 270px;
+  gap: 3em 12em;
   padding: 6em;
 }
 
@@ -115,11 +115,11 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-image {
-  width: 50%;
+  width: 58%;
   height: 80%;
   display: flex;
   align-items: center;
@@ -131,10 +131,11 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 .item-details {
-  width: 45%;
+  width: 40%;
   height: 75%;
   display: flex;
   flex-direction: column;
@@ -142,67 +143,69 @@
 }
 
 .item-name {
-  width: 90%;
+  width: 80%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
 .item-name>img {
-  width: 12%;
-  height: 100%;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   aspect-ratio: 1/1;
 }
 
 .item-name>h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .item-cost {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 40%;
+  gap: 15px;
+  width: 50%;
 }
 
 .item-cost>h2 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
   color: var(--brown);
 }
 
 .item-cost>del {
+  font-family: 'alata';
   font-size: .9rem;
 }
 
 .item-review {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 20%;
+  gap: 10px;
+  width: 25%;
 }
 
 .item-review>h4 {
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .item-review>img {
-  width: 40%;
+  width: 38%;
 }
 
 .item-add {
-  width: 35%;
+  width: 40%;
   height: 20%;
   background-color: var(--peach);
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: 8px;
-  box-shadow: 0px 0px 2px var(--brown);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 .item-add>span {
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 450;
   font-family: system-ui;
 }
 
@@ -258,7 +261,7 @@
   color: var(--brown);
   background-color: transparent;
   font-size: 1.2rem;
-  height: 53%;
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -268,6 +271,7 @@
   border: 1px solid var(--brown);
   padding-bottom: 1px;
   font-weight: 500;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .min-btn {
