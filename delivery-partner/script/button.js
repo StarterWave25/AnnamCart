@@ -1,3 +1,4 @@
 function statechange(){
-   let buttonselcted = document.querySelector(".statechanger").style.backgroundColor="green";
+   let buttonselcted = document.querySelector(".statechanger");
+   buttonselcted.style.backgroundColor="green";
 }

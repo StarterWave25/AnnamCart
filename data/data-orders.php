@@ -12,9 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dummyTotal = $input['dummyTotal'];
     $items = $input['items'];
     $resId = $input['resId'];
+    $location = $input['location'];
 
-    $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, status) 
-        VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'Pending')";
+    $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, location, status) 
+        VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','Pending')";
     mysqli_query($conn, $sql);
 
     $sql = "SELECT item_id,price,dprice FROM items WHERE res_id = $resId";

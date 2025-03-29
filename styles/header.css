@@ -85,6 +85,10 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
+.logo-container h1:hover{
+    filter: brightness(1.4);
+}
+
 nav {
     height: 100%;
     width: 40%;

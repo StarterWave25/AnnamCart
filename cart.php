@@ -8,6 +8,7 @@
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/cart.css">
+    <link rel="stylesheet" href="styles/popup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -17,6 +18,22 @@
 
 <body>
     <header id="header"></header>
+
+    <div class="restaurant-overlay"></div>
+    <div class="changeItems-popup">
+        <div class="info-touser">
+            <div class="heading">
+                <h2>Sorry, We are not available !</h2>
+            </div>
+            <p></p>
+            <p>This website built only for tirumala.</p>
+        </div>
+        <div class="changeItems-btns">
+            <a style="display: none;"><button style="display: none;"></button></a>
+            <a><button class="close-btn">Close</button></a>
+        </div>
+    </div>
+
     <div class="get-contact-info">
         <div class="heading-container">
             <h2 class="contact-heading">

@@ -1,11 +1,17 @@
 const userMobile = sessionStorage.getItem('userMobile');
-let total, dummyTotal, response, restaurantData;
+let total, dummyTotal, response, restaurantData, locationBtn;
 async function getCart() {
 
     if (userMobile) {
         const request = await fetch('data/data-profile.php?mode=getter');
         const response = await request.json();
-        getAddress(response);
+
+        if (response.room_no === '' && response.area === '' && response.landmark === '') { 
+            changeAddress();
+        }
+        else{
+            getAddress(response);
+        }
     }
 
     total = 0, dummyTotal = 0;
@@ -219,7 +225,14 @@ async function getCart() {
         const response = await postRequest.json();
     } */
     const orderBtn = document.querySelector('.order-now-button');
-    orderBtn.addEventListener('click', orderFood);
+    if(orderBtn){
+        orderBtn.addEventListener('click', orderFood);
+    }
+
+    locationBtn = document.querySelector('.location-container');
+    if(locationBtn){
+        locationBtn.addEventListener('click', getLocation);
+    }
 }
 
 getCart();
@@ -300,7 +313,7 @@ function getAddress(response) {
     changeAddBtn.style.opacity = '1';
 }
 
-async function changeAddress() {
+function changeAddress() {
     changeAddBtn.style.pointerEvents = 'none';
     changeAddBtn.style.opacity = '0.3';
 
@@ -325,14 +338,73 @@ function generateOrderID() {
 async function orderFood() {
     const cart = await getQuantityStorage();
     const orderId = generateOrderID();
+
     const request = await fetch('data/data-orders.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId })
+        body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, location })
     });
     const response = await request.json();
     console.log(response);
 }
 
+async function getLocation() {
+    return new Promise((resolve) => {
+        let latitude, longitude, location;
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            location = generateMapsLink(latitude, longitude);
+            city = await getCity(latitude, longitude);
+
+            if (city) {
+                locationBtn.innerHTML = `
+                    <img src="img/checked.png" alt="location-image">
+                    <h3>Location Added !</h3>
+                `;
+                resolve(location);
+            }
+            else {
+                notAvailable();
+            }
+        });
+    });
+}
+
+
+function generateMapsLink(latitude, longitude) {
+    let mapsLink = `https://www.google.com/maps/place/${latitude}+${longitude}`;
+    return mapsLink;
+}
+
+async function getCity(Latitude, Longitude) {
+    return new Promise(async (resolve) => {
+        /* const apiKey = '28aacc286097ecf47b5355cb0594b8a2';
+        const response = await fetch(`https://apis.mappls.com/advancedmaps/v1/${apiKey}/rev_geocode?lat=${Latitude}&lng=${Longitude}`);
+        const data = await response.json();
+        const city = await data.results[0].city; */
+        const city = 'Tirupati';
+        console.log(city);
+        if (city === 'Tirupati') {
+            resolve(true);
+        }
+        else {
+            resolve(false);
+        }
+    });
+}
+
+function notAvailable() {
+    document.querySelector('.restaurant-overlay').style.opacity = '1';
+    document.querySelector('.restaurant-overlay').style.visibility = 'visible';
+    document.querySelector('.changeItems-popup').style.opacity = '1';
+    document.querySelector('.changeItems-popup').style.visibility = 'visible';
+    document.querySelector('.close-btn').addEventListener('click', () => {
+        document.querySelector('.restaurant-overlay').style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+        document.querySelector('.changeItems-popup').style.opacity = '0';
+        document.querySelector('.changeItems-popup').style.visibility = 'hidden';
+    });
+}

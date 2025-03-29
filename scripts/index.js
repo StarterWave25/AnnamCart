@@ -39,7 +39,7 @@ fetch('data/restaurants.php')
     return response.json();
   })
   .then((topRestaurants) => {
-    topRestaurants[0].forEach((restaurant) => {
+   topRestaurants[0].forEach((restaurant) => {
       restaurantsContainer.innerHTML += `
         <a href="restaurant.php?restaurant-id=${restaurant.res_id}" class="restaurant-info">
             <div class="restaurant-photo">
