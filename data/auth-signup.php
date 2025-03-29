@@ -12,12 +12,12 @@ if (isset($_POST['submit'])) {
         exit();
     }
     try {
-        $sql = "INSERT INTO users (mobile, name, email,address) VALUES ($mobile,'$name','','')";
+        $sql = "INSERT INTO users (mobile, name) VALUES ($mobile,'$name')";
         mysqli_query($conn, $sql);
         $_SESSION['username'] = $name;
-        $_SESSION['mobile']=$mobile;
-        $_SESSION['email']='';
-        $_SESSION['address']='';
+        $_SESSION['mobile'] = $mobile;
+        $_SESSION['email'] = '';
+        $_SESSION['address'] = '';
         header("Location: ../verify.html");
     } catch (mysqli_sql_exception) {
         header("Location: ../signup.php?emob=Your account already exists, Login Now !");

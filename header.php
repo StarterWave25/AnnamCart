@@ -39,7 +39,7 @@
 
 <div class="logo-container">
     <a href="index.html">
-        <h1>AnnamCart</h1>
+        <h1 class="for-gradient">AnnamCart</h1>
     </a>
 </div>
 <nav>
