@@ -11,7 +11,6 @@ body {
 }
 
 .orderdetails-containar {
-    background-color: bisque;
     width: 100%;
     height: 100%;
     display: flex;
@@ -21,7 +20,8 @@ body {
 }
 
 .orderid-details {
-    background-color:white;
+    background-color: var(--white);
+    box-shadow: 0px 0px 10px grey;
     width: 60%;
     height: 12vw;
     display: flex;
@@ -37,8 +37,9 @@ body {
     align-items: center;
 }
 
-.order-id p {
+.order-id>p {
     font-size: 1.6rem;
+    font-weight: 400;
 }
 
 
@@ -60,6 +61,7 @@ body {
 
 .restuarnt-name-details p {
     font-size: 1.8rem;
+    font-weight: 400;
 }
 
 .resturant-locations {
@@ -71,19 +73,23 @@ body {
 }
 
 .resturant-locations button {
-    width: 72%;
-    height: 35%;
+    width: 80%;
+    height: 40%;
     font-size: 1.1rem;
     border-radius: 10px;
+    font-weight: 400;
     border: 0px solid transparent;
-    background-color: rgb(108, 61, 61);
-    color: white;
+    background-color: var(--brown);
+    color: var(--white);
+    box-shadow: 0px 0px 10px grey;
+
 }
 
 
 
 .food-details {
-    background-color:white;
+    background-color: var(--white);
+    box-shadow: 0px 0px 10px grey;
     width: 60%;
     height: 20vw;
     display: flex;
@@ -99,37 +105,42 @@ body {
     align-items: center;
 }
 
-.items-banner p{
+.items-banner p {
     font-size: 1.8rem;
+    color: var(--brown);
+    font-weight: 400;
 }
 
-.food-items-details{
+.food-items-details {
     width: 90%;
-    height: 30%;
+    height: 38%;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.items-names-details{
+.items-names-details {
     width: 100%;
     height: 35%;
     display: flex;
     align-items: center;
 }
 
-.items-names-details p{
-    width: 19%;
+.items-names-details p {
+    width: 20%;
     font-size: 1.4rem;
-}
-.items-names-details input{
-    display: block;
-    width: 3%;
-    height: 90%;
-    /* accent-color: ; */
+    color: grey;
+    font-weight: 400;
 }
 
-.payment-details{
+.items-names-details input {
+    display: block;
+    width: 3%;
+    height: 70%;
+    accent-color: green;
+}
+
+.payment-details {
     width: 90%;
     height: 30%;
     display: flex;
@@ -138,19 +149,21 @@ body {
 }
 
 
-.order-totalmoney{
+.order-totalmoney {
     width: 20%;
     height: 40%;
     display: flex;
     align-items: center;
 }
 
-.order-totalmoney p{
+.order-totalmoney p {
     font-size: 1.8rem;
+    color: var(--brown);
+    font-weight: 400;
 }
 
 
-.order-delivery-status{
+.order-delivery-status {
     width: 20%;
     height: 50%;
     display: flex;
@@ -159,21 +172,25 @@ body {
 
 }
 
-.order-delivery-status button{
+.order-delivery-status button {
     width: 80%;
-    height: 90%;
+    height: 95%;
     border-radius: 10px;
+    font-weight: 400;
     border: 0px solid transparent;
     font-size: 1.1rem;
-    background-color: rgb(108, 61, 61);
-    color: white;
+    background-color: var(--brown);
+    box-shadow: 0px 0px 10px grey;
+    color: var(--white);
 }
 
-.resturant-locations button:hover ,.order-delivery-status button:hover {
+.resturant-locations button:hover,
+.order-delivery-status button:hover {
     cursor: pointer;
     transform: scale(0.93);
 }
 
-.orderid-details ,.food-details{
+.orderid-details,
+.food-details {
     border-radius: 35px;
 }
