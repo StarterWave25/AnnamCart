@@ -137,7 +137,7 @@
     box-shadow: 0px 0px 3px var(--brown);
 }
 
-.changeItems-popup, .addlocation-popup {
+.changeItems-popup, .addlocation-popup, .addAddress-popup {
     background-color: white;
     flex-direction: column;
     width: 35%;
@@ -155,15 +155,16 @@
     overflow: hidden;
 }
 
-.addlocation-popup{
+.addlocation-popup, .addAddress-popup{
     height: 150px;
 }
 
-.addlocation-popup .heading{
+.addlocation-popup .heading, .addAddress-popup .heading{
     height: 40%;
+    font-size: .96rem;
 }
 
-.addlocation-popup .changeItems-btns{
+.addlocation-popup .changeItems-btns, .addAddress-popup .changeItems-btns{
     height: 60%;
 }
 

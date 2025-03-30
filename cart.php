@@ -34,10 +34,22 @@
         </div>
     </div>
 
+    <div class="addAddress-popup">
+        <div class="info-touser">
+            <div class="heading">
+                <h2>Please add your address !</h2>
+            </div>
+        </div>
+        <div class="changeItems-btns">
+            <a style="display: none;"><button style="display: none;"></button></a>
+            <a><button class="close-btn address-close">Close</button></a>
+        </div>
+    </div>
+
     <div class="addlocation-popup">
     <div class="info-touser">
       <div class="heading">
-        <h2>Please add your location first !</h2>
+        <h2>Please add your live location first !</h2>
       </div>
     </div>
     <div class="changeItems-btns">
@@ -49,7 +61,7 @@
     <div class="get-contact-info">
         <div class="heading-container">
             <h2 class="contact-heading">
-                Add Your Address
+                Add Your Address 
             </h2>
         </div>
         <div class="input-fields">

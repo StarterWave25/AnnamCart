@@ -1,5 +1,6 @@
 const userMobile = sessionStorage.getItem('userMobile');
 let total, dummyTotal, response, restaurantData, locationBtn, mapsLink;
+
 async function getCart() {
 
     if (userMobile) {
@@ -183,7 +184,6 @@ async function getCart() {
                 </div>
             </div>
         `;
-
         }
         const cartContainer = document.querySelector('.cart');
         cartContainer.innerHTML = cartHTML;
@@ -229,9 +229,20 @@ async function getCart() {
         orderBtn.addEventListener('click', orderFood);
     }
 
+
+
     locationBtn = document.querySelector('.location-container');
+    mapsLink = JSON.parse(sessionStorage.getItem('mapsLink'));
     if (locationBtn) {
-        locationBtn.addEventListener('click', getLocation);
+        if (mapsLink) {
+            locationBtn.innerHTML = `
+                <img src="img/checked.png" alt="location-image">
+                <h3>Location Added !</h3>`;
+            locationBtn.style.pointerEvents = 'none';
+        }
+        else {
+            locationBtn.addEventListener('click', getLocation);
+        }
     }
 }
 
@@ -336,32 +347,43 @@ function generateOrderID() {
 
 
 async function orderFood() {
-    const cart = await getQuantityStorage();
-    const orderId = generateOrderID();
-    if (!mapsLink) {
-        addLocationPopup();
-    }
-    else {
-        const request = await fetch('data/data-orders.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, mapsLink })
-        });
-        const response = await request.json();
-        console.log(response);
+
+    let addressChecked = await checkAddAddress();
+
+    if (addressChecked) {
+        const cart = await getQuantityStorage();
+        const orderId = generateOrderID();
+        if (!mapsLink) {
+            addLocationPopup();
+        } else {
+            const request = await fetch('data/data-send-orders.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, mapsLink })
+            });
+            const response = await request.json();
+            if(await response==='Success'){
+                window.location.href=`OrderedDetails.php?order-id=${orderId}`;
+            }
+            else{
+                confirm('Order Failed');
+            }
+        }
     }
 }
 
 async function getLocation() {
+
     return new Promise((resolve) => {
         let latitude, longitude;
         navigator.geolocation.getCurrentPosition(async (position) => {
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-            console.log(mapsLink)
+
             mapsLink = generateMapsLink(latitude, longitude);
+            sessionStorage.setItem('mapsLink', JSON.stringify(mapsLink));
             city = await getCity(latitude, longitude);
 
             if (city) {
@@ -387,12 +409,11 @@ function generateMapsLink(latitude, longitude) {
 
 async function getCity(Latitude, Longitude) {
     return new Promise(async (resolve) => {
-        /* const apiKey = '28aacc286097ecf47b5355cb0594b8a2';
-        const response = await fetch(`https://apis.mappls.com/advancedmaps/v1/${apiKey}/rev_geocode?lat=${Latitude}&lng=${Longitude}`);
-        const data = await response.json();
-        const city = await data.results[0].city; */
+        const apiKey = '28aacc286097ecf47b5355cb0594b8a2';
+        // const response = await fetch(`https://apis.mappls.com/advancedmaps/v1/${apiKey}/rev_geocode?lat=${Latitude}&lng=${Longitude}`);
+        // const data = await response.json();
+        // const city = await data.results[0].city;
         const city = 'Tirupati';
-        console.log(city);
         if (city === 'Tirupati') {
             resolve(true);
         }
@@ -421,17 +442,58 @@ function addLocationPopup() {
     let locationAddBtn = document.querySelector('.location-addbtn');
     popup.style.visibility = 'visible';
     popup.style.opacity = '1';
+    document.querySelector('.restaurant-overlay').style.opacity = '1';
+    document.querySelector('.restaurant-overlay').style.visibility = 'visible';
     noBtn.addEventListener('click', () => {
         popup.style.visibility = 'hidden';
         popup.style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
     });
     locationAddBtn.addEventListener('click', () => {
+        locationAddBtn.innerHTML = 'Thank You';
         popup.style.visibility = 'hidden';
         popup.style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
         getLocation();
-        locationAddBtn.innerHTML = 'ThankYou';
         setTimeout(() => {
             locationAddBtn.innerHTML = 'ADD';
         }, 1000);
     });
 }
+
+async function checkAddAddress() {
+    const request = await fetch('data/data-profile.php?mode=getter');
+    const response = await request.json();
+
+    let popup = document.querySelector('.addAddress-popup');
+    let backBlur = document.querySelector('.restaurant-overlay');
+
+    if (response.room_no === '' && response.area === '' && response.landmark === '') {
+        popup.style.visibility = 'visible';
+        popup.style.opacity = '1';
+        backBlur.style.visibility = 'visible';
+        backBlur.style.opacity = '1';
+        document.querySelector('.address-close').addEventListener('click', () => {
+            popup.style.visibility = 'hidden';
+            popup.style.opacity = '0';
+            backBlur.style.visibility = 'hidden';
+            backBlur.style.opacity = '0';
+            document.querySelector('.get-contact-info').style.backgroundColor = 'var(--peach)';
+            setTimeout(() => {
+                document.querySelector('.get-contact-info').style.backgroundColor = 'white';
+            }, 400);
+            setTimeout(() => {
+                document.querySelector('.get-contact-info').style.backgroundColor = 'var(--peach)';
+            }, 800);
+            setTimeout(() => {
+                document.querySelector('.get-contact-info').style.backgroundColor = 'white';
+            }, 1200);
+        });
+        return false;
+    }
+    else return true;
+
+}
+

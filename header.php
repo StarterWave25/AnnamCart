@@ -21,6 +21,7 @@
     const logoutBtn = document.querySelector('.logout-btn');
     logoutBtn.addEventListener('click', () => {
         sessionStorage.removeItem('userMobile');
+        sessionStorage.removeItem('mapsLink');
         logoutBtn.href = 'data/logout.php';
     });
 

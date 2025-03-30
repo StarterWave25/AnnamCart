@@ -32,5 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         mysqli_query($conn, $query);
     }
-    echo json_encode("First order received from u");
+    echo json_encode('Success');
+}
+
+else{
+    echo json_encode('Failure');
 }

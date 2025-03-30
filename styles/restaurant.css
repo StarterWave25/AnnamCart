@@ -41,10 +41,11 @@
 .title-offer>h2 {
   font-size: 2.5rem;
   color: var(--peach);
-  width: 32%;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .offer {
@@ -81,16 +82,17 @@
   font-size: 1.2rem;
 }
 
-.ceritfications{
-  width: 77%;
+.ceritfications {
+  width: 85%;
   height: 40%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 0 0 3%;
 }
 
 .ratings-container {
-  width: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -105,25 +107,25 @@
   font-size: 1.2rem;
 }
 
-.res-certifiy{
-  width: 30%;
+.res-certifiy {
+  width: 40%;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
-  justify-content: space-between;
 }
 
-.res-certifiy>img{
+.res-certifiy>img {
   width: 17%;
 }
 
-.res-certifiy>h3{
+.res-certifiy>h3 {
   color: var(--lpeach);
   font-size: 1.2rem;
   font-family: 'outfit';
 }
 
-.res-certifiy>p{
+.res-certifiy>p {
   font-size: 1.1rem;
   color: white;
   font-weight: 400;
