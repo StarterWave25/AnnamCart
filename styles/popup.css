@@ -137,7 +137,7 @@
     box-shadow: 0px 0px 3px var(--brown);
 }
 
-.changeItems-popup {
+.changeItems-popup, .addlocation-popup {
     background-color: white;
     flex-direction: column;
     width: 35%;
@@ -153,6 +153,18 @@
     z-index: 1010;
     box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.146);
     overflow: hidden;
+}
+
+.addlocation-popup{
+    height: 150px;
+}
+
+.addlocation-popup .heading{
+    height: 40%;
+}
+
+.addlocation-popup .changeItems-btns{
+    height: 60%;
 }
 
 .changeItems-popup .info-touser {

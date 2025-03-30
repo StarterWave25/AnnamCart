@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 35vh;
+  min-height: 40vh;
   background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
   justify-content: space-around;
 }
@@ -26,12 +26,12 @@
   height: 20%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 20px;
 }
 
 .title-offer>h4 {
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   width: 32%;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 .title-offer>h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--peach);
   width: 32%;
   display: flex;
@@ -48,21 +48,21 @@
 }
 
 .offer {
-  width: 32%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 }
 
 .offer>img {
-  width: 6%;
+  width: 8%;
 }
 
 .offer>h4 {
-  font-size: 1.3rem;
-  width: 30%;
+  font-size: 1.5rem;
+  width: 40%;
   color: white;
-  margin-left: 10px;
 }
 
 .details-restaurant {
@@ -81,20 +81,52 @@
   font-size: 1.2rem;
 }
 
+.ceritfications{
+  width: 77%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .ratings-container {
-  width: 80%;
+  width: 50%;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .ratings-container>img {
-  width: 2%;
+  width: 5%;
 }
 
 .ratings-container>h3 {
   color: white;
   font-size: 1.2rem;
+}
+
+.res-certifiy{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.res-certifiy>img{
+  width: 17%;
+}
+
+.res-certifiy>h3{
+  color: var(--lpeach);
+  font-size: 1.2rem;
+  font-family: 'outfit';
+}
+
+.res-certifiy>p{
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 400;
 }
 
 .restaurant-body {
@@ -103,8 +135,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 270px;
-  gap: 3em 12em;
+  grid-auto-rows: 280px;
+  gap: 5em 10em;
   padding: 6em;
 }
 
@@ -145,12 +177,13 @@
 .item-name {
   width: 80%;
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .item-name>img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   aspect-ratio: 1/1;
 }

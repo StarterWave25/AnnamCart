@@ -1,15 +1,15 @@
 const userMobile = sessionStorage.getItem('userMobile');
-let total, dummyTotal, response, restaurantData, locationBtn;
+let total, dummyTotal, response, restaurantData, locationBtn, mapsLink;
 async function getCart() {
 
     if (userMobile) {
         const request = await fetch('data/data-profile.php?mode=getter');
         const response = await request.json();
 
-        if (response.room_no === '' && response.area === '' && response.landmark === '') { 
+        if (response.room_no === '' && response.area === '' && response.landmark === '') {
             changeAddress();
         }
-        else{
+        else {
             getAddress(response);
         }
     }
@@ -225,12 +225,12 @@ async function getCart() {
         const response = await postRequest.json();
     } */
     const orderBtn = document.querySelector('.order-now-button');
-    if(orderBtn){
+    if (orderBtn) {
         orderBtn.addEventListener('click', orderFood);
     }
 
     locationBtn = document.querySelector('.location-container');
-    if(locationBtn){
+    if (locationBtn) {
         locationBtn.addEventListener('click', getLocation);
     }
 }
@@ -338,25 +338,30 @@ function generateOrderID() {
 async function orderFood() {
     const cart = await getQuantityStorage();
     const orderId = generateOrderID();
-
-    const request = await fetch('data/data-orders.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, location })
-    });
-    const response = await request.json();
-    console.log(response);
+    if (!mapsLink) {
+        addLocationPopup();
+    }
+    else {
+        const request = await fetch('data/data-orders.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, mapsLink })
+        });
+        const response = await request.json();
+        console.log(response);
+    }
 }
 
 async function getLocation() {
     return new Promise((resolve) => {
-        let latitude, longitude, location;
+        let latitude, longitude;
         navigator.geolocation.getCurrentPosition(async (position) => {
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-            location = generateMapsLink(latitude, longitude);
+            console.log(mapsLink)
+            mapsLink = generateMapsLink(latitude, longitude);
             city = await getCity(latitude, longitude);
 
             if (city) {
@@ -364,7 +369,8 @@ async function getLocation() {
                     <img src="img/checked.png" alt="location-image">
                     <h3>Location Added !</h3>
                 `;
-                resolve(location);
+                locationBtn.style.pointerEvents = 'none';
+                resolve();
             }
             else {
                 notAvailable();
@@ -406,5 +412,26 @@ function notAvailable() {
         document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
         document.querySelector('.changeItems-popup').style.opacity = '0';
         document.querySelector('.changeItems-popup').style.visibility = 'hidden';
+    });
+}
+
+function addLocationPopup() {
+    let popup = document.querySelector('.addlocation-popup');
+    let noBtn = document.querySelector('.no-btn1');
+    let locationAddBtn = document.querySelector('.location-addbtn');
+    popup.style.visibility = 'visible';
+    popup.style.opacity = '1';
+    noBtn.addEventListener('click', () => {
+        popup.style.visibility = 'hidden';
+        popup.style.opacity = '0';
+    });
+    locationAddBtn.addEventListener('click', () => {
+        popup.style.visibility = 'hidden';
+        popup.style.opacity = '0';
+        getLocation();
+        locationAddBtn.innerHTML = 'ThankYou';
+        setTimeout(() => {
+            locationAddBtn.innerHTML = 'ADD';
+        }, 1000);
     });
 }

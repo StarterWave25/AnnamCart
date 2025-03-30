@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dummyTotal = $input['dummyTotal'];
     $items = $input['items'];
     $resId = $input['resId'];
-    $location = $input['location'];
+    $location = $input['mapsLink'];
 
     $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, location, status) 
         VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','Pending')";

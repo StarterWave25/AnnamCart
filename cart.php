@@ -34,6 +34,18 @@
         </div>
     </div>
 
+    <div class="addlocation-popup">
+    <div class="info-touser">
+      <div class="heading">
+        <h2>Please add your location first !</h2>
+      </div>
+    </div>
+    <div class="changeItems-btns">
+      <a><button class="login-btn no-btn no-btn1">No</button></a>
+      <a><button class="signup-btn clear-btn location-addbtn">ADD</button></a>
+    </div>
+  </div>
+
     <div class="get-contact-info">
         <div class="heading-container">
             <h2 class="contact-heading">
