@@ -9,6 +9,7 @@
   <script src="scripts/headfoot.js"></script>
   <script src=""></script>
   <link rel="icon" href="img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/popup.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,6 +59,7 @@
       <a><button class="signup-btn clear-btn">Clear</button></a>
     </div>
   </div>
+
   <div class="restaurant-main-container">
     <div class="restaurant-head">
       <!-- js-code-injected -->

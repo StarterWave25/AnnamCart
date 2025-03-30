@@ -115,7 +115,7 @@ body{
   width: 0px;
   border: 2px dashed gray;
   top: 8.5%;
-  left: 2.9%;
+  left: 2.3%;
 }
 
 .bill-container{
@@ -207,6 +207,6 @@ body{
 
 .route{
   width: 100%;
-  height: .1%;
+  height: .2%;
   background-color: gray;
 }

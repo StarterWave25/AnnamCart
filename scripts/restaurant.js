@@ -30,9 +30,15 @@ async function getRestaurantData(restaurantId) {
     </ul>
   </div>
 
-  <div class="ratings-container">
-    <img src="img/star.png" alt="review-image">
-    <h3>${restaurantData.resHead.ratings} (43)</h3>
+  <div class="ceritfications">
+    <div class="ratings-container">
+      <img src="img/star.png" alt="review-image">
+      <h3>${restaurantData.resHead.ratings} (43)</h3>
+    </div>
+    <div class="res-certifiy">
+      <img src="img/fssai.png">
+      <h3>License no:</h3>
+      <p>10119010000561</p>
   </div>
   `;
 

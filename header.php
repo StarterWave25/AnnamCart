@@ -25,7 +25,7 @@
     });
 
     async function getCartQuantity() {
-        let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${headerUserMobile}`));
+        let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${headerUserMobile}`)) || [];
         const cartQuantityLabel = document.querySelector('.cart-label-quantity');
         if (cartItems.length > 0) {
             cartQuantityLabel.textContent = cartItems.length;
