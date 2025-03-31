@@ -1,6 +1,11 @@
+body{
+  padding-top: 0;
+}
+
 .restaurant-main-container {
   width: 100%;
   min-height: 100vh;
+  padding-top: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -82,7 +87,7 @@
   font-size: 1.2rem;
 }
 
-.ceritfications {
+.certifications {
   width: 85%;
   height: 40%;
   display: flex;
@@ -107,7 +112,7 @@
   font-size: 1.2rem;
 }
 
-.res-certifiy {
+.res-certify {
   width: 40%;
   display: flex;
   align-items: center;
@@ -115,24 +120,24 @@
   gap: 10px;
 }
 
-.res-certifiy>img {
+.res-certify>img {
   width: 17%;
 }
 
-.res-certifiy>h3 {
+.res-certify>h3 {
   color: var(--lpeach);
   font-size: 1.2rem;
   font-family: 'outfit';
 }
 
-.res-certifiy>p {
+.res-certify>p {
   font-size: 1.1rem;
   color: white;
   font-weight: 400;
 }
 
 .restaurant-body {
-  min-height: 100vh;
+  min-height: 90vh;
   height: auto;
   width: 100%;
   display: grid;

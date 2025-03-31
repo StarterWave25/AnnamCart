@@ -9,7 +9,6 @@
   <script src="scripts/headfoot.js"></script>
   <script src=""></script>
   <link rel="icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="stylesheet" href="styles/orderedDetails.css">

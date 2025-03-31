@@ -27,11 +27,23 @@
 
     async function getCartQuantity() {
         let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${headerUserMobile}`)) || [];
+        const gotoCart = document.querySelector('.gotoCart-popup');
+        let gotoHeading = document.querySelector('.goto-heading');
+
         const cartQuantityLabel = document.querySelector('.cart-label-quantity');
         if (cartItems.length > 0) {
             cartQuantityLabel.textContent = cartItems.length;
+            gotoCart.style.top = '92%';
+            if(cartItems.length === 1){
+                gotoHeading.innerHTML = '<span>1</span> Item Added';
+            }
+            else{
+                gotoHeading.innerHTML = `<span>${cartItems.length}</span> Items Added`;
+            }
+            
         } else {
             cartQuantityLabel.textContent = '';
+            gotoCart.style.top = '110%';
         }
     }
 
@@ -68,5 +80,10 @@
         <h3>Cart</h3>
         <span class="cart-label-quantity"></span>
     </a>
-
 </div>
+
+
+<a href="cart.php" class="gotoCart-popup">
+    <h2 class="goto-heading"></h2>
+    <button>View Cart<img src="img/next.png" alt=""></button>
+</a>

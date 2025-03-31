@@ -61,6 +61,7 @@
 
 .top-food-name p {
   text-align: center;
+  color: var(--brown);
 }
 
 .top-food-image {
@@ -273,6 +274,7 @@
   height: 20%;
   display: flex;
   justify-content: space-between;
+  color: black;
 }
 
 .most-order-details {

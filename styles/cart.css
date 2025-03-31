@@ -3,6 +3,10 @@ body {
     overflow: hidden;
 }
 
+.gotoCart-popup{
+    display: none;
+}
+
 .cart-back {
     width: 53%;
     height: 100%;

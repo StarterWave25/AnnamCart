@@ -6,7 +6,7 @@ fetch('data/most-ordered-items.php')
   .then((mostOrderedItems) => {
     mostOrderedItems.forEach((item) => {
       mostOrderedContainer.innerHTML += `
-        <div class="most-ordered-foods">
+        <a href="restaurant.php?restaurant-id=${item.res_id}" class="most-ordered-foods">
         <div class="ordered-foods-image">
           <img src="img/poori.jpg" alt="">
         </div>
@@ -26,7 +26,7 @@ fetch('data/most-ordered-items.php')
             </div>
           </div>
         </div>
-      </div>
+      </a>
         `
     });
   });
@@ -60,4 +60,33 @@ fetch('data/restaurants.php')
         `
     });
   });
+
+  async function getTopPicks() {
+
+    const request = await fetch('data/data-toppicks.php');
+    const response = await request.json();
+
+    console.log(response);
+
+    let topPicksHTML = '';
+    response.forEach((item) => {
+      topPicksHTML += `
+      <div class="top-food-info">
+        <a href="restaurant.php?restaurant-id=${item.res_id}" class="top-food-image">
+          <img src="img/topPick.jpeg"
+            alt="">
+        </a>
+        <div class="top-food-name">
+          <p>${item.item_name}</p>
+        </div>
+      </div>
+    `;
+    });
+
+    document.querySelector('.top-items').innerHTML = topPicksHTML;
+    
+  }
+
+  getTopPicks();
+  
 

@@ -3,6 +3,12 @@
     padding:0%;
     box-sizing: border-box;
 }
+
+
+.gotoCart-popup{
+    display: none;
+}
+
 html,body{
     
     height: 100vh;

@@ -480,12 +480,12 @@ async function checkAddAddress() {
             popup.style.opacity = '0';
             backBlur.style.visibility = 'hidden';
             backBlur.style.opacity = '0';
-            document.querySelector('.get-contact-info').style.backgroundColor = 'var(--peach)';
+            document.querySelector('.get-contact-info').style.backgroundColor = 'var(--lpeach)';
             setTimeout(() => {
                 document.querySelector('.get-contact-info').style.backgroundColor = 'white';
             }, 400);
             setTimeout(() => {
-                document.querySelector('.get-contact-info').style.backgroundColor = 'var(--peach)';
+                document.querySelector('.get-contact-info').style.backgroundColor = 'var(--lpeach)';
             }, 800);
             setTimeout(() => {
                 document.querySelector('.get-contact-info').style.backgroundColor = 'white';

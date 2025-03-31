@@ -5,6 +5,11 @@ body {
   justify-content: center;
 }
 
+
+.gotoCart-popup{
+  display: none;
+}
+
 .goback-btn{
   position: fixed;
   top: 17vh;

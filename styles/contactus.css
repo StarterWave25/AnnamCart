@@ -5,6 +5,11 @@ body{
   justify-content: center;
 }
 
+
+.gotoCart-popup{
+  display: none;
+}
+
 .contact-container{
   display: flex;
   width: 70%;

@@ -2,6 +2,11 @@ body{
   height: fit-content;
 }
 
+
+.gotoCart-popup{
+  display: none;
+}
+
 .heading{
   height: 10vh;
   width: 77%;
