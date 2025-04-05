@@ -2,6 +2,11 @@ body{
     height: 100vh;
 }
 
+.gotoCart-popup{
+    display: none;
+}
+
+
 .signup-main{
     display: flex;
     justify-content: space-around;

@@ -364,12 +364,31 @@ async function orderFood() {
                 body: JSON.stringify({ orderId, cart, total, dummyTotal, items: cart.length, resId: cart[0].restaurantId, mapsLink })
             });
             const response = await request.json();
-            if(await response==='Success'){
-                window.location.href=`OrderedDetails.php?order-id=${orderId}`;
+            if (await response === 'Success') {
+                await getAgentsCount(orderId);
             }
-            else{
+            else {
                 confirm('Order Failed');
             }
+        }
+    }
+}
+
+
+async function getAgentsCount(orderId) {
+    let request = await fetch('data/data-order-status.php');
+    let count = await request.json();
+    assigningDelivery(orderId);
+
+    async function assigningDelivery(orderId) {
+        let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
+        let response = await request.json();
+
+        if (await response === 'assigned') {
+            window.location.href = `OrderedDetails.php?order-id=${orderId}`;
+        }
+        else {
+            assigningDelivery(orderId);
         }
     }
 }
@@ -384,7 +403,7 @@ async function getLocation() {
 
             mapsLink = generateMapsLink(latitude, longitude);
             sessionStorage.setItem('mapsLink', JSON.stringify(mapsLink));
-            city = await getCity(latitude, longitude);
+            let city = await getCity(latitude, longitude);
 
             if (city) {
                 locationBtn.innerHTML = `

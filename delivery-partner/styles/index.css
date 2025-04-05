@@ -58,20 +58,20 @@ body {
 }
 
 .orders {
-    width: 70%;
+    width: 75%;
     height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .orders p{
-    font-size: 2rem;
+    font-size: 1.6rem;
     color:var(--brown);
-    font-weight: 300;
+    font-weight: 400;
 
 }
 .workname1 {
-    width: 55%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -79,7 +79,7 @@ body {
 }
 
 .workvalue {
-    width: 50%;
+    width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
