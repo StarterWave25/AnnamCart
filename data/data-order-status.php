@@ -19,7 +19,7 @@ if (isset($_GET['order-id'])) {
 
         mysqli_query($conn, $sql);
 
-        echo json_encode("assigned");
+        echo json_encode($deliveryAgent['dmobile']);
     } else {
         echo json_encode("missed");
     }

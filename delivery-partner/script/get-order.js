@@ -1,4 +1,4 @@
-async function getOrder() {
+export async function getOrder() {
     const request = await fetch('data/data-order.php');
     const orderDetails = await request.json();
     console.log(orderDetails);

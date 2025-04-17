@@ -14,7 +14,17 @@
         <li class="Option2"><a href="index.php">Earning</a></li>
         <li class="Option3"><button class="statechanger">Inactive</button></li>
     </ul>
-    <script>
+    <script type="module">
+        import {
+            getOrder
+        } from './script/get-order.js';
+
+        let dMobile = <?php
+                        session_start();
+                        if (isset($_SESSION['dmobile'])) echo $_SESSION['dmobile'];
+                        ?>;
+        let ws;
+
         const stateBtn = document.querySelector('.statechanger');
         let agentState = sessionStorage.getItem('status') || 'inactive';
 
@@ -23,32 +33,46 @@
             stateBtn.style.background = 'green';
             agentState = 'active';
         }
-        
+
         stateBtn.addEventListener('click', () => {
             if (agentState === 'inactive') {
                 stateBtn.textContent = 'Active';
                 stateBtn.style.background = 'green';
                 agentState = 'active';
-            }
-            else {
+                connectToServer(true);
+                sessionStorage.setItem('status','active');
+            } else {
                 stateBtn.textContent = 'Inactive';
                 stateBtn.style.background = 'red';
                 agentState = 'inactive';
+                connectToServer(false);
+                sessionStorage.setItem('status','inactive');
             }
-            setStatus(agentState);
-            sessionStorage.setItem('status', agentState);
+            
         });
 
-        async function setStatus(status) {
-            const request = await fetch('data/data-status.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(status)
-            });
-            const response = await request.json();
-            console.log(response);
+        function connectToServer(choice) {
+            if (choice) {
+                ws = new WebSocket('ws://localhost:8080');
+                ws.addEventListener('open', () => {
+                    console.log('connected');
+                    ws.send(JSON.stringify({
+                        mobile: dMobile,
+                        role: 'agent'
+                    }));
+                });
+
+                ws.addEventListener('close', () => {
+                    console.log('connection closed');
+                });
+
+                ws.addEventListener('message', () => {
+                    getOrder();
+                });
+
+            } else {
+                ws.close();
+            }
         }
     </script>
 </div>

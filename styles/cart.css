@@ -64,7 +64,7 @@ body {
 }
 
 .location-container {
-    width: 95%;
+    width: 75%;
     min-height: 6.5vh;
     border: none;
     background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
@@ -552,7 +552,7 @@ details[open] .arrows>img:nth-child(2) {
 }
 
 .get-contact-info {
-    height: 60%;
+    height: 70%;
     width: 32%;
     position: fixed;
     background-color: white;

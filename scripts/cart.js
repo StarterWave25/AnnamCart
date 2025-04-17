@@ -95,10 +95,6 @@ async function getCart() {
                 </a>
                 <h3>${restaurantData.resHead.res_name}</h3>
             </div>
-            <button class="location-container">
-                <img src="img/place.png" alt="location-image">
-                <h3>Add your Location</h3>
-            </button>
             <div class="saved-container">
                 <div class="img-con-saved">
                     <img src="img/rupee (2).png" alt="saved-icon">
@@ -270,8 +266,6 @@ async function getQuantityStorage() {
     return cartItems;
 }
 
-
-
 async function loadingCart() {
     document.querySelector(`.wait-animation`).style.animation = 'waiter 0.5s alternate infinite linear';
     document.querySelector('.wait-animation').style.height = '2px';
@@ -337,7 +331,6 @@ function changeAddress() {
     saveAddBtn.style.opacity = '1';
 }
 
-
 function generateOrderID() {
     const timestamp = Date.now().toString().slice(-6);
     const randomStr = Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -384,8 +377,23 @@ async function getAgentsCount(orderId) {
         let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
         let response = await request.json();
 
-        if (await response === 'assigned') {
-            window.location.href = `OrderedDetails.php?order-id=${orderId}`;
+        if (await response !== 'missed') {
+            const socket = new WebSocket('ws://localhost:8080');
+            socket.addEventListener('open', () => {
+                console.log('Connection Succeed');
+                socket.send(JSON.stringify({
+                    mobile: headerUserMobile,
+                    role: 'user'
+                }));
+            });
+
+            setTimeout(() => {
+                socket.send(response);
+            }, 1000);
+
+            setTimeout(() => {
+                window.location.href = `OrderedDetails.php?order-id=${orderId}`;
+            }, 2000);
         }
         else {
             assigningDelivery(orderId);

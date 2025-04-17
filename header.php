@@ -1,8 +1,10 @@
 <link rel="icon" href="img/logo.png" type="image/x-icon">
 <script>
+
     <?php session_start(); ?>
     const username = '<?php echo $_SESSION['username']; ?>';
     const headerUserMobile = <?php echo $_SESSION['mobile']; ?>;
+
     sessionStorage.setItem('userMobile', headerUserMobile);
     if (username) {
         const userProfile = document.querySelector('.user-profile');
@@ -34,13 +36,12 @@
         if (cartItems.length > 0) {
             cartQuantityLabel.textContent = cartItems.length;
             gotoCart.style.top = '92%';
-            if(cartItems.length === 1){
+            if (cartItems.length === 1) {
                 gotoHeading.innerHTML = '<span>1</span> Item Added';
-            }
-            else{
+            } else {
                 gotoHeading.innerHTML = `<span>${cartItems.length}</span> Items Added`;
             }
-            
+
         } else {
             cartQuantityLabel.textContent = '';
             gotoCart.style.top = '110%';
