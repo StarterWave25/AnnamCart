@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $location = $input['mapsLink'];
 
     $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, location, status) 
-        VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','Pending')";
+        VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','pending')";
     mysqli_query($conn, $sql);
 
     $sql = "SELECT item_id,price,dprice FROM items WHERE res_id = $resId";

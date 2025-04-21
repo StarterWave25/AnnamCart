@@ -225,8 +225,6 @@ async function getCart() {
         orderBtn.addEventListener('click', orderFood);
     }
 
-
-
     locationBtn = document.querySelector('.location-container');
     mapsLink = JSON.parse(sessionStorage.getItem('mapsLink'));
     if (locationBtn) {
@@ -386,6 +384,13 @@ async function getAgentsCount(orderId) {
                     role: 'user'
                 }));
             });
+
+            socket.addEventListener('message', (event) => {
+                console.log(event.data);
+                if(event.data === 'reject'){
+                    assigningDelivery(orderId);
+                }
+            })
 
             setTimeout(() => {
                 socket.send(response);

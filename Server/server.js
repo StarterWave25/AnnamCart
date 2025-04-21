@@ -9,22 +9,25 @@ wss.on('connection', (ws) => {
 
     ws.addEventListener('message', (event) => {
         data = JSON.parse(event.data);
+        console.log(data);
         if (data.role === 'user') {
             users.set(data.mobile, { ws, mobile: data.mobile });
-            users.forEach((user) => {
-                console.log(user.mobile);
-            });
         }
         else if (data.role === 'agent') {
             agents.set(data.mobile, { ws, mobile: data.mobile });
-            agents.forEach((agent) => {
-                console.log(agent.mobile);
-            });
             setStatus('active', data.mobile);
+        }
+        else if(data.status === 'reject'){
+            users.forEach((user) => {
+                console.log(data.mobile);
+                if(user.mobile == data.mobile){
+                    user.ws.send('reject');
+                }
+            });
         }
         else {
             agents.forEach((agent) => {
-                if (agent.mobile === data) {
+                if (agent.mobile == data) {
                     agent.ws.send('life set');
                 }
             });

@@ -53,11 +53,11 @@
             </div>
             <form action="data/auth-login.php" class="signup-form" method="post">
                 <div class="form-mobile">
-                    <input type="tel" name="mobile" id="input-mobile" required placeholder="Enter Your Mobile Number" pattern="[0-9]{10}">
+                    <input type="tel" name="mobile" id="input-mobile" autofocus required placeholder="Enter Your Mobile Number" pattern="[0-9]{10}">
                     <span><?php if (isset($_GET['emob'])) {
                                 echo $_GET['emob'];
                             } ?></span>
-                    <input type="text" name="password" id="input-name" autofocus required placeholder="Enter Your Password" minlength="8">
+                    <input type="text" name="password" id="input-name" required placeholder="Enter Your Password" minlength="8">
                     <span><?php if (isset($_GET['ename'])) {
                                 echo $_GET['ename'];
                             } ?></span>

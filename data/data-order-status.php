@@ -4,7 +4,7 @@ if (isset($_GET['order-id'])) {
     $orderId = $_GET['order-id'];
     session_start();
     $name = $_SESSION['username'];
-
+    $mobile = $_SESSION['mobile'];
     $sql = "SELECT * FROM delivery_agent WHERE status = 'active' ORDER BY RAND() LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $deliveryAgent = mysqli_fetch_assoc($result);
@@ -14,8 +14,8 @@ if (isset($_GET['order-id'])) {
         $result = mysqli_query($conn, $sql);
         $orderDetails = mysqli_fetch_assoc($result);
 
-        $sql = "INSERT INTO orders_status(order_id, dmobile, res_name, res_location, username, location, total, status ) VALUES 
-    ('$orderId', $deliveryAgent[dmobile], '$orderDetails[res_name]', '$orderDetails[res_location]', '$name', '$orderDetails[location]', $orderDetails[total], 'pending')";
+        $sql = "INSERT INTO orders_status(order_id, dmobile, res_name, res_location, username, mobile, location, total, status) VALUES 
+    ('$orderId', {$deliveryAgent['dmobile']}, '{$orderDetails['res_name']}', '{$orderDetails['res_location']}', '$name', $mobile, '{$orderDetails['location']}', {$orderDetails['total']}, 'pending')";
 
         mysqli_query($conn, $sql);
 
@@ -23,9 +23,7 @@ if (isset($_GET['order-id'])) {
     } else {
         echo json_encode("missed");
     }
-} 
-
-else {
+} else {
     $sql = "SELECT COUNT(*) FROM delivery_agent WHERE status = 'active'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
