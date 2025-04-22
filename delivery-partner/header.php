@@ -10,7 +10,7 @@
 </div>
 <div class="Aent-navbar">
     <ul class="Options">
-        <li class="Option1"><a href="activepage.html">Home</a></li>
+        <li class="Option1"><a href="activepage.php">Home</a></li>
         <li class="Option2"><a href="index.php">Earning</a></li>
         <li class="Option3"><button class="statechanger">Inactive</button></li>
     </ul>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
+    header("Location: index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

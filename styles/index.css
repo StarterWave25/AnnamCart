@@ -179,11 +179,11 @@
 
 .restaurant-name h4 {
   font-size: 1.05rem;
-  white-space: nowrap;       
-  overflow: hidden;          
-  text-overflow:ellipsis;   
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
   max-width: 100%;
-  color: black;           
+  color: black;
 }
 
 .restaurant-name p {

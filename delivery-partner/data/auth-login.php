@@ -17,7 +17,7 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
             if ($row) {
                 $_SESSION['dname'] = $row['dname'];
                 $_SESSION['dmobile'] = $row['dmobile'];
-                header("Location: ../home.html");
+                header("Location: ../home.php");
             } else {
                 header("Location: ../index.php?emob=Your account doesn't exists !");
             }
@@ -28,5 +28,5 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
         header("Location: ../index.php?emob=Access Denied !&ename=Access Denied !");
     }
 } else {
-    header("Location: ../home.html");
+    header("Location: ../home.php");
 }

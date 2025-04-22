@@ -17,11 +17,11 @@ wss.on('connection', (ws) => {
             agents.set(data.mobile, { ws, mobile: data.mobile });
             setStatus('active', data.mobile);
         }
-        else if(data.status === 'reject'){
+        else if(data.status){
             users.forEach((user) => {
                 console.log(data.mobile);
                 if(user.mobile == data.mobile){
-                    user.ws.send('reject');
+                    user.ws.send(data.status);
                 }
             });
         }

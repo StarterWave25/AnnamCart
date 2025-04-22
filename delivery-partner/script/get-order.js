@@ -51,18 +51,20 @@ export async function getOrder() {
     else {
         document.querySelector('.ordercontainar').innerHTML = 'You are waiting for orders';
     }
+}
 
-    async function setOrderStatus(status) {
-        const request = await fetch(`data/data-order.php?confirm=${status}`);
-        const response = await request.json();
-        if (response.status == 'reject') {
-            let ws = getSocket();
-            ws.send(JSON.stringify({mobile: response.mobile, status: 'reject'}));
-            getOrder();
-        }
-        else if (response == 'accept') {
-            console.log('accepted');
-        }
+async function setOrderStatus(status) {
+    const request = await fetch(`data/data-order.php?confirm=${status}`);
+    const response = await request.json();
+    if (response.status == 'reject') {
+        let ws = getSocket();
+        ws.send(JSON.stringify({mobile: response.mobile, status: 'reject'}));
+        getOrder();
+    }
+    else if (response.status == 'accept') {
+        let ws = getSocket();
+        ws.send(JSON.stringify({mobile: response.mobile, status: 'accept'}));
+        console.log('accepted');
     }
 }
 

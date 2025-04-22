@@ -10,6 +10,7 @@ if (isset($_GET['confirm'])) {
     $ordStatus = $_GET['confirm'];
     if ($ordStatus == 'reject') {
 
+
         $sql = "SELECT mobile FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";
         $result = mysqli_query($conn, $sql);
         $user_mobile = mysqli_fetch_assoc($result);
@@ -17,9 +18,15 @@ if (isset($_GET['confirm'])) {
         $sql = "UPDATE orders_status SET status = 'reject' WHERE dmobile = $mobile AND status = 'pending'";
         $result = mysqli_query($conn, $sql);
 
+        $sql = "UPDATE delivery_agent SET status='active' WHERE dmobile = $mobile";
+        mysqli_query($conn,$sql);
         
         echo json_encode(["status"=>"reject", "mobile"=>"$user_mobile[mobile]"]);
     } else if ($ordStatus == 'accept') {
+        $sql = "SELECT mobile FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";
+        $result = mysqli_query($conn, $sql);
+        $user_mobile = mysqli_fetch_assoc($result);
+
         $sql = "UPDATE orders_status SET status = 'accept' WHERE dmobile = $mobile AND status = 'pending'";
         $result = mysqli_query($conn, $sql);
 
@@ -29,7 +36,11 @@ if (isset($_GET['confirm'])) {
 
         $sql = "UPDATE orders SET dname = '$dname', dmobile = $mobile, status = 'accept' WHERE order_id = '$orderId[order_id]'";
         $result = mysqli_query($conn, $sql);
-        echo json_encode("accept");
+
+        $sql = "UPDATE delivery_agent SET status='assigned' WHERE dmobile = $mobile";
+        mysqli_query($conn,$sql);
+
+        echo json_encode(["status"=>"accept", "mobile"=>"$user_mobile[mobile]"]);
     }
 } else {
     $sql = "SELECT * FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";

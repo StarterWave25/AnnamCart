@@ -31,7 +31,7 @@ async function generateDash() {
                 agentState = 'active';
                 sessionStorage.setItem('status', 'active');
                 connectToServer(true);
-                location.href = 'activepage.html';
+                location.href = 'activepage.php';
             } else {
                 stateBtn.textContent = 'Inactive';
                 stateBtn.style.background = 'red';

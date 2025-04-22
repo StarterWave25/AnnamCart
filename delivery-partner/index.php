@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
-        header("Location: home.html");
+        header("Location: home.php");
     }
 ?>
 
@@ -38,6 +38,10 @@
             background: linear-gradient(130deg, var(--brown), #ff520271);
             color: var(--white);
             border: none;
+        }
+
+        .Option3{
+            display: none;
         }
     </style>
 </head>

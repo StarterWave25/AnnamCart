@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
+    header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +19,7 @@
 </head>
 
 <body>
-   <header></header>
+    <header></header>
     <div class="agentdasbord">
         <div class="todaydasbord">
             <div class="todayhead">

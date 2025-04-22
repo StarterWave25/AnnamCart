@@ -370,39 +370,39 @@ async function getAgentsCount(orderId) {
     let request = await fetch('data/data-order-status.php');
     let count = await request.json();
     assigningDelivery(orderId);
+}
 
-    async function assigningDelivery(orderId) {
-        let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
-        let response = await request.json();
 
-        if (await response !== 'missed') {
-            const socket = new WebSocket('ws://localhost:8080');
-            socket.addEventListener('open', () => {
-                console.log('Connection Succeed');
-                socket.send(JSON.stringify({
-                    mobile: headerUserMobile,
-                    role: 'user'
-                }));
-            });
+async function assigningDelivery(orderId) {
+    let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
+    let response = await request.json();
+    console.log(response);
+    if (await response !== 'missed') {
+        const socket = new WebSocket('ws://localhost:8080');
+        socket.addEventListener('open', () => {
+            console.log('Connection Succeed');
+            socket.send(JSON.stringify({
+                mobile: headerUserMobile,
+                role: 'user'
+            }));
+        });
 
-            socket.addEventListener('message', (event) => {
-                console.log(event.data);
-                if(event.data === 'reject'){
-                    assigningDelivery(orderId);
-                }
-            })
-
-            setTimeout(() => {
-                socket.send(response);
-            }, 1000);
-
-            setTimeout(() => {
+        socket.addEventListener('message', (event) => {
+            console.log(event.data);
+            if (event.data === 'reject') {
+                assigningDelivery(orderId);
+            }
+            else if (event.data === 'accept') {
                 window.location.href = `OrderedDetails.php?order-id=${orderId}`;
-            }, 2000);
-        }
-        else {
-            assigningDelivery(orderId);
-        }
+            }
+        })
+
+        setTimeout(() => {
+            socket.send(response);
+        }, 1000);
+    }
+    else {
+        assigningDelivery(orderId);
     }
 }
 

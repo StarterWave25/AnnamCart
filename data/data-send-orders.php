@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $location = $input['mapsLink'];
 
     $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, location, status) 
-        VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','pending')";
+            VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','pending')";
     mysqli_query($conn, $sql);
 
     $sql = "SELECT item_id,price,dprice FROM items WHERE res_id = $resId";
@@ -26,15 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row['item_id'] == $cartItem['itemId']) {
                 $query = "INSERT INTO order_items (order_id, item_id, quantity,price,dprice) 
-                VALUES ('$orderId',{$cartItem['itemId']},{$cartItem['quantity']},{$row['price']},{$row['dprice']})";
+                    VALUES ('$orderId',{$cartItem['itemId']},{$cartItem['quantity']},{$row['price']},{$row['dprice']})";
                 break;
             }
         }
         mysqli_query($conn, $query);
     }
     echo json_encode('Success');
-}
-
-else{
+} else {
     echo json_encode('Failure');
 }
