@@ -72,7 +72,7 @@ body {
     justify-content: flex-end;
 }
 
-.resturant-locations button {
+.resturant-locations a {
     width: 80%;
     height: 40%;
     font-size: 1.1rem;
@@ -184,7 +184,7 @@ body {
     color: var(--white);
 }
 
-.resturant-locations button:hover,
+.resturant-locations a:hover,
 .order-delivery-status button:hover {
     cursor: pointer;
     transform: scale(0.93);

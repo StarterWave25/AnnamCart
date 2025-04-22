@@ -18,10 +18,14 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="styles/orderdetails.css">
 </head>
 
 <body>
     <header></header>
+    <div class="order-details">
+        <!-- js code goes when order accepted -->
+    </div>
     <div class="ordercontainar">
         <!-- js code goes here -->
     </div>
