@@ -74,6 +74,7 @@ getOrder();
 
 async function orderDetailsForAgent() {
     document.querySelector('.ordercontainar').style.display = 'none';
+    document.querySelector('.order-details').style.display = 'flex';
 
     const request = await fetch('data/data-accepted.php');
     const restaurantDetails = await request.json();
@@ -118,10 +119,10 @@ async function orderDetailsForAgent() {
         orderDetailsItemsInnerHTML += `
             <div class="items-names-details">
                     <p>${item.item_name}(${item.quantity})</p>
-                    <input type="checkbox" name="" id="" required>
+                    <input type="checkbox" name="" id="">
             </div>
         `;
     });
-   
+
     document.querySelector('.food-items-details').innerHTML = orderDetailsItemsInnerHTML;
 }
