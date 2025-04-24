@@ -18,10 +18,23 @@ async function generateDash() {
         stateBtn = document.querySelector('.statechanger');
 
         if (agentState === 'active') {
-            connectToServer(true);
+            connectToServer(true, 'active');
             stateBtn.textContent = 'Active';
             stateBtn.style.background = 'green';
             agentState = 'active';
+        }
+
+        else if (agentState === 'assigned') {
+            if (location.href != 'http://localhost/AnnamCart/delivery-partner/activepage.php') {
+                location.href = 'activepage.php';
+            }
+        }
+
+        else if (agentState === 'requested') {
+            connectToServer(true, 'requested');
+            if (location.href != 'http://localhost/AnnamCart/delivery-partner/activepage.php') {
+                location.href = 'activepage.php';
+            }
         }
 
         stateBtn.addEventListener('click', () => {
@@ -29,47 +42,51 @@ async function generateDash() {
                 stateBtn.textContent = 'Active';
                 stateBtn.style.background = 'green';
                 agentState = 'active';
-                sessionStorage.setItem('status', 'active');
-                connectToServer(true);
+                connectToServer(true, 'active');
                 location.href = 'activepage.php';
             } else {
                 stateBtn.textContent = 'Inactive';
                 stateBtn.style.background = 'red';
                 agentState = 'inactive';
-                sessionStorage.setItem('status', 'inactive');
-                connectToServer(false);
+                connectToServer(false, 'inactive');
             }
         });
 
-    }, 50);
+    }, 100);
+}
 
-    function connectToServer(choice) {
-        if (choice) {
-            ws = new WebSocket('ws://localhost:8080');
-            ws.addEventListener('open', () => {
-                console.log('connected');
-                ws.send(JSON.stringify({
-                    mobile: dMobile,
-                    role: 'agent'
-                }));
-            });
 
-            ws.addEventListener('close', () => {
-                console.log('connection closed');
-            });
+function connectToServer(choice, status) {
+    if (choice) {
+        ws = new WebSocket('ws://localhost:8080');
+        ws.addEventListener('open', () => {
+            console.log('connected');
+            ws.send(JSON.stringify({
+                mobile: dMobile,
+                role: 'agent',
+                status
+            }));
+            sessionStorage.setItem('status', status);
+        });
 
-            ws.addEventListener('message', (event) => {
-                console.log(event.data);
-                getOrder();
-            });
+        ws.addEventListener('close', () => {
+            console.log('connection closed');
+        });
 
-        } else {
-            ws.close();
-        }
+        ws.addEventListener('message', (event) => {
+            console.log(event.data);
+            sessionStorage.setItem('status', 'requested');
+            getOrder();
+        });
+
+    } else {
+        ws.close();
+        sessionStorage.setItem('status', 'inactive');
     }
 }
 
-async function getState() {
+
+export async function getState() {
     return new Promise(async (resolve, reject) => {
         const request = await fetch(`data/data-status.php?dmobile=${dMobile}`);
         const response = await request.json();
@@ -77,8 +94,8 @@ async function getState() {
     });
 }
 
-export function getSocket(){
-    if(ws){
+export function getSocket() {
+    if (ws) {
         return ws;
     }
 }

@@ -15,12 +15,12 @@ wss.on('connection', (ws) => {
         }
         else if (data.role === 'agent') {
             agents.set(data.mobile, { ws, mobile: data.mobile });
-            setStatus('active', data.mobile);
+            setStatus(data.status, data.mobile);
         }
-        else if(data.status){
+        else if (data.status == 'accept' || data.status == 'reject') {
             users.forEach((user) => {
                 console.log(data.mobile);
-                if(user.mobile == data.mobile){
+                if (user.mobile == data.mobile) {
                     user.ws.send(data.status);
                 }
             });
@@ -38,7 +38,7 @@ wss.on('connection', (ws) => {
     ws.addEventListener('close', () => {
         agents.forEach((agent) => {
             if (agent.ws === ws) {
-                setStatus('inactive', agent.mobile);
+                checkStatus(agent.mobile);
                 agents.delete(agent);
             }
         });
@@ -46,6 +46,15 @@ wss.on('connection', (ws) => {
 });
 
 console.log('Socket started');
+
+async function checkStatus(mobile) {
+    const request = await fetch(`http://localhost/AnnamCart/delivery-partner/data/data-status.php?dmobile=${mobile}`);
+    const response = await request.json();
+    console.log(response);
+    if (response.status == 'active') {
+        setStatus('inactive', mobile);
+    }
+}
 
 
 async function setStatus(status, mobile) {
@@ -57,4 +66,5 @@ async function setStatus(status, mobile) {
         body: JSON.stringify(status)
     });
     const response = await request.json();
+    console.log(response);
 }

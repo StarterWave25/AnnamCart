@@ -2,6 +2,7 @@
 include 'conn.php';
 session_start();
 $mobile = $_SESSION['mobile'];
+$name = $_SESSION['username'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents("php://input"), true);
@@ -14,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resId = $input['resId'];
     $location = $input['mapsLink'];
 
-    $sql = "INSERT INTO orders (order_id, mobile, res_id, items, total, dtotal, location, status) 
-            VALUES ('$orderId',$mobile,$resId,$items,$total,$dummyTotal,'$location','pending')";
+    $sql = "INSERT INTO orders (order_id, mobile, username, res_id, items, total, dtotal, location, status) 
+            VALUES ('$orderId',$mobile,'$name',$resId,$items,$total,$dummyTotal,'$location','pending')";
     mysqli_query($conn, $sql);
 
     $sql = "SELECT item_id,price,dprice FROM items WHERE res_id = $resId";

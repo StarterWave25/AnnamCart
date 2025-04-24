@@ -10,9 +10,6 @@ try {
         $result = mysqli_query($conn, $sql);
         $deliveryAgent = mysqli_fetch_assoc($result);
         if (isset($deliveryAgent)) {
-            $sql = "UPDATE delivery_agent SET status='requested' WHERE dmobile={$deliveryAgent['dmobile']}";
-            mysqli_query($conn,$sql);
-
             $sql = "SELECT orders.*, restaurants.* FROM orders JOIN restaurants ON orders.res_id = restaurants.res_id WHERE order_id = '$orderId'";
             $result = mysqli_query($conn, $sql);
             $orderDetails = mysqli_fetch_assoc($result);

@@ -19,6 +19,8 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="styles/orderdetails.css">
+    <link rel="stylesheet" href="styles/customerdetails.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 
 <body>
@@ -28,6 +30,9 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     </div>
     <div class="ordercontainar">
         <!-- js code goes here -->
+    </div>
+    <div class="customer-deatils-container">
+        <!--js code goes here -->
     </div>
     <script src="script/header.js"></script>
     <script type="module" src="script/get-order.js"></script>
