@@ -395,7 +395,7 @@ async function assigningDelivery(orderId) {
             else if (event.data === 'accept') {
                 window.location.href = `OrderedDetails.php?order-id=${orderId}`;
             }
-        })
+        });
 
         setTimeout(() => {
             socket.send(response);

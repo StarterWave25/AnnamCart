@@ -1,7 +1,7 @@
 async function getOrderDetails() {
     let response = await fetch(`data/data-get-orders.php?order-id=${orderId}`);
     let orderedDetails = await response.json();
-    console.log(orderedDetails);
+    sessionStorage.setItem('orderId', JSON.stringify(orderedDetails.restaurant.order_id));
     let orderHTML = '';
     orderHTML = `
         <div class="left-section">
@@ -124,3 +124,63 @@ async function getOrderDetails() {
 }
 
 getOrderDetails();
+
+function forStatus() {
+    let usermobile = JSON.parse(sessionStorage.getItem('userMobile'));
+    const socket = new WebSocket('ws://localhost:8080');
+    socket.addEventListener('open', () => {
+        console.log('Connection Succeed');
+        socket.send(JSON.stringify({
+            mobile: usermobile,
+            role: 'user'
+        }));
+    });
+
+    socket.addEventListener('message', (event) => {
+        if (event.data === 'prepare') {
+            document.querySelector('.status-preparing>img').style.opacity = '1';
+        }
+        else if (event.data === 'picked') {
+            document.querySelector('.status-pickup>img').style.opacity = '1';
+        }
+        else if (event.data === 'delivered') {
+            document.querySelector('.status-delivered>img').style.opacity = '1';
+        }
+    });
+}
+
+async function statusFromBase(){
+    let orderId = JSON.parse(sessionStorage.getItem('orderId')) || '';
+    if(orderId !== ''){
+        let request = await fetch(`data/data-order-status.php?status-id=${orderId}`);
+        let response = await request.json();
+        if(response.status === 'prepare'){
+            document.querySelector('.status-preparing>img').style.opacity = '1';
+            forStatus();
+        }
+        else if(response.status === 'picked'){
+            document.querySelector('.status-preparing>img').style.opacity = '1';
+            setTimeout(() => {
+                document.querySelector('.status-pickup>img').style.opacity = '1';
+            }, 500);
+            forStatus();
+        }
+        else if (response.status === 'delivered') {
+            document.querySelector('.status-preparing>img').style.opacity = '1';
+            setTimeout(() => {
+                document.querySelector('.status-pickup>img').style.opacity = '1';
+            }, 500);
+            setTimeout(() => {
+                document.querySelector('.status-delivered>img').style.opacity = '1';
+            }, 1000);
+            forStatus();
+        }
+        else{
+            forStatus();
+        }
+    }
+}
+
+setTimeout(() => {
+    statusFromBase();
+}, 1000);

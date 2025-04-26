@@ -23,7 +23,15 @@ try {
         } else {
             echo json_encode("missed");
         }
-    } else {
+    }
+    else if(isset($_GET['status-id'])){
+        $orderId = $_GET['status-id'];
+        $sql = "SELECT status FROM orders WHERE order_id = '$orderId'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        echo json_encode($row);
+    }
+    else {
         $sql = "SELECT COUNT(*) FROM delivery_agent WHERE status = 'active'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
@@ -32,3 +40,4 @@ try {
 } catch (mysqli_sql_exception $e) {
     echo json_encode('error occured');
 }
+

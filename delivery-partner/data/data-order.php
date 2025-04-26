@@ -36,6 +36,22 @@ if (isset($_GET['confirm'])) {
         mysqli_query($conn, $sql);
 
         echo json_encode(["status" => "accept", "mobile" => "{$details['mobile']}"]);
+    }else if($ordStatus == 'prepare'){
+        $sql = "SELECT mobile,order_id FROM orders_status WHERE dmobile = $mobile AND status = 'accept'";
+        $result = mysqli_query($conn, $sql);
+        $details = mysqli_fetch_assoc($result);
+        echo json_encode($details);
+    }else if($ordStatus == 'picked'){
+        $sql = "SELECT mobile FROM orders WHERE dmobile = $mobile AND status = 'picked'";
+        $result = mysqli_query($conn, $sql);
+        $details = mysqli_fetch_assoc($result);
+        echo json_encode($details);
+    }
+    else if($ordStatus == 'delivered'){
+        $sql = "SELECT mobile, order_id FROM orders WHERE dmobile = $mobile AND status = 'delivered'";
+        $result = mysqli_query($conn, $sql);
+        $details = mysqli_fetch_assoc($result);
+        echo json_encode($details);
     }
 } else {
     $sql = "SELECT * FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";

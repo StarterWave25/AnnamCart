@@ -5,7 +5,6 @@ import {
 
 let dMobile = sessionStorage.getItem('dmobile');
 
-
 generateDash();
 let ws;
 
@@ -55,7 +54,6 @@ async function generateDash() {
     }, 100);
 }
 
-
 function connectToServer(choice, status) {
     if (choice) {
         ws = new WebSocket('ws://localhost:8080');
@@ -84,7 +82,6 @@ function connectToServer(choice, status) {
         sessionStorage.setItem('status', 'inactive');
     }
 }
-
 
 export async function getState() {
     return new Promise(async (resolve, reject) => {

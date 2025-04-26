@@ -17,11 +17,11 @@ async function setState() {
         orderDetailsForAgent();
     }
     else {
-        if (document.querySelector('.ordercontainar')){
+        if (document.querySelector('.ordercontainar')) {
             document.querySelector('.ordercontainar').innerHTML = 'You are waiting for orders !';
             document.querySelector('.ordercontainar').style.display = 'flex';
         }
-        if(document.querySelector('.customer-deatils-container')){
+        if (document.querySelector('.customer-deatils-container')) {
             document.querySelector('.customer-deatils-container').style.display = 'none';
         }
     }
@@ -120,7 +120,7 @@ async function orderDetailsForAgent() {
         paymentMethod();
     }
     else {
-
+        foodPreparing();
         let detailsHTML = `
         <div class="orderid-details">
             <div class="order-id">
@@ -177,7 +177,6 @@ async function orderDetailsForAgent() {
     }
 }
 
-
 async function checkItems() {
     const items = document.querySelectorAll('.check-items');
     let itemsChecked = false;
@@ -201,10 +200,12 @@ async function checkItems() {
     }
 }
 
-
 async function getCustomerDetails() {
     const request = await fetch('data/data-picked.php');
     const customerData = await request.json();
+    if(customerData){
+        orderPicked();
+    }
     let customerHTML = `<div class="customer-details">
                             <div class="customer-information">
                                 <div class="customer-banner">
@@ -247,7 +248,6 @@ async function getCustomerDetails() {
     });
 }
 
-
 async function paymentMethod() {
     const detailsContainer = document.querySelector('.customer-deatils-container');
     if (detailsContainer) {
@@ -266,14 +266,15 @@ async function paymentMethod() {
     const upiBtn = document.querySelector('.upi-btn');
 
     cashBtn.addEventListener('click', async () => {
-        confirmPayment(detailsContainer);
+        delivered();
+        await confirmPayment(detailsContainer);
     });
 
-    upiBtn.addEventListener('click', () => {
-        generateQR(detailsContainer);
+    upiBtn.addEventListener('click', async () => {
+        delivered();
+        await generateQR(detailsContainer);
     });
 }
-
 
 async function generateQR(detailsContainer) {
     const request = await fetch('data/data-picked.php?details=1');
@@ -298,7 +299,6 @@ async function generateQR(detailsContainer) {
     });
 }
 
-
 async function confirmPayment(detailsContainer) {
     const request = await fetch('data/data-arrived.php?status=delivered');
     const response = await request.json();
@@ -309,8 +309,32 @@ async function confirmPayment(detailsContainer) {
                 </div>    
             `;
         setTimeout(() => {
-            sessionStorage.setItem('status','active');
-            location.href='activepage.php';
+            sessionStorage.setItem('status', 'active');
+            location.href = 'activepage.php';
         }, 3000);
     }
+}
+
+async function foodPreparing() {
+    const request = await fetch(`data/data-order.php?confirm=prepare`);
+    const response = await request.json();
+    let umobile = response.mobile;
+    let ws = getSocket();
+    ws.send(JSON.stringify({ mobile: umobile, status: 'prepare' }));
+}
+
+async function orderPicked() {
+    const request = await fetch(`data/data-order.php?confirm=picked`);
+    const response = await request.json();
+    let umobile = response.mobile;
+    let ws = getSocket();
+    ws.send(JSON.stringify({ mobile: umobile, status: 'picked' }));
+}
+
+async function delivered(){
+    const request = await fetch(`data/data-order.php?confirm=delivered`);
+    const response = await request.json();
+    let umobile = response.mobile;
+    let ws = getSocket();
+    ws.send(JSON.stringify({ mobile: umobile, status: 'delivered' }));
 }
