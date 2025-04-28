@@ -8,33 +8,33 @@ async function getOrderDetails() {
             <div class="heading">
                 Order ID: ${orderedDetails.restaurant.order_id}
             </div>
-        <div class="food-details">
-            <div class="restaurant-name">
-            <h2>${orderedDetails.restaurant.res_name}</h2>
+            <div class="food-details">
+                <div class="restaurant-name">
+                <h2>${orderedDetails.restaurant.res_name}</h2>
+                </div>
+                <div class="date-time">
+                <p>Ordered on : ${orderedDetails.restaurant.Time}</p>
+                </div>
+                <div class="order-items-container">
+                
+                </div>
+                <div class="delivery-date">
+                <p>Delivered on: xxxxxxxxxxx</p>
+                </div>
+                <div class="delivery-agent">
+                <p>Delivered by: John Doe</p>
+                </div>
             </div>
-            <div class="date-time">
-            <p>Ordered on : ${orderedDetails.restaurant.Time}</p>
-            </div>
-            <div class="order-items-container">
-            
-            </div>
-            <div class="delivery-date">
-            <p>Delivered on: xxxxxxxxxxx</p>
-            </div>
-            <div class="delivery-agent">
-            <p>Delivered by: John Doe</p>
-            </div>
-        </div>
         </div>
         <div class="right-section">
-        <div class="upper-section">
+            <div class="upper-section">
             <div class="tracking-status">
-                <div class="status-circle status-ordered">
+                    <div class="status-circle status-ordered status-active">
                     <span class="status-border"></span>
                     <img src="img/check.png">
                     <p>Order Received</p>
                 </div>
-                <span class="tracking-route pickup"></span>
+                <span class="tracking-route pickup active"></span>
                 <div class="status-circle status-preparing">
                     <span class="status-border"></span>
                     <img src="img/check.png">
@@ -50,22 +50,7 @@ async function getOrderDetails() {
                 <div class="status-circle status-delivered">
                     <span class="status-border"></span>
                     <img src="img/check.png">
-                    <p>Order delivered</p>
-                </div>
-            </div>
-            <div class="map">
-                <div class="restaurant">
-                    <div class="image">
-                    <img src="img/place.png" alt="map-symbol">
-                    </div>
-                    <p>${orderedDetails.restaurant.res_name}</p>
-                </div>
-
-                <div class="user">
-                    <div class="image">
-                    <img src="img/place.png" alt="map-symbol">
-                    </div>
-                    <p>${orderedDetails.address.area}</p>
+                    <p>Order Delivered</p>
                 </div>
             </div>
 
@@ -126,6 +111,7 @@ async function getOrderDetails() {
 getOrderDetails();
 
 function forStatus() {
+    const trackingRoute = document.querySelectorAll('.tracking-route');
     let usermobile = JSON.parse(sessionStorage.getItem('userMobile'));
     const socket = new WebSocket('ws://localhost:8080');
     socket.addEventListener('open', () => {
@@ -138,44 +124,54 @@ function forStatus() {
 
     socket.addEventListener('message', (event) => {
         if (event.data === 'prepare') {
-            document.querySelector('.status-preparing>img').style.opacity = '1';
+            document.querySelector('.status-preparing').classList.add('status-active');
+            trackingRoute[0].classList.add('active');
         }
         else if (event.data === 'picked') {
-            document.querySelector('.status-pickup>img').style.opacity = '1';
+            document.querySelector('.status-pickup').classList.add('status-active');
+            trackingRoute[1].classList.add('active');
         }
         else if (event.data === 'delivered') {
-            document.querySelector('.status-delivered>img').style.opacity = '1';
+            document.querySelector('.status-delivered').classList.add('status-active');
+            trackingRoute[2].classList.add('active');
         }
     });
 }
 
-async function statusFromBase(){
+async function statusFromBase() {
+    const trackingRoute = document.querySelectorAll('.tracking-route');
     let orderId = JSON.parse(sessionStorage.getItem('orderId')) || '';
-    if(orderId !== ''){
+    if (orderId !== '') {
         let request = await fetch(`data/data-order-status.php?status-id=${orderId}`);
         let response = await request.json();
-        if(response.status === 'prepare'){
-            document.querySelector('.status-preparing>img').style.opacity = '1';
+        if (response.status === 'prepare') {
+            document.querySelector('.status-preparing').classList.add('status-active');
+            trackingRoute[0].classList.add('active');
             forStatus();
         }
-        else if(response.status === 'picked'){
-            document.querySelector('.status-preparing>img').style.opacity = '1';
+        else if (response.status === 'picked') {
+            document.querySelector('.status-preparing').classList.add('status-active');
+            trackingRoute[0].classList.add('active');
             setTimeout(() => {
-                document.querySelector('.status-pickup>img').style.opacity = '1';
-            }, 500);
-            forStatus();
-        }
-        else if (response.status === 'delivered') {
-            document.querySelector('.status-preparing>img').style.opacity = '1';
-            setTimeout(() => {
-                document.querySelector('.status-pickup>img').style.opacity = '1';
-            }, 500);
-            setTimeout(() => {
-                document.querySelector('.status-delivered>img').style.opacity = '1';
+                document.querySelector('.status-pickup').classList.add('status-active');
+                trackingRoute[1].classList.add('active');
             }, 1000);
             forStatus();
         }
-        else{
+        else if (response.status === 'delivered') {
+            document.querySelector('.status-preparing').classList.add('status-active');
+            trackingRoute[0].classList.add('active');
+            setTimeout(() => {
+                document.querySelector('.status-pickup').classList.add('status-active');
+                trackingRoute[1].classList.add('active');
+            }, 1000);
+            setTimeout(() => {
+                document.querySelector('.status-delivered').classList.add('status-active');
+                trackingRoute[2].classList.add('active');
+            }, 2000);
+            forStatus();
+        }
+        else {
             forStatus();
         }
     }

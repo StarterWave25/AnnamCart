@@ -6,11 +6,11 @@ body {
 }
 
 
-.gotoCart-popup{
+.gotoCart-popup {
   display: none;
 }
 
-.goback-btn{
+.goback-btn {
   position: fixed;
   top: 17vh;
   left: 24vh;
@@ -23,7 +23,7 @@ body {
   justify-content: center;
 }
 
-.goback-span{
+.goback-span {
   position: fixed;
   top: 17vh;
   left: 30vh;
@@ -32,11 +32,12 @@ body {
   font-weight: 400;
 }
 
-.goback-btn>img{
+.goback-btn>img {
   transform: rotate(180deg);
   width: 70%;
   height: 70%;
 }
+
 .ordered-details {
   background-color: white;
   width: 77%;
@@ -114,100 +115,48 @@ body {
 
 .right-section {
   width: 50%;
-  height: 60vh;
+  height: 70vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
-
-
 
 .upper-section {
-  height: 40%;
+  height: 33%;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.map {
-  display: none;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  width: 50%;
-  position: relative;
-}
-
-.map::after {
-  content: '';
-  position: absolute;
-  height: 63%;
-  width: 0;
-  border: 1.3px dashed gray;
-  top: 18%;
-  left: 5.5%;
-}
-
-.map>.restaurant,
-.map>.user {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 18%;
-  gap: 10px;
-}
-
-.image {
-  width: 12%;
-  height: 100%;
-  background-color: var(--brown);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.image>img {
-  width: 60%;
-  height: 60%;
-}
-
-.restaurant>p,
-.user>p {
-  width: 85%;
-  font-weight: 400;
-  font-size: 1rem;
-}
-
-.tracking-status{
+.tracking-status {
   width: 100%;
   height: 50%;
   display: flex;
   position: relative;
 }
 
-.tracking-route{
+.tracking-route {
   position: absolute;
   height: 1px;
   width: 20%;
-  background-color:rgb(0, 188, 0);
+  background-color: rgb(0, 188, 0);
   top: 12%;
 }
 
-.tracking-route.pickup{
+.tracking-route.pickup {
   left: 15%;
 }
 
-.tracking-route.prepare{
+.tracking-route.prepare {
   left: 40%;
 }
 
-.tracking-route.delivered{
+.tracking-route.delivered {
   left: 65%;
 }
 
-.status-circle{
+.status-circle {
   width: 25%;
   display: flex;
   align-items: center;
@@ -217,55 +166,56 @@ body {
   z-index: 100;
 }
 
-.status-border{
+.status-circle>.status-border {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   top: 15%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: transparent;
   border: 1px solid rgb(0, 188, 0);
   border-radius: 50%;
 }
 
 
-.status-circle>img{
+.status-circle>img {
   opacity: 0;
   width: 3.5vh;
   height: 3.5vh;
   aspect-ratio: 1/1;
 }
 
-.status-ordered>span{
+.status-circle>p {
+  font-size: .8rem;
+}
+
+.status-active>.status-border {
   border: 2px solid rgb(0, 188, 0);
 }
 
-.status-ordered>p{
+.status-active>p {
   color: rgb(0, 188, 0);
   font-weight: 500;
 }
 
-.status-ordered>img{
+.status-active>img {
   opacity: 1;
 }
 
-.tracking-route.pickup{
+.tracking-route.active {
   height: 2px;
 }
 
-.status-circle>p{
-  font-size: .8rem;
-}
-
 .buttons-container {
-  height: 25%;
-  display: flex;
+  height: 30%;
+  display: flex;;
   gap: 30px;
   width: 50%;
 }
 
 .buttons-container>button {
+  height: 90%;
   width: 40%;
   border-radius: 8px;
   cursor: pointer;

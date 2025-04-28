@@ -266,12 +266,10 @@ async function paymentMethod() {
     const upiBtn = document.querySelector('.upi-btn');
 
     cashBtn.addEventListener('click', async () => {
-        delivered();
         await confirmPayment(detailsContainer);
     });
 
     upiBtn.addEventListener('click', async () => {
-        delivered();
         await generateQR(detailsContainer);
     });
 }
@@ -306,8 +304,9 @@ async function confirmPayment(detailsContainer) {
         detailsContainer.innerHTML = `
                 <div class="confirm-container">
                     <h2>Order Successfully Delivered !</h2>
-                </div>    
+                </div>
             `;
+        delivered();
         setTimeout(() => {
             sessionStorage.setItem('status', 'active');
             location.href = 'activepage.php';
