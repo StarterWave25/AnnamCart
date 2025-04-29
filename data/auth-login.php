@@ -8,9 +8,13 @@ if (isset($_POST['submit'])) {
         exit();
     }
     try {
-        $sql = "SELECT * FROM users WHERE mobile=$mobile";
-        $result = mysqli_query($conn, $sql);
+        $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE mobile = ?");
+        mysqli_stmt_bind_param($stmt, "i", $mobile);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
         if ($row) {
             $_SESSION['username'] = $row['name'];
             $_SESSION['mobile'] = $row['mobile'];

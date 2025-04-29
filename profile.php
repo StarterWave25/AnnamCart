@@ -43,12 +43,6 @@
             <span class="profile-error"></span>
         </div>
 
-        <div class="address">
-            <label for="">Address:</label>
-            <input name="" id="profile-address" value="<?php echo $_SESSION['address'] ?>" readonly cols="6" class="user-addr">
-            <a class="profile-change" data-element="profile-address">Change</a>
-            <span class="profile-error"></span>
-        </div>
     </div>
     <script>
     </script>

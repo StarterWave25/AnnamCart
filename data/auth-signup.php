@@ -12,8 +12,12 @@ if (isset($_POST['submit'])) {
         exit();
     }
     try {
-        $sql = "INSERT INTO users (mobile, name) VALUES ($mobile,'$name')";
-        mysqli_query($conn, $sql);
+        $stmt = mysqli_prepare($conn, "INSERT INTO users (mobile, name) VALUES (?, ?)");
+        mysqli_stmt_bind_param($stmt, "is", $mobile, $name);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn); 
+
         $_SESSION['username'] = $name;
         $_SESSION['mobile'] = $mobile;
         $_SESSION['email'] = '';

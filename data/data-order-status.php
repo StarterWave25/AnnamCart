@@ -6,6 +6,7 @@ try {
         session_start();
         $name = $_SESSION['username'];
         $mobile = $_SESSION['mobile'];
+
         $sql = "SELECT * FROM delivery_agent WHERE status = 'active' ORDER BY RAND() LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $deliveryAgent = mysqli_fetch_assoc($result);
@@ -26,9 +27,17 @@ try {
     }
     else if(isset($_GET['status-id'])){
         $orderId = $_GET['status-id'];
-        $sql = "SELECT status FROM orders WHERE order_id = '$orderId'";
+
+        /* $sql = "SELECT status FROM orders WHERE order_id = '$orderId'";
         $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result); */
+
+        $stmt = mysqli_prepare($conn, "SELECT status FROM orders WHERE order_id = ?");
+        mysqli_stmt_bind_param($stmt, "s", $orderId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result);
+        
         echo json_encode($row);
     }
     else {
