@@ -67,11 +67,12 @@ async function getRestaurantData(restaurantId) {
         <span class="wait-animation wait-animation-${item.item_id}"></span>
       </div>
   `;
-    getAddBtnHTML(item.item_id);
+    getAddBtnHTML(Number(item.item_id));
   });
 
 
   async function getAddBtnHTML(itemId) {
+
     let quantity = undefined;
     let cartItems = await getQuantityStorage();
 
@@ -99,7 +100,7 @@ async function getRestaurantData(restaurantId) {
     const addBtn = document.querySelectorAll('.addBtn');
     addBtn.forEach((btn) => {
       let quantity = 1;
-      const itemId = btn.dataset.itemId;
+      const itemId = Number(btn.dataset.itemId);
       btn.addEventListener('click', async () => {
 
         if (userMobile) {

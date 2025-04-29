@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts/headfoot.js"></script>
+  <link rel="stylesheet" href="styles/popup.css">
   <style>
     nav ul>li:first-child {
       opacity: 1;
@@ -30,6 +31,21 @@
     <button class="search-btn"><img src="img/search.png" alt=""></button>
   </div>
 
+  <div class="restaurant-overlay"></div>
+  <div class="changeItems-popup">
+    <div class="info-touser">
+      <div class="heading">
+        <h2>Cart update required !</h2>
+      </div>
+      <p>Your cart has items from another restaurant.</p>
+      <p>Clear it to add new items?</p>
+    </div>
+    <div class="changeItems-btns">
+      <a><button class="login-btn no-btn">No</button></a>
+      <a><button class="signup-btn clear-btn">Clear</button></a>
+    </div>
+  </div>
+  
   <div class="popular-heading">
     <h3>Popular Searches</h3>
   </div>
@@ -41,7 +57,7 @@
   <div class="restaurant-container">
     <!--js code comes here-->
   </div>
-
+  
   <script src="scripts/search.js"></script>
 </body>
 

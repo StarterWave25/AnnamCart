@@ -27,7 +27,8 @@ async function getCart() {
     await cartItems.forEach(async (item) => {
         if (restaurantData) {
             await restaurantData.resBody.forEach((resItem) => {
-                if (resItem.item_id === item.itemId) {
+                let itemId = Number(resItem.item_id);
+                if (itemId === item.itemId) {
                     cartItemListHTML += `
                     <div class="item">
                         <h4>${resItem.item_name}</h4>

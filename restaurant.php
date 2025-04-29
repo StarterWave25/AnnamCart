@@ -76,7 +76,7 @@
   <script src="scripts/restaurant.js"></script>
 
   <script>
-    const restaurantId = <?php echo $restaurantId; ?>;
+    const restaurantId = Number(<?php echo $restaurantId; ?>);
     getRestaurantData(restaurantId);
   </script>
 </body>
