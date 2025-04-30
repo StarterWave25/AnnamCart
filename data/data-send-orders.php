@@ -16,10 +16,10 @@ try {
             $items = $input['items'];
             $resId = $input['resId'];
             $location = $input['mapsLink'];
-
+            $status = 'pending';
             $stmt = mysqli_prepare($conn, "INSERT INTO orders (order_id, mobile, username, res_id, items, total, dtotal, location, status) 
             VALUES (?,?,?,?,?,?,?,?,?)");
-            mysqli_stmt_bind_param($stmt, "sisiiiiss", $orderId, $mobile, $name, $resId, $items, $total, $dummyTotal, $location, 'pending');
+            mysqli_stmt_bind_param($stmt, "sisiiiiss", $orderId, $mobile, $name, $resId, $items, $total, $dummyTotal, $location, $status);
             mysqli_stmt_execute($stmt);
 
             // $sql = "INSERT INTO orders (order_id, mobile, username, res_id, items, total, dtotal, location, status)
@@ -36,7 +36,7 @@ try {
                 while ($row = mysqli_fetch_assoc($result)) {
                     if ($row['item_id'] == $cartItem['itemId']) {
                         $stmt = mysqli_prepare($conn, "INSERT INTO order_items (order_id, item_id, quantity,price,dprice) 
-                    VALUES ('$orderId',{$cartItem['itemId']},{$cartItem['quantity']},{$row['price']},{$row['dprice']})");
+                    VALUES (?,?,?,?,?)");
                         mysqli_stmt_bind_param($stmt, "siiii", $orderId, $cartItem['itemId'], $cartItem['quantity'], $row['price'], $row['dprice']);
                         // $query = "INSERT INTO order_items (order_id, item_id, quantity,price,dprice) 
                         //     VALUES ('$orderId',{$cartItem['itemId']},{$cartItem['quantity']},{$row['price']},{$row['dprice']})";
