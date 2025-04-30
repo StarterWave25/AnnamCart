@@ -3,6 +3,9 @@ fetch('data/most-ordered-items.php')
   .then((response) => {
     return response.json();
   })
+  .catch((error)=>{
+    document.body.innerHTML='Something went wrong !';
+  })
   .then((mostOrderedItems) => {
     mostOrderedItems.forEach((item) => {
       mostOrderedContainer.innerHTML += `
@@ -26,8 +29,7 @@ fetch('data/most-ordered-items.php')
             </div>
           </div>
         </div>
-      </a>
-        `
+      </a> `
     });
   });
 

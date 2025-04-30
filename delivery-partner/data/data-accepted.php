@@ -1,4 +1,5 @@
-<?php 
+<?php
+try {
   include '../../data/conn.php';
 
   session_start();
@@ -18,8 +19,10 @@
   $result = mysqli_query($conn, $sql);
   $items = [];
   while ($item = mysqli_fetch_assoc($result)) {
-      $items[] = $item;
+    $items[] = $item;
   }
-  
-  echo json_encode(["details"=>$details,"status"=>$status['status'], "items"=>$items]);
-?>
+
+  echo json_encode(["details" => $details, "status" => $status['status'], "items" => $items]);
+} catch (Exception $e) {
+  echo "Something went wrong !";
+}

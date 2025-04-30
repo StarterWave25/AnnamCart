@@ -203,7 +203,7 @@ async function checkItems() {
 async function getCustomerDetails() {
     const request = await fetch('data/data-picked.php');
     const customerData = await request.json();
-    if(customerData){
+    if (customerData) {
         orderPicked();
     }
     let customerHTML = `<div class="customer-details">
@@ -330,7 +330,7 @@ async function orderPicked() {
     ws.send(JSON.stringify({ mobile: umobile, status: 'picked' }));
 }
 
-async function delivered(){
+async function delivered() {
     const request = await fetch(`data/data-order.php?confirm=delivered`);
     const response = await request.json();
     let umobile = response.mobile;
