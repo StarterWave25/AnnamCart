@@ -77,6 +77,14 @@
                 <button class="save-address">Save</button>
             </div>
         </div>
+        <div class="message">
+            <h2>You have entered invalid details!</h2>
+            <h2>
+                <?php if (isset($_GET['error'])) {
+                    echo $_GET['error'];
+                } ?>
+            </h2>
+        </div>
     </div>
     <aside class="cart">
         <!--js code goes here -->

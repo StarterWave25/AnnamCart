@@ -281,24 +281,49 @@ function getItemPrice(quantity, price) {
 
 const saveAddBtn = document.querySelector('.save-address');
 saveAddBtn.addEventListener('click', sendAddress);
+
 const changeAddBtn = document.querySelector('.change-address');
 changeAddBtn.addEventListener('click', changeAddress);
+
 const roomNo = document.querySelector('.address-room-no');
 const area = document.querySelector('.address-area');
 const landmark = document.querySelector('.address-landmark');
 
 async function sendAddress() {
+    let check = false;
 
-    const request = await fetch('data/data-profile.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ roomNo: roomNo.value, area: area.value, landmark: landmark.value })
-    });
+    if (roomNo.value == '' || roomNo.value.length < 3 || area.value == '' || area.value.length < 3 || landmark.value == '' || landmark.value.length < 3) {
+        check = false;
+    } else {
+        check = true;
+    }
 
-    const response = await request.json();
-    getAddress(response);
+    if (check) {
+        const request = await fetch('data/data-profile.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ roomNo: roomNo.value, area: area.value, landmark: landmark.value })
+        });
+
+        const response = await request.json();
+        if (response.error === 'Error') {
+            document.querySelector('.message').style.opacity = '1';
+            setTimeout(() => {
+                document.querySelector('.message').style.opacity = '0';
+            }, 3000);
+        }
+        else {
+            getAddress(response);
+        }
+    }
+    else {
+        document.querySelector('.message').style.opacity = '1';
+        setTimeout(() => {
+            document.querySelector('.message').style.opacity = '0';
+        }, 3000);
+    }
 }
 
 function getAddress(response) {
