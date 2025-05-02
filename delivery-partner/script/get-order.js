@@ -266,13 +266,13 @@ async function paymentMethod() {
     const upiBtn = document.querySelector('.upi-btn');
 
     cashBtn.addEventListener('click', async () => {
-        await confirmPayment(detailsContainer);
         await fetch('data/data-ptype.php?mode=cash');
+        await confirmPayment(detailsContainer);
     });
 
     upiBtn.addEventListener('click', async () => {
-        await generateQR(detailsContainer);
         await fetch('data/data-ptype.php?mode=upi');
+        await generateQR(detailsContainer);
     });
 }
 
