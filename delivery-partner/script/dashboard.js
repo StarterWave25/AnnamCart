@@ -36,18 +36,20 @@ async function generateDash() {
             }
         }
 
-        stateBtn.addEventListener('click', () => {
+        stateBtn.addEventListener('click', async () => {
             if (agentState === 'inactive') {
                 stateBtn.textContent = 'Active';
                 stateBtn.style.background = 'green';
                 agentState = 'active';
                 connectToServer(true, 'active');
                 location.href = 'activepage.php';
+                await fetch('data/data-dactivity.php?mode=active');
             } else {
                 stateBtn.textContent = 'Inactive';
                 stateBtn.style.background = 'red';
                 agentState = 'inactive';
                 connectToServer(false, 'inactive');
+                await fetch('data/data-dactivity.php?mode=inactive');
             }
         });
 

@@ -22,66 +22,14 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <header></header>
     <div class="agentdasbord">
         <div class="todaydasbord">
-            <div class="todayhead">
-                <p>Today</p>
-            </div>
-            <div class="agentactivites">
-                <div class="orders">
-                    <div class="workname1">
-                        <p>Orders </p>
-                        <p>:</p>
-                    </div>
-                    <div class="workvalue">
-                        <h2>25</h2>
-                    </div>
-
-                </div>
-                <div class="orders">
-                    <div class="workname1">
-                        <p>Time</p>
-                        <p>:</p>
-                    </div>
-                    <div class="workvalue">
-                        <h2>5hrs</h2>
-                    </div>
-
-                </div>
-                <div class="orders">
-                    <div class="workname1">
-                        <p>Total earnings</p>
-                        <p>:</p>
-                    </div>
-                    <div class="workvalue">
-                        <h2>₹2521</h2>
-                    </div>
-
-                </div>
-            </div>
+            <!-- js code goes here -->
         </div>
         <div class="prsentorders">
-            <div class="today">
-                <p>Orders</p>
-            </div>
-            <div class="ordersdasbord">
-                <div class="order1">
-                    <p>Resturant_name</p>
-                    <p>Customer_name</p>
-                    <div class="ordermoney">
-                        <p>Total: </p>
-                        <h2> ₹2251</h2>
-                    </div>
-                </div>
-                <div class="order1">
-                    <p>Resturant_name</p>
-                    <p>Customer_name</p>
-                    <div class="ordermoney">
-                        <p>Total:</p>
-                        <h2>₹2251</h2>
-                    </div>
-                </div>
-            </div>
+            <!-- js code geos here -->
         </div>
     </div>
+
+    <script src="script/home.js"></script>
 </body>
 
 </html>
