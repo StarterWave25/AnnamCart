@@ -57,10 +57,10 @@ wss.on('connection', (ws) => {
 console.log('Socket started');
 
 async function checkStatus(mobile) {
-    await fetch('http://localhost/AnnamCart/delivery-partner/data/data-dactivity.php?mode=inactive');
     const request = await fetch(`http://localhost/AnnamCart/delivery-partner/data/data-status.php?dmobile=${mobile}`);
     const response = await request.json();
     if (response.status == 'active') {
+        await fetch('http://localhost/AnnamCart/delivery-partner/data/data-dactivity.php?mode=inactive');
         setStatus('inactive', mobile);
     }
 }
