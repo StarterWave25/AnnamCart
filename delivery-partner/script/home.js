@@ -31,18 +31,25 @@ async function getRecentOrders() {
 
 async function getTodayActivity() {
 
-  let response = await fetch('data/data-recent-orders.php?mode=order');
+  let response = await fetch('data/data-recent-orders.php?mode=cash');
   let orders = await response.json();
 
   let total = 0;
-  let noOrders = 0;
   orders.forEach(order => {
     total += parseInt(order.total);
-    noOrders++;
   });
 
   let timeResponse = await fetch('data/data-recent-orders.php?mode=time');
   let time = await timeResponse.json();
+
+  let numberResponse = await fetch('data/data-recent-orders.php');
+  let Orders = await numberResponse.json();
+  let noOrders = 0;
+  Orders.forEach(order => {
+    noOrders++;
+  });
+
+  console.log(Orders);
 
   let activityHTML = `
     <div class="todayhead">

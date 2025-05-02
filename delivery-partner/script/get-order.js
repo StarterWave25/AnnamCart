@@ -267,10 +267,12 @@ async function paymentMethod() {
 
     cashBtn.addEventListener('click', async () => {
         await confirmPayment(detailsContainer);
+        await fetch('data/data-ptype.php?mode=cash');
     });
 
     upiBtn.addEventListener('click', async () => {
         await generateQR(detailsContainer);
+        await fetch('data/data-ptype.php?mode=upi');
     });
 }
 
