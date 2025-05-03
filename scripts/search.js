@@ -15,10 +15,12 @@ function getPopularItems() {
 
     const params = new URLSearchParams(window.location.search);
     const query = params.get('query');
-    if (query.length > 1) {
-        searchAction(query);
+    if (query) {
+        if (query.length > 1) {
+            searchAction(query);
+        }
     }
-    
+
     fetch('data/search.php').then((response) => {
         return response.json();
     })
