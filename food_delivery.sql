@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2025 at 01:42 PM
+-- Generation Time: May 03, 2025 at 12:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -73,7 +73,13 @@ INSERT INTO `delivery_activity` (`id`, `dmobile`, `start_time`, `end_time`, `dur
 (73, '9398927019', '2025-05-02 13:26:18', NULL, 0, '2025-05-02'),
 (74, '9398927019', '2025-05-02 13:26:47', NULL, 0, '2025-05-02'),
 (75, '9398927019', '2025-05-02 13:30:28', NULL, 0, '2025-05-02'),
-(76, '9398927019', '2025-05-02 13:41:10', NULL, 0, '2025-05-02');
+(76, '9398927019', '2025-05-02 13:41:10', NULL, 0, '2025-05-02'),
+(77, '9398927019', '2025-05-02 13:47:38', '2025-05-02 13:50:27', 169, '2025-05-02'),
+(78, '9398927019', '2025-05-03 11:41:10', '2025-05-03 11:41:49', 39, '2025-05-03'),
+(79, '9398927019', '2025-05-03 11:41:49', NULL, 0, '2025-05-03'),
+(80, '9398927019', '2025-05-03 12:32:47', '2025-05-03 12:32:49', 2, '2025-05-03'),
+(81, '9398927019', '2025-05-03 12:32:50', '2025-05-03 12:39:15', 385, '2025-05-03'),
+(82, '9398927019', '2025-05-03 12:39:18', NULL, 0, '2025-05-03');
 
 -- --------------------------------------------------------
 
@@ -193,19 +199,17 @@ CREATE TABLE `orders` (
   `dmobile` bigint(10) NOT NULL,
   `location` longtext NOT NULL,
   `status` text NOT NULL,
-  `Time` datetime NOT NULL DEFAULT current_timestamp()
+  `Time` datetime NOT NULL DEFAULT current_timestamp(),
+  `delivered_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `Time`) VALUES
-('ORD777777T2263066', 7777777777, 'jesari', 'cash', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:57:43'),
-('ORD7777A7SE529165', 7777777777, 'jesari', '', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:45:29'),
-('ORD7777I7NH554115', 7777777777, 'jesari', '', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:45:54'),
-('ORD7777SDP2076288', 7777777777, 'jesari', 'cash', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:37:56'),
-('ORD7777VNGS101012', 7777777777, 'jesari', 'upi', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:38:21');
+INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `Time`, `delivered_time`) VALUES
+('ORD7777CIJU835129', 7777777777, 'jesari', 'cash', 6903, 1, 65, 97, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-03 16:10:35', '2025-05-03 16:10:57'),
+('ORD7777JKYG089714', 7777777777, 'jesari', 'cash', 6903, 1, 65, 97, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-03 16:14:49', '2025-05-03 16:14:49');
 
 -- --------------------------------------------------------
 
@@ -232,11 +236,8 @@ CREATE TABLE `orders_status` (
 --
 
 INSERT INTO `orders_status` (`sno`, `order_id`, `dmobile`, `res_name`, `res_location`, `username`, `mobile`, `location`, `total`, `status`, `time`) VALUES
-(299, 'ORD7777SDP2076288', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:37:56'),
-(300, 'ORD7777VNGS101012', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:38:21'),
-(301, 'ORD7777A7SE529165', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:45:29'),
-(302, 'ORD7777I7NH554115', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:45:54'),
-(303, 'ORD777777T2263066', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:57:43');
+(310, 'ORD7777CIJU835129', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 65, 'delivered', '2025-05-03 16:10:35'),
+(311, 'ORD7777JKYG089714', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 65, 'delivered', '2025-05-03 16:14:49');
 
 -- --------------------------------------------------------
 
@@ -259,16 +260,8 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`sno`, `order_id`, `item_id`, `quantity`, `price`, `dprice`, `created at`) VALUES
-(2179, 'ORD7777SDP2076288', 713, 1, 50, 90, '2025-05-02 16:37:56'),
-(2180, 'ORD7777SDP2076288', 722, 1, 110, 160, '2025-05-02 16:37:56'),
-(2181, 'ORD7777VNGS101012', 713, 1, 50, 90, '2025-05-02 16:38:21'),
-(2182, 'ORD7777VNGS101012', 722, 1, 110, 160, '2025-05-02 16:38:21'),
-(2183, 'ORD7777A7SE529165', 713, 1, 50, 90, '2025-05-02 16:45:29'),
-(2184, 'ORD7777A7SE529165', 722, 1, 110, 160, '2025-05-02 16:45:29'),
-(2185, 'ORD7777I7NH554115', 713, 1, 50, 90, '2025-05-02 16:45:54'),
-(2186, 'ORD7777I7NH554115', 722, 1, 110, 160, '2025-05-02 16:45:54'),
-(2187, 'ORD777777T2263066', 713, 1, 50, 90, '2025-05-02 16:57:43'),
-(2188, 'ORD777777T2263066', 722, 1, 110, 160, '2025-05-02 16:57:43');
+(2195, 'ORD7777CIJU835129', 707, 1, 65, 97, '2025-05-03 16:10:35'),
+(2196, 'ORD7777JKYG089714', 707, 1, 65, 97, '2025-05-03 16:14:49');
 
 -- --------------------------------------------------------
 
@@ -449,7 +442,7 @@ ALTER TABLE `delivery_activities`
 -- AUTO_INCREMENT for table `delivery_activity`
 --
 ALTER TABLE `delivery_activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `most_ordered_items`
@@ -461,13 +454,13 @@ ALTER TABLE `most_ordered_items`
 -- AUTO_INCREMENT for table `orders_status`
 --
 ALTER TABLE `orders_status`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2189;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2197;
 
 --
 -- AUTO_INCREMENT for table `search_items`
