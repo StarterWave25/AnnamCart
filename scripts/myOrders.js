@@ -2,10 +2,15 @@ async function getOrdersData() {
     const response = await fetch('data/data-get-orders.php');
     const ordersData = await response.json();
 
-    console.log(ordersData);
-
     let ordersHTML = '';
     ordersData.forEach((order) => {
+        let dTime = '';
+        if( order.Time !== order.delivered_time ){
+            dTime = order.delivered_time;
+        }
+        else{
+            dTime = 'not delivered yet';
+        }
         ordersHTML += `
             <div class="order">
                 <div class="order-details">
@@ -17,7 +22,7 @@ async function getOrdersData() {
 
                 <div class="reorder-options">
                     <div class="delivered-date">
-                        <p>Delivery on : (comes from delivery partner)</p>
+                        <p>Delivery on : ${dTime}</p>
                     </div>
                     <div class="reorder-button">
                         <a href=""><button class="reorder-btn">Reorder</button></a>
