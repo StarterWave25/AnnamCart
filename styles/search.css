@@ -58,12 +58,12 @@ body {
 
 
 .restaurant-container {
-  width: 100%;
+  width: 90%;
   display: none;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-auto-rows: 300px;
   margin: 20px 0;
-  row-gap: 20px;
+  gap: 20px 100px;
   align-items: center;
   justify-content: center;
 }
@@ -80,12 +80,11 @@ body {
 .restaurant-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--peach);
+  background-color: white;
   width: 90%;
   height: 90%;
   border-radius: 25px;
   align-items: center;
-  border: 1px solid var(--brown);
   justify-content: space-around;
   justify-self: center;
 }
@@ -93,7 +92,7 @@ body {
 .heading {
   width: 90%;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   height: 20%;
   display: flex;
   align-items: end;
@@ -110,12 +109,11 @@ body {
 .res-name-img-con>img {
   width: 90%;
   border-radius: 20px;
-  border: 1px solid var(--brown);
 }
 
 .res-name-img-con {
   width: 60%;
-  height: 80%;
+  height: 100%;
   display: flex;
 }
 
@@ -124,8 +122,8 @@ body {
   align-items: left;
   justify-content: space-between;
   flex-direction: column;
-  width: 35%;
-  height: 80%;
+  width: 40%;
+  height: 100%;
 }
 
 .res-details>.review {
@@ -149,23 +147,23 @@ body {
 }
 
 .res-details>h2 {
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: var(--brown);
 }
 
 .res-details>h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--brown);
 }
 
 .res-details>button {
-  background-color: var(--brown);
+  background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
   color: white;
-  border-radius: 10px;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  font-size: .8rem;
   cursor: pointer;
-  width: 70%;
-  height: 25%;
+  width: 48%;
+  height: 20%;
   display: flex;
   align-items: center;
   justify-content: center;

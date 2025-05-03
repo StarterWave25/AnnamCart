@@ -85,14 +85,14 @@ async function searchAction(query) {
     searchItems.forEach((searchItem) => {
         restaurantContainer.innerHTML += `
             <div class="restaurant-card">
-                <div class="heading">
-                    <h2>${searchItem.res_name}</h2>
-                </div>
                 <div class="food-details">
                     <div class="res-name-img-con">
                         <img src="img/meals.jpg" alt="">
                     </div>
                     <div class="res-details">
+                        <div class="heading">
+                            <h2>${searchItem.res_name}</h2>
+                        </div>
                         <h3>${searchItem.item_name}</h3>
                         <h2>₹${searchItem.price}</h2>
                         <div class="review">
