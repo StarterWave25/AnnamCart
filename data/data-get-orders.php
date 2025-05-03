@@ -58,7 +58,7 @@ try {
         $orders[] = $row;
     } */
 
-            $stmt = mysqli_prepare($conn, "SELECT orders.*, restaurants.* FROM orders JOIN restaurants ON orders.res_id = restaurants.res_id WHERE mobile = ? ORDER BY time DESC");
+            $stmt = mysqli_prepare($conn, "SELECT orders.*, restaurants.* FROM orders JOIN restaurants ON orders.res_id = restaurants.res_id WHERE mobile = ? ORDER BY Time DESC");
             mysqli_stmt_bind_param($stmt, "i", $mobile);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
@@ -71,5 +71,5 @@ try {
         }
     }
 } catch (Exception $e) {
-    echo "Something went wrong !";
+    echo "Something went wrong ! $e";
 }

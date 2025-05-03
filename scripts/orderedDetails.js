@@ -2,6 +2,15 @@ async function getOrderDetails() {
     let response = await fetch(`data/data-get-orders.php?order-id=${orderId}`);
     let orderedDetails = await response.json();
     sessionStorage.setItem('orderId', JSON.stringify(orderedDetails.restaurant.order_id));
+
+    console.log(orderedDetails);
+    let dTime = '';
+    if (orderedDetails.restaurant.Time !== orderedDetails.restaurant.delivered_time) {
+        dTime = orderedDetails.restaurant.delivered_time;
+    }
+    else {
+        dTime = 'not delivered yet';
+    }
     let orderHTML = '';
     orderHTML = `
         <div class="left-section">
@@ -19,10 +28,10 @@ async function getOrderDetails() {
                 
                 </div>
                 <div class="delivery-date">
-                <p>Delivered on: xxxxxxxxxxx</p>
+                <p>Delivered on: ${dTime}</p>
                 </div>
                 <div class="delivery-agent">
-                <p>Delivered by: John Doe</p>
+                <p>Delivered by: ${orderedDetails.restaurant.dname}</p>
                 </div>
             </div>
         </div>
