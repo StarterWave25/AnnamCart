@@ -3,8 +3,8 @@ fetch('data/most-ordered-items.php')
   .then((response) => {
     return response.json();
   })
-  .catch((error)=>{
-    document.body.innerHTML='Something went wrong !';
+  .catch((error) => {
+    document.body.innerHTML = 'Something went wrong !';
   })
   .then((mostOrderedItems) => {
     mostOrderedItems.forEach((item) => {
@@ -41,7 +41,7 @@ fetch('data/restaurants.php')
     return response.json();
   })
   .then((topRestaurants) => {
-   topRestaurants[0].forEach((restaurant) => {
+    topRestaurants[0].forEach((restaurant) => {
       restaurantsContainer.innerHTML += `
         <a href="restaurant.php?restaurant-id=${restaurant.res_id}" class="restaurant-info">
             <div class="restaurant-photo">
@@ -63,32 +63,38 @@ fetch('data/restaurants.php')
     });
   });
 
-  async function getTopPicks() {
+async function getTopPicks() {
 
-    const request = await fetch('data/data-toppicks.php');
-    const response = await request.json();
+  const request = await fetch('data/data-toppicks.php');
+  const response = await request.json();
 
-    console.log(response);
-
-    let topPicksHTML = '';
-    response.forEach((item) => {
-      topPicksHTML += `
-      <div class="top-food-info">
-        <a href="restaurant.php?restaurant-id=${item.res_id}" class="top-food-image">
-          <img src="img/topPick.jpeg"
-            alt="">
-        </a>
+  let topPicksHTML = '';
+  response.forEach((item) => {
+    topPicksHTML += `
+      <div class="top-food-info" data-item-name="${item.item_name}">
+        <div class="top-food-image">
+          <img src="img/topPick.jpeg" alt="">
+        </div>
         <div class="top-food-name">
           <p>${item.item_name}</p>
         </div>
       </div>
     `;
+  });
+
+  document.querySelector('.top-items').innerHTML = topPicksHTML;
+
+  const topPicksCard = document.querySelectorAll('.top-food-info');
+  if (topPicksCard) {
+    topPicksCard.forEach((card) => {
+      card.addEventListener('click', () => {
+        const itemName = card.dataset.itemName;
+        location.href = `search.html?query=${itemName}`;
+      });
     });
-
-    document.querySelector('.top-items').innerHTML = topPicksHTML;
-    
   }
+}
 
-  getTopPicks();
-  
+getTopPicks();
+
 

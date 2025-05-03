@@ -361,8 +361,6 @@ function generateOrderID() {
     return `ORD${userMobile.slice(-4)}${randomStr}${timestamp}`;
 }
 
-
-
 async function orderFood() {
 
     let addressChecked = await checkAddAddress();

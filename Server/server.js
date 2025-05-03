@@ -60,6 +60,7 @@ async function checkStatus(mobile) {
     const request = await fetch(`http://localhost/AnnamCart/delivery-partner/data/data-status.php?dmobile=${mobile}`);
     const response = await request.json();
     if (response.status == 'active') {
+        await fetch('http://localhost/AnnamCart/delivery-partner/data/data-dactivity.php?mode=inactive');
         setStatus('inactive', mobile);
     }
 }

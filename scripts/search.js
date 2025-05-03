@@ -7,10 +7,18 @@ window.addEventListener('load', () => {
 });
 
 function getPopularItems() {
+
     restaurantContainer.style.display = 'none';
     popularContainer.style.display = 'grid';
     popularHeading.style.display = 'flex';
     popularContainer.innerHTML = '';
+
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('query');
+    if (query.length > 1) {
+        searchAction(query);
+    }
+    
     fetch('data/search.php').then((response) => {
         return response.json();
     })

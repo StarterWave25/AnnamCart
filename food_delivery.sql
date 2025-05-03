@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2025 at 04:32 PM
+-- Generation Time: May 02, 2025 at 01:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,45 @@ CREATE TABLE `delivery_activities` (
   `time` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery_activity`
+--
+
+CREATE TABLE `delivery_activity` (
+  `id` int(11) NOT NULL,
+  `dmobile` varchar(15) DEFAULT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `duration_seconds` int(11) DEFAULT 0,
+  `activity_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `delivery_activity`
+--
+
+INSERT INTO `delivery_activity` (`id`, `dmobile`, `start_time`, `end_time`, `duration_seconds`, `activity_date`) VALUES
+(59, '9398927019', '2025-05-02 12:51:33', '2025-05-02 12:51:53', 20, '2025-05-02'),
+(60, '9398927019', '2025-05-02 12:51:54', NULL, 0, '2025-05-02'),
+(61, '9398927019', '2025-05-02 13:02:28', '2025-05-02 13:04:47', 139, '2025-05-02'),
+(62, '9398927019', '2025-05-02 13:04:48', NULL, 0, '2025-05-02'),
+(63, '9398927019', '2025-05-02 13:04:50', NULL, 0, '2025-05-02'),
+(64, '9398927019', '2025-05-02 13:04:53', NULL, 0, '2025-05-02'),
+(65, '9398927019', '2025-05-02 13:04:54', NULL, 0, '2025-05-02'),
+(66, '9398927019', '2025-05-02 13:04:55', NULL, 0, '2025-05-02'),
+(67, '9398927019', '2025-05-02 13:05:09', '2025-05-02 13:21:28', 979, '2025-05-02'),
+(68, '9398927019', '2025-05-02 13:05:10', '2025-05-02 13:05:11', 1, '2025-05-02'),
+(69, '9398927019', '2025-05-02 13:05:12', '2025-05-02 13:20:17', 905, '2025-05-02'),
+(70, '9398927019', '2025-05-02 13:21:43', NULL, 0, '2025-05-02'),
+(71, '9398927019', '2025-05-02 13:22:15', '2025-05-02 13:22:24', 9, '2025-05-02'),
+(72, '9398927019', '2025-05-02 13:26:11', '2025-05-02 13:26:17', 6, '2025-05-02'),
+(73, '9398927019', '2025-05-02 13:26:18', NULL, 0, '2025-05-02'),
+(74, '9398927019', '2025-05-02 13:26:47', NULL, 0, '2025-05-02'),
+(75, '9398927019', '2025-05-02 13:30:28', NULL, 0, '2025-05-02'),
+(76, '9398927019', '2025-05-02 13:41:10', NULL, 0, '2025-05-02');
 
 -- --------------------------------------------------------
 
@@ -145,6 +184,7 @@ CREATE TABLE `orders` (
   `order_id` varchar(17) NOT NULL,
   `mobile` bigint(10) NOT NULL,
   `username` text NOT NULL,
+  `ptype` varchar(5) NOT NULL,
   `res_id` int(11) NOT NULL,
   `items` int(11) NOT NULL,
   `total` int(11) NOT NULL,
@@ -160,10 +200,12 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `mobile`, `username`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `Time`) VALUES
-('ORD9040AMLR180873', 9014709040, 'Harsha Vardhan', 6903, 3, 260, 390, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6868159+83.2184815', 'delivered', '2025-04-24 15:36:20'),
-('ORD9040GRYV864676', 9014709040, 'Harsha Vardhan', 6903, 3, 260, 390, '', 0, 'https://www.google.com/maps/place/17.6868159+83.2184815', 'pending', '2025-04-24 15:14:24'),
-('ORD9040XZOB771917', 9014709040, 'Harsha Vardhan', 6903, 3, 260, 390, '', 0, 'https://www.google.com/maps/place/17.6868159+83.2184815', 'pending', '2025-04-24 15:12:51');
+INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `Time`) VALUES
+('ORD777777T2263066', 7777777777, 'jesari', 'cash', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:57:43'),
+('ORD7777A7SE529165', 7777777777, 'jesari', '', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:45:29'),
+('ORD7777I7NH554115', 7777777777, 'jesari', '', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:45:54'),
+('ORD7777SDP2076288', 7777777777, 'jesari', 'cash', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:37:56'),
+('ORD7777VNGS101012', 7777777777, 'jesari', 'upi', 6902, 2, 160, 250, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-02 16:38:21');
 
 -- --------------------------------------------------------
 
@@ -190,32 +232,11 @@ CREATE TABLE `orders_status` (
 --
 
 INSERT INTO `orders_status` (`sno`, `order_id`, `dmobile`, `res_name`, `res_location`, `username`, `mobile`, `location`, `total`, `status`, `time`) VALUES
-(227, 'ORD9040XZOB771917', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:12:52'),
-(228, 'ORD9040XZOB771917', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:12:54'),
-(229, 'ORD9040GRYV864676', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:24'),
-(230, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:29'),
-(231, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:32'),
-(232, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:36'),
-(233, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:39'),
-(234, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:43'),
-(235, 'ORD9040GRYV864676', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:14:58'),
-(236, 'ORD9040GRYV864676', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:15:04'),
-(237, 'ORD9040GRYV864676', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:15:25'),
-(238, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:20'),
-(239, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:25'),
-(240, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:28'),
-(241, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:31'),
-(242, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:34'),
-(243, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:38'),
-(244, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:41'),
-(245, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:44'),
-(246, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:47'),
-(247, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:36:59'),
-(248, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:37:02'),
-(249, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:37:22'),
-(250, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:37:26'),
-(251, 'ORD9040AMLR180873', 9014709040, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'reject', '2025-04-24 15:37:32'),
-(252, 'ORD9040AMLR180873', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 260, 'accept', '2025-04-24 15:37:35');
+(299, 'ORD7777SDP2076288', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:37:56'),
+(300, 'ORD7777VNGS101012', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:38:21'),
+(301, 'ORD7777A7SE529165', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:45:29'),
+(302, 'ORD7777I7NH554115', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:45:54'),
+(303, 'ORD777777T2263066', 9398927019, 'Southern Spice', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 160, 'delivered', '2025-05-02 16:57:43');
 
 -- --------------------------------------------------------
 
@@ -238,15 +259,16 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`sno`, `order_id`, `item_id`, `quantity`, `price`, `dprice`, `created at`) VALUES
-(2038, 'ORD9040XZOB771917', 705, 1, 70, 100, '2025-04-24 15:12:51'),
-(2039, 'ORD9040XZOB771917', 719, 1, 90, 140, '2025-04-24 15:12:51'),
-(2040, 'ORD9040XZOB771917', 720, 1, 100, 150, '2025-04-24 15:12:51'),
-(2041, 'ORD9040GRYV864676', 705, 1, 70, 100, '2025-04-24 15:14:24'),
-(2042, 'ORD9040GRYV864676', 719, 1, 90, 140, '2025-04-24 15:14:24'),
-(2043, 'ORD9040GRYV864676', 720, 1, 100, 150, '2025-04-24 15:14:24'),
-(2044, 'ORD9040AMLR180873', 705, 1, 70, 100, '2025-04-24 15:36:20'),
-(2045, 'ORD9040AMLR180873', 719, 1, 90, 140, '2025-04-24 15:36:20'),
-(2046, 'ORD9040AMLR180873', 720, 1, 100, 150, '2025-04-24 15:36:20');
+(2179, 'ORD7777SDP2076288', 713, 1, 50, 90, '2025-05-02 16:37:56'),
+(2180, 'ORD7777SDP2076288', 722, 1, 110, 160, '2025-05-02 16:37:56'),
+(2181, 'ORD7777VNGS101012', 713, 1, 50, 90, '2025-05-02 16:38:21'),
+(2182, 'ORD7777VNGS101012', 722, 1, 110, 160, '2025-05-02 16:38:21'),
+(2183, 'ORD7777A7SE529165', 713, 1, 50, 90, '2025-05-02 16:45:29'),
+(2184, 'ORD7777A7SE529165', 722, 1, 110, 160, '2025-05-02 16:45:29'),
+(2185, 'ORD7777I7NH554115', 713, 1, 50, 90, '2025-05-02 16:45:54'),
+(2186, 'ORD7777I7NH554115', 722, 1, 110, 160, '2025-05-02 16:45:54'),
+(2187, 'ORD777777T2263066', 713, 1, 50, 90, '2025-05-02 16:57:43'),
+(2188, 'ORD777777T2263066', 722, 1, 110, 160, '2025-05-02 16:57:43');
 
 -- --------------------------------------------------------
 
@@ -327,9 +349,12 @@ INSERT INTO `users` (`mobile`, `name`, `email`, `room_no`, `area`, `landmark`, `
 (6304506106, 'PRASANTH', '', '12-2', 'railway colony,tirupati', 'NTR auto stand', '2025-03-31 16:18:53'),
 (7187270173, 'reddy', '', 'wwa', 'sgfaf', 'gds', '2025-03-31 19:14:58'),
 (7729842970, 'K Varalakshmi', '', 'Room no 2332', 'Varaha Nivasam', 'Near Vengamamba Annaprasadham', '2025-03-30 20:57:34'),
+(7777777777, 'jesari', 'kjflja@gmi.com', 'aaasda', 'asdf', 'asslkdfadczd', '2025-04-29 11:35:10'),
 (8341734115, 'mohan', '', 'efevbfv', 'efevffv', 'evfevfefv', '2025-04-07 11:32:28'),
 (9014709040, 'Harsha Vardhan', 'harsha@gmail.com', 'Room no 6969', 'Vishnu Nivasam', 'Near Railway station', '2025-03-02 10:27:18'),
+(9090909090, 'jlfsflka', '', '', '', '', '2025-04-29 11:22:38'),
 (9398927019, 'Prudvi', 'Prudvi@ceo.com', '5-302, bharat bekary line', 'sri nagar colony, bethamcherla', 'manohar store', '2025-03-23 11:46:34'),
+(9494801709, 'venki', '', 'xfedx', 'rbgr', 'bgr', '2025-04-29 06:48:06'),
 (9515219340, 'K PRASAD', '', 'K.T Road', 'Tirupati', 'TTD AD Building', '2025-04-21 14:29:55'),
 (9550744529, 'Pulivendula vijay', '', '2/168', 'kt road ', 'saimedagate', '2025-03-31 19:04:12'),
 (9848247279, 'jagan', 'jaganachari2006@gmail.com', 'hghj', 'hjvjy', 'yfyvjh', '2025-03-28 22:08:36');
@@ -344,6 +369,12 @@ INSERT INTO `users` (`mobile`, `name`, `email`, `room_no`, `area`, `landmark`, `
 ALTER TABLE `delivery_activities`
   ADD PRIMARY KEY (`sno`),
   ADD KEY `dmobile` (`dmobile`);
+
+--
+-- Indexes for table `delivery_activity`
+--
+ALTER TABLE `delivery_activity`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `delivery_agent`
@@ -415,6 +446,12 @@ ALTER TABLE `delivery_activities`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `delivery_activity`
+--
+ALTER TABLE `delivery_activity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
 -- AUTO_INCREMENT for table `most_ordered_items`
 --
 ALTER TABLE `most_ordered_items`
@@ -424,13 +461,13 @@ ALTER TABLE `most_ordered_items`
 -- AUTO_INCREMENT for table `orders_status`
 --
 ALTER TABLE `orders_status`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2047;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2189;
 
 --
 -- AUTO_INCREMENT for table `search_items`
