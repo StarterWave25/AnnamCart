@@ -1,0 +1,42 @@
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    justify-content: space-between;
+}
+
+.resturant-service{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav{
+    width: 70%;
+}
+
+nav ul li a{
+    font-size: 1.5rem;
+}
+.active-button{
+    width: 24%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-button button{
+    width: 50%;
+    height: 100%;
+    border: 0px solid transparent;
+    background-color: green;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
