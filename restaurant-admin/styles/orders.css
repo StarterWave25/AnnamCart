@@ -76,7 +76,7 @@
   flex-direction: column;
   font-size: 1.5rem;
   color: black;
-  height: 25%;
+  height: 29%;
   padding-top: 10px;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .order-btns {
-  height: 28%;
+  height: 25%;
   width: 55%;
   display: flex;
   justify-content: space-around;
