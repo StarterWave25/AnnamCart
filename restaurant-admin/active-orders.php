@@ -40,6 +40,9 @@
       </div>
     </div>
   </div>
+  <script>
+    let resId = <?php echo json_encode($_GET['resId']); ?>;
+  </script>
   <script src="script/orders.js"></script>
 </body>
 </html>
