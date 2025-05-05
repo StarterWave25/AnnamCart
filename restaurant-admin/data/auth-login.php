@@ -5,7 +5,7 @@ try {
     $password = trim($_POST['password']);
     session_start();
 
-    if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
+    if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
         if (isset($_POST['submit'])) {
             if (!preg_match("/^\d{4}$/", $mobile)) {
                 header("Location: ../login.php?emob=Enter a valid restaurant id");
@@ -22,7 +22,7 @@ try {
                 if ($row) {
                     $_SESSION['rname'] = $row['res_name'];
                     $_SESSION['rid'] = $row['res_id'];
-                    header("Location: ../index.html");
+                    header("Location: ../index.php");
                 } else {
                     header("Location: ../login.php?ename=Your account doesn't exists !");
                 }
@@ -33,7 +33,7 @@ try {
             header("Location: ../login.php?emob=Access Denied !&ename=Access Denied !");
         }
     } else {
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }
 } catch (Exception $e) {
     echo "Something went wrong !";
