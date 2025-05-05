@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
-        header("Location: home.php");
-    }
+session_start();
+if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
+    header("Location: home.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,19 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnamCart</title>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="../styles/signup.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script/header.js"></script>
+    <script src="script/header-load.js"></script>
     <style>
-        .Option3{
-            display: none;
-        }
     </style>
 </head>
 
@@ -40,7 +37,7 @@
             </div>
             <form action="data/auth-login.php" class="signup-form" method="post">
                 <div class="form-mobile">
-                    <input type="tel" name="mobile" id="input-mobile" autofocus required placeholder="Enter Your Mobile Number" pattern="[0-9]{10}">
+                    <input type="tel" name="mobile" id="input-mobile" autofocus required placeholder="Enter Your Restaurant id" pattern="[0-9]{4}">
                     <span><?php if (isset($_GET['emob'])) {
                                 echo $_GET['emob'];
                             } ?></span>
