@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
-    header("Location: home.php");
+    header("Location: index.php");
 }
 ?>
 
