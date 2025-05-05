@@ -26,30 +26,16 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
     </div>
     <div class="active-body">
       <!-- js code goes here  -->
-      <div class="order-card">
-        <div class="order-names">
-          <h4>Customer Name</h4>
-          <h4>Agent Name</h4>
-        </div>
-
-        <div class="order-items">
-          <h5>Items</h5>
-        </div>
-
-        <div class="order-total">
-          <h3>Total: ₹250</h3>
-        </div>
-
-        <div class="order-btns">
-          <button class="reject-btn">Reject</button>
-          <button class="accept-btn">Accept</button>
-        </div>
-      </div>
+      
     </div>
   </div>
-  <script>
-    let resId = <?php echo json_encode($_GET['resId']); ?>;
-  </script>
+  <?php
+  session_start();
+  $restaurantId = $_SESSION['rid']; 
+  ?>
+<script>
+  const resId = <?php echo json_encode($restaurantId); ?>;
+</script>
   <script src="script/orders.js"></script>
 </body>
 </html>

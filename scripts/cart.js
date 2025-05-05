@@ -389,13 +389,11 @@ async function orderFood() {
     }
 }
 
-
 async function getAgentsCount(orderId) {
     let request = await fetch('data/data-order-status.php');
     let count = await request.json();
     assigningDelivery(orderId);
 }
-
 
 async function assigningDelivery(orderId) {
     let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
@@ -456,7 +454,6 @@ async function getLocation() {
         });
     });
 }
-
 
 function generateMapsLink(latitude, longitude) {
     let mapsLink = `https://www.google.com/maps/place/${latitude}+${longitude}`;
