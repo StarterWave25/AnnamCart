@@ -1,5 +1,5 @@
 import {
-    getOrder
+    getOrder, orderDetailsForAgent
 } from './get-order.js';
 
 
@@ -75,8 +75,16 @@ function connectToServer(choice, status) {
 
         ws.addEventListener('message', (event) => {
             console.log(event.data);
-            sessionStorage.setItem('status', 'requested');
-            getOrder();
+            if (event.data == 'accept') {
+                orderDetailsForAgent();
+            }
+            else if(event.data == 'reject'){
+                
+            }
+            else {
+                sessionStorage.setItem('status', 'requested');
+                getOrder();
+            }
         });
 
     } else {

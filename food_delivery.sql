@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 06:47 AM
+-- Generation Time: May 07, 2025 at 01:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,21 +42,6 @@ INSERT INTO `contact` (`Username`, `mobile-number`, `issue`) VALUES
 ('', '7981629173', 'i mkhjsfhjaghfjkalhdjxbcvgjvhscdgaeyuvcrf vgjxdgv'),
 ('', '7981629173', 'i mkhjsfhjaghfjkalhdjxbcvgjvhscdgaeyuvcrf vgjxdgv'),
 ('harsha', '9014709040', 'issuee');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `delivery_activities`
---
-
-CREATE TABLE `delivery_activities` (
-  `sno` int(11) NOT NULL,
-  `dmobile` bigint(10) NOT NULL,
-  `orders` int(11) NOT NULL,
-  `earnings` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -106,7 +91,10 @@ INSERT INTO `delivery_activity` (`id`, `dmobile`, `start_time`, `end_time`, `dur
 (84, '9014709040', '2025-05-05 05:02:28', NULL, 0, '2025-05-05'),
 (85, '9014709040', '2025-05-05 05:02:40', '2025-05-05 05:02:53', 13, '2025-05-05'),
 (86, '9014709040', '2025-05-05 05:03:12', '2025-05-05 05:09:18', 366, '2025-05-05'),
-(87, '9398927019', '2025-05-05 05:03:39', '2025-05-05 05:09:11', 332, '2025-05-05');
+(87, '9398927019', '2025-05-05 05:03:39', '2025-05-05 05:09:11', 332, '2025-05-05'),
+(88, '9014709040', '2025-05-05 12:26:39', NULL, 0, '2025-05-05'),
+(89, '9398927019', '2025-05-05 15:17:32', NULL, 0, '2025-05-05'),
+(90, '9398927019', '2025-05-07 07:52:27', '2025-05-07 13:00:05', 18458, '2025-05-07');
 
 -- --------------------------------------------------------
 
@@ -226,6 +214,7 @@ CREATE TABLE `orders` (
   `dmobile` bigint(10) NOT NULL,
   `location` longtext NOT NULL,
   `status` text NOT NULL,
+  `res_status` text NOT NULL DEFAULT 'requested',
   `Time` datetime NOT NULL DEFAULT current_timestamp(),
   `delivered_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -234,11 +223,9 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `Time`, `delivered_time`) VALUES
-('ORD7777CIJU835129', 7777777777, 'jesari', 'cash', 6903, 1, 65, 97, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-03 16:10:35', '2025-05-03 16:10:57'),
-('ORD7777JKYG089714', 7777777777, 'jesari', 'cash', 6903, 1, 65, 97, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6920691+83.2425711', 'delivered', '2025-05-03 16:14:49', '2025-05-03 16:14:49'),
-('ORD93405KOV284352', 9515219340, 'K PRASAD', 'upi', 6904, 3, 210, 315, 'Harsha', 9014709040, 'https://www.google.com/maps/place/14.6941362+77.5991921', 'delivered', '2025-05-05 08:34:44', '2025-05-05 08:35:30'),
-('ORD9340BH5E359772', 9515219340, 'K PRASAD', 'cash', 6904, 2, 140, 210, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/14.6941362+77.5991921', 'delivered', '2025-05-05 08:35:59', '2025-05-05 08:39:00');
+INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `items`, `total`, `dtotal`, `dname`, `dmobile`, `location`, `status`, `res_status`, `Time`, `delivered_time`) VALUES
+('ORD90407TJW447145', 9014709040, 'Harsha Vardhan', 'cash', 6901, 1, 40, 60, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6868159+83.2184815', 'delivered', 'accept', '2025-05-07 16:27:27', '2025-05-07 16:28:11'),
+('ORD9040GVUZ531586', 9014709040, 'Harsha Vardhan', 'upi', 6901, 1, 40, 60, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.6868159+83.2184815', 'delivered', 'accept', '2025-05-07 16:28:51', '2025-05-07 16:29:50');
 
 -- --------------------------------------------------------
 
@@ -250,6 +237,7 @@ CREATE TABLE `orders_status` (
   `sno` int(11) NOT NULL,
   `order_id` varchar(17) NOT NULL,
   `dmobile` bigint(10) NOT NULL,
+  `res_id` int(11) NOT NULL,
   `res_name` mediumtext NOT NULL,
   `res_location` text NOT NULL,
   `username` text NOT NULL,
@@ -264,16 +252,9 @@ CREATE TABLE `orders_status` (
 -- Dumping data for table `orders_status`
 --
 
-INSERT INTO `orders_status` (`sno`, `order_id`, `dmobile`, `res_name`, `res_location`, `username`, `mobile`, `location`, `total`, `status`, `time`) VALUES
-(310, 'ORD7777CIJU835129', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 65, 'delivered', '2025-05-03 16:10:35'),
-(311, 'ORD7777JKYG089714', 9398927019, 'Sri Lakshmi Varaha Hotel', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'jesari', 7777777777, 'https://www.google.com/maps/place/17.6920691+83.2425711', 65, 'delivered', '2025-05-03 16:14:49'),
-(312, 'ORD93405KOV284352', 9398927019, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 210, 'reject', '2025-05-05 08:34:44'),
-(313, 'ORD93405KOV284352', 9398927019, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 210, 'reject', '2025-05-05 08:34:49'),
-(314, 'ORD93405KOV284352', 9398927019, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 210, 'reject', '2025-05-05 08:34:53'),
-(315, 'ORD93405KOV284352', 9014709040, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 210, 'delivered', '2025-05-05 08:34:57'),
-(316, 'ORD9340BH5E359772', 9014709040, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 140, 'reject', '2025-05-05 08:35:59'),
-(317, 'ORD9340BH5E359772', 9014709040, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 140, 'reject', '2025-05-05 08:36:06'),
-(318, 'ORD9340BH5E359772', 9398927019, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K PRASAD', 9515219340, 'https://www.google.com/maps/place/14.6941362+77.5991921', 140, 'delivered', '2025-05-05 08:36:11');
+INSERT INTO `orders_status` (`sno`, `order_id`, `dmobile`, `res_id`, `res_name`, `res_location`, `username`, `mobile`, `location`, `total`, `status`, `time`) VALUES
+(347, 'ORD90407TJW447145', 9398927019, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 40, 'delivered', '2025-05-07 16:27:27'),
+(348, 'ORD9040GVUZ531586', 9398927019, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.6868159+83.2184815', 40, 'delivered', '2025-05-07 16:28:51');
 
 -- --------------------------------------------------------
 
@@ -296,13 +277,8 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`sno`, `order_id`, `item_id`, `quantity`, `price`, `dprice`, `created at`) VALUES
-(2195, 'ORD7777CIJU835129', 707, 1, 65, 97, '2025-05-03 16:10:35'),
-(2196, 'ORD7777JKYG089714', 707, 1, 65, 97, '2025-05-03 16:14:49'),
-(2197, 'ORD93405KOV284352', 706, 1, 70, 105, '2025-05-05 08:34:44'),
-(2198, 'ORD93405KOV284352', 708, 1, 60, 90, '2025-05-05 08:34:44'),
-(2199, 'ORD93405KOV284352', 714, 1, 80, 120, '2025-05-05 08:34:44'),
-(2200, 'ORD9340BH5E359772', 708, 1, 60, 90, '2025-05-05 08:35:59'),
-(2201, 'ORD9340BH5E359772', 714, 1, 80, 120, '2025-05-05 08:35:59');
+(2238, 'ORD90407TJW447145', 701, 1, 40, 60, '2025-05-07 16:27:27'),
+(2239, 'ORD9040GVUZ531586', 701, 1, 40, 60, '2025-05-07 16:28:51');
 
 -- --------------------------------------------------------
 
@@ -317,19 +293,20 @@ CREATE TABLE `restaurants` (
   `ratings` float NOT NULL,
   `res_location` text NOT NULL,
   `best_item` int(11) NOT NULL,
-  `offer` mediumtext NOT NULL
+  `offer` mediumtext NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`res_id`, `password`, `res_name`, `ratings`, `res_location`, `best_item`, `offer`) VALUES
-(6901, 'saar6901', 'Saarangi Fine Dine restaurant', 3.9, 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 701, 'Starts at ₹40'),
-(6902, 'sout6902', 'Southern Spice', 4.3, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 702, 'Starts at ₹70'),
-(6903, 'sril6903', 'Sri Lakshmi Varaha Hotel', 4.1, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 705, 'Starts at ₹80'),
-(6904, 'gufh6904', 'Gufha Restaurant', 4.6, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 706, 'Starts at ₹90'),
-(6905, 'mahe6905', 'Mahesh Family Restaurant', 4.5, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 703, 'Starts at ₹90');
+INSERT INTO `restaurants` (`res_id`, `password`, `res_name`, `ratings`, `res_location`, `best_item`, `offer`, `status`) VALUES
+(6901, 'saar6901', 'Saarangi Fine Dine restaurant', 3.9, 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 701, 'Starts at ₹40', 'active'),
+(6902, 'sout6902', 'Southern Spice', 4.3, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 702, 'Starts at ₹70', 'inactive'),
+(6903, 'sril6903', 'Sri Lakshmi Varaha Hotel', 4.1, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 705, 'Starts at ₹80', 'inactive'),
+(6904, 'gufh6904', 'Gufha Restaurant', 4.6, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 706, 'Starts at ₹90', 'inactive'),
+(6905, 'mahe6905', 'Mahesh Family Restaurant', 4.5, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 703, 'Starts at ₹90', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -397,13 +374,6 @@ INSERT INTO `users` (`mobile`, `name`, `email`, `room_no`, `area`, `landmark`, `
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `delivery_activities`
---
-ALTER TABLE `delivery_activities`
-  ADD PRIMARY KEY (`sno`),
-  ADD KEY `dmobile` (`dmobile`);
 
 --
 -- Indexes for table `delivery_activity`
@@ -475,16 +445,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `delivery_activities`
---
-ALTER TABLE `delivery_activities`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `delivery_activity`
 --
 ALTER TABLE `delivery_activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `most_ordered_items`
@@ -496,13 +460,13 @@ ALTER TABLE `most_ordered_items`
 -- AUTO_INCREMENT for table `orders_status`
 --
 ALTER TABLE `orders_status`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2202;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2240;
 
 --
 -- AUTO_INCREMENT for table `search_items`
@@ -513,12 +477,6 @@ ALTER TABLE `search_items`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `delivery_activities`
---
-ALTER TABLE `delivery_activities`
-  ADD CONSTRAINT `delivery_activities_ibfk_1` FOREIGN KEY (`dmobile`) REFERENCES `delivery_agent` (`dmobile`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `items`

@@ -94,12 +94,17 @@ async function setOrderStatus(status) {
     else if (response.status == 'accept') {
         sessionStorage.setItem('status', 'assigned');
         let ws = getSocket();
-        ws.send(JSON.stringify({ mobile: response.mobile, status: 'accept' }));
-        orderDetailsForAgent();
+        console.log(response);
+        ws.send(JSON.stringify({ mobile: response.mobile, status: 'accept', rid: response.resId }));
+        const acceptBtn = document.querySelector('.Accept-button');
+        acceptBtn.style.pointerEvents = 'none';
+        const rejectBtn = document.querySelector('.reject-button');
+        rejectBtn.style.pointerEvents = 'none';
+        console.log('waiting for restaurant');
     }
 }
 
-async function orderDetailsForAgent() {
+export async function orderDetailsForAgent() {
     setTimeout(() => {
         const stateBtn = document.querySelector('.statechanger');
         if (stateBtn) {
@@ -153,7 +158,7 @@ async function orderDetailsForAgent() {
                 </div>
             </div>
         </div>
-    `;
+        `;
         document.querySelector('.order-details').innerHTML = detailsHTML;
 
         let orderDetailsItemsInnerHTML = '';

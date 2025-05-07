@@ -17,8 +17,8 @@ try {
                 $result = mysqli_query($conn, $sql);
                 $orderDetails = mysqli_fetch_assoc($result);
 
-                $sql = "INSERT INTO orders_status(order_id, dmobile, res_name, res_location, username, mobile, location, total, status) VALUES 
-                    ('$orderId', {$deliveryAgent['dmobile']}, '{$orderDetails['res_name']}', '{$orderDetails['res_location']}', '$name', $mobile, '{$orderDetails['location']}', {$orderDetails['total']}, 'pending')";
+                $sql = "INSERT INTO orders_status(order_id, dmobile, res_id, res_name, res_location, username, mobile, location, total, status) VALUES 
+                    ('$orderId', {$deliveryAgent['dmobile']}, '{$orderDetails['res_id']}', '{$orderDetails['res_name']}', '{$orderDetails['res_location']}', '$name', $mobile, '{$orderDetails['location']}', {$orderDetails['total']}, 'pending')";
 
                 mysqli_query($conn, $sql);
 

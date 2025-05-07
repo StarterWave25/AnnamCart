@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
+if (isset($_SESSION['rname']) && isset($_SESSION['rid'])) {
     header("Location: index.php");
 }
 ?>
@@ -23,6 +23,9 @@ if (isset($_SESSION['dname']) && isset($_SESSION['dmobile'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script/header-load.js"></script>
     <style>
+        .active-button{
+            display: none;
+        }
     </style>
 </head>
 

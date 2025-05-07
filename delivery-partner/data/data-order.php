@@ -23,7 +23,7 @@ try {
 
                 echo json_encode(["status" => "reject", "mobile" => "$user_mobile[mobile]"]);
             } else if ($ordStatus == 'accept') {
-                $sql = "SELECT mobile,order_id FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";
+                $sql = "SELECT mobile,order_id,res_id FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";
                 $result = mysqli_query($conn, $sql);
                 $details = mysqli_fetch_assoc($result);
 
@@ -36,7 +36,7 @@ try {
                 $sql = "UPDATE delivery_agent SET status='assigned' WHERE dmobile = $mobile";
                 mysqli_query($conn, $sql);
 
-                echo json_encode(["status" => "accept", "mobile" => "{$details['mobile']}"]);
+                echo json_encode(["status" => "accept", "mobile" => "{$details['mobile']}", "resId" => "{$details['res_id']}"]);
             } else if ($ordStatus == 'prepare') {
                 $sql = "SELECT mobile,order_id FROM orders_status WHERE dmobile = $mobile AND status = 'accept'";
                 $result = mysqli_query($conn, $sql);

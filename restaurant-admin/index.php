@@ -65,6 +65,10 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
             </div>
         </div>
     </div>
+    <script>
+        const rid = <?php echo $_SESSION['rid']; ?>;
+    </script>
+    <script src="script/update-status.js" type="module"></script>
 </body>
 
 </html>
