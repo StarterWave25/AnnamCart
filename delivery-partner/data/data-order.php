@@ -54,7 +54,7 @@ try {
                 echo json_encode($details);
             }
         } else {
-            $sql = "SELECT * FROM orders_status WHERE dmobile = $mobile AND status = 'pending'";
+            $sql = "SELECT * FROM orders_status WHERE dmobile = $mobile AND status = 'pending' OR status = 'accept'";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
 

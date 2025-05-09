@@ -410,11 +410,14 @@ async function assigningDelivery(orderId) {
         });
 
         socket.addEventListener('message', (event) => {
-            console.log(event.data);
-            if (event.data === 'reject') {
+            let data = JSON.parse(event.data);
+            if (data.from === 'agent' && data.status === 'reject') {
                 assigningDelivery(orderId);
             }
-            else if (event.data === 'accept') {
+            else if (data.from === 'restaurant' && data.status === 'reject') {
+                confirm('Restaurant rejected order ! Please order after some time !');
+            }
+            else if (data.status === 'accept') {
                 window.location.href = `OrderedDetails.php?order-id=${orderId}`;
             }
         });

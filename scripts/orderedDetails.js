@@ -47,7 +47,7 @@ async function getOrderDetails() {
                 <div class="status-circle status-preparing">
                     <span class="status-border"></span>
                     <img src="img/check.png">
-                    <p>Food is Preparing</p>
+                    <p>Food Prepared</p>
                 </div>
                 <span class="tracking-route prepare"></span>                
                 <div class="status-circle status-pickup">
@@ -132,15 +132,17 @@ function forStatus() {
     });
 
     socket.addEventListener('message', (event) => {
-        if (event.data === 'prepare') {
+        const data = JSON.parse(event.data);
+        console.log(data);
+        if (data.status === 'ready') {
             document.querySelector('.status-preparing').classList.add('status-active');
             trackingRoute[0].classList.add('active');
         }
-        else if (event.data === 'picked') {
+        else if (data.status === 'picked') {
             document.querySelector('.status-pickup').classList.add('status-active');
             trackingRoute[1].classList.add('active');
         }
-        else if (event.data === 'delivered') {
+        else if (data.status === 'delivered') {
             document.querySelector('.status-delivered').classList.add('status-active');
             trackingRoute[2].classList.add('active');
         }

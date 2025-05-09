@@ -28,7 +28,7 @@ function connectToServer() {
     ws.addEventListener('open', () => {
         ws.send(JSON.stringify({ rid, role: 'restaurant' }));
         generateBtnDOM('active');
-        if (location.href != 'http://localhost/AnnamCart/restaurant-admin/active-orders.php') {
+        if (location.href != 'http://localhost/AnnamCart/restaurant-admin/active-orders.php' && location.href != 'http://localhost/AnnamCart/restaurant-admin/accepted-orders.php') {
             location.href = 'active-orders.php';
         }
     });

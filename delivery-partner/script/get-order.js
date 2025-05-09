@@ -1,4 +1,4 @@
-import { getSocket, getState } from './dashboard.js';
+import { connectToServer, getSocket, getState } from './dashboard.js';
 
 window.addEventListener('load', setState);
 
@@ -12,6 +12,11 @@ async function setState() {
             agentState = 'active';
         }, 100);
         getOrder();
+    }
+    else if (agentState === 'waiting') {
+        connectToServer(true, 'waiting');
+        getOrder();
+        setWaitingState();
     }
     else if (agentState === 'assigned') {
         orderDetailsForAgent();
@@ -92,17 +97,31 @@ async function setOrderStatus(status) {
         setState();
     }
     else if (response.status == 'accept') {
-        sessionStorage.setItem('status', 'assigned');
         let ws = getSocket();
-        console.log(response);
         ws.send(JSON.stringify({ mobile: response.mobile, status: 'accept', rid: response.resId }));
+        const waitRequest = await fetch('data/data-accepted.php?status=waiting');
+        const data = await waitRequest.json();
+        if (data.status === 'waiting') {
+            setWaitingState();
+        }
+    }
+}
+
+
+async function setWaitingState() {
+    sessionStorage.setItem('status', 'waiting');
+    setTimeout(() => {
         const acceptBtn = document.querySelector('.Accept-button');
         acceptBtn.style.pointerEvents = 'none';
         const rejectBtn = document.querySelector('.reject-button');
         rejectBtn.style.pointerEvents = 'none';
-        console.log('waiting for restaurant');
-    }
+        const stateBtn = document.querySelector('.statechanger');
+        if (stateBtn) {
+            stateBtn.style.display = 'none';
+        }
+    }, 100);
 }
+
 
 export async function orderDetailsForAgent() {
     setTimeout(() => {
@@ -111,6 +130,8 @@ export async function orderDetailsForAgent() {
             stateBtn.style.display = 'none';
         }
     }, 100);
+
+    connectToServer(true, 'assigned');
 
     document.querySelector('.ordercontainar').style.display = 'none';
     document.querySelector('.order-details').style.display = 'flex';
@@ -125,7 +146,6 @@ export async function orderDetailsForAgent() {
         paymentMethod();
     }
     else {
-        foodPreparing();
         let detailsHTML = `
         <div class="orderid-details">
             <div class="order-id">
@@ -172,14 +192,26 @@ export async function orderDetailsForAgent() {
         });
         if (document.querySelector('.food-items-details'))
             document.querySelector('.food-items-details').innerHTML = orderDetailsItemsInnerHTML;
-
-        setTimeout(() => {
+        setTimeout(async () => {
             const pickBtn = document.querySelector('.delivery-status');
             pickBtn.addEventListener('click', () => {
                 checkItems();
             });
+            pickBtn.style.pointerEvents = 'none';
+
+
+            const resRequest = await fetch('data/data-accepted.php?ready=1');
+            const resResponse = await resRequest.json();
+            if (resResponse.status === 'ready') {
+                setReadyState();
+            }
         }, 1500);
     }
+}
+
+export async function setReadyState() {
+    const pickBtn = document.querySelector('.delivery-status');
+    pickBtn.style.pointerEvents = 'all';
 }
 
 async function checkItems() {
@@ -321,14 +353,6 @@ async function confirmPayment(detailsContainer) {
             location.href = 'activepage.php';
         }, 3000);
     }
-}
-
-async function foodPreparing() {
-    const request = await fetch(`data/data-order.php?confirm=prepare`);
-    const response = await request.json();
-    let umobile = response.mobile;
-    let ws = getSocket();
-    ws.send(JSON.stringify({ mobile: umobile, status: 'prepare' }));
 }
 
 async function orderPicked() {

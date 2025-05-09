@@ -12,7 +12,7 @@ wss.on('connection', (ws) => {
     ws.addEventListener('message', (event) => {
         data = JSON.parse(event.data);
         console.log(data);
-        
+
         if (data.role === 'user') {
             users.set(data.mobile, { ws, mobile: data.mobile });
         }
@@ -35,7 +35,7 @@ wss.on('connection', (ws) => {
             });
             users.forEach((user) => {
                 if (user.mobile == data.userMobile) {
-                    user.ws.send(data.status);
+                    user.ws.send(JSON.stringify({ status: data.status, from: 'restaurant' }));
                 }
             });
         }
@@ -48,13 +48,21 @@ wss.on('connection', (ws) => {
                     }
                 });
             }
+            else {
+                //to user that agent rejected order
+                users.forEach((user) => {
+                    if (user.mobile == data.mobile) {
+                        user.ws.send(JSON.stringify({ status: data.status, from: 'agent' }));
+                    }
+                });
+            }
         }
 
-        else if (data.status == 'prepare' || data.status == 'picked' || data.status == 'delivered') {
+        else if (data.status == 'picked' || data.status == 'delivered') {
             setTimeout(() => {
                 users.forEach((user) => {
                     if (user.mobile == data.mobile) {
-                        user.ws.send(data.status);
+                        user.ws.send(JSON.stringify({ status: data.status, from:'agent'}));
                     }
                 });
             }, 2000);

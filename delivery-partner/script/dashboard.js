@@ -1,5 +1,5 @@
 import {
-    getOrder, orderDetailsForAgent
+    getOrder, orderDetailsForAgent, setReadyState
 } from './get-order.js';
 
 
@@ -21,6 +21,12 @@ async function generateDash() {
             stateBtn.textContent = 'Active';
             stateBtn.style.background = 'green';
             agentState = 'active';
+        }
+
+        else if (agentState === 'waiting') {
+            if (location.href != 'http://localhost/AnnamCart/delivery-partner/activepage.php') {
+                location.href = 'activepage.php';
+            }
         }
 
         else if (agentState === 'assigned') {
@@ -56,7 +62,7 @@ async function generateDash() {
     }, 100);
 }
 
-function connectToServer(choice, status) {
+export function connectToServer(choice, status) {
     if (choice) {
         ws = new WebSocket('ws://localhost:8080');
         ws.addEventListener('open', () => {
@@ -76,14 +82,22 @@ function connectToServer(choice, status) {
         ws.addEventListener('message', (event) => {
             console.log(event.data);
             if (event.data == 'accept') {
+                sessionStorage.setItem('status', 'assigned');
                 orderDetailsForAgent();
             }
-            else if(event.data == 'reject'){
-                
+            else if (event.data == 'reject') {
+                sessionStorage.setItem('status', 'active');
+                confirm('Restaurant rejected the order');
+                setTimeout(() => {
+                    location.href = 'activepage.php';
+                }, 2000);
             }
-            else {
+            else if (event.data == 'life set') {
                 sessionStorage.setItem('status', 'requested');
                 getOrder();
+            }
+            else if (event.data == 'ready') {
+                setReadyState();
             }
         });
 

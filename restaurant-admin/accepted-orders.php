@@ -27,30 +27,14 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
       <a href="active-orders.php" class="accept-ord"><button>Active Orders</button></a>
     </div>
     <div class="active-body accepted-body">
-      <div class="order-card accepted-card">
-        <div class="order-id">
-          <h3>Order ID : lskfjljlsdlfs</h3>
-        </div>
-        <div class="order-names">
-          <h4>Customer Name</h4>
-          <h4>Agent Name</h4>
-        </div>
-
-        <div class="order-items">
-          <h5>Items</h5>
-        </div>
-
-        <div class="order-total">
-          <h3>Total: ₹250</h3>
-        </div>
-
-        <div class="order-btns">
-          <button class="reject-btn call-btn">Call Agent</button>
-          <button class="accept-btn ready-btn">Ready</button>
-        </div>
-      </div>
+      
     </div>
   </div>
+  <script>
+    const rid = <?php echo $_SESSION['rid']; ?>;
+  </script>
+  <script type="module" src="script/update-status.js"></script>
+  <script type="module" src="script/accepted-orders.js"></script>
 </body>
 
 </html>

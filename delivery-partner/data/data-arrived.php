@@ -11,7 +11,7 @@ try {
                 mysqli_query($conn, $sql);
                 echo json_encode('arrived');
             } else if ($_GET['status'] == 'delivered') {
-                $sql = "UPDATE orders SET status='delivered' WHERE status='arrived' AND dmobile=$mobile";
+                $sql = "UPDATE orders SET status='delivered',res_status='delivered' WHERE status='arrived' AND dmobile=$mobile";
                 mysqli_query($conn, $sql);
                 $sql = "UPDATE delivery_agent SET status='active' WHERE status='assigned' AND dmobile=$mobile";
                 mysqli_query($conn, $sql);

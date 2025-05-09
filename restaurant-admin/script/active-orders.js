@@ -4,11 +4,11 @@ export async function fetchOrders() {
   const request = await fetch(`data/data-get-active-orders.php`);
   const orders = await request.json();
 
-  let ordersHTML = '';
+  if (orders.length > 0) {
+    let ordersHTML = '';
+    orders.forEach(async (order) => {
 
-  orders.forEach(async (order) => {
-
-    ordersHTML += `
+      ordersHTML += `
       <div class="order-card-${order.order_id} order-card">
         <div class="order-names">
           <h4>${order.username}</h4>
@@ -30,23 +30,30 @@ export async function fetchOrders() {
       </div>
     `;
 
-    const itemsRequest = await fetch(`data/data-get-active-orders.php?order-id=${order.order_id}`);
-    const itemsResponse = await itemsRequest.json();
-    let itemsHTML = '';
-    itemsResponse.forEach((item) => {
-      itemsHTML += `
+      const itemsRequest = await fetch(`data/data-get-active-orders.php?order-id=${order.order_id}`);
+      const itemsResponse = await itemsRequest.json();
+      let itemsHTML = '';
+      itemsResponse.forEach((item) => {
+        itemsHTML += `
         <h5>${item.item_name}</h5>
       `;
-      if (document.querySelector('.order-items'))
-        document.querySelector('.order-items').innerHTML = itemsHTML;
+        if (document.querySelector('.order-items'))
+          document.querySelector('.order-items').innerHTML = itemsHTML;
+      });
     });
-  });
-  if (document.querySelector('.active-body'))
-    document.querySelector('.active-body').innerHTML = ordersHTML;
+    if (document.querySelector('.active-body'))
+      document.querySelector('.active-body').innerHTML = ordersHTML;
 
-  setBtnListeners(orders);
+    setBtnListeners(orders);
+  }
+  else {
+    if (document.querySelector('.active-body'))
+      document.querySelector('.active-body').innerHTML = '<h2>No Active Orders Found !</h2>';
+  }
+
 }
 
+fetchOrders();
 
 function setBtnListeners(orders) {
   orders.forEach((order) => {
@@ -74,7 +81,7 @@ function setBtnListeners(orders) {
 }
 
 
-async function sendStatus(status, agentMobile, userMobile, orderId) {
+export async function sendStatus(status, agentMobile, userMobile, orderId) {
   let ws = getWebSocket();
   ws.send(JSON.stringify({ agentMobile, userMobile, status, from: 'restaurant' }));
   document.querySelector(`.order-card-${orderId}`).remove();
