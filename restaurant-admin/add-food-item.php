@@ -13,7 +13,7 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnamCart</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script/header-load.js"></script>
+    <script src="script/header-load.js" type="module"></script></script>
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/add-food-item.css">

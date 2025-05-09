@@ -21,7 +21,7 @@ if (isset($_SESSION['rname']) && isset($_SESSION['rid'])) {
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script/header-load.js"></script>
+    <script src="script/header-load.js" type="module"></script></script>
     <style>
         .active-button{
             display: none;

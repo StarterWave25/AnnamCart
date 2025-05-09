@@ -1,12 +1,12 @@
 import { fetchOrders } from "./active-orders.js";
 
 let btn;
-setTimeout(() => { btn = document.querySelector('.res-active-btn'); }, 100);
 
 let ws;
 
 
-async function generateDash() {
+export async function generateDash() {
+    btn = document.querySelector('.res-active-btn');
     let status = sessionStorage.getItem('status') || await checkStatus();
     if (status === 'active') {
         sessionStorage.setItem('status', 'active');
