@@ -56,7 +56,7 @@ async function getDash() {
                         <h3>${noItems}</h3>
                     </div>
                     <div class="button-container">
-                        <button> View Orders</button>
+                        <a href="orders-completed.php"><button>View Orders</button></a>
                     </div>
                 </div>
             </div>

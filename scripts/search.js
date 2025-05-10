@@ -51,6 +51,9 @@ searchInput.addEventListener('input', () => {
     else {
         searchBtn.style.opacity = '1';
         searchBtn.style.pointerEvents = 'all';
+        restaurantContainer.style.display = 'none';
+        popularContainer.style.display = 'grid';
+        popularHeading.style.display = 'flex';
     }
 });
 

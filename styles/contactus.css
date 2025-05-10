@@ -20,7 +20,7 @@ body{
 }
 
 .info{
-  background: linear-gradient(130deg ,var(--brown) 50%,#ff520279);
+  background: linear-gradient(130deg ,var(--brown) 60%,#ff520295);
   width: 33%;
   border-radius: 35px;
   display: flex;
@@ -61,10 +61,23 @@ body{
   font-size: 1.7rem;
 }
 
-.social-modes .social{
-  width: 20%;
-  height: 42%;
+.social-modes{
+  height: 10%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.social>img{
+  width: 25px;
+  opacity: 0.6;
+}
+
+.social>img:hover{
+  opacity: 1;
+}
+
 
 .mobile-mail{
   height: 20%;

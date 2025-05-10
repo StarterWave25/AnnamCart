@@ -18,7 +18,7 @@
   $mItem = mysqli_fetch_assoc($result)['item_name'];
 
   $today = date('Y-m-d');
-  $sql = "SELECT total FROM orders WHERE res_id = $resId AND DATE(Time) = '$today'";
+  $sql = "SELECT total FROM orders WHERE res_id = $resId AND DATE(Time) = '$today' AND res_status='delivered'";
   $result = mysqli_query($conn, $sql);
   $total = [];
   while($row = mysqli_fetch_assoc($result)) {

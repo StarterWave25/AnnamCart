@@ -14,7 +14,7 @@ $sql = "insert into contact values('$name','$mobile_number','$issue')";
 $result = mysqli_query($conn, $sql);
 
 echo " <html>
-      <body>
-        <h1>we will contact you in few mintiues</h1>
-      </body>
-  </html>";
+        <body>
+          <h1>we will contact you in few mintiues</h1>
+        </body>
+      </html>";

@@ -18,7 +18,7 @@ footer {
 }
 
 .footer-logo {
-    height: 100%;
+    height: fit-content;
     width: 35%;
     display: flex;
     align-items: center;

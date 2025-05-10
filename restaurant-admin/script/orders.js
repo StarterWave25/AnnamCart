@@ -11,7 +11,7 @@ async function generateCompleteOrders() {
       <td>${order.username}</td>
       <td>${order.dname}</td>
       <td>${order.dmobile}</td>
-      <td>${order.total}</td>
+      <td>₹${order.total}</td>
       <td>${order.Time}</td>
     </tr>
   `;

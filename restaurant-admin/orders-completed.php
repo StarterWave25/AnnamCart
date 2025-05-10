@@ -29,7 +29,7 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
         <div class="order-table">
             <table>
                 <tr class="table-head">
-                    <th>Order id</th>
+                    <th>Order ID</th>
                     <th>Customer Name</th>
                     <th>Agent Name</th>
                     <th>Agent Mobile</th>
