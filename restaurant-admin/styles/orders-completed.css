@@ -1,62 +1,85 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  font-family: 'Outfit', sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.orders-container{
-    width: 100%;
-    height: 30vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+/* Container */
+.orders-container {
+  width: 90%;
+  max-width: 1400px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: transparent;
 }
 
-.order-head{
-    width: 80%;
-    height: 10%;
-    color: var(--brown);
+/* Heading */
+.order-head h2 {
+  color: #8B4513; /* brown tone */
+  font-size: 2rem;
+  text-align: center;
 }
 
-.order-table{
-    width: 80%;
-    height: 80%;
-    display: flex;
-    align-items: center;
+/* Table Wrapper with scroll */
+.order-table {
+  max-height: 490px;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1.8px solid var(--brown);
+  border-bottom: .8px solid var(--brown);
+  position: relative;
 }
 
-
-table,th,tr,td{
-    border: 1px solid black;
-    border-collapse: collapse;
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
 }
 
-.order-table table{
-    width: 100%;
-    height: 100%;
+table thead {
+  background-color: #ffe6cc;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-table tr{
-    width: 100%;
-    height: 15%;
+.table-head th{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1.8px solid var(--brown);
 }
 
-table tr th{
-    max-width: 16%;
-    max-height: 10%;
-    color: var(--brown);
-    font-size: 1.3rem;
+th, td {
+  padding: 1rem 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(165, 42, 42, 0.594);
+  font-size: 1rem;
 }
 
-table tr td{
-    width: 16%;
+th {
+  color: #5e3210;
+  font-weight: 600;
+}
+
+.order-table {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.order-table::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

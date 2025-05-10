@@ -5,21 +5,23 @@ let btn;
 let ws;
 
 
-export async function generateDash() {
-    btn = document.querySelector('.res-active-btn');
-    let status = sessionStorage.getItem('status') || await checkStatus();
-    if (status === 'active') {
-        sessionStorage.setItem('status', 'active');
-        setTimeout(() => {
-            connectToServer();
-        }, 150);
-    }
-    else if (status === 'inactive') {
-        sessionStorage.setItem('status', 'inactive');
-        setTimeout(() => {
-            generateBtnDOM(status);
-        }, 150);
-    }
+export async function generateDash(response, status, xhr) {
+    setTimeout(async () => {
+        btn = document.querySelector('.res-active-btn');
+        let status = sessionStorage.getItem('status') || await checkStatus();
+        if (status === 'active') {
+            sessionStorage.setItem('status', 'active');
+            setTimeout(() => {
+                connectToServer();
+            }, 150);
+        }
+        else if (status === 'inactive') {
+            sessionStorage.setItem('status', 'inactive');
+            setTimeout(() => {
+                generateBtnDOM(status);
+            }, 150);
+        }
+    }, 100);
 }
 
 
@@ -79,8 +81,6 @@ async function checkStatus() {
     const data = await request.json();
     return await data.status;
 }
-
-generateDash();
 
 
 
