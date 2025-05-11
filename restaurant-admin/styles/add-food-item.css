@@ -83,19 +83,32 @@ button{
     cursor: pointer;
 }
 
-button:hover{
-    transform: scale(0.98);
-}
 .image-upload-but{
     border: 2px solid var(--brown);
     background-color: var(--white);
     color: var(--brown);
+    transition: all .3s;
 }
 
 .submit-but{
-    border: 2px solid var(--brown);
-    background-color: var(--brown);
+    background: linear-gradient(130deg, var(--brown), #ff520271);
     color: var(--white);
 }
 
+.image-upload-but:hover{
+    background: linear-gradient(130deg, var(--brown), #ff520271);
+    color: white;
+    border: none;
+}
 
+.submit-but:hover{
+    filter: brightness(1.2);
+}
+
+.message{
+    background-color: var(--brown);
+    color: var(--peach);
+    border-radius: 8px;
+    padding: 2px 10px;
+    border:none;
+}

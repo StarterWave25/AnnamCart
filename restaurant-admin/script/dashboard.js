@@ -36,7 +36,7 @@ async function getDash() {
                         <h3>${response.noItems}</h3>
                     </div>
                     <div class="button-container">
-                        <button>Add & view</button>
+                        <a href="viewItems.html"><button>Add & view</button></a>
                     </div>
                 </div>
                 <div class="dashboard-card">

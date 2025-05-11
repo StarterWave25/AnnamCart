@@ -1,7 +1,15 @@
+<?php if (isset($_GET['message'])): ?>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        message();
+    });
+</script>
+<?php endif; ?>
+
 <?php
 session_start();
 if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
-  header("Location: login.php");
+    header("Location: login.php");
 }
 ?>
 
@@ -13,7 +21,8 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnnamCart</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script/header-load.js" type="module"></script></script>
+    <script src="script/header-load.js" type="module"></script>
+    </script>
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/add-food-item.css">
@@ -25,19 +34,30 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
         <div class="add-food-head">
             <h2>Add Food Item</h2>
         </div>
-        <form action="">
-            <input type="text" name="item-name" id="" placeholder="Item name">
-            <input type="number" name="orginal-price" id="" placeholder="Orginal price">
-            <input type="number" name="discount-price" id="" placeholder="price with discount">
+        <div class="message" style="display: none;">
+            <p>You have successfully added a Item!</p>
+        </div>
+        <form action="data/submit-items.php" method="post">
+            <input type="text" name="item-name" id="" placeholder="Item name" required>
+            <input type="number" name="orginal-price" id="" placeholder="Orginal price" required>
+            <input type="number" name="discount-price" id="" placeholder="price with discount" required>
             <div class="popular-item">
                 <input type="checkbox" name="popular-item" id="">
                 <label for="">Popular food item</label>
             </div>
             <button class="image-upload-but">Upload item image</button>
-            <button type="submit" class="submit-but">Add food item</button>
+            <button type="submit" name="submit" class="submit-but">Add food item</button>
 
-        </form>
-    </div>
+        </form>  
+    </div>  
+    <script>
+        function message() {
+            document.querySelector('.message').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('.message').style.display = 'none';
+            }, 2500);
+        }
+    </script>
 </body>
 
 </html>
