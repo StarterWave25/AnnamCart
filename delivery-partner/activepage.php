@@ -20,6 +20,7 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="styles/orderdetails.css">
     <link rel="stylesheet" href="styles/customerdetails.css">
+    <link rel="stylesheet" href="styles/payment.css">
     <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 

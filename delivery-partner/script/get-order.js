@@ -23,7 +23,7 @@ async function setState() {
     }
     else {
         if (document.querySelector('.ordercontainar')) {
-            document.querySelector('.ordercontainar').innerHTML = 'You are waiting for orders !';
+            document.querySelector('.ordercontainar').innerHTML = '<h4 class="waiting-intro">You are waiting for Orders !</h4>';
             document.querySelector('.ordercontainar').style.display = 'flex';
         }
         if (document.querySelector('.customer-deatils-container')) {
@@ -40,24 +40,24 @@ export async function getOrder() {
         let orderHTML = `
         <div class="resutrantname-order">
             <div class="resturant-name-location">
-                <p>${orderDetails.res_name}</p>
+                <p><img src="../img/store.png" alt="customer-image" width="20"> ${orderDetails.res_name}</p>
             </div>
             <a href="${orderDetails.res_location}" target="_blank" class="resturant-name-location-button">
-                <button>Get Location</button>
+                <button><img src="../img/place.png" alt="customer-image" width="20"> Location</button>
             </a>
         </div>
         <div class="customername-order">
             <div class="Coustomer-Name-Location">
-                <p>${orderDetails.username}</p>
+                <p><img src="../img/customer.png" alt="customer-image" width="20"> ${orderDetails.username}</p>
             </div>
             <a href="${orderDetails.location}" target="_blank" class="Coustomer-Name-Location-button">
-                <button>Get Location</button>
+                <button><img src="../img/place.png" alt="customer-image" width="20"> Location</button>
             </a>
 
         </div>
         <div class="orderdetails">
             <div class="moneyfororder">
-                <p>₹${orderDetails.total} for Order</p>
+                <h3>₹${orderDetails.total} for Order</h3>
             </div>
             <div class="recject-accept">
                 <div class="reject-offer">
@@ -146,32 +146,38 @@ export async function orderDetailsForAgent() {
         paymentMethod();
     }
     else {
+        const orderId = restaurantDetails.details.order_id;
+        const orderIdPart1 = orderId.substr(0,13);
+        const orderIdPart2 = orderId.substr(13,16);
+        console.log(orderIdPart1);
+        console.log(orderIdPart2);
         let detailsHTML = `
         <div class="orderid-details">
             <div class="order-id">
-                <p>Order_Id :</p>
-                <p>${restaurantDetails.details.order_id}</p>
+                <h2>Order ID : ${orderIdPart1}<strong>${orderIdPart2}</strong></h2>
             </div>
             <div class="resturant-name">
                 <div class="restuarnt-name-details">
                     <p>${restaurantDetails.details.res_name}</p>
                 </div>
                 <div class="resturant-locations">
-                    <a class="resturant-loction-button" href="${restaurantDetails.details.res_location}" value="resturant-location" target="_blank">Location</a>
+                    <a class="resturant-loction-button" href="${restaurantDetails.details.res_location}" value="resturant-location" target="_blank">
+                    <img src="../img/place.png" alt="customer-image" width="20">Location
+                    </a>
                 </div>
             </div>
         </div>
         <div class="food-details">
             <div class="items-banner">
-                <p>Items</p>
+                <h4>Items</h4>
             </div>
             <div class="food-items-details">
                 
             </div>
             <div class="payment-details">
                 <div class="order-totalmoney">
-                    <p>Total : </p>
-                    <h1>₹${restaurantDetails.details.total}</h1>
+                    <h4>Total : </h4>
+                    <h3>₹${restaurantDetails.details.total}</h3>
                 </div>
                 <div class="order-delivery-status">
                     <button class="delivery-status">Picked</button>
@@ -185,7 +191,7 @@ export async function orderDetailsForAgent() {
         restaurantDetails.items.forEach((item) => {
             orderDetailsItemsInnerHTML += `
             <div class="items-names-details">
-                <p>${item.item_name}(${item.quantity})</p>
+                <p>${item.item_name}&nbsp;&nbsp;&nbsp;(${item.quantity})</p>
                 <input type="checkbox" name="" class="check-items">
             </div>
         `;
@@ -240,6 +246,7 @@ async function checkItems() {
 async function getCustomerDetails() {
     const request = await fetch('data/data-picked.php');
     const customerData = await request.json();
+    console.log(customerData);
     if (customerData) {
         orderPicked();
     }
@@ -257,8 +264,8 @@ async function getCustomerDetails() {
                                     <button>Call Now</button>
                                 </a>
                                 <div class="customer-payment">
-                                    <p>Total : </p>
-                                    <h1>₹${customerData.total}</h1>
+                                    <h4>Total :&nbsp;&nbsp;</h4>
+                                    <h3>₹${customerData.total}</h3>
                                 </div>
                                 <div class="customer-status">
                                     <button>Arrived</button>
@@ -293,9 +300,11 @@ async function paymentMethod() {
         detailsContainer.style.display = 'flex';
         detailsContainer.innerHTML = `
                 <div class="payment-method-container">
-                    <h2>Choose Payment method</h2>
-                    <button class="cash-btn">Collect Cash</button>
-                    <button class="upi-btn">UPI</button>
+                    <h2>Choose a Payment Method</h2>
+                    <div class="payment-btns">
+                        <button class="cash-btn">Collect Cash</button>
+                        <button class="upi-btn">UPI</button>
+                    </div>
                 </div>
         `;
     }
@@ -321,9 +330,10 @@ async function generateQR(detailsContainer) {
 
     detailsContainer.innerHTML = `
         <div class="qrcode-container">
-            <h2>Scan through any UPI app</h2>
-            <canvas id="qrcode" width="200" height="200"></canvas>
-            <button class="confirm-btn">Confirm Payment</button>
+            <h2>Scan through any UPI App</h2>
+            <canvas id="qrcode"></canvas>
+            <img src="../img/upi-apps.png" alt="upi-apps">
+            <button class="confirm-btn">Confirm</button>
         </div>
     `;
     const qr = new QRious({

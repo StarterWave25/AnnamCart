@@ -1,0 +1,89 @@
+.payment-method-container {
+    height: 30%;
+    width: 60%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.payment-method-container>h2 {
+    color: var(--brown);
+    font-size: 2rem;
+}
+
+.payment-btns {
+    display: flex;
+    gap: 40px;
+}
+
+.payment-btns>button,
+.confirm-btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    font-size: 1.03rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+}
+
+.payment-btns>button:first-child {
+    background: white;
+    color: var(--brown);
+    border: 1px solid var(--brown);
+}
+
+.payment-btns>button:first-child:hover {
+    background: rgba(249, 249, 249, 0.887);
+}
+
+.payment-btns>button:nth-child(2),
+.confirm-btn {
+    background: linear-gradient(130deg, var(--brown), #ff520271);
+    color: var(--lpeach);
+    border: none;
+}
+
+.payment-btns>button:nth-child(2):hover,
+.confirm-btn:hover {
+    filter: brightness(1.3);
+}
+
+.qrcode-container {
+    height: 90%;
+    width: 40%;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.qrcode-container>img {
+    width: 220px;
+}
+
+.qrcode-container>h2 {
+    color: var(--brown);
+    font-size: 2rem;
+}
+
+#qrcode {
+    width: 300px;
+    padding: 25px;
+    border: 3px solid var(--brown);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.3);
+}
+
+.confirm-container>h2 {
+    background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+}

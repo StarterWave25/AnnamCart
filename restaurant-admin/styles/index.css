@@ -23,14 +23,19 @@ body{
 
 .dashboard-head{
     width: 80%;
-    height: 10%;
+    height: 15%;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .dashboard-head h2{
+    font-size: 2.5rem;
     color: var(--brown);
+}
+
+.dashboard-head p{
+    font-size: 1.3rem;
 }
 
 .dashboard-body{

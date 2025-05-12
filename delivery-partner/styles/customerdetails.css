@@ -22,14 +22,14 @@ body {
 
 .customer-details{
     background-color: var(--white);
-    box-shadow: 0px 0px 10px grey;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);;
     width: 60%;
-    height: 16vw;
+    height: 20vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    border-radius: 35px;
+    border-radius: 20px;
 }
 
 .customer-information{
@@ -48,23 +48,15 @@ body {
 }
 
 .customer-banner p{
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--brown);
-    font-weight: 400;
 }
 
 .customer-location{
-    width: 20%;
+    width: 25%;
     height: 65%;
     display: flex;
     justify-content: flex-end;
-}
-
-.customer-location button{
-    width: 89%;
-    height: 100%;
-    font-size: 1.1rem;
-    font-weight: 400;
 }
 
 .food-reached-status{
@@ -76,15 +68,8 @@ body {
 }
 
 .customer-contact{
-    width: 15%;
+    width: 20%;
     height: 65%;
-}
-
-.customer-contact button{
-    width: 100%;
-    height: 100%;
-    font-weight: 400;
-    font-size: 1.1rem;
 }
 
 .customer-payment{
@@ -95,10 +80,14 @@ body {
     justify-content: center;
 }
 
-.customer-payment p{
+.customer-payment h4{
     font-size: 1.8rem;
     color: var(--brown);
-    font-weight: 400;
+}
+
+.customer-payment h3{
+    font-size: 2.3rem;
+    font-family: 'outfit';
 }
 
 .customer-status{
@@ -106,22 +95,19 @@ body {
     height: 65%;
 }
 
-.customer-status button{
-    width: 100%;
-    height: 100%;
-    font-weight: 400;
-    font-size: 1.1rem;
-}
-
 .customer-status button,.customer-contact button,.customer-location button{
     border: 0px solid transparent;
-    border-radius: 10px;
-    background-color: var(--brown);
+    border-radius: 7px;
     color: var(--white);
-    box-shadow: 0px 0px 9px grey;
     cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    height: 90%;
+    font-size: 1.1rem;
+    background: linear-gradient(130deg, var(--brown), #ff520271);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .customer-status button:hover,.customer-contact button:hover,.customer-location button:hover{
-    transform: scale(0.93);
+    filter: brightness(1.3);
 }

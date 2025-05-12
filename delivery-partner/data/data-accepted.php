@@ -10,7 +10,7 @@ try {
       mysqli_query($conn, $sql);
       echo json_encode(["status" => "waiting"]);
     } else if (isset($_GET['ready'])) {
-      $sql = "SELECT * FROM orders WHERE dmobile = $mobile AND status='accept'";
+      $sql = "SELECT * FROM orders WHERE dmobile = $mobile AND status='accept' AND NOT res_status = 'reject'";
       $result = mysqli_query($conn, $sql);
       $status = mysqli_fetch_assoc($result);
       echo json_encode(["status" => $status['res_status']]);

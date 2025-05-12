@@ -5,9 +5,9 @@
     $resId = $_GET['res-id'];
   }
 
-  $sql = "SELECT offer FROM restaurants WHERE res_id = $resId";
+  $sql = "SELECT res_name,offer FROM restaurants WHERE res_id = $resId";
   $result = mysqli_query($conn, $sql);
-  $offer = mysqli_fetch_assoc($result)['offer']; // extract just the offer value
+  $offer = mysqli_fetch_assoc($result); // extract just the offer value
 
   $sql = "SELECT COUNT(*) as count FROM items WHERE res_id = $resId";
   $result = mysqli_query($conn, $sql);

@@ -57,7 +57,7 @@ async function getAcceptedOrders() {
     }
     else {
         const acceptedBody = document.querySelector('.accepted-body');
-        acceptedBody.innerHTML = '<h2>No Active Orders Found !</h2>';
+        acceptedBody.innerHTML = '<h2>No Accepted Orders Found !</h2>';
     }
 }
 

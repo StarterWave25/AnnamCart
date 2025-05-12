@@ -6,7 +6,7 @@ try {
         $mobile = $_SESSION['dmobile'];
         $dname = $_SESSION['dname'];
         if (isset($_GET['status']) && $_GET['status'] == "pickedup") {
-            $sql = "UPDATE orders SET status='picked' WHERE status='accept' AND dmobile=$mobile";
+            $sql = "UPDATE orders SET status='picked' WHERE status='accept' AND res_status='ready' AND dmobile=$mobile";
             mysqli_query($conn, $sql);
             echo json_encode('picked');
         } else if (isset($_GET['details'])  && $_GET['details'] == 1) {
