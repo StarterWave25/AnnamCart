@@ -46,6 +46,12 @@
 }
 
 .accepted-body{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 4rem;
+  width: 100%;
+  min-height: 90vh;
+  padding: 20px;
   grid-auto-rows: 350px;
 }
 

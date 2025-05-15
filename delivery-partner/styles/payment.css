@@ -27,7 +27,7 @@
     border-radius: 7px;
     font-size: 1.03rem;
     cursor: pointer;
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.2);
 }
 
 .payment-btns>button:first-child {
@@ -37,7 +37,7 @@
 }
 
 .payment-btns>button:first-child:hover {
-    background: rgba(249, 249, 249, 0.887);
+    background: rgba(255, 237, 227, 0.5);
 }
 
 .payment-btns>button:nth-child(2),

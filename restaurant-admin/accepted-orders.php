@@ -26,7 +26,7 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
       <h2 class="heading">Accepted Orders</h2>
       <a href="active-orders.php" class="accept-ord"><button>Active Orders</button></a>
     </div>
-    <div class="active-body accepted-body">
+    <div class="accepted-body">
       
     </div>
   </div>

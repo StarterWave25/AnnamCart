@@ -46,8 +46,9 @@ async function getAcceptedOrders() {
         });
 
         const acceptedBody = document.querySelector('.accepted-body');
-        acceptedBody.innerHTML = ordersHTML;
-
+        if (acceptedBody) {
+            acceptedBody.innerHTML = ordersHTML;
+        }
         itemsHTML.forEach((item) => {
             const itemContainer = document.querySelector(`.order-items-${item.orderId}`);
             itemContainer.innerHTML += item.itemHTML;

@@ -232,7 +232,7 @@ async function getCart() {
         if (mapsLink) {
             locationBtn.innerHTML = `
                 <img src="img/checked.png" alt="location-image">
-                <h3>Location Added !</h3>`;
+            `;
             locationBtn.style.pointerEvents = 'none';
         }
         else {
@@ -383,7 +383,7 @@ async function orderFood() {
                 await getAgentsCount(orderId);
             }
             else {
-                confirm('Order Failed');
+                confirm('Order Failed, Please order after some time !');
             }
         }
     }
@@ -427,7 +427,9 @@ async function assigningDelivery(orderId) {
         }, 1000);
     }
     else {
-        assigningDelivery(orderId);
+        setTimeout(()=>{
+            assigningDelivery(orderId);
+        },10000);
     }
 }
 
@@ -446,7 +448,6 @@ async function getLocation() {
             if (city) {
                 locationBtn.innerHTML = `
                     <img src="img/checked.png" alt="location-image">
-                    <h3>Location Added !</h3>
                 `;
                 locationBtn.style.pointerEvents = 'none';
                 resolve();

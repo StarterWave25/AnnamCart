@@ -24,7 +24,7 @@ body {
     background-color: var(--white);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);;
     width: 60%;
-    height: 20vw;
+    height: 23vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -47,9 +47,10 @@ body {
     align-items: center;
 }
 
-.customer-banner p{
+.customer-banner h3{
     font-size: 2rem;
     color: var(--brown);
+    font-weight: 400;
 }
 
 .customer-location{
@@ -57,6 +58,24 @@ body {
     height: 65%;
     display: flex;
     justify-content: flex-end;
+}
+
+.address-container{
+    width: 85%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address-container > h4{
+    color: var(--brown);
+    font-size: 2rem;
+}
+
+.address-container > p{
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .food-reached-status{
@@ -102,7 +121,7 @@ body {
     cursor: pointer;
     font-size: 1.1rem;
     width: 100%;
-    height: 90%;
+    height: 80%;
     font-size: 1.1rem;
     background: linear-gradient(130deg, var(--brown), #ff520271);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);

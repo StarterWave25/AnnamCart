@@ -83,6 +83,7 @@ wss.on('connection', (ws) => {
             if (agent.ws === ws) {
                 checkStatus(agent.mobile);
                 agents.delete(agent);
+                console.log('agent disconnected');
             }
         });
 
@@ -91,6 +92,13 @@ wss.on('connection', (ws) => {
                 setRestaurantStatus('inactive', res.rid);
                 restaurants.delete(res);
                 console.log('res disconnected');
+            }
+        });
+
+        users.forEach((user)=>{
+            if(user.ws === ws){
+                users.delete(user);
+                console.log('user disconnected');
             }
         });
 

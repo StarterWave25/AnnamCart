@@ -15,7 +15,7 @@ try {
             $details = mysqli_fetch_assoc($result);
             echo json_encode($details);
         } else {
-            $sql = "SELECT * FROM orders WHERE dmobile = $mobile AND status='picked'";
+            $sql = "SELECT orders.*,users.room_no,landmark,area FROM orders JOIN users ON orders.mobile=users.mobile WHERE dmobile = $mobile  AND status='picked';";
             $result = mysqli_query($conn, $sql);
             $orderData = mysqli_fetch_assoc($result);
             echo json_encode($orderData);

@@ -23,7 +23,7 @@ async function setState() {
     }
     else {
         if (document.querySelector('.ordercontainar')) {
-            document.querySelector('.ordercontainar').innerHTML = '<h4 class="waiting-intro">You are waiting for Orders !</h4>';
+            document.querySelector('.ordercontainar').innerHTML = '<h4 class="waiting-intro">You are Waiting for Orders !</h4>';
             document.querySelector('.ordercontainar').style.display = 'flex';
         }
         if (document.querySelector('.customer-deatils-container')) {
@@ -83,7 +83,7 @@ export async function getOrder() {
     }
     else {
         if (document.querySelector('.ordercontainar'))
-            document.querySelector('.ordercontainar').innerHTML = 'You are waiting for orders !';
+            document.querySelector('.ordercontainar').innerHTML = '<h4 class="waiting-intro">You are Waiting for Orders !</h4>';
     }
 }
 
@@ -147,8 +147,8 @@ export async function orderDetailsForAgent() {
     }
     else {
         const orderId = restaurantDetails.details.order_id;
-        const orderIdPart1 = orderId.substr(0,13);
-        const orderIdPart2 = orderId.substr(13,16);
+        const orderIdPart1 = orderId.substr(0, 13);
+        const orderIdPart2 = orderId.substr(13, 16);
         console.log(orderIdPart1);
         console.log(orderIdPart2);
         let detailsHTML = `
@@ -253,11 +253,15 @@ async function getCustomerDetails() {
     let customerHTML = `<div class="customer-details">
                             <div class="customer-information">
                                 <div class="customer-banner">
-                                    <p>${customerData.username}</p>
+                                    <h3>${customerData.username}</h3>
                                 </div>
                                 <a href="${customerData.location}" class="customer-location" target="_blank">
                                     <button>Location</button>
                                 </a>
+                            </div>
+                            <div class="address-container">
+                                <h4>Address:&nbsp;&nbsp;</h4>
+                                <p>${customerData.room_no}, ${customerData.area}, ${customerData.landmark}.</p>
                             </div>
                             <div class="food-reached-status">
                                 <a href="tel:+91 ${customerData.mobile}" class="customer-contact" target="_blank">
@@ -349,15 +353,22 @@ async function generateQR(detailsContainer) {
 }
 
 async function confirmPayment(detailsContainer) {
+    let umobile = await delivered(); //to send the message to user as delivered
+    console.log(umobile);
+    
     const request = await fetch('data/data-arrived.php?status=delivered');
     const response = await request.json();
+
     if (response === 'delivered') {
+        let ws = getSocket();
+        ws.send(JSON.stringify({ mobile: umobile, status: 'delivered' }));
+
         detailsContainer.innerHTML = `
                 <div class="confirm-container">
                     <h2>Order Successfully Delivered !</h2>
                 </div>
             `;
-        delivered();
+
         setTimeout(() => {
             sessionStorage.setItem('status', 'active');
             location.href = 'activepage.php';
@@ -376,7 +387,5 @@ async function orderPicked() {
 async function delivered() {
     const request = await fetch(`data/data-order.php?confirm=delivered`);
     const response = await request.json();
-    let umobile = response.mobile;
-    let ws = getSocket();
-    ws.send(JSON.stringify({ mobile: umobile, status: 'delivered' }));
+    return response.mobile;
 }

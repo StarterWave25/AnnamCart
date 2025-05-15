@@ -23,11 +23,11 @@ try {
                 echo json_encode(["error" => "No orders found !"]);
             }
         } else {
-            echo 'Something went wrong !';
+            echo json_encode("Something went wrong !");
         }
     } else {
-        echo 'Something went wrong !';
+        echo json_encode("Something went wrong !");
     }
 } catch (Exception $e) {
-    echo 'Something went wrong !';
+    echo json_encode("Something went wrong !");
 }

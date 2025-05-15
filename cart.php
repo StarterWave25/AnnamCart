@@ -59,14 +59,13 @@
     </div>
 
     <div class="get-contact-info">
-        <button class="location-container">
-            <img src="img/place.png" alt="location-image">
-            <h3>Add your Location</h3>
-        </button>
         <div class="heading-container">
             <h2 class="contact-heading">
                 Add Your Address
             </h2>
+            <button class="location-container" title="Add your live location">
+                <img src="img/place.png" alt="location-image">
+            </button>
         </div>
         <div class="input-fields">
             <input type="text" placeholder="Room no, Flat no, Door no" class="address-room-no">

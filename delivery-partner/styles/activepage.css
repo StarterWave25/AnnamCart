@@ -16,7 +16,6 @@ body {
 
 .waiting-intro{
     font-size: 2.5rem;
-    font-family: 'outfit';
     color: var(--brown);
 }
 
@@ -142,7 +141,7 @@ body {
     width: 85%;
     height: 50%;
     font-size: 1.1rem;
-    border: 1.5px solid var(--brown) ;
+    border: 1px solid var(--brown) ;
     background-color: var(--white);
     color: var(--brown);
     box-shadow: none;
@@ -156,5 +155,6 @@ body {
 }
 
 .reject-button:hover{
-    background-color: rgba(249, 249, 249, 0.887);
+    background-color: rgba(255, 234, 222, 0.5);
 }
+

@@ -8,9 +8,8 @@ try {
         while ($row = mysqli_fetch_assoc($result)) {
             $items[] = $row;
         }
-
         echo json_encode($items);
     }
 } catch (Exception $e) {
-    echo "Something went wrong !";
+    echo json_encode("Something went wrong !");
 }

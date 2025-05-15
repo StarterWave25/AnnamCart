@@ -6,5 +6,5 @@ try {
         exit(0);
     }
 } catch (Exception $e) {
-    echo "Something went wrong !";
+    echo json_encode("Something went wrong !");
 }
