@@ -25,7 +25,7 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
             <!-- js code goes here -->
         </div>
         <div class="prsentorders">
-            <!-- js code geos here -->
+            <!-- js code geos here  -->
         </div>
     </div>
 
