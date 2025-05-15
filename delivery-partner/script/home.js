@@ -58,8 +58,7 @@ async function getTodayActivity() {
     <div class="agentactivites">
       <div class="orders">
         <div class="workname1">
-            <p>Orders </p>
-            <p>:</p>
+            <p>Orders :</p>
         </div>
         <div class="workvalue">
             <h2>${noOrders}</h2>
@@ -67,8 +66,7 @@ async function getTodayActivity() {
       </div>
       <div class="orders">
         <div class="workname1">
-            <p>Time</p>
-            <p>:</p>
+            <p>Time :</p>
         </div>
         <div class="workvalue">
             <h2>${time}</h2>
@@ -76,8 +74,7 @@ async function getTodayActivity() {
       </div>
       <div class="orders">
         <div class="workname1">
-            <p>Colleted Cash</p>
-            <p>:</p>
+            <p>Colleted Cash :</p>
         </div>
         <div class="workvalue">
             <h2>₹${total}</h2>

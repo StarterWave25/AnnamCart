@@ -149,8 +149,6 @@ export async function orderDetailsForAgent() {
         const orderId = restaurantDetails.details.order_id;
         const orderIdPart1 = orderId.substr(0, 13);
         const orderIdPart2 = orderId.substr(13, 16);
-        console.log(orderIdPart1);
-        console.log(orderIdPart2);
         let detailsHTML = `
         <div class="orderid-details">
             <div class="order-id">

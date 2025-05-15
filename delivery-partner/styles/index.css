@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -149,4 +149,157 @@ body {
     color: var(--brown);
     font-weight: 400;
     font-size: 1.3rem;
+} */
+
+:root {
+    --brown: #762E14;
+    --orange: #dc6414;
+    --peach: #FFD8B9;
+    --lpeach: #fff4ef;
+    --white: #fff;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: var(--lpeach);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 4vw;
+}
+
+.agentdasbord {
+    width: 90vw;
+    max-width: 1200px;
+    display: flex;
+    gap: 2.5vw;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.todaydasbord, .prsentorders {
+    background: var(--white);
+    box-shadow: 0 4px 24px 0 rgba(118, 46, 20, 0.15);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+}
+
+.todaydasbord {
+    width: 60%;
+    min-width: 380px;
+    gap: 2rem;
+}
+
+.prsentorders {
+    width: 35%;
+    min-width: 320px;
+    gap: 1.5rem;
+}
+
+.todayhead p, .today p {
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--brown);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.agentactivites {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.orders {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(120deg, var(--lpeach) 0%, var(--peach) 100%);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 8px 0 rgba(118, 46, 20, 0.07);
+    position: relative;
+    border-left: 5px solid var(--orange);
+}
+
+.workname1 p {
+    font-size: 1.15rem;
+    color: var(--brown);
+    font-weight: 500;
+    margin-right: 0.3em;
+}
+.workvalue h2 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-left: 0.5em;
+    color: var(--orange);
+    letter-spacing: 0.02em;
+}
+
+.orders:nth-child(1) .workvalue h2 { color: var(--brown); font-family: 'outfit';}
+.orders:nth-child(2) .workvalue h2 { color: var(--orange); font-family: 'outfit';}
+.orders:nth-child(3) .workvalue h2 { color: var(--brown); font-family: 'outfit';}
+
+.ordersdasbord {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.order1 {
+    background: linear-gradient(120deg, var(--lpeach) 0%, var(--peach) 100%);
+    box-shadow: 0 2px 12px 0 rgba(220, 100, 20, 0.10);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+    border-left: 5px solid var(--orange);
+}
+
+.order1 > p {
+    font-size: 1.08rem;
+    color: var(--brown);
+    font-weight: 500;
+    margin-bottom: 0.1em;
+}
+
+.ordermoney {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+.ordermoney p {
+    color: var(--brown);
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+.ordermoney h2 {
+    color: var(--orange);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: 0.3em;
+}
+
+@media (max-width: 900px) {
+    .agentdasbord {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2rem;
+    }
+    .todaydasbord, .prsentorders {
+        width: 100%;
+        min-width: unset;
+    }
 }

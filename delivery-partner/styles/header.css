@@ -1,4 +1,4 @@
-header {
+/* header {
     justify-content: space-between;
 }
 
@@ -70,4 +70,132 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+} */
+
+:root {
+    --brown: #762E14;
+    --orange: #dc6414;
+    --peach: #FFD8B9;
+    --lpeach: #fff4ef;
+    --white: #fff;
+}
+
+.main-header {
+    width: 100%;
+    background: var(--lpeach);
+    box-shadow: 0 2px 14px 0 rgba(220, 100, 20, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3vw;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.for-gradient {
+    font-family: 'Alata', 'Outfit', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--brown) 40%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    transition: opacity 0.2s;
+}
+
+.for-gradient:hover {
+    opacity: 0.85;
+}
+
+.Aent-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.Options {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.Options li {
+    display: flex;
+    align-items: center;
+}
+
+.Options .Option1 a,
+.Options .Option2 a {
+    font-family: 'Outfit', 'Alata', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--brown);
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    transition: background 0.17s, color 0.17s;
+}
+
+.Options .Option1 a:hover,
+.Options .Option2 a:hover {
+    background: var(--peach);
+    color: var(--orange);
+}
+
+.Options .Option3 button {
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Outfit', 'Alata', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1.3rem;
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 8px 0 rgba(220, 100, 20, 0.08);
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Options .Option3 button:hover,
+.Options .Option3 button:focus {
+    background: var(--brown);
+    color: var(--peach);
+    box-shadow: 0 4px 16px 0 rgba(220, 100, 20, 0.15);
+}
+
+@media (max-width: 800px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 5vw;
+    }
+    .Aent-navbar {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.7rem;
+    }
+    .Options {
+        gap: 1.2rem;
+    }
+    .for-gradient {
+        font-size: 1.7rem;
+    }
 }
