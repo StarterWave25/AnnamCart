@@ -34,7 +34,7 @@ try {
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result); */
 
-                $stmt = mysqli_prepare($conn, "SELECT status FROM orders WHERE order_id = ?");
+                $stmt = mysqli_prepare($conn, "SELECT status,res_status FROM orders WHERE order_id = ?");
                 mysqli_stmt_bind_param($stmt, "s", $orderId);
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);

@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scripts/headfoot.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -84,6 +85,10 @@
                 } ?>
             </h2>
         </div>
+    </div>
+
+    <div class="popup-overlay">
+        
     </div>
     <aside class="cart">
         <!--js code goes here -->

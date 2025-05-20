@@ -155,7 +155,7 @@ async function statusFromBase() {
     if (orderId !== '') {
         let request = await fetch(`data/data-order-status.php?status-id=${orderId}`);
         let response = await request.json();
-        if (response.status === 'prepare') {
+        if (response.res_status === 'ready') {
             document.querySelector('.status-preparing').classList.add('status-active');
             trackingRoute[0].classList.add('active');
             forStatus();

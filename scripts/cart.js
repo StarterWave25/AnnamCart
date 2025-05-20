@@ -2,7 +2,6 @@ const userMobile = sessionStorage.getItem('userMobile');
 let total, dummyTotal, response, restaurantData, locationBtn, mapsLink;
 
 async function getCart() {
-
     if (userMobile) {
         const request = await fetch('data/data-profile.php?mode=getter');
         const response = await request.json();
@@ -202,25 +201,6 @@ async function getCart() {
 
 
     addCartHTML();
-    /*
-    let respondQuantity;
-    async function getQuantity(itemId) {
-        const response = await fetch(`data/data-quantity.php?itemId=${itemId}`);
-        respondQuantity = await response.json();
-        return respondQuantity.quantity;
-    }
-
-    async function sendItemData(itemId, quantity) {
-        const postRequest = await fetch('data/data-cart.php', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ itemId, quantity })
-        });
-
-        const response = await postRequest.json();
-    } */
     const orderBtn = document.querySelector('.order-now-button');
     if (orderBtn) {
         orderBtn.addEventListener('click', orderFood);
@@ -398,7 +378,19 @@ async function getAgentsCount(orderId) {
 async function assigningDelivery(orderId) {
     let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
     let response = await request.json();
-    console.log(response);
+
+    let popupHTML = `
+                    <div class="popup">
+                        <div class="lottie-container">
+                            <lottie-player src="animations/Animation - 1747318843609.json" background="transparent" speed="1"
+                                style="width: 150px; margin: auto;" loop autoplay></lottie-player>
+                        </div>
+                        <h2>Thanks for your Patience !</h2>
+                        <p>Your order is with the restaurant. Don’t refresh the page they’re checking it now.</p>
+                    </div>
+                `;
+    generateOrderPopups(popupHTML, true);
+
     if (await response !== 'missed') {
         const socket = new WebSocket('ws://localhost:8080');
         socket.addEventListener('open', () => {
@@ -411,14 +403,38 @@ async function assigningDelivery(orderId) {
 
         socket.addEventListener('message', (event) => {
             let data = JSON.parse(event.data);
+            let popupHTML;
             if (data.from === 'agent' && data.status === 'reject') {
                 assigningDelivery(orderId);
             }
             else if (data.from === 'restaurant' && data.status === 'reject') {
-                confirm('Restaurant rejected order ! Please order after some time !');
+                popupHTML = `
+                            <div class="popup">
+                                <div class="lottie-container">
+                                    <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
+                                    style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                                </div>
+                                <h2>Oops, Order Declined !</h2>
+                                <p>This restaurant couldn’t take your order. Try another one nearby it’s just a click away.</p>
+                                <button class="popup-btn" onclick="location.reload()">Reorder</button>
+                            </div>
+                `;
+                generateOrderPopups(popupHTML, true);
             }
             else if (data.status === 'accept') {
-                window.location.href = `OrderedDetails.php?order-id=${orderId}`;
+                popupHTML = `
+                            <div class="popup">
+                                <div class="lottie-container">
+                                    <lottie-player src="animations/Animation - 1747307351888.json" background="transparent" speed="1"
+                                        style="width: 300px; height: 300px; margin: auto;" autoplay>
+                                    </lottie-player>
+                                </div>
+                                <h2>Great News !</h2>
+                                <p>Your order is confirmed and getting ready. It’ll be at your doorstep soon !</p>
+                                <button class="popup-btn" onclick="location.href = 'OrderedDetails.php?order-id=${orderId}'">Track Order</button>
+                            </div>
+                `;
+                generateOrderPopups(popupHTML, true);
             }
         });
 
@@ -427,9 +443,9 @@ async function assigningDelivery(orderId) {
         }, 1000);
     }
     else {
-        setTimeout(()=>{
+        setTimeout(() => {
             assigningDelivery(orderId);
-        },10000);
+        }, 10000);
     }
 }
 
@@ -552,5 +568,21 @@ async function checkAddAddress() {
     }
     else return true;
 
+}
+
+
+function generateOrderPopups(popupHTML, signal) {
+    if (signal) {
+        const popupContainer = document.querySelector('.popup-overlay');
+        popupContainer.style.display = 'flex';
+        popupContainer.innerHTML = popupHTML;
+        document.querySelector('.popup').style.display = 'block';
+    }
+    else {
+        const popupContainer = document.querySelector('.popup-overlay');
+        popupContainer.style.display = 'none';
+        popupContainer.innerHTML = '';
+        document.querySelector('.popup').style.display = 'none';
+    }
 }
 
