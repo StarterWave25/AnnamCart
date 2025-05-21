@@ -5,7 +5,7 @@
     const username = '<?php echo $_SESSION['username']; ?>';
     const headerUserMobile = <?php echo $_SESSION['mobile']; ?>;
 
-    sessionStorage.setItem('userMobile', headerUserMobile);
+    sessionStorage.setItem('userMobile', JSON.stringify(headerUserMobile));
     if (username) {
         const userProfile = document.querySelector('.user-profile');
         const userLinks = document.querySelectorAll('.user-links');

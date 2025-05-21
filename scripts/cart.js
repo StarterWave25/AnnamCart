@@ -12,6 +12,29 @@ async function getCart() {
         else {
             getAddress(response);
         }
+
+        let orderId = JSON.parse(sessionStorage.getItem('orderId'));
+        if (orderId) {
+            let request = await fetch(`data/data-order-status.php?status-id=${orderId}`);
+            let response = await request.json();
+            if (response.status === 'accept' && response.res_status === 'requested') {
+                let popupHTML = `
+                    <div class="popup">
+                        <div class="lottie-container">
+                            <lottie-player src="animations/Animation - 1747318843609.json" background="transparent" speed="1"
+                                style="width: 150px; margin: auto;" loop autoplay></lottie-player>
+                        </div>
+                        <h2>Thanks for your Patience !</h2>
+                        <p>Your order is with the restaurant. Don’t refresh the page they’re checking it now.</p>
+                    </div>
+                `;
+                generateOrderPopups(popupHTML, true);
+                connectToServer(orderId);
+            }
+            else {
+                sessionStorage.removeItem('orderId');
+            }
+        }
     }
 
     total = 0, dummyTotal = 0;
@@ -379,6 +402,7 @@ async function assigningDelivery(orderId) {
     let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
     let response = await request.json();
 
+    sessionStorage.setItem('orderId', JSON.stringify(orderId));
     let popupHTML = `
                     <div class="popup">
                         <div class="lottie-container">
@@ -392,23 +416,36 @@ async function assigningDelivery(orderId) {
     generateOrderPopups(popupHTML, true);
 
     if (await response !== 'missed') {
-        const socket = new WebSocket('ws://localhost:8080');
-        socket.addEventListener('open', () => {
-            console.log('Connection Succeed');
-            socket.send(JSON.stringify({
-                mobile: headerUserMobile,
-                role: 'user'
-            }));
-        });
+        let socket = connectToServer(orderId);
+        setTimeout(() => {
+            socket.send(response);
+        }, 1000);
+    }
+    else {
+        setTimeout(() => {
+            assigningDelivery(orderId);
+        }, 10000);
+    }
+}
 
-        socket.addEventListener('message', (event) => {
-            let data = JSON.parse(event.data);
-            let popupHTML;
-            if (data.from === 'agent' && data.status === 'reject') {
-                assigningDelivery(orderId);
-            }
-            else if (data.from === 'restaurant' && data.status === 'reject') {
-                popupHTML = `
+function connectToServer(orderId) {
+    const socket = new WebSocket('ws://localhost:8080');
+    socket.addEventListener('open', () => {
+        console.log('Connection Succeed');
+        socket.send(JSON.stringify({
+            mobile: userMobile,
+            role: 'user'
+        }));
+    });
+
+    socket.addEventListener('message', (event) => {
+        let data = JSON.parse(event.data);
+        let popupHTML;
+        if (data.from === 'agent' && data.status === 'reject') {
+            assigningDelivery(orderId);
+        }
+        else if (data.from === 'restaurant' && data.status === 'reject') {
+            popupHTML = `
                             <div class="popup">
                                 <div class="lottie-container">
                                     <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
@@ -419,10 +456,11 @@ async function assigningDelivery(orderId) {
                                 <button class="popup-btn" onclick="location.reload()">Reorder</button>
                             </div>
                 `;
-                generateOrderPopups(popupHTML, true);
-            }
-            else if (data.status === 'accept') {
-                popupHTML = `
+            generateOrderPopups(popupHTML, true);
+            sessionStorage.removeItem('orderId');
+        }
+        else if (data.status === 'accept') {
+            popupHTML = `
                             <div class="popup">
                                 <div class="lottie-container">
                                     <lottie-player src="animations/Animation - 1747307351888.json" background="transparent" speed="1"
@@ -434,19 +472,11 @@ async function assigningDelivery(orderId) {
                                 <button class="popup-btn" onclick="location.href = 'OrderedDetails.php?order-id=${orderId}'">Track Order</button>
                             </div>
                 `;
-                generateOrderPopups(popupHTML, true);
-            }
-        });
+            generateOrderPopups(popupHTML, true);
+        }
+    });
 
-        setTimeout(() => {
-            socket.send(response);
-        }, 1000);
-    }
-    else {
-        setTimeout(() => {
-            assigningDelivery(orderId);
-        }, 10000);
-    }
+    return socket;
 }
 
 async function getLocation() {

@@ -1,7 +1,6 @@
 async function getOrderDetails() {
     let response = await fetch(`data/data-get-orders.php?order-id=${orderId}`);
     let orderedDetails = await response.json();
-    sessionStorage.setItem('orderId', JSON.stringify(orderedDetails.restaurant.order_id));
 
     console.log(orderedDetails);
     let dTime = '';
@@ -49,7 +48,7 @@ async function getOrderDetails() {
                     <img src="img/check.png">
                     <p>Food Prepared</p>
                 </div>
-                <span class="tracking-route prepare"></span>                
+                <span class="tracking-route prepare"></span>
                 <div class="status-circle status-pickup">
                     <span class="status-border"></span>
                     <img src="img/check.png">
@@ -143,6 +142,7 @@ function forStatus() {
             trackingRoute[1].classList.add('active');
         }
         else if (data.status === 'delivered') {
+            sessionStorage.removeItem('orderId');
             document.querySelector('.status-delivered').classList.add('status-active');
             trackingRoute[2].classList.add('active');
         }
@@ -170,6 +170,7 @@ async function statusFromBase() {
             forStatus();
         }
         else if (response.status === 'delivered') {
+            sessionStorage.removeItem('orderId');
             document.querySelector('.status-preparing').classList.add('status-active');
             trackingRoute[0].classList.add('active');
             setTimeout(() => {

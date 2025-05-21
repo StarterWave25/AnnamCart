@@ -8,9 +8,8 @@ const restaurants = new Map();
 wss.on('connection', (ws) => {
     console.log('client connected');
     let data;
-
-    ws.addEventListener('message', (event) => {
-        data = JSON.parse(event.data);
+    ws.on('message', (message) => {
+        data = JSON.parse(message);
         console.log(data);
 
         if (data.role === 'user') {
