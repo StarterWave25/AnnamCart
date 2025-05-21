@@ -151,7 +151,6 @@ function forStatus() {
 
 async function statusFromBase() {
     const trackingRoute = document.querySelectorAll('.tracking-route');
-    let orderId = JSON.parse(sessionStorage.getItem('orderId')) || '';
     if (orderId !== '') {
         let request = await fetch(`data/data-order-status.php?status-id=${orderId}`);
         let response = await request.json();
