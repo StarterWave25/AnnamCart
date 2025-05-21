@@ -63,7 +63,7 @@ async function getOrderDetails() {
             </div>
 
             <div class="buttons-container">
-                <button>Reorder</button>
+                <button ><a href="cart.php?order-id=${orderedDetails.restaurant.order_id}" class="reorder-btn">Reorder</a></button>
                 <button>Help</button>
             </div>
 
@@ -191,3 +191,8 @@ async function statusFromBase() {
 setTimeout(() => {
     statusFromBase();
 }, 1000);
+
+document.querySelector('.reorder-btn').addEventListener('click', async () => {
+    const userMobile = sessionStorage.getItem('userMobile');
+    localStorage.removeItem(`storedItems-${userMobile}`);
+});

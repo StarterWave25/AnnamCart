@@ -25,7 +25,7 @@ async function getCart() {
                                 style="width: 150px; margin: auto;" loop autoplay></lottie-player>
                         </div>
                         <h2>Thanks for your Patience !</h2>
-                        <p>Your order is with the restaurant. Don’t refresh the page they’re checking it now.</p>
+                        <p>Your order is with the restaurant. Don’t refresh the page they're checking it now.</p>
                     </div>
                 `;
                 generateOrderPopups(popupHTML, true);
@@ -47,10 +47,9 @@ async function getCart() {
     let cartItemListHTML = '';
 
     await cartItems.forEach(async (item) => {
-        if (restaurantData) {
             await restaurantData.resBody.forEach((resItem) => {
                 let itemId = Number(resItem.item_id);
-                if (itemId === item.itemId) {
+                if (itemId == item.itemId) {
                     cartItemListHTML += `
                     <div class="item">
                         <h4>${resItem.item_name}</h4>
@@ -68,7 +67,7 @@ async function getCart() {
                     dummyTotal += getItemPrice(item.quantity, resItem.dprice);
                 }
             });
-        }
+        
 
         setTimeout(() => {
             const minBtn = document.querySelector(`.decrement-${item.itemId}`);
@@ -431,7 +430,6 @@ async function assigningDelivery(orderId) {
 function connectToServer(orderId) {
     const socket = new WebSocket('ws://localhost:8080');
     socket.addEventListener('open', () => {
-        console.log('Connection Succeed');
         socket.send(JSON.stringify({
             mobile: userMobile,
             role: 'user'
@@ -614,5 +612,19 @@ function generateOrderPopups(popupHTML, signal) {
         popupContainer.innerHTML = '';
         document.querySelector('.popup').style.display = 'none';
     }
+}
+
+async function reorderFromPrevious(orderId) {
+    const request = await fetch(`data/data-previous-order.php?order-id=${orderId}`);
+    const response = await request.json();
+
+    let cartItems = [];
+    response.items.forEach((item) => {
+        cartItems.push({ itemId: item.item_id, quantity: item.quantity, restaurantId: response.restaurantId.res_id });
+    });
+
+    localStorage.setItem(`storedItems-${userMobile}`, JSON.stringify(cartItems));
+
+    location.href = 'cart.php'
 }
 

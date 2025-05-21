@@ -25,7 +25,7 @@ async function getOrdersData() {
                         <p>Delivery on : ${dTime}</p>
                     </div>
                     <div class="reorder-button">
-                        <a href=""><button class="reorder-btn">Reorder</button></a>
+                        <a href="cart.php?order-id=${order.order_id}"><button class="reorder-btn">Reorder</button></a>
                         <a href="orderedDetails.php?order-id=${order.order_id}"><button class="viewmore-btn">View More</button></a>
                     </div>
                 </div>
@@ -36,6 +36,10 @@ async function getOrdersData() {
     const orderContainer = document.querySelector('.orders-container');
     orderContainer.innerHTML = ordersHTML;
 
+    document.querySelector('.reorder-btn').addEventListener('click', async () => {
+        const userMobile = sessionStorage.getItem('userMobile');
+        localStorage.removeItem(`storedItems-${userMobile}`);
+    });
 }
 
 getOrdersData();

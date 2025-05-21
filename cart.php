@@ -94,6 +94,14 @@
         <!--js code goes here -->
     </aside>
     <script src="scripts/cart.js"></script>
+    <?php
+        if(isset($_GET['order-id'])){
+            $order_id = $_GET['order-id'];
+            echo "<script>
+                reorderFromPrevious('$order_id');
+            </script>";
+        }
+    ?>
 </body>
 
 </html>
