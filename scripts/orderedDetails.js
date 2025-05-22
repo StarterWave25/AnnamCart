@@ -2,7 +2,6 @@ async function getOrderDetails() {
     let response = await fetch(`data/data-get-orders.php?order-id=${orderId}`);
     let orderedDetails = await response.json();
 
-    console.log(orderedDetails);
     let dTime = '';
     if (orderedDetails.restaurant.Time !== orderedDetails.restaurant.delivered_time) {
         dTime = orderedDetails.restaurant.delivered_time;
@@ -65,6 +64,7 @@ async function getOrderDetails() {
             <div class="buttons-container">
                 <button ><a href="cart.php?order-id=${orderedDetails.restaurant.order_id}" class="reorder-btn">Reorder</a></button>
                 <button>Help</button>
+                <button class="review-btn">Give&nbsp;Review</button>
             </div>
 
         </div>
@@ -123,7 +123,6 @@ function forStatus() {
     let usermobile = JSON.parse(sessionStorage.getItem('userMobile'));
     const socket = new WebSocket('ws://localhost:8080');
     socket.addEventListener('open', () => {
-        console.log('Connection Succeed');
         socket.send(JSON.stringify({
             mobile: usermobile,
             role: 'user'
@@ -132,7 +131,6 @@ function forStatus() {
 
     socket.addEventListener('message', (event) => {
         const data = JSON.parse(event.data);
-        console.log(data);
         if (data.status === 'ready') {
             document.querySelector('.status-preparing').classList.add('status-active');
             trackingRoute[0].classList.add('active');
@@ -176,9 +174,17 @@ async function statusFromBase() {
                 document.querySelector('.status-pickup').classList.add('status-active');
                 trackingRoute[1].classList.add('active');
             }, 1000);
-            setTimeout(() => {
+            setTimeout(async () => {
                 document.querySelector('.status-delivered').classList.add('status-active');
                 trackingRoute[2].classList.add('active');
+
+                request = await fetch(`data/data-review.php?order-id=${orderId}`);
+                response = await request.json();
+                if (response == 0) {
+                    document.querySelector('.popup-overlay').style.display = 'block';
+                    document.querySelector('.review-popup').style.opacity = '1';
+                    document.querySelector('.review-popup').style.visibility = 'visible';
+                }
             }, 2000);
             forStatus();
         }
@@ -191,8 +197,3 @@ async function statusFromBase() {
 setTimeout(() => {
     statusFromBase();
 }, 1000);
-
-document.querySelector('.reorder-btn').addEventListener('click', async () => {
-    const userMobile = sessionStorage.getItem('userMobile');
-    localStorage.removeItem(`storedItems-${userMobile}`);
-});
