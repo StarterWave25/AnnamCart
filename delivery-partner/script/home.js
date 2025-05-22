@@ -3,8 +3,9 @@ async function getRecentOrders() {
   let orders = await response.json();
 
   let ordersHTML = '';
-  orders.forEach(order => {
-    ordersHTML += `<div class="order1">
+  if (orders.length > 0) {
+    orders.forEach(order => {
+      ordersHTML += `<div class="order1">
       <p>${order.res_name}</p>
       <p>${order.username}</p>
       <div class="ordermoney">
@@ -12,7 +13,11 @@ async function getRecentOrders() {
         <h2> ₹${order.total}</h2>
       </div>
     </div>`
-  });
+    });
+  }
+  else {
+    ordersHTML = '<p>No recent orders found !</p>'
+  }
 
   let ordersContainer = `
     <div class="today">
@@ -22,9 +27,8 @@ async function getRecentOrders() {
                 
     </div>
   `;
-
+  document.querySelector('.prsentorders').innerHTML = ordersContainer;
   setTimeout(() => {
-    document.querySelector('.prsentorders').innerHTML = ordersContainer;
     document.querySelector('.ordersdasbord').innerHTML = ordersHTML;
   }, 100);
 }

@@ -21,6 +21,8 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <link rel="stylesheet" href="styles/orderdetails.css">
     <link rel="stylesheet" href="styles/customerdetails.css">
     <link rel="stylesheet" href="styles/payment.css">
+    <link rel="stylesheet" href="../styles/popup.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 
@@ -34,6 +36,9 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     </div>
     <div class="customer-deatils-container">
         <!--js code goes here -->
+    </div>
+    <div class="popup-overlay">
+
     </div>
     <script src="script/header.js"></script>
     <script type="module" src="script/get-order.js"></script>

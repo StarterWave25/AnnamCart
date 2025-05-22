@@ -17,6 +17,7 @@
     height: 300px;
     border-radius: 15px;
     display: flex;
+    align-items: center;
     opacity: 0;
     visibility: hidden;
     position: fixed;
@@ -28,25 +29,23 @@
 }
 
 .close-btn {
+    width: 90%;
     height: 25%;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 25px;
-    margin-top: 5px;
+    position: relative;
+    align-items: flex-end;
 }
 
 .close-border {
-    height: 40%;
-    width: 6%;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 1.5px solid gray;
-    padding-bottom: 5px;
-    padding-left: 1.6px;
+    place-content: center;
+    position: absolute;
+    right:0 ;
+    width: 35px;
     aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 1px solid gray;
 }
 
 .close-border:hover,
@@ -60,8 +59,7 @@
 }
 
 .close-border>p {
-    padding: 9px;
-    cursor: pointer;
+    font-family: 'system-ui';
     font-size: 1.3rem;
     color: gray;
 }
@@ -208,7 +206,7 @@
 }
 
 .popup {
-    display: none;
+    display: block;
     background-color: #fff;
     border-radius: 16px;
     padding: 50px;

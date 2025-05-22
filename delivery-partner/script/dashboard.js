@@ -1,5 +1,5 @@
 import {
-    getOrder, orderDetailsForAgent, setReadyState
+    getOrder, orderDetailsForAgent, generatePopup
 } from './get-order.js';
 
 
@@ -87,17 +87,25 @@ export function connectToServer(choice, status) {
             }
             else if (event.data == 'reject') {
                 sessionStorage.setItem('status', 'active');
-                confirm('Restaurant rejected the order');
+                let popupHTML = `<div class="popup">
+                                    <div class="lottie-container">
+                                        <lottie-player src="../animations/Animation - 1747320405248.json" background="transparent" speed="1"
+                                        style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                                    </div>
+                                    <h2>Oops, Order Declined !</h2>
+                                    <p>This restaurant couldn’t take your order. Try another one nearby it’s just a click away.</p>
+                                </div>`;
+                generatePopup(popupHTML, true);
                 setTimeout(() => {
                     location.href = 'activepage.php';
-                }, 2000);
+                }, 5000);
             }
             else if (event.data == 'life set') {
                 sessionStorage.setItem('status', 'requested');
                 getOrder();
             }
             else if (event.data == 'ready') {
-                setReadyState();
+                orderDetailsForAgent();
             }
         });
 

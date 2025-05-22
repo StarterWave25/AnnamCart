@@ -458,7 +458,7 @@ function connectToServer(orderId) {
             sessionStorage.removeItem('orderId');
         }
         else if (data.status === 'accept') {
-            popupHTML = `
+            let popupHTML = `
                             <div class="popup">
                                 <div class="lottie-container">
                                     <lottie-player src="animations/Animation - 1747307351888.json" background="transparent" speed="1"
@@ -600,17 +600,15 @@ async function checkAddAddress() {
 
 
 function generateOrderPopups(popupHTML, signal) {
+    const popupContainer = document.querySelector('.popup-overlay');
     if (signal) {
-        const popupContainer = document.querySelector('.popup-overlay');
         popupContainer.style.display = 'flex';
         popupContainer.innerHTML = popupHTML;
-        document.querySelector('.popup').style.display = 'block';
+
     }
     else {
-        const popupContainer = document.querySelector('.popup-overlay');
         popupContainer.style.display = 'none';
         popupContainer.innerHTML = '';
-        document.querySelector('.popup').style.display = 'none';
     }
 }
 

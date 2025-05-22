@@ -3,9 +3,9 @@ include '../../data/conn.php';
 
 session_start();
 $dmobile = $_SESSION['dmobile'];
-if(isset($_GET['mode'])) {
+if (isset($_GET['mode'])) {
   $mode = $_GET['mode'];
-}else{
+} else {
   $mode = '';
 }
 if ($mode == 'recent') {
@@ -15,7 +15,6 @@ if ($mode == 'recent') {
   while ($row = mysqli_fetch_assoc($result)) {
     $orders[] = $row;
   }
-
   echo json_encode($orders);
 } else if ($mode == 'cash') {
   $sql = "SELECT total FROM orders WHERE DATE(Time) = CURDATE() AND dmobile=$dmobile AND status = 'delivered' AND ptype = 'cash' ORDER BY Time DESC";
@@ -54,4 +53,3 @@ if ($mode == 'recent') {
   }
   echo json_encode($orders);
 }
-?>

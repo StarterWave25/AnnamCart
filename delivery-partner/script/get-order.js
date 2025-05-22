@@ -111,15 +111,33 @@ async function setOrderStatus(status) {
 async function setWaitingState() {
     sessionStorage.setItem('status', 'waiting');
     setTimeout(() => {
-        const acceptBtn = document.querySelector('.Accept-button');
-        acceptBtn.style.pointerEvents = 'none';
-        const rejectBtn = document.querySelector('.reject-button');
-        rejectBtn.style.pointerEvents = 'none';
+        let popupHTML = `
+                        <div class="popup">
+                            <div class="lottie-container">
+                                <lottie-player src="../animations/Animation - 1747318843609.json" background="transparent" speed="1"
+                                    style="width: 150px; margin: auto;" loop autoplay></lottie-player>
+                            </div>
+                            <h2>Thanks for your Patience !</h2>
+                            <p>Your order is with the restaurant. Don’t refresh the page they’re checking it now.</p>
+                        </div>`;
+        generatePopup(popupHTML, true);
         const stateBtn = document.querySelector('.statechanger');
         if (stateBtn) {
             stateBtn.style.display = 'none';
         }
     }, 100);
+}
+
+export function generatePopup(popupHTML, signal) {
+    const popupContainer = document.querySelector('.popup-overlay');
+    if (signal) {
+        popupContainer.style.display = 'flex';
+        popupContainer.innerHTML = popupHTML;
+    }
+    else {
+        popupContainer.style.display = 'none';
+        popupContainer.innerHTML = popupHTML;
+    }
 }
 
 
@@ -146,6 +164,17 @@ export async function orderDetailsForAgent() {
         paymentMethod();
     }
     else {
+        let popupHTML = `<div class="popup">
+                                    <div class="lottie-container">
+                                        <lottie-player src="../animations/Animation - 1747307351888.json" background="transparent" speed="1"
+                                            style="width: 300px; height: 300px; margin: auto;" autoplay>
+                                        </lottie-player>
+                                    </div>
+                                    <h2>Order Accepted by Restaurant !</h2>
+                                    <p>Your Order items are preparing by the Restaurant. Please wait for some time to pickup them !</p>
+                            </div>`
+        generatePopup(popupHTML, true);
+
         const orderId = restaurantDetails.details.order_id;
         const orderIdPart1 = orderId.substr(0, 13);
         const orderIdPart2 = orderId.substr(13, 16);
@@ -196,26 +225,17 @@ export async function orderDetailsForAgent() {
         });
         if (document.querySelector('.food-items-details'))
             document.querySelector('.food-items-details').innerHTML = orderDetailsItemsInnerHTML;
-        setTimeout(async () => {
-            const pickBtn = document.querySelector('.delivery-status');
-            pickBtn.addEventListener('click', () => {
-                checkItems();
-            });
-            pickBtn.style.pointerEvents = 'none';
+        const pickBtn = document.querySelector('.delivery-status');
+        pickBtn.addEventListener('click', () => {
+            checkItems();
+        });
 
-
-            const resRequest = await fetch('data/data-accepted.php?ready=1');
-            const resResponse = await resRequest.json();
-            if (resResponse.status === 'ready') {
-                setReadyState();
-            }
-        }, 1500);
+        const resRequest = await fetch('data/data-accepted.php?ready=1');
+        const resResponse = await resRequest.json();
+        if (resResponse.status === 'ready') {
+            generatePopup('', false);
+        }
     }
-}
-
-export async function setReadyState() {
-    const pickBtn = document.querySelector('.delivery-status');
-    pickBtn.style.pointerEvents = 'all';
 }
 
 async function checkItems() {
@@ -353,7 +373,7 @@ async function generateQR(detailsContainer) {
 async function confirmPayment(detailsContainer) {
     let umobile = await delivered(); //to send the message to user as delivered
     console.log(umobile);
-    
+
     const request = await fetch('data/data-arrived.php?status=delivered');
     const response = await request.json();
 
