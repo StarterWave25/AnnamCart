@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $body[] = $row;
 } */
 
-      $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE ? = res_id");
+      $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE ? = res_id AND status='Available'");
       mysqli_stmt_bind_param($stmt, "i", $restaurantId);
       mysqli_stmt_execute($stmt);
       $result = mysqli_stmt_get_result($stmt);

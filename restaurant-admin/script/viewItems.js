@@ -13,18 +13,19 @@ async function getItems() {
       </div>
       <div class="item-btns">
         <button class="edit-btn">
-          <span>edit</span> 
+          <span>Edit</span> 
           <div class="image2">
             <img src="../img/pen.png" alt="edit-symbol">
           </div>
         </button>
-        <button class="avail-btn">Available</button>
+        <button class="avail-btn">${item.status}</button>
       </div>
     </div>
   `;
   });
 
   document.querySelector('.items-body').innerHTML = itemsHTML;
+  
 }
 
 getItems();

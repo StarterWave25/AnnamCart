@@ -17,7 +17,11 @@ if (isset($_POST['submit'])) {
       header("Location: ../add-food-item.php");
       exit;
     }
-    $sql = "INSERT INTO items(item_name, res_id, price, dprice) VALUES ('$item', $resId, $price, $dprice)";
+    $sql = "SELECT COUNT(*) FROM items";
+    $result = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+    $count = 701 + $result['COUNT(*)'];
+
+    $sql = "INSERT INTO items(item_id,item_name, res_id, price, dprice) VALUES ($count,'$item', $resId, $price, $dprice)";
     $res = mysqli_query($conn, $sql);
     header("Location: ../add-food-item.php?message=succed");
   }
@@ -25,4 +29,3 @@ if (isset($_POST['submit'])) {
   header("Location: ../add-food-item.php");
   exit;
 }
-?>

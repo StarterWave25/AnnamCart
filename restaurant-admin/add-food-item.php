@@ -1,9 +1,9 @@
 <?php if (isset($_GET['message'])): ?>
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        message();
-    });
-</script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            message();
+        });
+    </script>
 <?php endif; ?>
 
 <?php
@@ -48,8 +48,8 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
             <button class="image-upload-but">Upload item image</button>
             <button type="submit" name="submit" class="submit-but">Add food item</button>
 
-        </form>  
-    </div>  
+        </form>
+    </div>
     <script>
         function message() {
             document.querySelector('.message').style.display = 'flex';
