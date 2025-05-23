@@ -128,7 +128,7 @@ async function setWaitingState() {
     }, 100);
 }
 
-export function generatePopup(popupHTML, signal) {
+export function generatePopup(popupHTML = '', signal = false) {
     const popupContainer = document.querySelector('.popup-overlay');
     if (signal) {
         popupContainer.style.display = 'flex';
@@ -258,6 +258,20 @@ async function checkItems() {
         if (response === 'picked') {
             getCustomerDetails();
         }
+    }
+    else {
+        let popupHTML = `<div class="popup">
+                            <div class="lottie-container">
+                                <lottie-player src="../animations/Animation - 1747320405248.json" background="transparent" speed="1"
+                                style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                            </div>
+                            <h2>Please Verify your Pickup !</h2>
+                            <p>Double-check all items before you leave the restaurant—ensuring every dish reaches our customer just as they ordered is your top priority.</p>
+                        </div>`;
+        generatePopup(popupHTML, true);
+        setTimeout(() => {
+            generatePopup('', false);
+        }, 5000)
     }
 }
 

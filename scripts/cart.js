@@ -32,8 +32,17 @@ async function getCart() {
                 connectToServer(orderId);
             }
             else {
+                const request = await fetch(`data/data-cancel-order.php?order-id=${timer}`);
+                const response = await request.json();
                 sessionStorage.removeItem('orderId');
             }
+        }
+
+        let timer = sessionStorage.getItem('timer');
+        if (timer) {
+            const request = await fetch(`data/data-cancel-order.php?order-id=${timer}`);
+            const response = await request.json();
+            sessionStorage.removeItem('timer');
         }
     }
 
@@ -47,10 +56,10 @@ async function getCart() {
     let cartItemListHTML = '';
 
     await cartItems.forEach(async (item) => {
-            await restaurantData.resBody.forEach((resItem) => {
-                let itemId = Number(resItem.item_id);
-                if (itemId == item.itemId) {
-                    cartItemListHTML += `
+        await restaurantData.resBody.forEach((resItem) => {
+            let itemId = Number(resItem.item_id);
+            if (itemId == item.itemId) {
+                cartItemListHTML += `
                     <div class="item">
                         <h4>${resItem.item_name}</h4>
                         <div class="update-quantity">
@@ -63,11 +72,11 @@ async function getCart() {
                             <h3>₹${getItemPrice(item.quantity, resItem.price)}</h3>
                         </div>
                     </div>`;
-                    total += getItemPrice(item.quantity, resItem.price);
-                    dummyTotal += getItemPrice(item.quantity, resItem.dprice);
-                }
-            });
-        
+                total += getItemPrice(item.quantity, resItem.price);
+                dummyTotal += getItemPrice(item.quantity, resItem.dprice);
+            }
+        });
+
 
         setTimeout(() => {
             const minBtn = document.querySelector(`.decrement-${item.itemId}`);
@@ -382,7 +391,7 @@ async function orderFood() {
             });
             const response = await request.json();
             if (await response === 'Success') {
-                await getAgentsCount(orderId);
+                cancelAlert(orderId);
             }
             else {
                 confirm('Order Failed, Please order after some time !');
@@ -391,13 +400,71 @@ async function orderFood() {
     }
 }
 
-async function getAgentsCount(orderId) {
-    let request = await fetch('data/data-order-status.php');
-    let count = await request.json();
-    assigningDelivery(orderId);
+
+function cancelAlert(orderId) {
+    let popupHTML = `<div class="popup">
+                        <div class="lottie-container">
+                            <div class="timer"></div>
+                        </div>
+                        <h2>Don't change your mind !</h2>
+                        <p>Your meal is almost ready for you. Cancelling now stops us from serving your
+                            cravings — trust us, it’ll be worth the wait !</p>
+                        <button class="popup-btn cancel-btn">Cancel Order</button>
+                    </div>`;
+    let placeOrder = true;
+    sessionStorage.setItem('timer', orderId);
+    generateOrderPopups(popupHTML, true);
+    cancelTimer();
+
+    setTimeout(() => {
+        if (placeOrder) {
+            assigningDelivery(orderId);
+        }
+    }, 30000);
+
+    const cancelBtn = document.querySelector('.cancel-btn');
+    cancelBtn.addEventListener('click', async () => {
+        placeOrder = false;
+        const request = await fetch(`data/data-cancel-order.php?order-id=${orderId}`);
+        const response = await request.json();
+        if (response === 'Cancelled') {
+            let popupHTML = `<div class="popup">
+                            <div class="lottie-container">
+                                <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
+                                style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                            </div>
+                            <h2>Your order’s been Cancelled !</h2>
+                            <p>We respect your choice—your happiness comes first. Whenever you’re ready, we’ll be here to serve you a delicious meal with care.</p>
+                        </div>`;
+            generateOrderPopups(popupHTML, true);
+            setTimeout(() => {
+                location.href = 'restaurants.html';
+            }, 7000);
+        }
+    });
 }
 
+
+function cancelTimer() {
+    const timerContainer = document.querySelector('.timer');
+    let timer = 30;
+    setInterval(() => {
+        if (timer >= 0) {
+            if (timer < 10) {
+                timerContainer.innerHTML = `00:0${timer}`;
+            }
+            else {
+                timerContainer.innerHTML = `00:${timer}`;
+            }
+            timer--;
+        }
+    }, 1000);
+}
+
+
 async function assigningDelivery(orderId) {
+    sessionStorage.removeItem('timer');
+
     let request = await fetch(`data/data-order-status.php?order-id=${orderId}`);
     let response = await request.json();
 
@@ -444,15 +511,15 @@ function connectToServer(orderId) {
         }
         else if (data.from === 'restaurant' && data.status === 'reject') {
             popupHTML = `
-                            <div class="popup">
-                                <div class="lottie-container">
-                                    <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
-                                    style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
-                                </div>
-                                <h2>Oops, Order Declined !</h2>
-                                <p>This restaurant couldn’t take your order. Try another one nearby it’s just a click away.</p>
-                                <button class="popup-btn" onclick="location.reload()">Reorder</button>
+                        <div class="popup">
+                            <div class="lottie-container">
+                                <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
+                                style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
                             </div>
+                            <h2>Oops, Order Declined !</h2>
+                            <p>This restaurant couldn’t take your order. Try another one nearby it’s just a click away.</p>
+                            <button class="popup-btn" onclick="location.reload()">Reorder</button>
+                        </div>
                 `;
             generateOrderPopups(popupHTML, true);
             sessionStorage.removeItem('orderId');

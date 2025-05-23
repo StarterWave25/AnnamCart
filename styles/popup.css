@@ -41,7 +41,7 @@
     display: flex;
     place-content: center;
     position: absolute;
-    right:0 ;
+    right: 0;
     width: 35px;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -230,14 +230,13 @@
 }
 
 .popup h2 {
-    font-family: 'Alata', sans-serif;
-    color: #762E14;
-    font-size: 24px;
+    color: var(--brown);
+    font-size: 26px;
     margin: 20px 0 10px;
 }
 
 .popup p {
-    font-size: 16px;
+    font-size: 18px;
     color: #000;
     margin-bottom: 20px;
 }
@@ -264,4 +263,15 @@
 
 .popup-btn:hover {
     filter: brightness(1.2);
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    font-size: 5rem;
+    font-weight: 500;
+    font-family: 'system-ui';
+    color: green;
 }

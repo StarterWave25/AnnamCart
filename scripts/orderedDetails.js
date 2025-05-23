@@ -62,7 +62,7 @@ async function getOrderDetails() {
             </div>
 
             <div class="buttons-container">
-                <button ><a href="cart.php?order-id=${orderedDetails.restaurant.order_id}" class="reorder-btn">Reorder</a></button>
+                <button onclick="location.href = 'cart.php?order-id=${orderedDetails.restaurant.order_id}'" class="reorder-btn">Reorder</button>
                 <button>Help</button>
                 <button class="review-btn">Give&nbsp;Review</button>
             </div>
