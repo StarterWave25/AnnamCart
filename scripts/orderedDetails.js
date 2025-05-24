@@ -64,7 +64,6 @@ async function getOrderDetails() {
             <div class="buttons-container">
                 <button onclick="location.href = 'cart.php?order-id=${orderedDetails.restaurant.order_id}'" class="reorder-btn">Reorder</button>
                 <button>Help</button>
-                <button class="review-btn">Give&nbsp;Review</button>
             </div>
 
         </div>
@@ -180,12 +179,12 @@ async function statusFromBase() {
 
                 request = await fetch(`data/data-review.php?order-id=${orderId}`);
                 response = await request.json();
-                if (response == 0) {
+                if (response.count == 0) {
                     document.querySelector('.popup-overlay').style.display = 'block';
                     document.querySelector('.review-popup').style.opacity = '1';
                     document.querySelector('.review-popup').style.visibility = 'visible';
                 }
-            }, 2000);
+            }, 1000);
             forStatus();
         }
         else {
@@ -197,3 +196,23 @@ async function statusFromBase() {
 setTimeout(() => {
     statusFromBase();
 }, 1000);
+
+async function giveReveiw() {
+    const request = await fetch(`data/data-review.php?order-id=${orderId}`,);
+    const response = await request.json();
+
+    if (response.count == 0 && response.status == 'delivered') {
+        setTimeout(() => {
+            document.querySelector('.review-popup').style.opacity = '0';
+            document.querySelector('.review-popup').style.visibility = 'hidden';
+            document.querySelector('.popup-overlay').style.display = 'block';
+            document.querySelector('.container').style.display = 'flex';
+        }, 4000);
+    }
+}
+
+giveReveiw();
+
+async function postReview(event) {
+
+}

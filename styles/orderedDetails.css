@@ -247,6 +247,7 @@ body {
 .buttons-container>button:nth-child(2):hover {
   background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
   color: white;
+  border: none;
 }
 
 .bill-container {
@@ -312,7 +313,7 @@ body {
   background-color: var(--white);
   flex-direction: column;
   width: 35%;
-  height: 250px;
+  height: 300px;
   border-radius: 15px;
   display: flex;
   opacity: 0;
@@ -324,6 +325,18 @@ body {
   z-index: 1010;
   box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  justify-content: space-around;
+}
+
+.review-popup p{
+  margin: 10px 0px;
+}
+
+.container .head{
+  text-align: center;
+  color: var(--brown);
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .review-overlay {
@@ -352,17 +365,17 @@ body {
   font-weight: 600;
   display: flex;
   align-items: center;
+  height: 30%;
 }
 
 .review-popup .info-touser p {
   font-size: 1rem;
   font-weight: 400;
   color: var(--black);
-  margin-top: 10px;
 }
 
 .review-popup .changeItems-btns {
-  height: 40%;
+  height: 12%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -370,14 +383,9 @@ body {
 }
 
 .review-popup .changeItems-btns button {
-  width: 20%;
-  height: 20%;
-}
-
-.review-popup .changeItems-btns button {
   font-size: 0.9rem;
   width: 30%;
-  height: 40%;
+  height: 100%;
   cursor: pointer;
   border-radius: 7px;
   margin: 20px 20px;
@@ -403,10 +411,7 @@ body {
   justify-content: center;
   flex-direction: column;
   z-index: 1000;
-}
-
-.container .post {
-  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container .text {

@@ -50,5 +50,5 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
   }
 } catch (Exception $e) {
-  echo json_encode("Something went wrong !");
+  echo json_encode("Something went wrong ! $e");
 }

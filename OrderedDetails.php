@@ -31,7 +31,11 @@
       <div class="heading">
         <h2>After enjoyed your meal!</h2>
       </div>
-      <p>"Drop a quick review — your taste buds have something to say.”</p>
+      <em>
+        <p>"Please drop a quick review — your taste buds have something to say.”</p>
+      </em>
+      <p>You can give review by opening!</p>
+      <p style="color: var(--brown)">My orders > view more</p>
     </div>
     <div class="changeItems-btns">
       <button class="definet-btn">Definetly</button>
@@ -39,28 +43,26 @@
   </div>
 
   <div class="container">
-    <div class="post">
-      <div class="text">Thanks for rating us!</div>
-      <div class="edit">EDIT</div>
-    </div>
+    <div class="head">Please Give Review</div>
     <div class="star-widget">
+
       <input type="radio" name="rate" id="rate-5">
-      <label for="rate-5" class="fas fa-star"></label>
+      <label for="rate-5" class="fas fa-star" onclick="setStar(5)"></label>
       <input type="radio" name="rate" id="rate-4">
-      <label for="rate-4" class="fas fa-star"></label>
+      <label for="rate-4" class="fas fa-star" onclick="setStar(4)"></label>
       <input type="radio" name="rate" id="rate-3">
-      <label for="rate-3" class="fas fa-star"></label>
+      <label for="rate-3" class="fas fa-star" onclick="setStar(3)"></label>
       <input type="radio" name="rate" id="rate-2">
-      <label for="rate-2" class="fas fa-star"></label>
+      <label for="rate-2" class="fas fa-star" onclick="setStar(2)"></label>
       <input type="radio" name="rate" id="rate-1">
-      <label for="rate-1" class="fas fa-star"></label>
+      <label for="rate-1" class="fas fa-star" onclick="setStar(1)"></label>
       <form action="data/data-review.php" method="POST">
         <section class="message"></section>
         <div class="textarea">
-          <textarea cols="30" placeholder="Describe your experience.."></textarea>
+          <textarea cols="30" name="description" placeholder="Describe your experience..."></textarea>
         </div>
         <div class="btn">
-          <button type="submit" class="post-btn">Post</button>
+          <button class="post-btn" onclick="postReview(event)">Post</button>
         </div>
       </form>
     </div>
@@ -90,18 +92,12 @@
       document.querySelector('.review-popup').style.visibility = 'hidden';
     });
 
-
-    setTimeout(() => {
-      document.querySelector('.review-btn').addEventListener('click', () => {
-        document.querySelector('.popup-overlay').style.display = 'block';
-        document.querySelector('.container').style.display = 'flex';
-      });
-    }, 1000);
-
-    document.querySelector('.post-btn').addEventListener('click', () => {
-      document.querySelector('.popup-overlay').style.display = 'none';
-      document.querySelector('.container').style.display = 'none';
-    });
+    async function setStar(star_number) {
+      console.log(orderId)
+      console.log(star_number)
+      
+      fetch(`data/data-review.php?order-id=${orderId}&stars=${star_number}`)
+    }
   </script>
 </body>
 
