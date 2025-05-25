@@ -27,9 +27,9 @@ function getPopularItems() {
         .then((popularItems) => {
             popularItems.forEach((item) => {
                 popularContainer.innerHTML += `
-                    <div class="food-name">
+                    <div class="food-name" onclick="searchAction('${item.item_name}')">
                         <a class="food">
-                            <img src="img/img2.jpeg" alt="" onclick="searchAction('${item.item_name}')">
+                            <img src="img/img7.jpeg" alt="food-item">
                         </a>
                         <div class="name">
                             ${item.item_name}
