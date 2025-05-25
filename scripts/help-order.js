@@ -79,19 +79,15 @@ async function sendDataTodB(modalId, formData) {
     // callVasuki(tokenId, orderId, modalId, desc);
 }
 
-// async function callVasuki(tokenId, orderId, modalId, desc) {
-//     console.log(desc);
-//     if (desc.length > 0) {
-//         desc = JSON.parse(desc);
-//     }
-//     const request = await fetch('http://localhost:5678/webhook-test/660f46ba-a1c2-4d3c-8e4f-dd4968faec14', {
-//         method: 'POST',
-//         headers: {
-//             'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify({ tokenId, orderId, modalId, desc })
-//     });
-// }
+async function callVasuki(tokenId, orderId, modalId, desc) {
+    const request = await fetch('http://localhost:5678/webhook-test/660f46ba-a1c2-4d3c-8e4f-dd4968faec14', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ tokenId, orderId, modalId, desc })
+    });
+}
 
 
 

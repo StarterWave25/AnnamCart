@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -12,7 +12,7 @@ body{
     justify-content: center;
 }
 
-.add-food-container{
+.add-food-container {
     width: 30%;
     height: 40vw;
     background-color: var(--white);
@@ -20,11 +20,11 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-direction: column ;
+    flex-direction: column;
     box-shadow: 0px 0px 4px grey;
 }
 
-.add-food-head{
+.add-food-head {
     width: 61%;
     height: 10%;
     display: flex;
@@ -32,7 +32,7 @@ body{
     color: var(--brown);
 }
 
-form{
+form {
     width: 80%;
     height: 80%;
     display: flex;
@@ -41,7 +41,8 @@ form{
     flex-direction: column;
 }
 
-form input[type="number"],form input[type="text"]{
+form input[type="number"],
+form input[type="text"] {
     width: 80%;
     height: 10%;
     border: 0px solid transparent;
@@ -51,12 +52,12 @@ form input[type="number"],form input[type="text"]{
     border: 1px solid grey;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
-.popular-item{
+.popular-item {
     width: 90%;
     height: 10%;
     display: flex;
@@ -64,18 +65,18 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: flex-start;
 }
 
-.popular-item input{
+.popular-item input {
     display: block;
     width: 20%;
     height: 50%;
     accent-color: var(--brown);
 }
 
-.popular-item label{
+.popular-item label {
     font-size: 1.2rem;
 }
 
-button{
+button {
     width: 80%;
     height: 10%;
     border-radius: 10px;
@@ -83,32 +84,32 @@ button{
     cursor: pointer;
 }
 
-.image-upload-but{
+.image-upload-but {
     border: 2px solid var(--brown);
     background-color: var(--white);
     color: var(--brown);
     transition: all .3s;
 }
 
-.submit-but{
+.submit-but, .edit-save-btn{
     background: linear-gradient(130deg, var(--brown), #ff520271);
     color: var(--white);
 }
 
-.image-upload-but:hover{
+.image-upload-but:hover {
     background: linear-gradient(130deg, var(--brown), #ff520271);
     color: white;
     border: none;
 }
 
-.submit-but:hover{
+.submit-but:hover {
     filter: brightness(1.2);
 }
 
-.message{
+.message {
     background-color: var(--brown);
     color: var(--peach);
     border-radius: 8px;
     padding: 2px 10px;
-    border:none;
+    border: none;
 }
