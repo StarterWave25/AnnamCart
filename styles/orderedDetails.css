@@ -222,18 +222,16 @@ body {
   font-size: 1rem;
 }
 
-.buttons-container>button:nth-child(1),
-.buttons-container>button:nth-child(3) {
+.buttons-container>button:nth-child(1){
   background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
-  color: var(--peach);
+  color: white;
   padding: 0 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.buttons-container>button:nth-child(1):hover,
-.buttons-container>button:nth-child(3):hover {
+.buttons-container>button:nth-child(1):hover {
   filter: brightness(1.4);
 }
 

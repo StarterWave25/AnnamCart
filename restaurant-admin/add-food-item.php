@@ -37,7 +37,7 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
         <div class="message" style="display: none;">
             <p>You have successfully added a Item!</p>
         </div>
-        <form action="data/submit-items.php" method="post">
+        <form action="data/submit-items.php" method="post" class="item-form">
             <input type="text" name="item-name" id="" placeholder="Item name" required>
             <input type="number" name="orginal-price" id="" placeholder="Orginal price" required>
             <input type="number" name="discount-price" id="" placeholder="price with discount" required>
@@ -47,9 +47,11 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
             </div>
             <button class="image-upload-but">Upload item image</button>
             <button type="submit" name="submit" class="submit-but">Add food item</button>
-
         </form>
     </div>
+    <script>
+        const itemId = <?php if(isset($_GET['item-id'])) { echo $_GET['item-id']; } else { echo 0;} ?>;
+    </script>
     <script>
         function message() {
             document.querySelector('.message').style.display = 'flex';
@@ -58,6 +60,7 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
             }, 2500);
         }
     </script>
+    <script src="script/edit-items.js"></script>
 </body>
 
 </html>
