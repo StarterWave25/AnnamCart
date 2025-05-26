@@ -1,6 +1,15 @@
 let time, distance;
 let restaurantData;
 const userMobile = sessionStorage.getItem('userMobile');
+
+async function mostPopularItems() {
+  const request = await fetch('data/data-popular-items.php');
+  const popularItems = await request.json();
+  return popularItems;
+}
+
+mostPopularItems();
+
 async function getRestaurantData(restaurantId) {
   getUserCoords();
 
@@ -45,7 +54,7 @@ async function getRestaurantData(restaurantId) {
   </div>
   `;
 
-  restaurantData.resBody.forEach((item) => {
+  restaurantData.resBody.forEach(async (item) => {
     resBody.innerHTML += `
     <div class="card-food-item js-food-card-${item.item_id}">
         <div class="item-image">
@@ -70,6 +79,12 @@ async function getRestaurantData(restaurantId) {
         <span class="wait-animation wait-animation-${item.item_id}"></span>
       </div>
   `;
+    let popularItems = await mostPopularItems();
+    popularItems.forEach((p_item) => {
+      if (p_item == item.item_id) {
+        document.querySelector(`.js-food-card-${item.item_id}`).classList.add("popular-item");
+      }
+    });
     getAddBtnHTML(Number(item.item_id));
   });
 
@@ -282,7 +297,6 @@ async function getTimeDistance(rLatitude, rLongitude) {
     distance = (summary.distance / 1000).toPrecision(2);
     time = (summary.duration / 60) + 30;
 
-    console.log(distance, time);
   }, 100);
 }
 

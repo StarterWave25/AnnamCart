@@ -9,12 +9,15 @@ $conn = mysqli_connect($servername, $username, $password, $database);
 $name = $_POST["user-name"];
 $mobile_number = $_POST["mobilenumber"];
 $issue = $_POST["issue"];
-$sql = "insert into contact values('$name','$mobile_number','$issue')";
+if (!preg_match("/^[6-9]\d{9}$/", $mobile_number)) {
+  header("Location: contactus.php?error=invalidnumber");
+  exit;
+}
+if (empty($name) || empty($mobile_number) || empty($issue)) {
+  header("Location: contactus.php?error=empty");
+  exit;
+}
+$sql = "INSERT INTO contact VALUES('$name','$mobile_number','$issue')";
 
 $result = mysqli_query($conn, $sql);
-
-echo " <html>
-        <body>
-          <h1>we will contact you in few mintiues</h1>
-        </body>
-      </html>";
+header("Location: contactus.php?success=true");

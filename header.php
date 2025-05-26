@@ -60,7 +60,7 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="restaurants.html">Restaurants</a></li>
-        <li><a href="contactus.html">Contact us</a></li>
+        <li><a href="contactus.php">Contact us</a></li>
         <span></span>
     </ul>
 </nav>

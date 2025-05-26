@@ -249,7 +249,6 @@ body{
   font-family: system-ui;
 }
 
-
 .wait-animation {
   width: 20%;
   height: 0%;
@@ -322,4 +321,22 @@ body{
 .max-btn:active {
   background-color: var(--brown);
   color: var(--peach);
+}
+
+.popular-item{
+  background: linear-gradient(180deg, white 30%, #ff520241) !important;
+  position: relative;
+}
+
+.popular-item::before{
+  content: "Most Ordered";
+  position: absolute;
+  top: -16px;
+  left: 39%;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(165, 42, 42, 0.954);
+  background-color: rgba(255, 218, 185, 0.495);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
