@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2025 at 04:19 PM
+-- Generation Time: May 26, 2025 at 07:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -134,7 +134,8 @@ INSERT INTO `delivery_activity` (`id`, `dmobile`, `start_time`, `end_time`, `dur
 (127, '9014709040', '2025-05-22 05:15:29', NULL, 0, '2025-05-22'),
 (128, '9014709040', '2025-05-22 05:31:51', NULL, 0, '2025-05-22'),
 (129, '9398927019', '2025-05-23 10:14:53', '2025-05-23 11:43:07', 5294, '2025-05-23'),
-(130, '8977241079', '2025-05-24 06:01:49', '2025-05-24 06:12:14', 625, '2025-05-24');
+(130, '8977241079', '2025-05-24 06:01:49', '2025-05-24 06:12:14', 625, '2025-05-24'),
+(131, '9014709040', '2025-05-25 12:10:15', NULL, 0, '2025-05-25');
 
 -- --------------------------------------------------------
 
@@ -186,7 +187,7 @@ INSERT INTO `items` (`item_id`, `item_name`, `res_id`, `price`, `dprice`, `ratin
 (701, 'Idli(3) & Sambar', 6901, 40, 60, 4.5, 120, 'Available'),
 (702, 'Vada(3) & Sambar', 6902, 30, 45, 4.3, 150, 'Available'),
 (703, 'Dosa', 6902, 50, 75, 4.7, 200, 'Available'),
-(704, 'Upma', 6901, 35, 52, 4.2, 80, 'Available'),
+(704, 'Upma', 6901, 35, 52, 4.2, 80, 'Unavailable'),
 (705, 'Gobi Rice', 6903, 70, 100, 4.6, 15, 'Available'),
 (706, 'Masala Dosa', 6904, 70, 105, 4.8, 250, 'Available'),
 (707, 'Rava Dosa', 6903, 65, 97, 4.6, 180, 'Available'),
@@ -198,7 +199,7 @@ INSERT INTO `items` (`item_id`, `item_name`, `res_id`, `price`, `dprice`, `ratin
 (713, 'Poori(3)', 6902, 50, 90, 3.8, 4, 'Available'),
 (714, 'Onion Uttapam', 6904, 80, 120, 4.1, 9, 'Available'),
 (715, 'Veg rice', 6901, 100, 140, 4.2, 12, 'Available'),
-(716, 'Zeera rice', 6901, 120, 150, 4.3, 15, 'Available'),
+(716, 'Jeera rice ', 6901, 50, 70, 4.3, 15, 'Available'),
 (717, 'Paneer Rice', 6905, 160, 200, 4.5, 14, 'Available'),
 (718, 'Kaju Rice', 6901, 165, 220, 4.5, 9, 'Available'),
 (719, 'Veg Noodles', 6903, 90, 140, 4.3, 10, 'Available'),
@@ -209,7 +210,8 @@ INSERT INTO `items` (`item_id`, `item_name`, `res_id`, `price`, `dprice`, `ratin
 (724, 'Curd Rice', 6905, 80, 110, 4.2, 16, 'Available'),
 (725, 'Onion Dosa', 6904, 70, 100, 4.2, 11, 'Available'),
 (726, 'Maggi', 6901, 50, 70, 0, 0, 'Available'),
-(727, 'Pulihora', 6901, 60, 90, 0, 0, 'Available');
+(727, 'Pulihora', 6901, 60, 90, 0, 0, 'Available'),
+(728, 'Maggi', 6901, 70, 50, 0, 0, 'Available');
 
 -- --------------------------------------------------------
 
@@ -277,7 +279,8 @@ INSERT INTO `orders` (`order_id`, `mobile`, `username`, `ptype`, `res_id`, `item
 ('ORD9040M6ZO478557', 9014709040, 'Harsha Vardhan', 'cash', 6901, 1, 80, 120, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'delivered', 'delivered', '2025-05-23 14:24:38', '2025-05-23 14:25:45'),
 ('ORD9040UB31932361', 9014709040, 'Harsha Vardhan', 'cash', 6901, 1, 80, 120, 'PRUDVI', 9398927019, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'delivered', 'delivered', '2025-05-23 14:48:52', '2025-05-23 14:51:35'),
 ('ORD9040ZDS1337058', 9014709040, 'Harsha Vardhan', '', 6901, 1, 80, 120, '', 0, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'cancelled', 'cancelled', '2025-05-23 14:38:57', '2025-05-23 14:38:57'),
-('ORD9040ZF9T577887', 9014709040, 'Harsha Vardhan', '', 6901, 1, 80, 120, '', 0, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'cancelled', 'cancelled', '2025-05-23 14:26:17', '2025-05-23 14:26:17');
+('ORD9040ZF9T577887', 9014709040, 'Harsha Vardhan', '', 6901, 1, 80, 120, '', 0, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'cancelled', 'cancelled', '2025-05-23 14:26:17', '2025-05-23 14:26:17'),
+('ORD9340Y7IH779652', 9515219340, 'K Mahitha', 'upi', 6904, 1, 80, 120, 'Harsha', 9014709040, 'https://www.google.com/maps/place/17.4358528+78.4400384', 'delivered', 'delivered', '2025-05-25 15:39:39', '2025-05-25 15:42:12');
 
 -- --------------------------------------------------------
 
@@ -289,15 +292,18 @@ CREATE TABLE `orders_help` (
   `token` varchar(100) NOT NULL,
   `order_id` text NOT NULL,
   `issue` text NOT NULL,
-  `description` longtext NOT NULL
+  `description` longtext NOT NULL,
+  `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders_help`
 --
 
-INSERT INTO `orders_help` (`token`, `order_id`, `issue`, `description`) VALUES
-('50 ORD904039NG398753', 'ORD904039NG398753', 'missingItems', '{\"fullOrder\":\"Idly\\nDosa\",\"missingItemsList\":\"Dosa\",\"packageCondition\":\"Package was opened\"}');
+INSERT INTO `orders_help` (`token`, `order_id`, `issue`, `description`, `status`) VALUES
+('82 ORD297052BT733242', 'ORD297052BT733242', 'missingItems', '{\"fullOrder\":\"Veg rice, Jeera rice\",\"missingItemsList\":\"Veg rice\",\"packageCondition\":\"Package was damaged\"}', 'Responded by Vasuki'),
+('89 ORD297052BT733242', 'ORD297052BT733242', 'missingItems', '{\"fullOrder\":\"Veg rice, Jeeera rice\",\"missingItemsList\":\"Jeera rice\",\"packageCondition\":\"Package was opened\"}', 'Responded by Vasuki'),
+('96 ORD297052BT733242', 'ORD297052BT733242', 'missingItems', '{\"fullOrder\":\"Veg rice, Jeera rice\",\"missingItemsList\":\"Jeera rice\",\"packageCondition\":\"Package was opened\"}', 'Responded by Vasuki');
 
 -- --------------------------------------------------------
 
@@ -331,7 +337,8 @@ INSERT INTO `orders_status` (`sno`, `order_id`, `dmobile`, `res_id`, `res_name`,
 (383, 'ORD904039NG398753', 9398927019, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'Harsha Vardhan', 9014709040, 'https://www.google.com/maps/place/17.4358528+78.4400384', 80, 'delivered', '2025-05-23 14:57:09'),
 (384, 'ORD29708DIF369171', 8977241079, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'K Varalakshmi', 7729842970, 'https://www.google.com/maps/place/17.4358528+78.4400384', 300, 'delivered', '2025-05-24 09:33:19'),
 (385, 'ORD297052BT733242', 8977241079, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'K Varalakshmi', 7729842970, 'https://www.google.com/maps/place/17.4358528+78.4400384', 220, 'reject', '2025-05-24 09:39:23'),
-(386, 'ORD297052BT733242', 8977241079, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'K Varalakshmi', 7729842970, 'https://www.google.com/maps/place/17.4358528+78.4400384', 220, 'delivered', '2025-05-24 09:39:35');
+(386, 'ORD297052BT733242', 8977241079, 6901, 'Saarangi Fine Dine restaurant', 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 'K Varalakshmi', 7729842970, 'https://www.google.com/maps/place/17.4358528+78.4400384', 220, 'delivered', '2025-05-24 09:39:35'),
+(387, 'ORD9340Y7IH779652', 9014709040, 6904, 'Gufha Restaurant', 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 'K Mahitha', 9515219340, 'https://www.google.com/maps/place/17.4358528+78.4400384', 80, 'delivered', '2025-05-25 15:40:20');
 
 -- --------------------------------------------------------
 
@@ -366,7 +373,8 @@ INSERT INTO `order_items` (`sno`, `order_id`, `item_id`, `quantity`, `price`, `d
 (2312, 'ORD29708DIF369171', 709, 1, 80, 120, '2025-05-24 09:32:49'),
 (2313, 'ORD29708DIF369171', 716, 1, 120, 150, '2025-05-24 09:32:49'),
 (2314, 'ORD297052BT733242', 715, 1, 100, 140, '2025-05-24 09:38:53'),
-(2315, 'ORD297052BT733242', 716, 1, 120, 150, '2025-05-24 09:38:53');
+(2315, 'ORD297052BT733242', 716, 1, 120, 150, '2025-05-24 09:38:53'),
+(2316, 'ORD9340Y7IH779652', 714, 1, 80, 120, '2025-05-25 15:39:39');
 
 -- --------------------------------------------------------
 
@@ -380,6 +388,9 @@ CREATE TABLE `restaurants` (
   `res_name` mediumtext NOT NULL,
   `ratings` float NOT NULL,
   `res_location` text NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
+  `near_to` text NOT NULL,
   `best_item` int(11) NOT NULL,
   `offer` mediumtext NOT NULL,
   `status` text NOT NULL
@@ -389,12 +400,12 @@ CREATE TABLE `restaurants` (
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`res_id`, `password`, `res_name`, `ratings`, `res_location`, `best_item`, `offer`, `status`) VALUES
-(6901, 'saar6901', 'Saarangi Fine Dine restaurant', 3.9, 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 701, 'Starts at ₹40', 'inactive'),
-(6902, 'sout6902', 'Southern Spice', 4.3, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 702, 'Starts at ₹70', 'inactive'),
-(6903, 'sril6903', 'Sri Lakshmi Varaha Hotel', 4.1, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 705, 'Starts at ₹80', 'inactive'),
-(6904, 'gufh6904', 'Gufha Restaurant', 4.6, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 706, 'Starts at ₹90', 'inactive'),
-(6905, 'mahe6905', 'Mahesh Family Restaurant', 4.5, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 703, 'Starts at ₹90', 'inactive');
+INSERT INTO `restaurants` (`res_id`, `password`, `res_name`, `ratings`, `res_location`, `latitude`, `longitude`, `near_to`, `best_item`, `offer`, `status`) VALUES
+(6901, 'saar6901', 'Saarangi Fine Dine restaurant', 3.9, 'https://maps.app.goo.gl/8QuPibsDuQPJAk9S9', 13.6787482, 79.3387567, 'Sri Venkateswara Guest House', 701, 'Starts at ₹40', 'inactive'),
+(6902, 'sout6902', 'Southern Spice', 4.3, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 13.6787482, 79.3387567, 'Avilala Circle', 702, 'Starts at ₹70', 'inactive'),
+(6903, 'sril6903', 'Sri Lakshmi Varaha Hotel', 4.1, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 13.6787482, 79.3387567, 'SMC bus Stop', 705, 'Starts at ₹80', 'inactive'),
+(6904, 'gufh6904', 'Gufha Restaurant', 4.6, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 13.6787482, 79.3387567, 'Hotel Orion Stay', 706, 'Starts at ₹90', 'inactive'),
+(6905, 'mahe6905', 'Mahesh Family Restaurant', 4.5, 'https://maps.app.goo.gl/YGJNNp2M6tKSbi2k8', 13.6787482, 79.3387567, 'Varaha Swamy Guest House', 703, 'Starts at ₹90', 'inactive');
 
 -- --------------------------------------------------------
 
@@ -476,9 +487,10 @@ INSERT INTO `users` (`mobile`, `name`, `email`, `room_no`, `area`, `landmark`, `
 (8341734115, 'mohan', '', 'efevbfv', 'efevffv', 'evfevfefv', '2025-04-07 11:32:28'),
 (9014709040, 'Harsha Vardhan', 'harsha@gmail.com', 'Room no 6969', 'Vishnu Nivasam', 'Near Railway station', '2025-03-02 10:27:18'),
 (9090909090, 'jlfsflka', '', '', '', '', '2025-04-29 11:22:38'),
+(9154491031, 'Mahitha', '', '', '', '', '2025-05-24 19:55:21'),
 (9398927019, 'Prudvi', 'Prudvi@ceo.com', '5-302, bharat bekary line', 'sri nagar colony, bethamcherla', 'manohar store', '2025-03-23 11:46:34'),
 (9494801709, 'venki', '', 'xfedx', 'rbgr', 'bgr', '2025-04-29 06:48:06'),
-(9515219340, 'K PRASAD', '', 'K.T Road', 'Tirupati', 'TTD AD Building', '2025-04-21 14:29:55'),
+(9515219340, 'K Mahitha', '', '245', 'enikepadu', 'vijayawada', '2025-05-25 15:31:03'),
 (9550744529, 'Pulivendula vijay', '', '2/168', 'kt road ', 'saimedagate', '2025-03-31 19:04:12'),
 (9652066979, 'Manvi', '', 'narasapuram', 'veldurthi', 'chitamanu', '2025-05-10 10:44:58'),
 (9848247279, 'jagan', 'jaganachari2006@gmail.com', 'hghj', 'hjvjy', 'yfyvjh', '2025-03-28 22:08:36');
@@ -566,7 +578,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `delivery_activity`
 --
 ALTER TABLE `delivery_activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `items`
@@ -584,13 +596,13 @@ ALTER TABLE `most_ordered_items`
 -- AUTO_INCREMENT for table `orders_status`
 --
 ALTER TABLE `orders_status`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=387;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=388;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2316;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2317;
 
 --
 -- AUTO_INCREMENT for table `search_items`

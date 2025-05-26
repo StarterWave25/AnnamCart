@@ -1,7 +1,8 @@
-
+let time, distance;
 let restaurantData;
 const userMobile = sessionStorage.getItem('userMobile');
 async function getRestaurantData(restaurantId) {
+  getUserCoords();
 
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
   restaurantData = await response.json();
@@ -11,7 +12,9 @@ async function getRestaurantData(restaurantId) {
     return 0;
   }
   const resHead = document.querySelector('.restaurant-head');
+  getTimeDistance(restaurantData.resHead.latitude, restaurantData.resHead.longitude);
   document.title = restaurantData.resHead.res_name;
+
   resHead.innerHTML = `
   <div class="title-offer">
     <h4>Best in ${restaurantData.resHead.item_name}</h4>
@@ -24,9 +27,9 @@ async function getRestaurantData(restaurantId) {
   
   <div class="details-restaurant">
     <ul>
-      <li>Near Place</li>
-      <li>Time</li>
-      <li>Distance</li>
+      <li>${restaurantData.resHead.near_to}</li>
+      <li>${setTimeout(() => { time }, 100)} mins</li>
+      <li>${setTimeout(() => { distance }, 100)} km</li>
     </ul>
   </div>
 
@@ -250,5 +253,44 @@ function getLoginPopup() {
     document.querySelector('.login-addItems-popup').style.opacity = '0';
     document.querySelector('.login-addItems-popup').style.visibility = 'hidden';
     document.body.style.overflow = 'unset';
+  });
+}
+
+
+async function getTimeDistance(rLatitude, rLongitude) {
+  setTimeout(async () => {
+    let latitude = JSON.parse(sessionStorage.getItem('coords')).latitude;
+    let longitude = JSON.parse(sessionStorage.getItem('coords')).longitude;
+
+    const request = await fetch('https://api.openrouteservice.org/v2/directions/driving-car', {
+      method: 'POST',
+      headers: {
+        'Authorization': '5b3ce3597851110001cf6248870787b203bc44c6a580e50ca37c9175',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        coordinates: [
+          [rLongitude, rLatitude],
+          [longitude, latitude]
+        ]
+      })
+    });
+
+    const response = await request.json();
+    const summary = response.routes[0].summary;
+
+    distance = (summary.distance / 1000).toPrecision(2);
+    time = (summary.duration / 60) + 30;
+
+    console.log(distance, time);
+  }, 100);
+}
+
+
+async function getUserCoords() {
+  navigator.geolocation.getCurrentPosition(async (position) => {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+    sessionStorage.setItem('coords', JSON.stringify({ latitude, longitude }));
   });
 }
