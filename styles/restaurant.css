@@ -1,4 +1,4 @@
-body{
+body {
   padding-top: 0;
 }
 
@@ -323,20 +323,20 @@ body{
   color: var(--peach);
 }
 
-.popular-item{
-  background: linear-gradient(180deg, white 30%, #ff520241) !important;
+.popular-item {
+  background: linear-gradient(160deg, white 40%, #ff520241) !important;
   position: relative;
 }
 
-.popular-item::before{
+.popular-item::before {
+  top: 15%;
+  left: 7%;
   content: "Most Ordered";
   position: absolute;
-  top: -16px;
-  left: 39%;
   font-size: 1rem;
-  font-weight: 400;
-  color: rgba(165, 42, 42, 0.954);
-  background-color: rgba(255, 218, 185, 0.495);
-  padding: 5px 10px;
-  border-radius: 10px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(135deg, #FFD700 0%, #FFED4A 25%, #f2bb2f 50%, #FFD700 75%, #DAA520 100%);
+  padding: 3px 15px;
+  border-radius: 5px;
 }
