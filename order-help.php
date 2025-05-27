@@ -122,9 +122,8 @@
                 <div class="form-group">
                     <label for="refundPreference">Preferred Resolution:</label>
                     <select id="refundPreference" name="refundPreference" style="width: 100%; padding: 12px; border: 2px solid var(--peach); border-radius: 10px;">
-                        <option>Full Refund</option>
+                        <option>Refund of spoiled item</option>
                         <option>Replacement Order</option>
-                        <option>Store Credit</option>
                     </select>
                 </div>
                 <button type="submit" class="submit-btn">Submit Report</button>
@@ -166,10 +165,6 @@
             <h3>Order Not Received</h3>
             <form>
                 <div class="form-group">
-                    <label for="expectedTime">Expected Delivery Time:</label>
-                    <input type="time" id="expectedTime" name="expectedTime">
-                </div>
-                <div class="form-group">
                     <label for="currentTime">Current Time:</label>
                     <input type="time" id="currentTime" name="currentTime">
                 </div>
@@ -207,7 +202,7 @@
                 <div class="form-group">
                     <label for="packageCondition">Package Condition:</label>
                     <select id="packageCondition" name="packageCondition" style="width: 100%; padding: 12px; border: 2px solid var(--peach); border-radius: 10px;">
-                        <option>Package looked intact</option>
+                        <option>Package looked undamaged</option>
                         <option>Package was damaged</option>
                         <option>Package was opened</option>
                         <option>Not sure</option>
