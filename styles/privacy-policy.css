@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 130vw;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.privacy-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.policy-header {
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.boder-line {
+    border: 1px solid var(--brown);
+    width: 100%;
+}
+
+.policy-1 {
+    width: 100%;
+    height: 22vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-2 {
+    width: 100%;
+    height: 12vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-3 {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-4 {
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-5 {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-6 {
+    width: 100%;
+    height: 12vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.policy-7 {
+    width: 100%;
+    height: 8vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.policy-8 {
+    width: 100%;
+    height: 8vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.policy-9 {
+    width: 100%;
+    height: 12vw;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.policy-list {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.policy-ol-list {
+    width: 90%;
+    height: 60%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.policy-list-1 {
+    width: 90%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.policy-list-3 {
+    width: 90%;
+    height: 55%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.downlist-li-tag {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.down-list {
+    width: 90%;
+}
+
+.policy-list li,
+.policy-list-1 li,
+.policy-ol-list li,
+.policy-list-3 li {
+    font-size: 1.1rem;
+    font-weight: 550;
+}
+
+.down-list li {
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+
+.policy-list-6 li{
+    font-weight: 100;
+}
+
+.bold-required{
+    font-weight: 700;
+}
