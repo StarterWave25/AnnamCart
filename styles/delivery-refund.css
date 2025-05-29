@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 130vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+h5{
+    font-size: 1rem;
+}
+
+.border-required {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--brown);
+}
+
+.refunds-container {
+    width: 80%;
+    height: 100%;
+}
+
+.refunds-header {
+    width: 100%;
+    height: 10vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.refunds1 {
+    width: 100%;
+    height: 8vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds2 {
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds3{
+    width: 100%;
+    height: 14vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds4{
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds5{
+    width: 100%;
+    height: 12vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds6{
+    width: 100%;
+    height: 18vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds7{
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds8{
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds9{
+    width: 100%;
+    height: 9vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.refunds10{
+    width: 100%;
+    height: 6vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.refunds-list{
+    width: 90%;
+    height: 60%;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.refunds-list li{
+    font-size: 1.28rem;
+}
+
+b{
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+
+.bold-reqiured{
+    font-weight: 550;
+}
