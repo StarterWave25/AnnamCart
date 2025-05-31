@@ -90,13 +90,6 @@ async function callVasuki(tokenId, orderId, modalId, desc) {
 }
 
 
-
-
-
-
-
-
-
 function closeModal(modal) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
