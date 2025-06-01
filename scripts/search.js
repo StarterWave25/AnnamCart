@@ -122,9 +122,12 @@ async function searchAction(query) {
     const searchAddBtns = document.querySelectorAll('.search-add-btn');
     searchAddBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
+            const userMobile = sessionStorage.getItem('userMobile');
+            if (!userMobile) {
+                getPopup();
+            }
             const restaurantId = Number(btn.dataset.restaurantId);
             const itemId = Number(btn.dataset.itemId);
-            const userMobile = sessionStorage.getItem('userMobile');
             let cart = JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
             if (userMobile.length === 10) {
                 if (cart.length === 0) {
@@ -191,4 +194,19 @@ function checkSearchItem(itemId) {
         });
     }
     return flag;
+}
+
+function getPopup() {
+    document.querySelector('.restaurant-overlay').style.opacity = '1';
+  document.querySelector('.restaurant-overlay').style.visibility = 'visible';
+  document.querySelector('.login-addItems-popup').style.opacity = '1';
+  document.querySelector('.login-addItems-popup').style.visibility = 'visible';
+  document.body.style.overflow = "hidden";
+  document.querySelector('.close-border').addEventListener('click', () => {
+    document.querySelector('.restaurant-overlay').style.opacity = '0';
+    document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+    document.querySelector('.login-addItems-popup').style.opacity = '0';
+    document.querySelector('.login-addItems-popup').style.visibility = 'hidden';
+    document.body.style.overflow = 'unset';
+  });
 }

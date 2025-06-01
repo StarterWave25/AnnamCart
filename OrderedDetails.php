@@ -95,8 +95,21 @@
     async function setStar(star_number) {
       console.log(orderId)
       console.log(star_number)
-      
+
       fetch(`data/data-review.php?order-id=${orderId}&stars=${star_number}`)
+    }
+
+    const userMobile = sessionStorage.getItem('userMobile');
+    if (!userMobile) {
+      document.querySelector('.ordered-details').innerHTML = `
+        <div class="no-order">
+          <h2>Sorry, you can't have access to this order details !</h2>
+          <p>Please Log in First.</p>
+          <p>Don't have an account then, Sign Up now.</p>
+          <a href="login.php"><button class="login-btn">Login</button></a>
+          <a href="signup.php"><button class="signup-btn">Sign Up</button></a>
+        </div>
+      `;
     }
   </script>
 </body>
