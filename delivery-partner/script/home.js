@@ -1,7 +1,7 @@
 async function getRecentOrders() {
   let response = await fetch('data/data-recent-orders.php?mode=recent');
   let orders = await response.json();
-
+  console.log(orders);
   let ordersHTML = '';
   if (orders.length > 0) {
     orders.forEach(order => {

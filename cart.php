@@ -65,7 +65,7 @@
                 Add Your Address
             </h2>
             <button class="location-container" title="Add your live location">
-                <img src="img/place.png" alt="location-image">
+                <img src="img/place_brown.png" alt="location-image">
             </button>
         </div>
         <div class="input-fields">

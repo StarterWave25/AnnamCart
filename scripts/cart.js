@@ -245,6 +245,7 @@ async function getCart() {
                 <img src="img/checked.png" alt="location-image">
             `;
             locationBtn.style.pointerEvents = 'none';
+            locationBtn.style.background = 'linear-gradient(130deg, var(--brown) 30%, #ff520271)';
         }
         else {
             locationBtn.addEventListener('click', getLocation);
@@ -561,6 +562,7 @@ async function getLocation() {
                     <img src="img/checked.png" alt="location-image">
                 `;
                 locationBtn.style.pointerEvents = 'none';
+                locationBtn.style.background = 'linear-gradient(130deg, var(--brown) 30%, #ff520271)';
                 resolve();
             }
             else {
