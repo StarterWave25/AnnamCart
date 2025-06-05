@@ -15,12 +15,12 @@ async function getAcceptedOrders() {
                     <h3>Order ID : ${order.order_id}</h3>
                 </div>
                 <div class="order-names">
-                    <h4>${order.username}</h4>
-                    <h4>${order.dname}</h4>
+                    <h4>🤵 ${order.username}</h4>
+                    <h4>🚚 ${order.dname}</h4>
                 </div>
 
                 <div class="order-items order-items-${order.order_id}">
-                    <h5>Items</h5>
+    
                 </div>
 
                 <div class="order-total">
@@ -38,7 +38,7 @@ async function getAcceptedOrders() {
             items.forEach((item) => {
                 if (order.order_id == item.order_id) {
                     itemHTML += `
-                    <h6>${item.item_name} (${item.quantity})</h6>
+                    <h5>${item.item_name} (${item.quantity})</h5>
                 `;
                 }
             });

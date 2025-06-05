@@ -54,9 +54,9 @@ if (isset($_SESSION['rname']) && isset($_SESSION['rid'])) {
             <div class="legal-container">
                 <h5>Do you want to know ?</h5>
                 <div class="legal-links">
-                    <a href="">Privacy Policy</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
                     <span>|</span>
-                    <a href="">Terms & Conditions</a>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
                 </div>
             </div>
         </div>

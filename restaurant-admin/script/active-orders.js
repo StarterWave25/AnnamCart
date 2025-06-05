@@ -3,16 +3,20 @@ import { getWebSocket } from "./update-status.js";
 export async function fetchOrders() {
   const request = await fetch(`data/data-get-active-orders.php`);
   const orders = await request.json();
-
+  console.log(orders);
   if (orders.length > 0) {
     let ordersHTML = '';
     orders.forEach(async (order) => {
 
       ordersHTML += `
       <div class="order-card-${order.order_id} order-card">
+        <div class="order-id">
+          <h3>Order ID : ${order.order_id}</h3>
+        </div>
+
         <div class="order-names">
-          <h4>${order.username}</h4>
-          <h4>${order.dname}</h4>
+          <h4>🤵 ${order.username}</h4>
+          <h4>🚚 ${order.dname}</h4>
         </div>
 
         <div class="order-items">

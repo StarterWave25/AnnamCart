@@ -5,7 +5,7 @@ if (isset($_GET['res-id'])) {
   $resId = $_GET['res-id'];
 }
 
-$sql = "SELECT res_name,offer FROM restaurants WHERE res_id = $resId";
+$sql = "SELECT res_name,offer,ratings FROM restaurants WHERE res_id = $resId";
 $result = mysqli_query($conn, $sql);
 $offer = mysqli_fetch_assoc($result); // extract just the offer value
 

@@ -16,6 +16,10 @@ h5 {
     font-size: 1rem;
 }
 
+nav ul>li:first-child {
+    opacity: 1;
+}
+
 .privacy-container {
     width: 80%;
     height: 100%;

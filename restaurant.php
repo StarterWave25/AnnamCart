@@ -15,6 +15,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    nav ul>li:nth-child(2) {
+      opacity: 1;
+    }
+
+    nav>ul span {
+      left: 37.5%;
+    }
+
+    ul>li:hover~span {
+      left: 4.3%;
+    }
+  </style>
 </head>
 
 <body>

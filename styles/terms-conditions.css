@@ -7,16 +7,20 @@ body {
 }
 
 
-h4{
+h4 {
     font-size: 1.6rem;
 }
 
-h5{
+h5 {
     font-size: 1rem;
 }
 
-p{
+p {
     font-size: 1.2rem;
+}
+
+nav ul>li:first-child {
+    opacity: 1;
 }
 
 .terms-container {
@@ -160,10 +164,15 @@ a {
     width: 90%;
 }
 
-.term-list li ,.down-list li,.term-list-1 li,.term-ol-list li{
+.term-list li,
+.down-list li,
+.term-list-1 li,
+.term-ol-list li {
     font-size: 1.2rem;
 }
 
-.term-list li span ,.down-list li span,.term-list-1 li span{
+.term-list li span,
+.down-list li span,
+.term-list-1 li span {
     font-weight: 550;
 }
