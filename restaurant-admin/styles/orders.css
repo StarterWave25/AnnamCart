@@ -43,9 +43,11 @@ body {
   filter: brightness(1.4);
 }
 
-.accepted-body , .active-body{
+.accepted-body,
+.active-body {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* exactly 2 columns */
   gap: 2rem 4rem;
   width: 100%;
 }
@@ -125,6 +127,10 @@ body {
 
 .reject-btn:hover {
   background: var(--lpeach);
+}
+
+.reject-btn:active {
+  background: rgb(250, 241, 231);
 }
 
 .accept-btn {

@@ -38,19 +38,19 @@ if (!isset($_SESSION['rname']) && !isset($_SESSION['rid'])) {
             <p>You have successfully added a Item!</p>
         </div>
         <form action="data/submit-items.php" method="post" class="item-form">
-            <input type="text" name="item-name" id="" placeholder="Item name" required>
-            <input type="number" name="orginal-price" id="" placeholder="Orginal price" required>
-            <input type="number" name="discount-price" id="" placeholder="price with discount" required>
-            <div class="popular-item">
-                <input type="checkbox" name="popular-item" id="">
-                <label for="">Popular food item</label>
-            </div>
-            <button class="image-upload-but">Upload item image</button>
-            <button type="submit" name="submit" class="submit-but">Add food item</button>
+            <input type="text" name="item-name" id="" placeholder="Item Name" required>
+            <input type="number" name="orginal-price" id="" placeholder="Orginal Price" required>
+            <input type="number" name="discount-price" id="" placeholder="Price with Discount" required>
+            <button class="image-upload-but">Upload Item Image</button>
+            <button type="submit" name="submit" class="submit-but">Add Food Item</button>
         </form>
     </div>
     <script>
-        const itemId = <?php if(isset($_GET['item-id'])) { echo $_GET['item-id']; } else { echo 0;} ?>;
+        const itemId = <?php if (isset($_GET['item-id'])) {
+                            echo $_GET['item-id'];
+                        } else {
+                            echo 0;
+                        } ?>;
     </script>
     <script>
         function message() {

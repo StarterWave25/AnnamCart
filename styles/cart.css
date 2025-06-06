@@ -3,18 +3,18 @@ body {
     overflow: hidden;
 }
 
-.gotoCart-popup{
+.gotoCart-popup {
     display: none;
 }
 
-.message{
+.message {
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
 
-.message h2{
+.message h2 {
     color: red;
-    font-size: .8rem;
+    font-size: .8rem;
 }
 
 .cart-back {
@@ -48,6 +48,7 @@ body {
     max-height: 100vh;
     padding: 0.3%;
     box-sizing: content-box;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .restaurant-name-container {
@@ -75,12 +76,13 @@ body {
 
 .saved-container {
     width: 95%;
-    background-color: white;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
     display: flex;
     align-items: center;
     justify-content: flex-end;
     min-height: 6.5vh;
-    border-radius: 13px;
+    border-radius: 10px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .img-con-saved {
@@ -92,11 +94,12 @@ body {
 }
 
 .img-con-saved>img {
+    filter: brightness(10);
     width: 60%;
 }
 
 .saved-container>h3 {
-    color: rgb(1, 94, 1);
+    color: white;
     width: 68%;
     font-size: 1rem;
 }
@@ -106,7 +109,8 @@ body {
     flex-direction: column;
     background-color: white;
     width: 95%;
-    border-radius: 13px 13px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
     align-items: center;
     max-height: fit-content;
     position: relative;
@@ -175,7 +179,7 @@ body {
     height: 100%;
     background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
     color: white;
-    border-radius: 12px;
+    border-radius: 10px;
     border: none;
     font-size: 1rem;
     cursor: pointer;
@@ -275,13 +279,15 @@ body {
 .item-price {
     display: flex;
     height: 60%;
-    width: 27%;
+    width: 33%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
 }
 
 .item-price>del {
-    font-size: .7rem;
+    font-size: .75rem;
+    font-weight: 500;
 }
 
 .item-price>h3 {
@@ -293,11 +299,12 @@ body {
     background-color: white;
     width: 95%;
     min-height: 13vh;
-    border-radius: 11px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .coupon-heading {
@@ -336,16 +343,16 @@ body {
 }
 
 .coupon-card>button {
-    background-color: var(--brown);
+    background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
     padding: .5em 1.2em;
     color: white;
-    border-radius: 7px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 .coupon-card>button:hover,
 .coupon-card>button:active {
-    scale: 0.9;
+    filter: brightness(1.2);
 }
 
 .coupon>h4:nth-child(2) {
@@ -363,6 +370,7 @@ details {
     padding: 10px 0px;
     cursor: pointer;
     margin-bottom: 14vw;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .bill-container {
@@ -371,7 +379,6 @@ details {
     align-items: center;
     height: 100%;
     padding-bottom: 5px;
-
 }
 
 .bill-img {
@@ -400,29 +407,38 @@ details {
 }
 
 .bill-saving>h4 {
-    font-size: .76rem;
-    color: rgb(1, 80, 1);
-    background-color: rgb(165, 245, 165);
-    width: fit-content;
-    padding: 0.5% 1%;
-    border-radius: 5px;
+    font-size: .72rem;
+    color: white;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    width: max-content;
+    padding: 3px 8px;
+    border-radius: 3px;
 }
 
 .total-amount {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 58%;
+    gap: 20px;
+    justify-content: center;
+    width: 50%;
 }
 
 .total-amount>h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    font-family: 'outfit';
     color: var(--brown);
 }
 
+.total-amount>del {
+    font-weight: 500;
+}
+
 .order-button {
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
     background-color: white;
     width: 24%;
-    height: 12%;
+    height: 13%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -483,6 +499,7 @@ details[open] .arrows>img:nth-child(2) {
     width: 90%;
     height: 80%;
     background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
     color: white;
     border-radius: 10px;
     font-size: 1rem;
@@ -529,9 +546,9 @@ details[open] .arrows>img:nth-child(2) {
 }
 
 .second-total {
-    width: 35%;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    gap: 40px;
 }
 
 .get-contact-info {
@@ -548,7 +565,7 @@ details[open] .arrows>img:nth-child(2) {
     left: 23%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .heading-container {
@@ -577,9 +594,12 @@ details[open] .arrows>img:nth-child(2) {
     justify-content: center;
 }
 
-.location-container:hover,
-.location-container:active {
+.location-container:hover {
     background: var(--lpeach);
+}
+
+.location-container:active {
+    background: rgb(250, 241, 231);
 }
 
 .location-container>img {
@@ -594,7 +614,7 @@ details[open] .arrows>img:nth-child(2) {
     justify-content: space-around;
 }
 
-.input-fields input{
+.input-fields input {
     width: 90%;
     height: 17%;
     border-radius: 12px;
@@ -606,7 +626,7 @@ details[open] .arrows>img:nth-child(2) {
     outline: none;
 }
 
-.input-fields input:focus{
+.input-fields input:focus {
     border: 1px solid var(--brown);
     box-shadow: 0px 0px 3px var(--brown);
 }
@@ -635,11 +655,11 @@ details[open] .arrows>img:nth-child(2) {
 }
 
 .save-change-btns button:nth-child(1):hover {
-    background: rgba(255, 246, 241, 0.5);
+    background: var(--lpeach);
 }
 
 .save-change-btns button:nth-child(1):active {
-    background: rgba(243, 225, 215, 0.5);
+    background: rgb(250, 241, 231);
 }
 
 .save-change-btns button:nth-child(2) {
@@ -647,6 +667,6 @@ details[open] .arrows>img:nth-child(2) {
     background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
 }
 
-.save-change-btns button:nth-child(2):hover{
+.save-change-btns button:nth-child(2):hover {
     filter: brightness(1.3);
 }

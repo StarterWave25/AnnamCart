@@ -13,22 +13,30 @@ async function getOrdersData() {
         }
         ordersHTML += `
             <div class="order">
-                <div class="order-details">
-                    <h2>${order.res_name}</h2>
-                    <p>Order id : ${order.order_id}</p>
-                    <p>Ordered on : ${order.Time}</p>
-                    <p>Total Paid : ₹${order.total}</p>
+                <div class="order-cont">
+                    <div class="order-details">
+                        <h2>${order.res_name}</h2>
+                        <p>Order id : ${order.order_id}</p>
+                        <p>Ordered on : ${order.Time}</p>
+                        <p>Total Paid : ₹${order.total}</p>
+                    </div>
+
+                    <div class="reorder-options">
+                        <div class="delivered-date">
+                            <p>Delivered on : ${dTime}</p>
+                        </div>
+                        <div class="reorder-button">
+                            <a href="cart.php?order-id=${order.order_id}"><button class="reorder-btn">Reorder</button></a>
+                            <a href="orderedDetails.php?order-id=${order.order_id}"><button class="viewmore-btn">View More</button></a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="reorder-options">
-                    <div class="delivered-date">
-                        <p>Delivery on : ${dTime}</p>
-                    </div>
-                    <div class="reorder-button">
-                        <a href="cart.php?order-id=${order.order_id}"><button class="reorder-btn">Reorder</button></a>
-                        <a href="orderedDetails.php?order-id=${order.order_id}"><button class="viewmore-btn">View More</button></a>
-                    </div>
-                </div>
+                <div class="order-help">
+                    <button onclick="location.href = 'order-help.php?order-id=${order.order_id}'" class="help-button">
+                        Need Help with this Order ?
+                    </button>
+                <div>
             </div>
         `;
     });

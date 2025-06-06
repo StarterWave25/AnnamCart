@@ -1,5 +1,6 @@
 body{
-  height: fit-content;
+  min-height: 100vh;
+  height: auto;
 }
 
 
@@ -32,21 +33,28 @@ body{
 
 .order{
   background-color: white;
-  height: 28vh;
+  height: 38vh;
   border-radius: 15px;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.447);
-  padding: 10px 20px;
   width: 90%;
+}
+
+.order-cont{
+  height: 55%;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .order-details{
   width: 70%;
-  height: 90%;
+  height: 95%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
 }
 
@@ -65,7 +73,8 @@ body{
 }
 
 .reorder-options{
-  height: 75%;
+  width: 30%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,7 +99,7 @@ body{
 
 .reorder-button a button{
   width: 100%;
-  border-radius: 8px;
+  border-radius: 7px;
   font-weight: 400;
   height: 100%;
   cursor: pointer;
@@ -103,8 +112,11 @@ body{
 }
 
 .reorder-button > a:nth-child(1) button:hover {
-  background: linear-gradient(130deg, var(--brown), #ff520271);
-  color: white;
+  background: var(--lpeach);
+}
+
+.reorder-button > a:nth-child(1) button:active {
+    background: rgb(250, 241, 231);
 }
 
 .reorder-button > a:nth-child(1) button {
@@ -115,5 +127,26 @@ body{
 }
 
 .reorder-button > a:nth-child(2) button:hover {
+  filter: brightness(1.2);
+}
+
+.order-help{
+  height: 30%;
+  border-top: 1px solid var(--orange);
+  width: 95%;
+  display: flex;
+  align-items: center;
+}
+
+.help-button{
+  padding: 15px 25px;
+  background: linear-gradient(130deg, var(--brown), #ff520271);
+  color: var(--lpeach);
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.help-button:hover{
   filter: brightness(1.2);
 }

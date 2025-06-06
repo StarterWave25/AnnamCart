@@ -245,13 +245,11 @@ body {
   border: 1px solid var(--brown);
   color: var(--brown);
   background-color: white;
-  padding: 0 20px;
+  padding: 0px 30px;
 }
 
 .buttons-container>button:nth-child(2):hover {
-  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
-  color: white;
-  border: none;
+  background:var(--lpeach);
 }
 
 .bill-container {

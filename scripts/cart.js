@@ -164,7 +164,7 @@ async function getCart() {
                     <div class="bill-img"><img src="img/invoice.png" alt="bill-image"></div>
                     <div class="bill-saving">
                         <h3>To Pay</h3>
-                        <h4>Saved ${dummyTotal - total} !</h4>
+                        <h4>Saved ₹${dummyTotal - total} !</h4>
                     </div>
                     <div class="total-amount">
                         <del>₹${dummyTotal}</del>
@@ -204,10 +204,10 @@ async function getCart() {
             </details>
             <div class="order-button">
                 <div class="payment">
-                    <h3>Pay on Delivery (Cash / UPI)</h3>
+                    <h3>Cash on Delivery (Cash / UPI)</h3>
                 </div>
                 <div class="but-con">
-                    <button class="order-now-button">Order Now</button>
+                    <button class="order-now-button">Order Now !</button>
                 </div>
             </div>
         `;

@@ -64,23 +64,23 @@ function setBtnListeners(orders) {
 
     const acceptBtn = document.querySelector(`.accept-btn-${order.order_id}`);
     const rejectBtn = document.querySelector(`.reject-btn-${order.order_id}`);
+    if (acceptBtn && rejectBtn) {
+      acceptBtn.addEventListener('click', async () => {
+        const request = await fetch(`data/data-order-status.php?order-id=${order.order_id}&status=accept`);
+        const response = await request.json();
+        if (response.status == 'accept') {
+          sendStatus(response.status, response.agentMobile, response.userMobile, order.order_id);
+        }
+      });
 
-    acceptBtn.addEventListener('click', async () => {
-      const request = await fetch(`data/data-order-status.php?order-id=${order.order_id}&status=accept`);
-      const response = await request.json();
-      if (response.status == 'accept') {
-        sendStatus(response.status, response.agentMobile, response.userMobile, order.order_id);
-      }
-    });
-
-    rejectBtn.addEventListener('click', async () => {
-      const request = await fetch(`data/data-order-status.php?order-id=${order.order_id}&status=reject`);
-      const response = await request.json();
-      if (response.status == 'reject') {
-        sendStatus(response.status, response.agentMobile, response.userMobile, order.order_id);
-      }
-    });
-
+      rejectBtn.addEventListener('click', async () => {
+        const request = await fetch(`data/data-order-status.php?order-id=${order.order_id}&status=reject`);
+        const response = await request.json();
+        if (response.status == 'reject') {
+          sendStatus(response.status, response.agentMobile, response.userMobile, order.order_id);
+        }
+      });
+    }
   });
 }
 

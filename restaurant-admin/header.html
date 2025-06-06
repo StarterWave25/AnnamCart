@@ -1,12 +1,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap"
-    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
 <div class="logo-container">
     <a href="index.php">
         <h1>AnnamCart</h1>
     </a>
 </div>
-<div class="resturant-service">
+
+<!-- Mobile Menu Icon -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="resturant-service" id="navMenu">
     <nav>
         <ul>
             <li><a href="index.php">Dashboard</a></li>
@@ -17,3 +21,8 @@
         <button class="res-active-btn">Active</button>
     </div>
 </div>
+<script>
+    function toggleMenu() {
+        document.querySelector('.resturant-service').classList.toggle('show');
+    }
+</script>
