@@ -340,3 +340,231 @@ body {
   padding: 3px 15px;
   border-radius: 5px;
 }
+
+/* ========================================= */
+/*           RESPONSIVE CSS STYLES           */
+/* ========================================= */
+
+/* For Tablets and Small Desktops */
+@media screen and (max-width: 1200px) {
+  .restaurant-body {
+    gap: 4em 6em;
+    padding: 5em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .restaurant-head {
+    min-height: 35vh;
+  }
+
+  .title-offer>h2 {
+    font-size: 2rem;
+  }
+
+  .title-offer>h4,
+  .offer>h4 {
+    font-size: 1.2rem;
+  }
+
+  .details-restaurant ul {
+    width: 80%;
+    font-size: 1.1rem;
+  }
+
+  .restaurant-body {
+    padding: 4em 3em;
+    gap: 3em 4em;
+    grid-auto-rows: 260px;
+  }
+
+  .item-name>h3 {
+    font-size: 1.1rem;
+  }
+
+  .item-cost>h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* For Large Mobile Phones and Small Tablets */
+@media screen and (max-width: 768px) {
+  .restaurant-head {
+    min-height: auto; /* Allow height to be determined by content */
+    padding: 2em 1em;
+    gap: 2em;
+  }
+
+  .title-offer,
+  .details-restaurant ul,
+  .certifications {
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+  }
+  
+  .title-offer>h4,
+  .title-offer>h2,
+  .offer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .offer>img {
+    width: 6%;
+  }
+
+  .details-restaurant ul {
+    width: 100%;
+  }
+
+  .certifications {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .ratings-container, .res-certify {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .res-certify {
+    justify-content: center;
+    flex-wrap: wrap; /* Allow text to wrap if needed */
+  }
+
+  /* --- Main change: Switch to a single column grid --- */
+  .restaurant-body {
+    grid-template-columns: 1fr;
+    padding: 4em 2em;
+    gap: 4em;
+    grid-auto-rows: 250px;
+  }
+
+  .popular-item::before {
+    top: 10%;
+    left: 5%;
+  }
+}
+
+
+/* For Standard Mobile Phones */
+@media screen and (max-width: 480px) {
+  .food-restaurant, .restaurants-container {
+    height: auto; /* Let content define height */
+  }
+
+  .restaurant-head{
+    justify-content: space-between;
+  }
+
+  .title-offer>h2 {
+    font-size: 1rem;
+  }
+  
+  .title-offer>h4, .offer>h4 {
+    font-size: .8rem;
+  }
+
+  .details-restaurant ul {
+    font-size: .8rem;
+    width: 50%;
+  }
+  
+  /* --- Main change: Stack card items vertically --- */
+  .card-food-item {
+    flex-direction: column;
+    height: auto;
+    padding: 1.5em 0.5em;
+    gap: 1em;
+  }
+
+  .restaurant-body {
+    padding: 3em 1em;
+    gap: 3em;
+    grid-auto-rows: auto; /* Let card height be automatic */
+  }
+
+  .card-food-item{
+    width: 90%;
+    margin: 0 auto; /* Center the card */
+    height: 270px;
+  }
+
+  .item-image {
+    width: 80%;
+    height: 120px; /* Give a fixed height for consistency */
+  }
+
+  .item-image>img {
+    width: 100%;
+  }
+
+  .item-details {
+    width: 90%;
+    align-items: center; /* Center the details content */
+    text-align: center;
+    height: 40%;
+    gap: 0.2em;
+  }
+
+  .item-name {
+    width: 100%;
+    justify-content: center;
+    gap: 8px; /* Add gap between name and fav icon */
+    order: 1; /* Change order if needed */
+    font-size: .2rem !important;
+  }
+
+  .item-cost {
+    width: 100%;
+    justify-content: center;
+    order: 2;
+    font-size: .2rem !important;
+  }
+
+  .item-review {
+    width: auto;
+    order: 3;
+  }
+
+  .item-name > h3 {
+    font-size: 0.7rem;
+  }
+
+  .item-cost > h2 {
+    font-size: .9rem;
+  }
+
+  .item-cost > del {
+    font-size: 0.5rem;
+  }
+
+  .item-review > h4 {
+    font-size: 0.7rem;
+  }
+
+  .item-review img{
+    width: 20px; /* Adjust size for mobile */
+    height: 20px; /* Adjust size for mobile */
+  }
+
+  .item-add {
+    width: 50%;
+    height: 30px;
+    order: 4;
+  }
+
+  .wait-animation {
+    display: none; /* The horizontal animation doesn't make sense in a vertical layout */
+  }
+
+  .popular-item::before {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the tag */
+    font-size: 0.9rem;
+    padding: 4px 12px;
+  }
+}
