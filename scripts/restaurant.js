@@ -296,7 +296,8 @@ async function getTimeDistance(rLatitude, rLongitude) {
 
     distance = (summary.distance / 1000).toPrecision(2);
     time = (summary.duration / 60) + 30;
-
+    distance = 100
+    time = 100
   }, 100);
 }
 

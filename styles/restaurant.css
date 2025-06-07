@@ -474,7 +474,7 @@ body {
   
   /* --- Main change: Stack card items vertically --- */
   .card-food-item {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
     padding: 1.5em 0.5em;
     gap: 1em;
@@ -489,12 +489,12 @@ body {
   .card-food-item{
     width: 90%;
     margin: 0 auto; /* Center the card */
-    height: 270px;
+    height: 220px;
   }
 
   .item-image {
-    width: 80%;
-    height: 120px; /* Give a fixed height for consistency */
+    width: 60%;
+    height: 180px; /* Give a fixed height for consistency */
   }
 
   .item-image>img {
@@ -502,11 +502,12 @@ body {
   }
 
   .item-details {
-    width: 90%;
+    width: 40%;
     align-items: center; /* Center the details content */
     text-align: center;
-    height: 40%;
-    gap: 0.2em;
+    justify-content: space-around;
+    height: 100%;
+    gap: 0.5em;
   }
 
   .item-name {
@@ -515,6 +516,11 @@ body {
     gap: 8px; /* Add gap between name and fav icon */
     order: 1; /* Change order if needed */
     font-size: .2rem !important;
+  }
+
+  .item-name img{
+    width: 20px;
+    height: 20px;
   }
 
   .item-cost {
@@ -551,9 +557,10 @@ body {
   }
 
   .item-add {
-    width: 50%;
+    width: 60%;
     height: 30px;
     order: 4;
+    font-size: .3px;
   }
 
   .wait-animation {
@@ -561,10 +568,20 @@ body {
   }
 
   .popular-item::before {
-    top: 10px;
+    top: -8px;
     left: 50%;
     transform: translateX(-50%); /* Center the tag */
-    font-size: 0.9rem;
-    padding: 4px 12px;
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
+
+  @media screen and (max-width: 360px){
+    .card-food-item{
+      height: 180px;
+    }
+
+    .item-image{
+      height: 145px;
+    }
   }
 }
