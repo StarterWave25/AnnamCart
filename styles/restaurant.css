@@ -493,18 +493,20 @@ body {
   }
 
   .item-image {
-    width: 60%;
-    height: 180px; /* Give a fixed height for consistency */
+    width: 55%;
+    height: 140px; /* Give a fixed height for consistency */
+    display: flex;
+    align-items: center;
   }
 
   .item-image>img {
-    width: 100%;
+    width: 80%;
   }
 
   .item-details {
     width: 40%;
-    align-items: center; /* Center the details content */
-    text-align: center;
+    align-items: left; /* Center the details content */
+    text-align: left;
     justify-content: space-around;
     height: 100%;
     gap: 0.5em;
@@ -512,7 +514,7 @@ body {
 
   .item-name {
     width: 100%;
-    justify-content: center;
+    justify-content: left;
     gap: 8px; /* Add gap between name and fav icon */
     order: 1; /* Change order if needed */
     font-size: .2rem !important;
@@ -525,7 +527,7 @@ body {
 
   .item-cost {
     width: 100%;
-    justify-content: center;
+    justify-content: left;
     order: 2;
     font-size: .2rem !important;
   }
@@ -560,7 +562,14 @@ body {
     width: 60%;
     height: 30px;
     order: 4;
-    font-size: .3px;
+  }
+
+  .addBtn{
+    font-size: .7rem;
+  }
+
+  .addBtn span{
+    font-size: .7rem;
   }
 
   .wait-animation {
