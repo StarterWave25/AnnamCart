@@ -13,6 +13,7 @@ body{
     align-items: center;
     margin-top: 3%;
     height: 80%;
+    width: 100%;
 }
 
 .login-main img{
@@ -24,6 +25,7 @@ body{
     width: 10%;
     opacity: 0.3;
     height: 8%;
+    position: absolute;
 }
 
 .login-container{
@@ -48,14 +50,14 @@ body{
 
 .login-head h2{
     color: var(--brown);
-    font-size: 1.7rem;
+    font-size: 1.7vw;
     height: 20%;
     width: 100%;
     text-align: center;
 }
 
 .login-head h4{
-    font-size: 1.1rem;
+    font-size: 1vw;
     height: 50%;
     width: 65%;
     text-align: center;
@@ -183,5 +185,111 @@ body{
     position: relative;
     font-size: 0.8rem;
     color: black;
+}
+
+.login-main img:nth-child(1) {
+    left: 10%;
+}
+
+.login-main img:nth-child(3) {
+    right: 10%;
+}
+
+@media screen and (max-width: 808px) {
+    .login-container {
+        width: 60%;
+        margin-top: 30px;
+    }
+
+    .login-container h2 {
+        font-size: 1.3rem;
+    }
+
+    .login-container h4 {
+        font-size: .8rem;
+    }
+
+    .instruction-cont a {
+        font-size: .65rem;
+    }
+
+    .legal-container h5 {
+        font-size: .65rem;
+    }
+
+    .legal-container a {
+        font-size: .7rem;
+    }
+
+    .login-container input {
+        height: 65%;
+        border-radius: 8.7px;
+    }
+
+    .login-container input[type="submit"] {
+        height: 35%;
+        font-size: .8rem;
+        border-radius: 8.7px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .login-container{
+        width: 380px;
+    }
+
+    .login-main img {
+        width: 70px;
+    }
+
+    .login-container {
+        height: 90%;
+        margin-top: 70px;
+    }
+
+    .login-container input {
+        height: 45%;
+        border-radius: 8px;
+        font-size: .6rem;
+        margin-bottom: 20px;
+    }
+
+    .login-container input[type="submit"] {
+        height: 25%;
+        font-size: .8rem;
+        border-radius: 8.7px;
+    }
+
+    .login-container h2 {
+        font-size: 1rem;
+    }
+
+    .login-container h4 {
+        font-size: .6rem;
+    }
+
+    .instruction-cont a {
+        font-size: .55rem;
+    }
+
+    .login-container h5 {
+        font-size: .55rem;
+    }
+
+    .legal-links a {
+        font-size: .6rem;
+    }
+
+    .design-img {
+        display: none;
+    }
+
+    .login-main img:nth-child(1) {
+        left: 10.3%;
+    }
+
+    .login-main img:nth-child(3) {
+        right: 10.3%;
+    }
 }
 
