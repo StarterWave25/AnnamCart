@@ -7,6 +7,8 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 2rem 0;
+    box-sizing: border-box;
 }
 
 .footer-head {
@@ -24,7 +26,7 @@ footer {
     align-items: center;
 }
 
-.footer-logo>h1 {
+.footer-logo > h1 {
     font-size: 4.5rem;
     color: var(--peach);
 }
@@ -44,7 +46,7 @@ footer {
     justify-content: space-between;
 }
 
-.footer-options>h3 {
+.footer-options > h3 {
     color: var(--peach);
     letter-spacing: 2px;
     height: 25%;
@@ -52,18 +54,19 @@ footer {
     font-family: 'outfit';
 }
 
-.footer-options>a {
+.footer-options > a {
     width: fit-content;
     font-size: 1.1rem;
     font-weight: 200;
     color: white;
     opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
-.footer-options>a:hover {
+.footer-options > a:hover {
     opacity: 1;
 }
-
 
 .footer-body {
     height: 20%;
@@ -74,20 +77,22 @@ footer {
     align-items: center;
 }
 
-.copyright-info>p,
-.built-by>p {
+.copyright-info > p, 
+.built-by > p {
     font-size: 1.2rem;
     color: white;
     font-weight: 200;
+    margin: 0;
 }
 
 .built-by a {
     color: white;
     font-size: 1.8rem;
     position: relative;
+    text-decoration: none;
 }
 
-.built-by a::after{
+.built-by a::after {
     transition: all 0.3s ease-in-out;
     content: '';
     position: absolute;
@@ -98,23 +103,298 @@ footer {
     left: 2px;
 }
 
-.built-by a:hover::after{
+.built-by a:hover::after {
     width: 98%;
 }
 
-.footer-social{
+.footer-social {
     width: 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
 .footer-social img {
     width: 25px;
     opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
-.footer-social img:hover{
+.footer-social img:hover {
     opacity: 1;
+}
+
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
+
+/* Large Tablets and Small Laptops (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    footer {
+        height: auto;
+        min-height: 60vh;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        padding: 3rem 0;
+    }
+    
+    .footer-head {
+        width: 90%;
+        flex-direction: column;
+        gap: 3rem;
+        height: auto;
+    }
+    
+    .footer-logo {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .footer-logo > h1 {
+        font-size: 3.5rem;
+    }
+    
+    .option-cards {
+        width: 100%;
+        height: auto;
+        justify-content: space-around;
+    }
+    
+    .footer-options > h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-options > a {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-body {
+        width: 90%;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+    
+    .built-by a {
+        font-size: 1.5rem;
+    }
+    
+    .footer-social {
+        width: 20%;
+    }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+    footer {
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        padding: 2.5rem 0;
+    }
+    
+    .footer-head {
+        width: 95%;
+        gap: 2.5rem;
+    }
+    
+    .footer-logo > h1 {
+        font-size: 3rem;
+    }
+    
+    .option-cards {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    
+    .footer-options {
+        width: 100%;
+        height: auto;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .footer-options > h3 {
+        font-size: 1.1rem;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-options > a {
+        font-size: 0.95rem;
+    }
+    
+    .footer-body {
+        width: 95%;
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding-top: 1.5rem;
+    }
+    
+    .copyright-info > p, 
+    .built-by > p {
+        font-size: 1.1rem;
+    }
+    
+    .built-by a {
+        font-size: 1.3rem;
+    }
+    
+    .footer-social {
+        width: 40%;
+        order: -1;
+    }
+    
+    .footer-social img {
+        width: 28px;
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media screen and (max-width: 480px) {
+    footer {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        padding: 2rem 0;
+    }
+    
+    .footer-head {
+        width: 95%;
+        gap: 2rem;
+    }
+    
+    .footer-logo > h1 {
+        font-size: 2.5rem;
+    }
+    
+    .option-cards {
+        gap: 1.5rem;
+    }
+    
+    .footer-options {
+        gap: 0.8rem;
+    }
+    
+    .footer-options > h3 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .footer-options > a {
+        font-size: 0.9rem;
+    }
+    
+    .footer-body {
+        gap: 1rem;
+        padding-top: 1rem;
+    }
+    
+    .copyright-info > p, 
+    .built-by > p {
+        font-size: 1rem;
+    }
+    
+    .built-by a {
+        font-size: 1.2rem;
+    }
+    
+    .footer-social {
+        width: 50%;
+    }
+    
+    .footer-social img {
+        width: 24px;
+    }
+}
+
+/* Extra Small Mobile Devices (360px and below) */
+@media screen and (max-width: 360px) {
+    footer {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding: 1.5rem 0;
+    }
+    
+    .footer-head {
+        width: 100%;
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+    
+    .footer-logo > h1 {
+        font-size: 2rem;
+    }
+    
+    .option-cards {
+        gap: 1rem;
+    }
+    
+    .footer-options {
+        gap: 0.6rem;
+    }
+    
+    .footer-options > h3 {
+        font-size: 0.9rem;
+    }
+    
+    .footer-options > a {
+        font-size: 0.85rem;
+    }
+    
+    .footer-body {
+        width: 100%;
+        padding: 0 1rem;
+        padding-top: 1rem;
+        gap: 0.8rem;
+    }
+    
+    .copyright-info > p, 
+    .built-by > p {
+        font-size: 0.9rem;
+    }
+    
+    .built-by a {
+        font-size: 1.1rem;
+    }
+    
+    .footer-social {
+        width: 60%;
+    }
+    
+    .footer-social img {
+        width: 22px;
+    }
+}
+
+/* Landscape Mobile Devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    footer {
+        height: auto;   
+        min-height: 80vh;        
+    }
+    
+    .footer-head {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    .footer-logo {
+        width: 30%;
+    }
+    
+    .option-cards {
+        width: 60%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .footer-body {
+        flex-direction: row;
+        margin-top: 1rem;
+    }
+    
+    .footer-social {
+        width: 25%;
+    }
 }

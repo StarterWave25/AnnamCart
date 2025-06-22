@@ -1,11 +1,6 @@
-body {
-  padding-top: 0;
-}
-
 .restaurant-main-container {
   width: 100%;
   min-height: 100vh;
-  padding-top: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

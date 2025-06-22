@@ -146,7 +146,7 @@
                 }
 
             } else {
-                gotoCart.style.bottom = '100px';
+                gotoCart.style.bottom = '-200%';
             }
         }
 
