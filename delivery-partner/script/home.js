@@ -1,12 +1,13 @@
 async function getRecentOrders() {
   let response = await fetch('data/data-recent-orders.php?mode=recent');
   let orders = await response.json();
+  console.log(orders)
   console.log(orders);
   let ordersHTML = '';
   if (orders.length > 0) {
     orders.forEach(order => {
       ordersHTML += `<div class="order1">
-      <p>${order.res_name}</p>
+      <p>${order.dname}</p>
       <p>${order.username}</p>
       <div class="ordermoney">
         <p>Total: </p>

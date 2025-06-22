@@ -37,7 +37,6 @@
 <body>
     <header id="header"></header>
     <div class="login-main">
-        <img src="img/chakra.png" alt="chakram">
         <div class="login-container">
             <div class="login-head">
                 <h2>LOGIN</h2>
@@ -64,9 +63,7 @@
                 </div>
             </div>
         </div>
-        <img src="img/shanka.png" alt="shankam">
     </div>
-    <img src="img/design.png" alt="design" class="design-img">
     <script src="scripts/logsign.js"></script>
 </body>
 
