@@ -547,7 +547,7 @@ nav ul li a {
     }
 
     .gotoCart-popup h2 {
-        width: 55%;
+        width: 50%;
         padding-left: 10px;
     }
 
@@ -556,6 +556,7 @@ nav ul li a {
         font-size: .7rem;
         display: flex;
         justify-content: space-evenly;
+        padding-right: 10px;
     }
 
     .gotoCart-popup button img {
@@ -578,5 +579,17 @@ nav ul li a {
 
     .logo-container h1 {
         font-size: 1.6rem;
+    }
+
+    .gotoCart-popup h2 {
+        font-size: .5rem;
+        white-space: nowrap;
+    }
+    .gotoCart-popup button{
+        font-size: .5rem;
+    }
+    .gotoCart-popup button img {
+        width: 7px;
+        height: 7px;
     }
 }

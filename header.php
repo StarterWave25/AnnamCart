@@ -135,7 +135,7 @@
             const cartQuantityLabel = document.querySelector('.cart-label-quantity');
             if (cartItems.length > 0) {
                 cartQuantityLabel.textContent = cartItems.length;
-                if (window.innerWidth <= 700)
+                if (window.innerWidth <= 768)
                     gotoCart.style.bottom = '100px';
                 else
                     gotoCart.style.bottom = '0px';
