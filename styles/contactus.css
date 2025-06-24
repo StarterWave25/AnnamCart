@@ -6,7 +6,7 @@ body {
 }
 
 .gotoCart-popup {
-  display: none;
+  display: none !important;
 }
 
 .contact-container {

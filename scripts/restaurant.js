@@ -63,7 +63,6 @@ async function getRestaurantData(restaurantId) {
         <div class="item-details">
           <div class="item-name">
             <h3>${item.item_name}</h3>
-            <img src="img/fav.png" alt="favorite">
           </div>
           <div class="item-cost">
             <del>₹${item.dprice}</del>

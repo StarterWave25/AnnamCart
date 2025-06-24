@@ -4,6 +4,10 @@ body {
   overflow-y: hidden;
 }
 
+.gotoCart-popup {
+  display: none !important;
+}
+
 .popular-heading {
   width: 92%;
   height: 12vh;

@@ -217,7 +217,7 @@ nav ul li a {
 }
 
 .user-profile>img {
-    height: 80%;
+    aspect-ratio: 1/1;
     width: 25%;
 }
 
@@ -409,7 +409,7 @@ nav ul li a {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgb(205, 156, 156);
     padding: 15px 0;
     z-index: 1000;
 }
@@ -466,38 +466,16 @@ nav ul li a {
     font-weight: 500;
 }
 
-/* Mobile Profile Icon */
-.mobile-profile-icon {
-    display: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--brown);
-    color: white;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-/* Content padding for mobile */
-.content {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 100px;
-    /* Space for bottom nav */
-}
-
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
     body {
-        padding-top: 80px;
+        padding-top: 50px;
         padding-bottom: 80px;
     }
 
     header {
-        height: 80px;
-        padding: 0 20px;
+        height: 60px;
+        padding: 0 10px;
         justify-content: space-between;
     }
 
@@ -507,6 +485,17 @@ nav ul li a {
 
     .logo-container h1 {
         font-size: 2rem;
+    }
+
+    .search-container {
+        width: 90%;
+        height: 50px;
+        margin: 20px 0;
+    }
+
+    .search-container input {
+        font-size: 0.9rem;
+        padding-left: 15px;
     }
 
     nav {
@@ -526,15 +515,20 @@ nav ul li a {
         display: none !important;
     }
 
-    .user-containar {
-        width: 50%;
+    .user-containar{
+        width: 30%;
+    }
+
+    .user-profile {
+        width: 100%;
     }
 
     .user-profile>img {
-        height: 60%;
+        width: 25%;
     }
 
     .user-profile>h3 {
+        width: 90%;
         font-size: 0.7rem;
     }
 
@@ -577,6 +571,11 @@ nav ul li a {
 }
 
 @media screen and (max-width: 480px) {
+    .search-container {
+        width: 90%;
+        height: 60px;
+    }
+
     .logo-container h1 {
         font-size: 1.6rem;
     }

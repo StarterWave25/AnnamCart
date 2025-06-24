@@ -63,6 +63,7 @@
 .top-food-name p {
   text-align: center;
   color: var(--brown);
+  font-weight: 400;
 }
 
 .top-food-image {
@@ -148,7 +149,6 @@
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  filter: brightness(85%);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -263,7 +263,6 @@
   height: 65%;
   border-radius: 8px;
   cursor: pointer;
-
 }
 
 .ordered-foods-image img {
@@ -410,4 +409,281 @@
 
 .rating-stars img {
   width: 20px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .offer-container {
+    height: 120px;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .items {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .top-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .top-head h3 {
+    font-size: 2rem;
+  }
+
+  .top-items {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .top-food-info {
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .top-food-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+
+  .top-food-name p {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .food-restaurant {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .restaurant-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .restaurant-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurants-container {
+    width: 90%;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .restaurant-info {
+    height: auto;
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .restaurant-photo {
+    height: 200px;
+    width: 100%;
+  }
+
+  .restaurant-photo h4 {
+    font-size: 1rem;
+    padding: 5px 12px;
+  }
+
+  .restaurant-details {
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .restaurant-name h4 {
+    font-size: 1rem;
+  }
+
+  .restaurant-name p {
+    font-size: 0.9rem;
+  }
+
+  .most-ordered {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .most-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .most-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .ordered-food {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 0px;
+  }
+
+  .most-ordered-foods {
+    width: 95%;
+    height: auto;
+    min-height: 280px;
+    padding: 15px;
+  }
+
+  .ordered-foods-image {
+    height: 200px;
+    width: 100%;
+  }
+
+  .ordered-foods-name {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .most-order-details {
+    height: 50px;
+  }
+
+  .order-ratings {
+    height: 50px;
+  }
+
+  .most-order-food-name {
+    font-size: 1rem;
+    height: auto;
+  }
+
+  .order-place {
+    font-size: 0.8rem;
+  }
+
+  .order-price {
+    height: auto;
+    gap: 8px;
+  }
+
+  .offer-price {
+    font-size: 1.1rem;
+  }
+
+  .customer-review {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .review-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .review-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .review-info {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .customer-review-data {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .customer-review-card {
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .customer-review-card>p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .review-details {
+    height: auto;
+    width: 100%;
+    padding-top: 15px;
+  }
+
+  .review-details>h5 {
+    font-size: 1.1rem;
+  }
+
+  .rating-stars img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .offer-container {
+    font-size: 1.2rem;
+  }
+
+  .top-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .top-food-name p {
+    font-size: 0.8rem;
+  }
+
+  .restaurant-head h3,
+  .most-head h3,
+  .review-head h3,
+  .top-head h3 {
+    font-size: 1.2rem;
+  }
+
+  .ordered-food {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    place-items: center;
+  }
+
+  .most-ordered-foods {
+    min-height: 250px;
+  }
+
+  .ordered-foods-image {
+    height: 170px;
+  }
+
+  .customer-review-card>p {
+    font-size: 0.8rem;
+  }
+
+  .restaurant-info {
+    min-height: 250px;
+  }
+
+  .restaurant-photo {
+    height: 180px;
+  }
 }

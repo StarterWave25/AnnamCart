@@ -7,8 +7,8 @@
     <title>Cart</title>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/cart.css">
     <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="styles/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -88,19 +88,19 @@
     </div>
 
     <div class="popup-overlay">
-        
+
     </div>
     <aside class="cart">
         <!--js code goes here -->
     </aside>
     <script src="scripts/cart.js"></script>
     <?php
-        if(isset($_GET['order-id'])){
-            $order_id = $_GET['order-id'];
-            echo "<script>
+    if (isset($_GET['order-id'])) {
+        $order_id = $_GET['order-id'];
+        echo "<script>
                 reorderFromPrevious('$order_id');
             </script>";
-        }
+    }
     ?>
 </body>
 

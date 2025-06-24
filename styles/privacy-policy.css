@@ -3,6 +3,10 @@ body {
     height: 150vw;
 }
 
+.gotoCart-popup {
+    display: none !important;
+}
+
 h4 {
     font-size: 1.5rem;
     font-weight: 500;

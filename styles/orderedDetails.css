@@ -7,7 +7,7 @@ body {
 
 
 .gotoCart-popup {
-  display: none;
+  display: none !important;
 }
 
 .goback-btn {

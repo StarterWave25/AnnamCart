@@ -41,6 +41,7 @@ async function getOrdersData() {
         `;
     });
 
+    console.log(ordersHTML);
     const orderContainer = document.querySelector('.orders-container');
     orderContainer.innerHTML = ordersHTML;
 

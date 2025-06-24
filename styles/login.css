@@ -11,7 +11,7 @@ body {
 }
 
 .gotoCart-popup {
-    display: none;
+    display: none !important;
 }
 
 .login-main {

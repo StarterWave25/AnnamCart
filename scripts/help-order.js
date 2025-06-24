@@ -76,7 +76,7 @@ async function sendDataTodB(modalId, formData) {
     });
     const response = await request.json();
 
-    // callVasuki(tokenId, orderId, modalId, desc);
+    callVasuki(tokenId, orderId, modalId, desc);
 }
 
 async function callVasuki(tokenId, orderId, modalId, desc) {

@@ -183,13 +183,6 @@
   justify-content: space-between;
 }
 
-.item-name>img {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  aspect-ratio: 1/1;
-}
-
 .item-name>h3 {
   font-size: 1.2rem;
 }
@@ -363,6 +356,7 @@
   }
 
   .details-restaurant ul {
+    list-style: none;
     width: 80%;
     font-size: 1.1rem;
   }
@@ -386,7 +380,8 @@
 /* For Large Mobile Phones and Small Tablets */
 @media screen and (max-width: 768px) {
   .restaurant-head {
-    min-height: auto; /* Allow height to be determined by content */
+    min-height: auto;
+    /* Allow height to be determined by content */
     padding: 2em 1em;
     gap: 2em;
   }
@@ -398,12 +393,16 @@
     text-align: center;
     gap: 1em;
   }
-  
+
   .title-offer>h4,
   .title-offer>h2,
   .offer {
     width: 100%;
     justify-content: center;
+  }
+
+  .title-offer>h2 {
+    order: -1;
   }
 
   .offer>img {
@@ -418,15 +417,17 @@
     width: 100%;
     padding: 0;
   }
-  
-  .ratings-container, .res-certify {
+
+  .ratings-container,
+  .res-certify {
     width: 80%;
     justify-content: center;
   }
 
   .res-certify {
     justify-content: center;
-    flex-wrap: wrap; /* Allow text to wrap if needed */
+    flex-wrap: wrap;
+    /* Allow text to wrap if needed */
   }
 
   /* --- Main change: Switch to a single column grid --- */
@@ -446,19 +447,23 @@
 
 /* For Standard Mobile Phones */
 @media screen and (max-width: 480px) {
-  .food-restaurant, .restaurants-container {
-    height: auto; /* Let content define height */
+
+  .food-restaurant,
+  .restaurants-container {
+    height: auto;
+    /* Let content define height */
   }
 
-  .restaurant-head{
+  .restaurant-head {
     justify-content: space-between;
   }
 
   .title-offer>h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
-  
-  .title-offer>h4, .offer>h4 {
+
+  .title-offer>h4,
+  .offer>h4 {
     font-size: .8rem;
   }
 
@@ -466,7 +471,7 @@
     font-size: .8rem;
     width: 50%;
   }
-  
+
   /* --- Main change: Stack card items vertically --- */
   .card-food-item {
     flex-direction: row;
@@ -478,18 +483,21 @@
   .restaurant-body {
     padding: 3em 1em;
     gap: 3em;
-    grid-auto-rows: auto; /* Let card height be automatic */
+    grid-auto-rows: auto;
+    /* Let card height be automatic */
   }
 
-  .card-food-item{
-    width: 90%;
-    margin: 0 auto; /* Center the card */
-    height: 220px;
+  .card-food-item {
+    width: 95%;
+    margin: 0 auto;
+    /* Center the card */
+    height: 200px;
   }
 
   .item-image {
-    width: 55%;
-    height: 140px; /* Give a fixed height for consistency */
+    width: 80%;
+    height: 150px;
+    /* Give a fixed height for consistency */
     display: flex;
     align-items: center;
   }
@@ -500,7 +508,8 @@
 
   .item-details {
     width: 40%;
-    align-items: left; /* Center the details content */
+    align-items: left;
+    /* Center the details content */
     text-align: left;
     justify-content: space-around;
     height: 100%;
@@ -510,12 +519,14 @@
   .item-name {
     width: 100%;
     justify-content: left;
-    gap: 8px; /* Add gap between name and fav icon */
-    order: 1; /* Change order if needed */
+    gap: 8px;
+    /* Add gap between name and fav icon */
+    order: 1;
+    /* Change order if needed */
     font-size: .2rem !important;
   }
 
-  .item-name img{
+  .item-name img {
     width: 20px;
     height: 20px;
   }
@@ -532,60 +543,68 @@
     order: 3;
   }
 
-  .item-name > h3 {
+  .item-name>h3 {
     font-size: 0.7rem;
   }
 
-  .item-cost > h2 {
-    font-size: .9rem;
+  .item-cost>h2 {
+    font-size: 1rem;
   }
 
-  .item-cost > del {
-    font-size: 0.5rem;
-  }
-
-  .item-review > h4 {
+  .item-cost>del {
     font-size: 0.7rem;
   }
 
-  .item-review img{
-    width: 20px; /* Adjust size for mobile */
-    height: 20px; /* Adjust size for mobile */
+  .item-review>h4 {
+    font-size: 0.7rem;
+  }
+
+  .item-review img {
+    width: 15px;
+    /* Adjust size for mobile */
+    height: 15px;
+    /* Adjust size for mobile */
   }
 
   .item-add {
-    width: 60%;
+    width: 70%;
     height: 30px;
     order: 4;
   }
 
-  .addBtn{
+  .addBtn {
     font-size: .7rem;
   }
 
-  .addBtn span{
+  .addBtn span {
     font-size: .7rem;
   }
 
   .wait-animation {
-    display: none; /* The horizontal animation doesn't make sense in a vertical layout */
+    display: none;
+    /* The horizontal animation doesn't make sense in a vertical layout */
   }
 
   .popular-item::before {
     top: -8px;
     left: 50%;
-    transform: translateX(-50%); /* Center the tag */
+    transform: translateX(-50%);
+    /* Center the tag */
     font-size: 0.8rem;
     padding: 3px 10px;
   }
+}
 
-  @media screen and (max-width: 360px){
-    .card-food-item{
-      height: 180px;
-    }
+@media screen and (max-width: 360px) {
+  .card-food-item {
+    height: 180px;
+  }
 
-    .item-image{
-      height: 145px;
-    }
+  .item-image {
+    height: 130px;
+  }
+
+  .item-add {
+    width: 80%;
   }
 }
