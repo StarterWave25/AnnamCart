@@ -58,9 +58,7 @@
                 <span>Restaurants</span>
             </a>
             <a href="login.php" class="mobile-nav-item mobile-login-link">
-                <svg class="icon" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.9 1 3 1.9 3 3V21C3 22.1 3.9 23 5 23H19C20.1 23 21 22.1 21 21V9M12 7C14.8 7 17 9.2 17 12C17 14.8 14.8 17 12 17C9.2 17 7 14.8 7 12C7 9.2 9.2 7 12 7Z" />
-                </svg>
+                <img src="img/account_circle.svg" alt="">
                 <span>Login</span>
             </a>
             <a href="cart.php" class="mobile-nav-item mobile-cart-link" style="display: none;">

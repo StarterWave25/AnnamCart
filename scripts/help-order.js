@@ -5,7 +5,7 @@ async function getOrderDetails() {
     const response = await request.json();
     let orderHTML = `<div class="order-header">
                         <div class="order-id">
-                            <h2>Your Order:</h2>
+                            <h2>Order ID:</h2>
                             <span class="order-number">${orderId}</span>
                         </div>
                         <div class="order-status">

@@ -156,8 +156,6 @@ body {
 .login-container input[type="submit"]:active,
 .login-container input[type="submit"]:hover {
     filter: brightness(1.2);
-    transform: translateY(-2px); /* Add a subtle hover effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 

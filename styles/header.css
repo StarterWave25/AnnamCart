@@ -537,12 +537,12 @@ nav ul li a {
     }
 
     .gotoCart-popup {
-        width: 50%;
+        width: 60%;
         max-width: 350px;
         bottom: 1000px;
         transform: translateX(-50%);
         font-size: .5rem;
-        height: 5%;
+        height: 7%;
         border-radius: 7px;
     }
 
@@ -568,6 +568,7 @@ nav ul li a {
         right: 0;
         left: auto;
         width: 150px;
+        height: 210%;
     }
 }
 
@@ -580,16 +581,35 @@ nav ul li a {
     .logo-container h1 {
         font-size: 1.6rem;
     }
-
+    .gotoCart-popup {
+        width: 63%;
+    }
     .gotoCart-popup h2 {
-        font-size: .5rem;
+        font-size: .9rem;
         white-space: nowrap;
     }
     .gotoCart-popup button{
-        font-size: .5rem;
+        width: 90%;
+        font-size: .9rem;
     }
     .gotoCart-popup button img {
-        width: 7px;
-        height: 7px;
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .gotoCart-popup {
+        width: 67%;
+    }
+    .gotoCart-popup h2 {
+        font-size: .75rem;
+    }
+    .gotoCart-popup button{
+        font-size: .75rem;
+    }
+    .gotoCart-popup button img {
+        width: 10px;
+        height: 10px;
     }
 }

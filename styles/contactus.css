@@ -1,8 +1,18 @@
+/* Define CSS Variables if not already defined elsewhere */
+:root {
+  --brown: #4A2C2A; /* Example value, adjust as per your design */
+  --peach: #FFDAB9; /* Example value, adjust as per your design */
+  --lpeach: #FFE4C4; /* Example value, adjust as per your design */
+}
+
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0; /* Ensure no default body margin */
+  padding: 0; /* Ensure no default body padding */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .gotoCart-popup {
@@ -186,4 +196,239 @@ form button:hover {
   text-align: center;
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* Responsive Styles */
+
+/* For screens smaller than 992px (e.g., large tablets, small laptops) */
+@media (max-width: 992px) {
+  .contact-container {
+    width: 85%;
+    height: 90vh;
+  }
+
+  .info {
+    width: 35%;
+  }
+
+  .to-contact {
+    width: 65%;
+  }
+
+  .logo h2 {
+    font-size: 2.5rem;
+  }
+
+  .inner-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .to-contact h2 {
+    font-size: 3.5rem;
+  }
+
+  form {
+    width: 70%;
+  }
+}
+
+/* For screens smaller than 768px (e.g., tablets) */
+@media (max-width: 768px) {
+  body {
+    /* Remove flex centering for body to allow contact-container to scroll if needed */
+    display: block;
+    height: auto;
+    padding: 20px 0; /* Add some vertical padding */
+  }
+
+  .contact-container {
+    flex-direction: column-reverse;
+    width: 90%;
+    height: auto; /* Allow height to adjust based on content */
+    margin: 20px auto; /* Center the container with auto margins */
+    border-radius: 20px; /* Adjust border-radius for stacked layout */
+  }
+
+  .info {
+    width: 100%;
+    height: auto; /* Allow height to adjust */
+    border-radius: 0px 0px 20px 20px; /* Top corners rounded */
+    padding: 20px 0;
+  }
+
+  .logo {
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .logo h2 {
+    font-size: 2.8rem;
+  }
+
+  .inner-info {
+    height: auto;
+    width: 90%; /* Increase width for better spacing */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .inner-info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .social-modes {
+    width: 50%; /* Adjust width */
+    margin-bottom: 15px;
+    justify-content: space-around; /* Better spacing for social icons */
+  }
+
+  .mobile-mail {
+    justify-content: center; /* Center phone/mail links */
+    margin-bottom: 10px;
+  }
+
+  .mobile-mail>img {
+    width: 20px; /* Adjust icon size */
+  }
+
+  .mobile-mail>a {
+    font-size: 0.95rem;
+  }
+
+  .to-contact {
+    width: 100%;
+    height: auto; /* Allow height to adjust */
+    border-radius: 0 0 20px 20px; /* Bottom corners rounded */
+    padding: 20px 0;
+  }
+
+  .to-contact h2 {
+    font-size: 3rem;
+    height: auto;
+    margin-bottom: 20px;
+    width: 80%; /* Adjust width */
+    justify-content: center; /* Center the heading */
+  }
+
+  form {
+    width: 85%; /* Increase form width */
+    height: auto; /* Allow form height to adjust */
+    padding-bottom: 20px;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    width: 100%; /* Full width within the form */
+    height: 50px; /* Fixed height for inputs */
+    margin-bottom: 15px; /* Add space between elements */
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  form textarea {
+    height: 120px; /* Adjust textarea height */
+  }
+
+  form button {
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .message {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* Responsive adjustments for inline nav styles */
+  nav>ul span {
+    display: none; /* Hide the active/hover indicator on smaller screens */
+  }
+
+  nav ul>li:nth-child(2):hover~span,
+  nav ul>li:nth-child(1):hover~span {
+    display: none; /* Ensure hover effect is also hidden */
+  }
+}
+
+/* For screens smaller than 576px (e.g., small tablets, large phones) */
+@media (max-width: 576px) {
+  .contact-container {
+    width: 90%;
+    border-radius: 15px;
+  }
+
+  .info {
+    border-radius: 0px 0px 15px 15px;
+    padding: 15px 0;
+  }
+
+  .logo h2 {
+    font-size: 2.2rem;
+  }
+
+  .inner-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .social-modes {
+    width: 60%;
+  }
+
+  .to-contact {
+    border-radius: 0 0 15px 15px;
+    padding: 15px 0;
+  }
+
+  .to-contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    height: 45px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  form textarea {
+    height: 100px;
+  }
+}
+
+/* For screens smaller than 400px (e.g., small phones) */
+@media (max-width: 400px) {
+  .logo h2 {
+    font-size: 1.8rem;
+  }
+
+  .inner-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .social-modes {
+    width: 70%;
+  }
+
+  .mobile-mail>a {
+    font-size: 0.85rem;
+  }
+
+  .to-contact h2 {
+    font-size: 2rem;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    font-size: 0.8rem;
+  }
 }

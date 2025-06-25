@@ -1,7 +1,7 @@
 async function getOrdersData() {
     const response = await fetch('data/data-get-orders.php');
     const ordersData = await response.json();
-
+    console.log(ordersData);
     let ordersHTML = '';
     ordersData.forEach((order) => {
         let dTime = '';
@@ -36,12 +36,11 @@ async function getOrdersData() {
                     <button onclick="location.href = 'order-help.php?order-id=${order.order_id}'" class="help-button">
                         Need Help with this Order ?
                     </button>
-                <div>
+                </div>
             </div>
         `;
     });
 
-    console.log(ordersHTML);
     const orderContainer = document.querySelector('.orders-container');
     orderContainer.innerHTML = ordersHTML;
 
