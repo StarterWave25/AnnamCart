@@ -26,22 +26,6 @@
 
   </div>
 
-  <div class="review-popup" style="display: flex;">
-    <div class="info-touser">
-      <div class="heading">
-        <h2>After enjoyed your meal!</h2>
-      </div>
-      <em>
-        <p>"Please drop a quick review — your taste buds have something to say.”</p>
-      </em>
-      <p>You can give review by opening!</p>
-      <p style="color: var(--brown)">My orders > view more</p>
-    </div>
-    <div class="changeItems-btns">
-      <button class="definet-btn">Definetly</button>
-    </div>
-  </div>
-
   <div class="container">
     <div class="head">Please Give Review</div>
     <div class="star-widget">
@@ -86,12 +70,6 @@
       });
     }, 1000);
 
-    document.querySelector('.definet-btn').addEventListener('click', () => {
-      document.querySelector('.popup-overlay').style.display = 'none';
-      document.querySelector('.review-popup').style.opacity = '0';
-      document.querySelector('.review-popup').style.visibility = 'hidden';
-    });
-
     async function setStar(star_number) {
       console.log(orderId)
       console.log(star_number)
@@ -104,7 +82,7 @@
       document.querySelector('.ordered-details').innerHTML = `
         <div class="no-order">
           <h2>Sorry, you can't have access to this order details !</h2>
-          <p>Please Log in First.</p>
+          <p>Please Login First.</p>
           <p>Don't have an account then, Sign Up now.</p>
           <a href="login.php"><button class="login-btn">Login</button></a>
           <a href="signup.php"><button class="signup-btn">Sign Up</button></a>

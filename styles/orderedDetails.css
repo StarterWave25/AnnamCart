@@ -1,4 +1,4 @@
-body {
+/* body {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -582,4 +582,1031 @@ form .btn button:hover {
   background: linear-gradient(130deg, var(--brown), #ff520271);
   border: none;
   color: white;
+} */
+
+/* Desktop styles (original) - unchanged */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gotoCart-popup {
+  display: none !important;
+}
+
+.goback-btn {
+  position: fixed;
+  top: 17vh;
+  left: 24vh;
+  width: 4vh;
+  height: 4vh;
+  background-color: var(--brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goback-span {
+  position: fixed;
+  top: 17vh;
+  left: 30vh;
+  font-size: 1.4rem;
+  color: var(--brown);
+  font-weight: 400;
+}
+
+.goback-btn>img {
+  transform: rotate(180deg);
+  width: 70%;
+  height: 70%;
+}
+
+.ordered-details {
+  background-color: white;
+  width: 77%;
+  min-height: 80vh;
+  border-radius: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
+}
+
+.left-section {
+  width: 50%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.heading {
+  height: 7vh;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--brown);
+  width: 80%;
+}
+
+.food-details {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.food-details .order-item p {
+  font-weight: 400;
+}
+
+.date-time,
+.delivery-date,
+.delivery-agent {
+  display: flex;
+  height: 8%;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.order-items-container {
+  width: 70%;
+  min-height: 7vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+  gap: 25px;
+  border-top: 1px solid rgb(190, 190, 190);
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  height: 3vh;
+  font-size: 1.1rem;
+  color: var(--brown);
+}
+
+.delivery-date,
+.delivery-agent {
+  color: green;
+}
+
+.right-section {
+  width: 50%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.upper-section {
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tracking-status {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  position: relative;
+}
+
+.tracking-route {
+  position: absolute;
+  height: 1px;
+  width: 20%;
+  background-color: rgb(0, 188, 0);
+  top: 12%;
+}
+
+.tracking-route.pickup {
+  left: 15%;
+}
+
+.tracking-route.prepare {
+  left: 40%;
+}
+
+.tracking-route.delivered {
+  left: 65%;
+}
+
+.status-circle {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 100;
+}
+
+.status-circle>.status-border {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: 1px solid rgb(0, 188, 0);
+  border-radius: 50%;
+}
+
+.status-circle>img {
+  opacity: 0;
+  width: 3.5vh;
+  height: 3.5vh;
+  aspect-ratio: 1/1;
+}
+
+.status-circle>p {
+  font-size: .8rem;
+}
+
+.status-active>.status-border {
+  border: 2px solid rgb(0, 188, 0);
+}
+
+.status-active>p {
+  color: rgb(0, 188, 0);
+  font-weight: 500;
+}
+
+.status-active>img {
+  opacity: 1;
+}
+
+.tracking-route.active {
+  height: 2px;
+}
+
+.buttons-container {
+  height: 30%;
+  display: flex;
+  gap: 30px;
+  width: 50%;
+}
+
+.buttons-container>button {
+  height: 90%;
+  width: 40%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.buttons-container>button:nth-child(1), .call-btn {
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+  color: white;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons-container>button:nth-child(1):hover, .call-btn:hover {
+  filter: brightness(1.4);
+}
+
+.call-btn {
+  width: 30% !important;
+  height: 6vh !important;
+  border-radius: 7px;
+}
+
+.buttons-container>button:nth-child(2) {
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  background-color: white;
+  padding: 0px 30px;
+}
+
+.buttons-container>button:nth-child(2):hover {
+  background: var(--lpeach);
+}
+
+.bill-container {
+  height: 50%;
+  width: 60%;
+  display: flex;
+  align-items: flex-end;
+  align-self: flex-start;
+}
+
+.bill-details {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.total,
+.hotel,
+.discount,
+.delivery,
+.total-bill {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bill-details p {
+  font-weight: 400;
+}
+
+.discount>p:nth-child(2) {
+  color: green;
+}
+
+.delivery>p:nth-child(2) {
+  color: green;
+}
+
+.total-bill {
+  color: var(--brown);
+  font-size: 1.3rem;
+}
+
+.total-bill p {
+  font-weight: 500;
+}
+
+/* Popup styles (unchanged) */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.review-popup {
+  background-color: var(--white);
+  flex-direction: column;
+  width: 35%;
+  height: 300px;
+  border-radius: 15px;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1010;
+  box-shadow: 0 0 3px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  justify-content: space-around;
+}
+
+.review-popup p {
+  margin: 10px 0px;
+}
+
+.container .head {
+  text-align: center;
+  color: var(--brown);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.review-overlay {
+  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.126);
+}
+
+.review-popup .info-touser {
+  height: 60%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.review-popup .info-touser .heading {
+  color: var(--brown);
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
+
+.review-popup .info-touser p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.review-popup .changeItems-btns {
+  height: 12%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.review-popup .changeItems-btns button {
+  font-size: 0.9rem;
+  width: 30%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 7px;
+  margin: 20px 20px;
+}
+
+.definet-btn {
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+  color: white;
+}
+
+.definet-btn:hover {
+  filter: brightness(1.4);
+}
+
+.container {
+  position: fixed;
+  width: 400px;
+  background: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container .text {
+  font-size: 25px;
+  color: #666;
+  font-weight: 500;
+}
+
+.container .edit {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.container .edit:hover {
+  text-decoration: underline;
+}
+
+.container .star-widget input {
+  display: none;
+}
+
+.star-widget label {
+  font-size: 40px;
+  color: rgba(153, 86, 34, 0.811);
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+
+input:not(:checked)~label:hover,
+input:not(:checked)~label:hover~label {
+  color: var(--brown);
+}
+
+input:checked~label {
+  color: var(--brown);
+}
+
+input#rate-5:checked~label {
+  color: var(--brown);
+  text-shadow: 0 0 20px rgba(107, 49, 4, 0.774);
+}
+
+#rate-1:checked~form section:before {
+  content: "I just hate it ";
+}
+
+#rate-2:checked~form section:before {
+  content: "I don't like it ";
+}
+
+#rate-3:checked~form section:before {
+  content: "It is awesome ";
+}
+
+#rate-4:checked~form section:before {
+  content: "I just like it ";
+}
+
+#rate-5:checked~form section:before {
+  content: "I just love it ";
+}
+
+.container form {
+  display: none;
+}
+
+input:checked~form {
+  display: block;
+}
+
+form section {
+  width: 100%;
+  font-size: 25px;
+  color: var(--brown);
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+form .textarea {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: var(--brown);
+  border: 1px solid var(--brown);
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+  font-weight: 400;
+}
+
+.textarea textarea:focus {
+  border-color: var(--brown);
+}
+
+textarea::placeholder {
+  color: rgba(153, 86, 34, 0.906);
+}
+
+form .btn {
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+form .btn button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+  filter: brightness(1.4);
+}
+
+.login-btn {
+  margin: 25px;
+  width: 20%;
+  height: 6vh;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: white;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+}
+
+.signup-btn {
+  font-size: 0.9rem;
+  width: 20%;
+  height: 6vh;
+  cursor: pointer;
+  border-radius: 7px;
+  background: linear-gradient(130deg, var(--brown), #ff520271);
+  color: white;
+}
+
+.signup-btn:hover {
+  filter: brightness(1.4);
+}
+
+.login-btn:hover {
+  background: linear-gradient(130deg, var(--brown), #ff520271);
+  border: none;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================ */
+
+/* Tablet styles (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .ordered-details {
+    width: 90%;
+    min-height: 85vh;
+    padding: 20px;
+  }
+
+  .goback-btn {
+    top: 15vh;
+    left: 15vh;
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .goback-span {
+    top: 15vh;
+    left: 22vh;
+    font-size: 1.2rem;
+  }
+
+  .left-section,
+  .right-section {
+    width: 48%;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    width: 90%;
+  }
+
+  .food-details {
+    width: 90%;
+  }
+
+  .date-time,
+  .delivery-date,
+  .delivery-agent {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .order-items-container {
+    width: 80%;
+  }
+
+  .buttons-container {
+    width: 60%;
+    gap: 20px;
+  }
+
+  .buttons-container>button {
+    font-size: 0.9rem;
+    padding: 0 20px;
+  }
+
+  .call-btn {
+    padding: 0 15px !important;
+  }
+
+  .bill-container {
+    width: 70%;
+  }
+
+  .status-circle>p {
+    font-size: 0.7rem;
+  }
+
+  .status-circle>img {
+    width: 3vh;
+    height: 3vh;
+  }
+}
+
+/* Mobile landscape (481px - 767px) */
+@media screen and (max-width: 767px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 10px;
+  }
+
+  .ordered-details {
+    width: 90%;
+    min-height: auto;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 25px 15px;
+  }
+
+  .goback-btn {
+    top: 10px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .goback-span {
+    top: 10px;
+    left: 65px;
+    font-size: 1.1rem;
+  }
+
+  .left-section {
+    width: 100%;
+    min-height: auto;
+    margin-bottom: 30px;
+  }
+
+  .right-section {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .heading {
+    font-size: 1.3rem;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .food-details {
+    width: 100%;
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .restaurant-name h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--brown);
+    margin-bottom: 15px;
+  }
+
+  .date-time,
+  .delivery-date,
+  .delivery-agent {
+    width: 100%;
+    font-size: 0.95rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .order-items-container {
+    width: 100%;
+    padding: 15px 0;
+    gap: 15px;
+  }
+
+  .order-item {
+    height: auto;
+    font-size: 1rem;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .upper-section {
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .tracking-status {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .status-circle {
+    width: 25%;
+    gap: 8px;
+  }
+
+  .status-circle>p {
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .status-circle>img {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px;
+  }
+
+  .status-circle>.status-border {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tracking-route {
+    top: 11px;
+    width: 18%;
+  }
+
+  .tracking-route.pickup {
+    left: 16%;
+  }
+
+  .tracking-route.prepare {
+    left: 41%;
+  }
+
+  .tracking-route.delivered {
+    left: 66%;
+  }
+
+  .buttons-container {
+    width: 100%;
+    height: auto;
+    flex-direction: column-reverse;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .buttons-container>button {
+    width: 100%;
+    height: 45px;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  .call-btn {
+    width: 100% !important;
+    height: 45px !important;
+  }
+
+  .bill-container {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    align-self: center;
+  }
+
+  .bill-details {
+    height: auto;
+    gap: 12px;
+  }
+
+  .total,
+  .hotel,
+  .discount,
+  .delivery,
+  .total-bill {
+    padding: 8px 0;
+    font-size: 0.95rem;
+  }
+
+  .total-bill {
+    font-size: 1.1rem;
+    border-top: 2px solid var(--brown);
+    padding-top: 12px;
+    margin-top: 10px;
+  }
+
+  /* Review popup responsive */
+  .review-popup {
+    width: 90%;
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/* Mobile portrait (320px - 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 15px 5px;
+  }
+
+  .container {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .ordered-details {
+    width: 95%;
+    padding: 20px 12px;
+    border-radius: 12px;
+    margin: 20px;
+  }
+
+  .goback-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .goback-span {
+    font-size: 1rem;
+    left: 55px;
+  }
+
+  .heading {
+    font-size: 1.1rem;
+  }
+
+  .restaurant-name h2 {
+    font-size: 1.2rem;
+  }
+
+  .date-time,
+  .delivery-date,
+  .delivery-agent {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+
+  .order-item {
+    font-size: 0.9rem;
+  }
+
+  .status-circle>p {
+    font-size: 0.55rem;
+  }
+
+  .status-circle>img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .status-circle>.status-border {
+    width: 22px;
+    height: 22px;
+  }
+
+  .buttons-container>button {
+    height: 42px;
+    font-size: 0.95rem;
+  }
+
+  .call-btn {
+    height: 42px !important;
+  }
+
+  .total,
+  .hotel,
+  .discount,
+  .delivery,
+  .total-bill {
+    font-size: 0.9rem;
+  }
+
+  .total-bill {
+    font-size: 1rem;
+  }
+
+  .review-popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 15px 20px;
+  }
+
+  .star-widget label {
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  form section {
+    font-size: 20px;
+  }
+
+  form .textarea textarea {
+    font-size: 15px;
+  }
+
+  .status-circle img{
+    top: 3px;
+  }
+}
+
+/* Extra small devices (max-width: 320px) */
+@media screen and (max-width: 320px) {
+  .body{
+    padding-top: 50px !important;
+  }
+
+  .ordered-details {
+    padding: 15px 8px;
+  }
+
+  .heading {
+    font-size: 1rem;
+  }
+
+  .restaurant-name h2 {
+    font-size: 1.1rem;
+  }
+
+  .date-time,
+  .delivery-date,
+  .delivery-agent {
+    font-size: 0.85rem;
+  }
+
+  .order-item {
+    font-size: 0.85rem;
+  }
+
+  .status-circle>p {
+    font-size: 0.5rem;
+  }
+
+  .buttons-container>button {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .call-btn {
+    height: 40px !important;
+  }
+
+  .total,
+  .hotel,
+  .discount,
+  .delivery,
+  .total-bill {
+    font-size: 0.85rem;
+  }
+
+  .total-bill {
+    font-size: 0.95rem;
+  }
 }
