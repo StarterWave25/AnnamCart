@@ -5,6 +5,15 @@
     transition: all 0.5s ease-in-out;
 }
 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
 body {
     width: 100%;
     height: 100vh;
@@ -12,9 +21,11 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color: #f5f5f5;
+    font-family: 'outfit', Arial, sans-serif;
 }
 
-.waiting-intro{
+.waiting-intro {
     font-size: 2.5rem;
     color: var(--brown);
 }
@@ -141,7 +152,7 @@ body {
     width: 85%;
     height: 50%;
     font-size: 1.1rem;
-    border: 1px solid var(--brown) ;
+    border: 1px solid var(--brown);
     background-color: var(--white);
     color: var(--brown);
     box-shadow: none;
@@ -154,6 +165,200 @@ body {
     filter: brightness(1.3);
 }
 
-.reject-button:hover{
+.reject-button:hover {
     background-color: rgba(255, 234, 222, 0.5)
+}
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+    .ordercontainar {
+        width: 80%;
+        height: 25vw;
+    }
+
+    .resturant-name-location p,
+    .Coustomer-Name-Location p {
+        font-size: 1.3rem;
+    }
+
+    .moneyfororder h3 {
+        font-size: 2.2rem;
+    }
+
+    .resturant-name-location-button button,
+    .Coustomer-Name-Location-button button {
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .waiting-intro {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .ordercontainar {
+        width: 90%;
+        height: auto;
+        min-height: 400px;
+        padding: 20px 10px;
+        margin: 0 10px;
+    }
+
+    .resutrantname-order,
+    .customername-order {
+        width: 95%;
+        height: auto;
+        min-height: 100px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        align-items: stretch;
+        background-color: var(--lpeach);
+        box-shadow: 0px 0px 5px rgba(65, 4, 4, 0.756) inset;
+        border-radius: 10px;
+    }
+
+    .resturant-name-location,
+    .Coustomer-Name-Location {
+        width: 100%;
+        height: auto;
+        min-height: 40px;
+        justify-content: flex-start;
+    }
+
+    .resturant-name-location p,
+    .Coustomer-Name-Location p {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .resturant-name-location-button,
+    .Coustomer-Name-Location-button {
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+    }
+
+    .resturant-name-location-button button,
+    .Coustomer-Name-Location-button button {
+        width: 120px;
+        height: 40px;
+        font-size: 0.9rem;
+        gap: 5px;
+    }
+
+    .orderdetails {
+        width: 95%;
+        height: auto;
+        min-height: 100px;
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .moneyfororder {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+    }
+
+    .moneyfororder h3 {
+        font-size: 2rem;
+    }
+
+    .recject-accept {
+        width: 100%;
+        height: auto;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .reject-offer,
+    .accept-offer {
+        width: auto;
+        height: auto;
+    }
+
+    .Accept-button,
+    .reject-button {
+        width: 120px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+    .waiting-intro {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .ordercontainar {
+        width: 90%;
+        border-radius: 15px;
+        padding: 15px 8px;
+    }
+
+    .resturant-name-location p,
+    .Coustomer-Name-Location p {
+        font-size: 1.1rem;
+    }
+
+    .moneyfororder h3 {
+        font-size: 1.8rem;
+    }
+
+    .resturant-name-location-button button,
+    .Coustomer-Name-Location-button button {
+        width: 100px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .Accept-button,
+    .reject-button {
+        width: 100px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .recject-accept {
+        gap: 10px;
+    }
+}
+
+/* Extra Small Mobile Styles */
+@media screen and (max-width: 360px) {
+    .ordercontainar {
+        padding: 12px 6px;
+    }
+
+    .resturant-name-location p,
+    .Coustomer-Name-Location p {
+        font-size: 1rem;
+    }
+
+    .moneyfororder h3 {
+        font-size: 1.6rem;
+    }
+
+    .resturant-name-location-button button,
+    .Coustomer-Name-Location-button button {
+        width: 90px;
+        height: 32px;
+        font-size: 0.75rem;
+    }
+
+    .Accept-button,
+    .reject-button {
+        width: 90px;
+        height: 38px;
+        font-size: 0.85rem;
+    }
 }
