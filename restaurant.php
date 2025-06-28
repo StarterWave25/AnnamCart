@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="info-touser">
-      <div class="heading">
+      <div class="popup-heading">
         <h2>To add items into Cart!</h2>
       </div>
       <p>Please Log in First.</p>
@@ -61,8 +61,8 @@
 
   <div class="changeItems-popup">
     <div class="info-touser">
-      <div class="heading">
-        <h2>Cart update required !</h2>
+      <div class="popup-heading">
+        <h2>Cart Update Required !</h2>
       </div>
       <p>Your cart has items from another restaurant.</p>
       <p>Clear it to add new items?</p>

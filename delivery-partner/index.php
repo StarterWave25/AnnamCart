@@ -22,8 +22,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script/header.js"></script>
     <style>
-        .Option3{
-            display: none;
+        .statechanger{
+            display: none !important;
         }
     </style>
 </head>
@@ -31,7 +31,6 @@
 <body>
     <header></header>
     <div class="signup-main">
-        <img src="../img/chakra.png" alt="chakram">
         <div class="signup-container">
             <div class="signup-head">
                 <h2>LOGIN</h2>
@@ -59,9 +58,7 @@
                 </div>
             </div>
         </div>
-        <img src="../img/shanka.png" alt="shankam">
     </div>
-    <img src="../img/design.png" alt="design" class="design-img">
     <script></script>
 </body>
 

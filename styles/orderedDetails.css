@@ -904,8 +904,8 @@ body {
   height: 300px;
   border-radius: 15px;
   display: flex;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -933,7 +933,6 @@ body {
   height: 100%;
   position: fixed;
   z-index: 999;
-  display: none;
   background-color: rgba(0, 0, 0, 0.126);
 }
 

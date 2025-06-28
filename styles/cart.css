@@ -18,8 +18,8 @@ body {
 }
 
 .cart-back {
-    width: 53%;
-    height: 100%;
+    width: 22px;
+    aspect-ratio: 1/1;
     cursor: pointer;
     transform: rotate(180deg);
     background-color: var(--brown);
@@ -80,8 +80,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    min-height: 6.5vh;
-    border-radius: 10px;
+    min-height: 7vh;
+    border-radius: 8px;
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -133,8 +133,8 @@ body {
 }
 
 .img-timing>img {
-    width: 55%;
-    height: 75%;
+    width: 30px;
+    aspect-ratio: 1/1;
 }
 
 .timing>h3 {
@@ -252,11 +252,12 @@ body {
     color: var(--brown);
     background-color: transparent;
     font-size: 1.2rem;
-    height: 53%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 21%;
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1/1;
     cursor: pointer;
     border-radius: 50%;
     border: 1px solid var(--brown);
@@ -551,6 +552,44 @@ details[open] .arrows>img:nth-child(2) {
     gap: 40px;
 }
 
+
+@media screen and (max-width: 480px) {
+    .cart {
+        padding: 50px 0px 0 0px;
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .order-button {
+        width: 95%;
+        height: 15%;
+    }
+
+    .mobile-bottom-nav {
+        display: none !important;
+    }
+}
+
+.address-opener {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
+    position: fixed;
+    top: 9%;
+    right: 0;
+    z-index: 100;
+    border-radius: 8px 0px 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-opener>img {
+    width: 50%;
+    height: 50%;
+}
+
 .get-contact-info {
     height: 65%;
     width: 32%;
@@ -570,11 +609,33 @@ details[open] .arrows>img:nth-child(2) {
 
 .heading-container {
     width: 80%;
-    height: 17%;
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.address-close-btn{
+    width: 30px;
+    aspect-ratio: 1/1;
+    border: 1px solid var(--brown);
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.address-close-btn:hover {
+    background: var(--lpeach);
+}
+
+.address-close-btn:active {
+    background: rgb(250, 241, 231);
+}
+
 
 .contact-heading {
     font-size: 2.1rem;
@@ -582,16 +643,16 @@ details[open] .arrows>img:nth-child(2) {
 }
 
 .location-container {
-    width: 50px;
-    aspect-ratio: 1/1;
-    height: 50px;
+    width: 90%;
+    height: 55px;
     border: 1px solid var(--brown);
     background: white;
-    border-radius: 50%;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 }
 
 .location-container:hover {
@@ -606,9 +667,20 @@ details[open] .arrows>img:nth-child(2) {
     width: 25px;
 }
 
+.location-container>span {
+    font-size: 1.1rem;
+    color: var(--brown);
+    font-weight: 400;
+}
+
+.location-container>.added {
+    color: var(--lpeach);
+}
+
 .input-fields {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 80%;
     height: 43vh;
     justify-content: space-around;
@@ -669,4 +741,158 @@ details[open] .arrows>img:nth-child(2) {
 
 .save-change-btns button:nth-child(2):hover {
     filter: brightness(1.3);
+}
+
+@media screen and (max-width: 768px) {
+    .get-contact-info {
+        width: 90%;
+        height: auto;
+        min-height: 70vh;
+        max-height: 85vh;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px 0;
+        border-radius: 15px;
+    }
+
+    .heading-container {
+        width: 85%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .contact-heading {
+        font-size: 1.8rem;
+    }
+
+    .input-fields {
+        width: 85%;
+        height: auto;
+        gap: 15px;
+        justify-content: flex-start;
+    }
+
+    .input-fields input {
+        width: 100%;
+        height: 50px;
+        font-size: 1rem;
+        padding: 12px 18px;
+        border-radius: 10px;
+    }
+
+    .location-container {
+        width: 100%;
+        height: 50px;
+        gap: 15px;
+        border-radius: 10px;
+    }
+
+    .location-container>img {
+        width: 22px;
+    }
+
+    .location-container>span {
+        font-size: 1rem;
+    }
+
+    .save-change-btns {
+        width: 100%;
+        height: 50px;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .save-change-btns button {
+        width: 45%;
+        height: 100%;
+        font-size: 1rem;
+        border-radius: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .get-contact-info {
+        width: 90%;
+        min-height: 65vh;
+        padding: 15px 0;
+        border-radius: 12px;
+        left: -100%;
+        scale: 0.1;
+        z-index: 10000;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .heading-container {
+        width: 80%;
+    }
+
+    .address-close-btn {
+        display: flex;
+    }
+
+    .close-btn-img {
+        width: 40%;
+    }
+
+    .contact-heading {
+        font-size: 1.6rem;
+    }
+
+    .input-fields {
+        width: 80%;
+        gap: 12px;
+    }
+
+    .input-fields input {
+        height: 48px;
+        font-size: 0.95rem;
+        padding: 10px 15px;
+    }
+
+    .location-container {
+        height: 48px;
+        gap: 12px;
+    }
+
+    .location-container>img {
+        width: 20px;
+    }
+
+    .location-container>span {
+        font-size: 0.95rem;
+    }
+
+    .save-change-btns {
+        height: 45px;
+    }
+
+    .save-change-btns button {
+        font-size: 0.95rem;
+    }
+}
+
+/* Error message responsive styles */
+@media screen and (max-width: 768px) {
+    .message {
+        width: 85%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .message h2 {
+        font-size: 1.2rem;
+        color: #e74c3c;
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message {
+        width: 90%;
+    }
+
+    .message h2 {
+        font-size: 1.1rem;
+    }
 }

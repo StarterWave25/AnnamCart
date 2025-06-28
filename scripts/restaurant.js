@@ -211,6 +211,7 @@ async function getRestaurantData(restaurantId) {
       addMinMaxBtn(itemId, 1);
     })
     document.querySelector('.no-btn').addEventListener('click', () => {
+      document.body.style.overflow = 'unset';
       document.querySelector('.restaurant-overlay').style.opacity = '0';
       document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
       document.querySelector('.changeItems-popup').style.opacity = '0';

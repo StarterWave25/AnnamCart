@@ -87,3 +87,123 @@
     -webkit-text-fill-color: transparent;
     font-size: 4rem;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .payment-method-container {
+        width: 70%;
+        height: 35%;
+    }
+    
+    .payment-method-container>h2 {
+        font-size: 1.8rem;
+    }
+    
+    .qrcode-container {
+        width: 50%;
+    }
+    
+    .qrcode-container>h2 {
+        font-size: 1.8rem;
+    }
+    
+    .confirm-container>h2 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .payment-method-container {
+        width: 90%;
+        height: 40%;
+        min-height: 200px;
+    }
+    
+    .payment-method-container>h2 {
+        font-size: 1.5rem;
+    }
+    
+    .payment-btns {
+        gap: 20px;
+    }
+    
+    .payment-btns>button,
+    .confirm-btn {
+        width: 120px;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+    
+    .qrcode-container {
+        width: 70%;
+        height: 85%;
+    }
+    
+    .qrcode-container>img {
+        width: 180px;
+    }
+    
+    .qrcode-container>h2 {
+        font-size: 1.5rem;
+    }
+    
+    #qrcode {
+        width: 250px;
+        padding: 20px;
+    }
+    
+    .confirm-container>h2 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .payment-method-container {
+        width: 85%;
+        height: 45%;
+        min-height: 220px;
+    }
+    
+    .payment-method-container>h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .payment-btns {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .payment-btns>button,
+    .confirm-btn {
+        width: 140px;
+        height: 40px;
+        font-size: 0.85rem;
+    }
+    
+    .qrcode-container {
+        width: 85%;
+        height: 80%;
+    }
+    
+    .qrcode-container>img {
+        width: 170px;
+    }
+    
+    .qrcode-container>h2 {
+        font-size: 1.1rem;
+    }
+    
+    #qrcode {
+        width: 240px;
+        padding: 15px;
+    }
+    
+    .confirm-container>h2 {
+        font-size: 2rem;
+    }
+}

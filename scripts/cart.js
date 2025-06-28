@@ -137,7 +137,7 @@ async function getCart() {
                     <div class="img-timing">
                         <img src="img/time-check.png" alt="clock-symbol">
                     </div>
-                    <h3>Delivering in 20 mins</h3>
+                    <h3>Delivering in 40 mins</h3>
                 </div>
                 <div class="items-list">
                     
@@ -243,8 +243,10 @@ async function getCart() {
         if (mapsLink) {
             locationBtn.innerHTML = `
                 <img src="img/checked.png" alt="location-image">
+                <span class="added">Location Added !</span>
             `;
             locationBtn.style.pointerEvents = 'none';
+            locationBtn.style.border = 'none';
             locationBtn.style.background = 'linear-gradient(130deg, var(--brown) 30%, #ff520271)';
         }
         else {
@@ -327,6 +329,14 @@ async function sendAddress() {
             }, 3000);
         }
         else {
+            const addressOpener = document.querySelector('.address-opener');
+            const addressCont = document.querySelector('.get-contact-info');
+            const overlay = document.querySelector('.popup-overlay');
+            addressCont.style.left = '-100%';
+            addressCont.style.scale = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 100);
             getAddress(response);
         }
     }
@@ -366,6 +376,36 @@ function changeAddress() {
     saveAddBtn.style.pointerEvents = 'all';
     saveAddBtn.style.opacity = '1';
 }
+
+function openAddress() {
+    const addressOpener = document.querySelector('.address-opener');
+    const addressCont = document.querySelector('.get-contact-info');
+    const overlay = document.querySelector('.popup-overlay');
+    addressOpener.addEventListener('click', () => {
+        addressCont.style.left = '50%';
+        addressCont.style.scale = '1';
+        setTimeout(() => {
+            overlay.style.display = 'flex';
+        }, 300);
+    });
+}
+
+openAddress();
+
+function closeAddress() {
+    const addressOpener = document.querySelector('.address-close-btn');
+    const addressCont = document.querySelector('.get-contact-info');
+    const overlay = document.querySelector('.popup-overlay');
+    addressOpener.addEventListener('click', () => {
+        addressCont.style.left = '-100%';
+        addressCont.style.scale = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 100);
+    });
+}
+
+closeAddress();
 
 function generateOrderID() {
     const timestamp = Date.now().toString().slice(-6);
@@ -539,6 +579,7 @@ function connectToServer(orderId) {
                             </div>
                 `;
             generateOrderPopups(popupHTML, true);
+            localStorage.removeItem('mapsLink');
         }
     });
 
@@ -546,7 +587,7 @@ function connectToServer(orderId) {
 }
 
 async function getLocation() {
-
+    locationBtn.style.pointerEvents = 'none';
     return new Promise((resolve) => {
         let latitude, longitude;
         navigator.geolocation.getCurrentPosition(async (position) => {
@@ -560,8 +601,9 @@ async function getLocation() {
             if (city) {
                 locationBtn.innerHTML = `
                     <img src="img/checked.png" alt="location-image">
+                    <span class="added">Location Added !</span>
                 `;
-                locationBtn.style.pointerEvents = 'none';
+                locationBtn.style.border = 'none';
                 locationBtn.style.background = 'linear-gradient(130deg, var(--brown) 30%, #ff520271)';
                 resolve();
             }

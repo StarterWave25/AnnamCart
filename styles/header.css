@@ -1,3 +1,12 @@
+:root {
+    --brown: #762E14;
+    --orange: #dc6414;
+    --peach: #FFD8B9;
+    --lpeach: #fff4ef;
+    --black: #000;
+    --white: #fff;
+}
+
 .search-container {
     width: 50%;
     height: 5vw;
@@ -53,14 +62,6 @@
     height: 100%;
 }
 
-:root {
-    --brown: #762E14;
-    --orange: #dc6414;
-    --peach: #FFD8B9;
-    --lpeach: #fff4ef;
-    --black: #000;
-    --white: #fff;
-}
 
 html {
     scrollbar-width: thin;
@@ -209,20 +210,26 @@ nav ul li a {
 }
 
 .user-profile {
-    width: 50%;
-    height: 60%;
+    padding: 20px;
+    background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+    border-radius: 8px;
+    width: 55%;
+    height: 70%;
     display: none;
     align-items: center;
-    cursor: default;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.5);
 }
 
 .user-profile>img {
+    border: 1px solid var(--peach);
+    border-radius: 50%;
     aspect-ratio: 1/1;
     width: 25%;
 }
 
 .user-profile>h3 {
-    color: var(--brown);
+    color: var(--lpeach);
     font-size: 1rem;
     margin-left: 7%;
     white-space: nowrap;
@@ -476,7 +483,7 @@ nav ul li a {
     header {
         height: 60px;
         padding: 0 10px;
-        justify-content: space-between;
+        gap: 80px;
     }
 
     .logo-container {
@@ -515,12 +522,14 @@ nav ul li a {
         display: none !important;
     }
 
-    .user-containar{
+    .user-containar {
         width: 30%;
     }
 
     .user-profile {
+        padding: 10px;
         width: 100%;
+        height: 60%;
     }
 
     .user-profile>img {
@@ -581,33 +590,40 @@ nav ul li a {
     .logo-container h1 {
         font-size: 1.6rem;
     }
+
     .gotoCart-popup {
         width: 63%;
     }
+
     .gotoCart-popup h2 {
         font-size: .9rem;
         white-space: nowrap;
     }
-    .gotoCart-popup button{
+
+    .gotoCart-popup button {
         width: 90%;
         font-size: .9rem;
     }
+
     .gotoCart-popup button img {
         width: 15px;
         height: 15px;
     }
 }
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 375px) {
     .gotoCart-popup {
         width: 67%;
     }
+
     .gotoCart-popup h2 {
         font-size: .75rem;
     }
-    .gotoCart-popup button{
+
+    .gotoCart-popup button {
         font-size: .75rem;
     }
+
     .gotoCart-popup button img {
         width: 10px;
         height: 10px;

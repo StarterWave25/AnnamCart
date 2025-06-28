@@ -32,7 +32,6 @@ if (isset($_SESSION['rname']) && isset($_SESSION['rid'])) {
 <body>
     <header></header>
     <div class="signup-main">
-        <img src="../img/chakra.png" alt="chakram">
         <div class="signup-container">
             <div class="signup-head">
                 <h2>LOGIN</h2>
@@ -60,9 +59,7 @@ if (isset($_SESSION['rname']) && isset($_SESSION['rid'])) {
                 </div>
             </div>
         </div>
-        <img src="../img/shanka.png" alt="shankam">
     </div>
-    <img src="../img/design.png" alt="design" class="design-img">
     <script></script>
 </body>
 

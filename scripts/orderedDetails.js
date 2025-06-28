@@ -182,8 +182,8 @@ async function statusFromBase() {
                 response = await request.json();
                 if (response.count == 0) {
                     document.querySelector('.popup-overlay').style.display = 'block';
-                    document.querySelector('.review-popup').style.opacity = '1';
-                    document.querySelector('.review-popup').style.visibility = 'visible';
+                    document.querySelector('.container').style.opacity = '1';
+                    document.querySelector('.container').style.visibility = 'visible';
                 }
             }, 1000);
             forStatus();
@@ -204,16 +204,11 @@ async function giveReveiw() {
 
     if (response.count == 0 && response.status == 'delivered') {
         setTimeout(() => {
-            document.querySelector('.review-popup').style.opacity = '0';
-            document.querySelector('.review-popup').style.visibility = 'hidden';
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.visibility = 'hidden';
             document.querySelector('.popup-overlay').style.display = 'block';
-            document.querySelector('.container').style.display = 'flex';
         }, 4000);
     }
 }
 
 giveReveiw();
-
-async function postReview(event) {
-
-}

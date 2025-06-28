@@ -26,7 +26,7 @@
 
   </div>
 
-  <div class="container">
+  <div class="container review-popup">
     <div class="head">Please Give Review</div>
     <div class="star-widget">
 
