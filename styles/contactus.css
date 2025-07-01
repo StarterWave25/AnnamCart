@@ -1,18 +1,8 @@
-/* Define CSS Variables if not already defined elsewhere */
-:root {
-  --brown: #4A2C2A; /* Example value, adjust as per your design */
-  --peach: #FFDAB9; /* Example value, adjust as per your design */
-  --lpeach: #FFE4C4; /* Example value, adjust as per your design */
-}
-
 body {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0; /* Ensure no default body margin */
-  padding: 0; /* Ensure no default body padding */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .gotoCart-popup {
@@ -238,7 +228,7 @@ form button:hover {
     /* Remove flex centering for body to allow contact-container to scroll if needed */
     display: block;
     height: auto;
-    padding: 20px 0; /* Add some vertical padding */
+    padding: 60px 0; /* Add some vertical padding */
   }
 
   .contact-container {

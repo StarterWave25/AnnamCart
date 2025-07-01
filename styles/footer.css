@@ -214,13 +214,13 @@ footer {
     }
     
     .footer-options > h3 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         height: auto;
         margin-bottom: 0.5rem;
     }
     
     .footer-options > a {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
     
     .footer-body {
@@ -274,12 +274,12 @@ footer {
     }
     
     .footer-options > h3 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         letter-spacing: 1px;
     }
     
     .footer-options > a {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .footer-body {
@@ -330,11 +330,11 @@ footer {
     }
     
     .footer-options > h3 {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     .footer-options > a {
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
     
     .footer-body {
@@ -356,8 +356,8 @@ footer {
 /* Landscape Mobile Devices */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     footer {
-        height: auto;   
-        min-height: 80vh;        
+        height: auto;
+        min-height: 80vh;
     }
     
     .footer-head {

@@ -329,14 +329,16 @@ async function sendAddress() {
             }, 3000);
         }
         else {
-            const addressOpener = document.querySelector('.address-opener');
-            const addressCont = document.querySelector('.get-contact-info');
-            const overlay = document.querySelector('.popup-overlay');
-            addressCont.style.left = '-100%';
-            addressCont.style.scale = '0';
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 100);
+            if (window.innerWidth <= '480') {
+                const addressOpener = document.querySelector('.address-opener');
+                const addressCont = document.querySelector('.get-contact-info');
+                const overlay = document.querySelector('.popup-overlay');
+                addressCont.style.left = '-100%';
+                addressCont.style.scale = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 100);
+            }
             getAddress(response);
         }
     }
@@ -390,7 +392,10 @@ function openAddress() {
     });
 }
 
-openAddress();
+if (window.innerWidth <= '480') {
+    openAddress();
+    closeAddress();
+}
 
 function closeAddress() {
     const addressOpener = document.querySelector('.address-close-btn');
@@ -405,7 +410,6 @@ function closeAddress() {
     });
 }
 
-closeAddress();
 
 function generateOrderID() {
     const timestamp = Date.now().toString().slice(-6);
@@ -472,7 +476,7 @@ function cancelAlert(orderId) {
             let popupHTML = `<div class="popup">
                             <div class="lottie-container">
                                 <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
-                                style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                                style="width: 200px; height: 200px; margin: auto;" autoplay></lottie-player>
                             </div>
                             <h2>Your order’s been Cancelled !</h2>
                             <p>We respect your choice—your happiness comes first. Whenever you’re ready, we’ll be here to serve you a delicious meal with care.</p>
@@ -681,29 +685,40 @@ async function checkAddAddress() {
 
     let popup = document.querySelector('.addAddress-popup');
     let backBlur = document.querySelector('.restaurant-overlay');
+    const addressCont = document.querySelector('.get-contact-info');
+    const overlay = document.querySelector('.popup-overlay');
 
     if (response.room_no === '' && response.area === '' && response.landmark === '') {
-        popup.style.visibility = 'visible';
-        popup.style.opacity = '1';
-        backBlur.style.visibility = 'visible';
-        backBlur.style.opacity = '1';
-        document.querySelector('.address-close').addEventListener('click', () => {
-            popup.style.visibility = 'hidden';
-            popup.style.opacity = '0';
-            backBlur.style.visibility = 'hidden';
-            backBlur.style.opacity = '0';
-            document.querySelector('.get-contact-info').style.backgroundColor = 'var(--lpeach)';
+        if (window.innerWidth <= '480') {
+            addressCont.style.left = '50%';
+            addressCont.style.scale = '1';
             setTimeout(() => {
-                document.querySelector('.get-contact-info').style.backgroundColor = 'white';
-            }, 400);
-            setTimeout(() => {
+                overlay.style.display = 'flex';
+            }, 300);
+        }
+        else {
+            popup.style.visibility = 'visible';
+            popup.style.opacity = '1';
+            backBlur.style.visibility = 'visible';
+            backBlur.style.opacity = '1';
+            document.querySelector('.address-close').addEventListener('click', () => {
+                popup.style.visibility = 'hidden';
+                popup.style.opacity = '0';
+                backBlur.style.visibility = 'hidden';
+                backBlur.style.opacity = '0';
                 document.querySelector('.get-contact-info').style.backgroundColor = 'var(--lpeach)';
-            }, 800);
-            setTimeout(() => {
-                document.querySelector('.get-contact-info').style.backgroundColor = 'white';
-            }, 1200);
-        });
-        return false;
+                setTimeout(() => {
+                    document.querySelector('.get-contact-info').style.backgroundColor = 'white';
+                }, 400);
+                setTimeout(() => {
+                    document.querySelector('.get-contact-info').style.backgroundColor = 'var(--lpeach)';
+                }, 800);
+                setTimeout(() => {
+                    document.querySelector('.get-contact-info').style.backgroundColor = 'white';
+                }, 1200);
+            });
+            return false;
+        }
     }
     else return true;
 

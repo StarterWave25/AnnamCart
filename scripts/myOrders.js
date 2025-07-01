@@ -1,14 +1,13 @@
 async function getOrdersData() {
     const response = await fetch('data/data-get-orders.php');
     const ordersData = await response.json();
-    console.log(ordersData);
     let ordersHTML = '';
     ordersData.forEach((order) => {
         let dTime = '';
-        if( order.Time !== order.delivered_time ){
+        if (order.Time !== order.delivered_time) {
             dTime = order.delivered_time;
         }
-        else{
+        else {
             dTime = 'not delivered yet';
         }
         ordersHTML += `
@@ -42,12 +41,21 @@ async function getOrdersData() {
     });
 
     const orderContainer = document.querySelector('.orders-container');
-    orderContainer.innerHTML = ordersHTML;
+    if (ordersData.length > 0) {
+        orderContainer.innerHTML = ordersHTML;
+    }
+    else{
+        orderContainer.innerHTML = `
+        <h2>No Orders found !</h2>
+        <a href="restaurants.html"><button>Browse Restaurants</button></a>`;
+    }
 
-    document.querySelector('.reorder-btn').addEventListener('click', async () => {
-        const userMobile = sessionStorage.getItem('userMobile');
-        localStorage.removeItem(`storedItems-${userMobile}`);
-    });
+    if (document.querySelector('.reorder-btn')) {
+        document.querySelector('.reorder-btn').addEventListener('click', async () => {
+            const userMobile = sessionStorage.getItem('userMobile');
+            localStorage.removeItem(`storedItems-${userMobile}`);
+        });
+    }
 }
 
 getOrdersData();

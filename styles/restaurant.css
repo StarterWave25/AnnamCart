@@ -287,12 +287,13 @@
 .max-btn {
   color: var(--brown);
   background-color: transparent;
-  font-size: 1.2rem;
-  height: 50%;
+  font-size: 1rem;
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
   cursor: pointer;
   border-radius: 50%;
   border: 1px solid var(--brown);
@@ -382,7 +383,7 @@
   .restaurant-head {
     min-height: auto;
     /* Allow height to be determined by content */
-    padding: 2em 1em;
+    padding: 1.5em 1em;
     gap: 2em;
   }
 
@@ -399,14 +400,15 @@
   .offer {
     width: 100%;
     justify-content: center;
+    gap: 0;
   }
 
   .title-offer>h2 {
     order: -1;
   }
 
-  .offer>img {
-    width: 6%;
+  .offer>img, .ratings-container>img {
+    width: 8%;
   }
 
   .details-restaurant ul {
@@ -459,7 +461,7 @@
   }
 
   .title-offer>h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .title-offer>h4,
@@ -492,6 +494,7 @@
     margin: 0 auto;
     /* Center the card */
     height: 200px;
+    border-radius: 14px;
   }
 
   .item-image {
@@ -504,6 +507,7 @@
 
   .item-image>img {
     width: 80%;
+    border-radius: 12px;
   }
 
   .item-details {
@@ -568,21 +572,23 @@
 
   .item-add {
     width: 70%;
-    height: 30px;
+    height: 35px;
     order: 4;
   }
 
   .addBtn {
-    font-size: .7rem;
+    border-radius: 5px;
+    font-size: .8rem;
+  }
+
+  .min-btn,
+  .max-btn {
+    width: 17px;
+    height: 17px;
   }
 
   .addBtn span {
     font-size: .7rem;
-  }
-
-  .wait-animation {
-    display: none;
-    /* The horizontal animation doesn't make sense in a vertical layout */
   }
 
   .popular-item::before {

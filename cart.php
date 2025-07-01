@@ -50,7 +50,7 @@
     <div class="addlocation-popup">
         <div class="info-touser">
             <div class="heading">
-                <h2>Please add your live location first !</h2>
+                <h2>Please add your Location !</h2>
             </div>
         </div>
         <div class="changeItems-btns">

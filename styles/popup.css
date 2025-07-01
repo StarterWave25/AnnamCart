@@ -167,7 +167,7 @@
 
 .addlocation-popup .changeItems-btns,
 .addAddress-popup .changeItems-btns {
-    height: 60%;
+    height: 50%;
 }
 
 .changeItems-popup .info-touser {
@@ -280,6 +280,7 @@
 }
 
 @media screen and (max-width: 768px) {
+
     .login-addItems-popup,
     .changeItems-popup {
         align-items: center;
@@ -291,7 +292,7 @@
         margin: 0;
     }
 
-    .changeItems-popup{
+    .changeItems-popup {
         min-height: 200px;
     }
 
@@ -364,15 +365,15 @@
 @media screen and (max-width: 480px) {
     .login-addItems-popup {
         width: 90%;
-        margin: 0 ;
+        margin: 0;
     }
 
     .info-touser .popup-heading h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .info-touser p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .signup-login-btns a,
@@ -384,5 +385,26 @@
     .signup-login-btns a>button,
     .changeItems-btns a>button {
         font-size: 0.8rem;
+    }
+
+    .addlocation-popup {
+        width: 300px;
+        height: 150px;
+        align-items: center;
+    }
+
+    .addlocation-popup .info-touser {
+        margin: 0;
+        min-height: 50px !important;
+    }
+
+    .addlocation-popup .heading {
+        color: var(--brown);
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .timer{
+        height: 100px;
     }
 }

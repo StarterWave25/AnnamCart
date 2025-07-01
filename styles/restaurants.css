@@ -52,7 +52,7 @@ nav ul>li:nth-child(2) {
     background-color: white;
     border-radius: 17px;
     justify-content: center;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
@@ -118,6 +118,7 @@ nav ul>li:nth-child(2) {
 .restaurant-name p {
     font-size: 0.85rem;
     color: gray;
+    font-weight: 400;
 }
 
 .restaurant-ratings {
@@ -205,7 +206,7 @@ nav ul>li:nth-child(2) {
     }
     
     .restaurant-head h3 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
     
     .restaurants-container {
@@ -239,7 +240,7 @@ nav ul>li:nth-child(2) {
     .restaurants-container {
         grid-template-columns: 1fr;
         gap: 40px;
-        width: 90%;
+        width: 85%;
     }
     
     .restaurant-head h3 {
@@ -247,8 +248,7 @@ nav ul>li:nth-child(2) {
     }
     
     .restaurant-info {
-        height: 240px;
-        max-width: 300px;
+        height: 250px;
         margin: 0 auto;
     }
     
@@ -258,7 +258,7 @@ nav ul>li:nth-child(2) {
     }
     
     .restaurant-name h4 {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     
     .restaurant-name p {
@@ -288,11 +288,7 @@ nav ul>li:nth-child(2) {
         font-size: 0.8rem;
     }
     
-    .restaurant-name h4 {
-        font-size: 0.85rem;
-    }
-    
     .restaurant-name p {
-        font-size: 0.65rem;
+        font-size: 0.8rem;
     }
 }

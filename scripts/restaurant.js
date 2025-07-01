@@ -1,6 +1,5 @@
-let time, distance;
+// let time = 10, distance = 10;
 let restaurantData;
-const userMobile = sessionStorage.getItem('userMobile');
 
 async function mostPopularItems() {
   const request = await fetch('data/data-popular-items.php');
@@ -11,7 +10,7 @@ async function mostPopularItems() {
 mostPopularItems();
 
 async function getRestaurantData(restaurantId) {
-  getUserCoords();
+  // getUserCoords();
 
   const response = await fetch(`data/data-restaurant.php?restaurant-id=${restaurantId}`);
   restaurantData = await response.json();
@@ -21,7 +20,7 @@ async function getRestaurantData(restaurantId) {
     return 0;
   }
   const resHead = document.querySelector('.restaurant-head');
-  getTimeDistance(restaurantData.resHead.latitude, restaurantData.resHead.longitude);
+  // getTimeDistance(restaurantData.resHead.latitude, restaurantData.resHead.longitude);
   document.title = restaurantData.resHead.res_name;
 
   resHead.innerHTML = `
@@ -36,9 +35,9 @@ async function getRestaurantData(restaurantId) {
   
   <div class="details-restaurant">
     <ul>
-      <li>${restaurantData.resHead.near_to}</li>
-      <li>${setTimeout(() => { time }, 100)} mins</li>
-      <li>${setTimeout(() => { distance }, 100)} km</li>
+      <li>Near ${restaurantData.resHead.near_to}</li>
+      <li>45 mins</li>
+      <li>10 km</li>
     </ul>
   </div>
 
@@ -91,7 +90,8 @@ async function getRestaurantData(restaurantId) {
   async function getAddBtnHTML(itemId) {
 
     let quantity = undefined;
-    let cartItems = await getQuantityStorage();
+    let cartItems = getQuantityStorage();
+    const userMobile = sessionStorage.getItem('userMobile');
 
     cartItems.forEach((cartItem) => {
       if (cartItem.itemId === itemId) {
@@ -105,13 +105,12 @@ async function getRestaurantData(restaurantId) {
         <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
         Add
       </button>` ;
+      getAddBtns();
     }
     else {
       addMinMaxBtn(itemId, quantity);
     }
   }
-
-  setTimeout(getAddBtns, 100);
 
   async function getAddBtns() {
     const addBtn = document.querySelectorAll('.addBtn');
@@ -119,9 +118,10 @@ async function getRestaurantData(restaurantId) {
       let quantity = 1;
       const itemId = Number(btn.dataset.itemId);
       btn.addEventListener('click', async () => {
-
+        const userMobile = sessionStorage.getItem('userMobile');
         if (userMobile) {
-          let cartItems = await getQuantityStorage();
+          loadingCart(itemId);
+          let cartItems = getQuantityStorage();
           if (await cartItems.length > 0) {
             if (cartItems[0].restaurantId === restaurantId) {
               setQuantityStorage(itemId, 1, restaurantId);
@@ -157,6 +157,7 @@ async function getRestaurantData(restaurantId) {
       const maxBtn = document.querySelector(`.maxBtn-${itemId}`);
       if (minBtn) {
         minBtn.addEventListener('click', async () => {
+          const userMobile = sessionStorage.getItem('userMobile');
           quantity--;
           if (quantity >= 1) {
             document.querySelector(`.quantity-${itemId}`).textContent = quantity;
@@ -168,7 +169,7 @@ async function getRestaurantData(restaurantId) {
               <span style="font-size: 1.7rem; margin-right: 5%;">+</span>
               Add</button>`;
             getAddBtns();
-            let cartItems = await getQuantityStorage();
+            let cartItems = getQuantityStorage();
             cartItems.forEach((item) => {
               if (item.itemId === itemId) {
                 cartItems.splice(cartItems.indexOf(item), 1);
@@ -193,6 +194,8 @@ async function getRestaurantData(restaurantId) {
   }
 
   function getChangeRestaurantPopup(cartItems, itemId, restaurantId) {
+    const userMobile = sessionStorage.getItem('userMobile');
+
     document.querySelector('.restaurant-overlay').style.opacity = '1';
     document.querySelector('.restaurant-overlay').style.visibility = 'visible';
     document.querySelector('.changeItems-popup').style.opacity = '1';
@@ -222,7 +225,8 @@ async function getRestaurantData(restaurantId) {
 }
 
 async function setQuantityStorage(itemId, quantity, restaurantId) {
-  let cartItems = await getQuantityStorage() || [];
+  const userMobile = sessionStorage.getItem('userMobile');
+  let cartItems = getQuantityStorage() || [];
   let itemFound = false;
   cartItems.forEach((item) => {
     if (item.itemId === itemId) {
@@ -238,8 +242,9 @@ async function setQuantityStorage(itemId, quantity, restaurantId) {
   getCartQuantity();
 }
 
-async function getQuantityStorage() {
-  let cartItems = await JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
+function getQuantityStorage() {
+  const userMobile = sessionStorage.getItem('userMobile');
+  let cartItems = JSON.parse(localStorage.getItem(`storedItems-${userMobile}`)) || [];
   return cartItems;
 }
 
@@ -272,34 +277,34 @@ function getLoginPopup() {
 }
 
 
-async function getTimeDistance(rLatitude, rLongitude) {
-  setTimeout(async () => {
-    let latitude = JSON.parse(sessionStorage.getItem('coords')).latitude;
-    let longitude = JSON.parse(sessionStorage.getItem('coords')).longitude;
+// async function getTimeDistance(rLatitude, rLongitude) {
+//   setTimeout(async () => {
+//     let latitude = JSON.parse(sessionStorage.getItem('coords')).latitude;
+//     let longitude = JSON.parse(sessionStorage.getItem('coords')).longitude;
 
-    const request = await fetch('https://api.openrouteservice.org/v2/directions/driving-car', {
-      method: 'POST',
-      headers: {
-        'Authorization': '5b3ce3597851110001cf6248870787b203bc44c6a580e50ca37c9175',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        coordinates: [
-          [rLongitude, rLatitude],
-          [longitude, latitude]
-        ]
-      })
-    });
+//     const request = await fetch('https://api.openrouteservice.org/v2/directions/driving-car', {
+//       method: 'POST',
+//       headers: {
+//         'Authorization': '5b3ce3597851110001cf6248870787b203bc44c6a580e50ca37c9175',
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         coordinates: [
+//           [rLongitude, rLatitude],
+//           [longitude, latitude]
+//         ]
+//       })
+//     });
 
-    const response = await request.json();
-    const summary = response.routes[0].summary;
+//     const response = await request.json();
+//     const summary = response.routes[0].summary;
 
-    distance = (summary.distance / 1000).toPrecision(2);
-    time = (summary.duration / 60) + 30;
-    distance = 100
-    time = 100
-  }, 100);
-}
+//     distance = (summary.distance / 1000).toPrecision(2);
+//     time = (summary.duration / 60) + 30;
+//     distance = 100
+//     time = 100
+//   }, 100);
+// }
 
 
 async function getUserCoords() {
