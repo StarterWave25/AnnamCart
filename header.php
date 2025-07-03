@@ -21,7 +21,7 @@
             <div class="profile-menu">
                 <a href="profile.php">My Profile</a>
                 <a href="myOrders.html">My Orders</a>
-                <a href="" class="logout-btn">Log Out</a>
+                <a class="logout-btn">Log Out</a>
             </div>
         </div>
         <a href="cart.php" class="cart-label">
@@ -65,6 +65,16 @@
     <button>View&nbsp;Cart<img src="img/next.png" alt=""></button>
 </a>
 
+<div class="logout-popup-overlay"></div>
+<div class="logout-popup">
+    <h2>Hold On, Govinda ?</h2>
+    <p>Ayyo! You’re leaving already? Without tasting all the flavours of AnnamCart? Confirm once, Govinda!</p>
+    <div class="logout-popup-buttons">
+        <button class="logout-btn btn-yes">Yes, Logout</button>
+        <button class="logout-btn btn-no">No, Stay</button>
+    </div>
+</div>
+
 <script>
     // Simulate PHP session data for demo
     <?php session_start(); ?>
@@ -82,7 +92,7 @@
             const userHeading = document.querySelector('.user-name');
             const mobileLoginLink = document.querySelector('.mobile-login-link');
             const mobileCartLink = document.querySelector('.mobile-cart-link');
-            
+
             // Desktop view
             userProfile.style.display = 'flex';
             userHeading.textContent = username;
@@ -109,9 +119,27 @@
 
     const logoutBtn = document.querySelector('.logout-btn');
     logoutBtn.addEventListener('click', () => {
-        sessionStorage.removeItem('userMobile');
-        sessionStorage.removeItem('mapsLink');
-        logoutBtn.href = 'data/logout.php';
+        const popup = document.querySelector('.logout-popup');
+        const overlay = document.querySelector('.logout-popup-overlay');
+        overlay.style.opacity = '1';
+        overlay.style.visibility = 'visible';
+        popup.style.opacity = '1';
+        popup.style.visibility = 'visible';
+        document.body.style.overflow = 'hidden';
+        const yesBtn = document.querySelector('.btn-yes');
+        const noBtn = document.querySelector('.btn-no');
+        yesBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('userMobile');
+            sessionStorage.removeItem('mapsLink');
+            location.href = 'data/logout.php';
+        })
+        noBtn.addEventListener('click', () => {
+            document.body.style.overflow = 'unset';
+            popup.style.opacity = '0';
+            popup.style.visibility = 'hidden';
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+        });
     });
 
     async function getCartQuantity() {
@@ -122,10 +150,13 @@
         const cartQuantityLabel = document.querySelector('.cart-label-quantity');
         if (cartItems.length > 0) {
             cartQuantityLabel.textContent = cartItems.length;
-            if (window.innerWidth <= 768)
-                gotoCart.style.bottom = '100px';
-            else
-                gotoCart.style.bottom = '0px';
+            if (window.innerWidth <= 768) {
+                gotoCart.style.bottom = '80px';
+                gotoCart.style.animation = 'gotoCartMobani 0.4s ease-in-out'
+            } else {
+                gotoCart.style.bottom = '10px';
+                gotoCart.style.animation = 'gotoCartAni 0.4s ease-in-out';
+            }
             if (cartItems.length === 1) {
                 gotoHeading.innerHTML = '<span>1</span> Item Added';
             } else {
@@ -133,7 +164,9 @@
             }
 
         } else {
-            gotoCart.style.bottom = '-200%';
+            gotoCart.style.animation = 'none';
+            gotoCart.style.bottom = '-100%';
+
         }
     }
 

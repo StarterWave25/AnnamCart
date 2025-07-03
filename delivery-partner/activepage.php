@@ -18,10 +18,10 @@ if (!isset($_SESSION['dname']) && !isset($_SESSION['dmobile'])) {
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="styles/orderdetails.css">
     <link rel="stylesheet" href="styles/customerdetails.css">
     <link rel="stylesheet" href="styles/payment.css">
     <link rel="stylesheet" href="../styles/popup.css">
+    <link rel="stylesheet" href="styles/orderdetails.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>

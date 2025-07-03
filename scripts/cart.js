@@ -579,7 +579,7 @@ function connectToServer(orderId) {
                                 </div>
                                 <h2>Great News !</h2>
                                 <p>Your order is confirmed and getting ready. It’ll be at your doorstep soon !</p>
-                                <button class="popup-btn" onclick="location.href = 'OrderedDetails.php?order-id=${orderId}'">Track Order</button>
+                                <button class="popup-btn track-order" onclick="location.href = 'OrderedDetails.php?order-id=${orderId}'">Track Order</button>
                             </div>
                 `;
             generateOrderPopups(popupHTML, true);

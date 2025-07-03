@@ -53,7 +53,6 @@
 }
 
 .qrcode-container {
-    height: 90%;
     width: 40%;
     background-color: white;
     box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.3);
@@ -187,7 +186,7 @@
     
     .qrcode-container {
         width: 85%;
-        height: 80%;
+        min-height: 70vh;
     }
     
     .qrcode-container>img {

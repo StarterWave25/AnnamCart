@@ -44,6 +44,11 @@ const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 
 searchInput.addEventListener('input', () => {
+    let nameValue = searchInput.value.replace(/[^a-zA-Z\s]/g, '');
+    searchInput.value = nameValue;
+})
+
+searchInput.addEventListener('input', () => {
     if (searchInput.value.length < 3) {
         searchBtn.style.opacity = '0.5';
         searchBtn.style.pointerEvents = 'none';
@@ -71,6 +76,9 @@ function checkKey(event) {
 
 
 async function searchAction(query) {
+
+    let nameValue = query.replace(/[^a-zA-Z\s]/g, '');
+    query = nameValue;
 
     popularContainer.style.display = 'none';
     popularHeading.style.display = 'none';
@@ -198,15 +206,15 @@ function checkSearchItem(itemId) {
 
 function getPopup() {
     document.querySelector('.restaurant-overlay').style.opacity = '1';
-  document.querySelector('.restaurant-overlay').style.visibility = 'visible';
-  document.querySelector('.login-addItems-popup').style.opacity = '1';
-  document.querySelector('.login-addItems-popup').style.visibility = 'visible';
-  document.body.style.overflow = "hidden";
-  document.querySelector('.close-border').addEventListener('click', () => {
-    document.querySelector('.restaurant-overlay').style.opacity = '0';
-    document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
-    document.querySelector('.login-addItems-popup').style.opacity = '0';
-    document.querySelector('.login-addItems-popup').style.visibility = 'hidden';
-    document.body.style.overflow = 'unset';
-  });
+    document.querySelector('.restaurant-overlay').style.visibility = 'visible';
+    document.querySelector('.login-addItems-popup').style.opacity = '1';
+    document.querySelector('.login-addItems-popup').style.visibility = 'visible';
+    document.body.style.overflow = "hidden";
+    document.querySelector('.close-border').addEventListener('click', () => {
+        document.querySelector('.restaurant-overlay').style.opacity = '0';
+        document.querySelector('.restaurant-overlay').style.visibility = 'hidden';
+        document.querySelector('.login-addItems-popup').style.opacity = '0';
+        document.querySelector('.login-addItems-popup').style.visibility = 'hidden';
+        document.body.style.overflow = 'unset';
+    });
 }

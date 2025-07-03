@@ -484,7 +484,7 @@
 
   .restaurant-body {
     padding: 3em 1em;
-    gap: 3em;
+    gap: 2em;
     grid-auto-rows: auto;
     /* Let card height be automatic */
   }

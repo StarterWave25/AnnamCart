@@ -1,16 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.5s ease-in-out;
-}
-
 body {
     width: 100%;
-    height: 100vh;
+    min-height: max-content;
+    overflow-y: auto;
 }
 
-.customer-deatils-container{
+.customer-deatils-container {
     width: 100%;
     height: 100%;
     display: none;
@@ -19,7 +13,7 @@ body {
     flex-direction: column;
 }
 
-.customer-details{
+.customer-details {
     background-color: var(--white);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     width: 60%;
@@ -31,7 +25,7 @@ body {
     border-radius: 20px;
 }
 
-.customer-information{
+.customer-information {
     width: 85%;
     height: 30%;
     display: flex;
@@ -39,27 +33,27 @@ body {
     justify-content: space-between;
 }
 
-.customer-banner{
+.customer-banner {
     width: 100%;
     height: 50%;
     display: flex;
     align-items: center;
 }
 
-.customer-banner h3{
+.customer-banner h3 {
     font-size: 2rem;
     color: var(--brown);
     font-weight: 400;
 }
 
-.customer-location{
+.customer-location {
     width: 25%;
     height: 45%;
     display: flex;
     justify-content: flex-end;
 }
 
-.address-container{
+.address-container {
     width: 85%;
     height: 25%;
     display: flex;
@@ -67,17 +61,17 @@ body {
     gap: 10px;
 }
 
-.address-container > h4{
+.address-container>h4 {
     color: var(--brown);
     font-size: 2rem;
 }
 
-.address-container > p{
+.address-container>p {
     font-size: 1.2rem;
     font-weight: 400;
 }
 
-.food-reached-status{
+.food-reached-status {
     width: 85%;
     height: 30%;
     display: flex;
@@ -85,12 +79,12 @@ body {
     justify-content: space-between;
 }
 
-.customer-contact{
+.customer-contact {
     width: 20%;
     height: 40%;
 }
 
-.customer-payment{
+.customer-payment {
     width: 50%;
     height: 50%;
     display: flex;
@@ -98,22 +92,24 @@ body {
     justify-content: center;
 }
 
-.customer-payment h4{
+.customer-payment h4 {
     font-size: 1.8rem;
     color: var(--brown);
 }
 
-.customer-payment h3{
+.customer-payment h3 {
     font-size: 1.5rem;
     font-family: 'outfit';
 }
 
-.customer-status{
+.customer-status {
     width: 18%;
     height: 40%;
 }
 
-.customer-status button,.customer-contact button,.customer-location button{
+.customer-status button,
+.customer-contact button,
+.customer-location button {
     border: 0px solid transparent;
     border-radius: 7px;
     color: var(--white);
@@ -126,7 +122,9 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.customer-status button:hover,.customer-contact button:hover,.customer-location button:hover{
+.customer-status button:hover,
+.customer-contact button:hover,
+.customer-location button:hover {
     filter: brightness(1.3);
 }
 
@@ -143,19 +141,19 @@ body {
         width: 85%;
         height: 40vw;
     }
-    
+
     .customer-banner h3 {
         font-size: 1.8rem;
     }
-    
-    .address-container > h4 {
+
+    .address-container>h4 {
         font-size: 1.8rem;
     }
-    
+
     .customer-payment h4 {
         font-size: 1.6rem;
     }
-    
+
     .customer-payment h3 {
         font-size: 2rem;
     }
@@ -168,64 +166,66 @@ body {
         height: 55vh;
         min-height: 400px;
     }
-    
+
     .customer-information {
         height: 25%;
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .customer-banner h3 {
         font-size: 1.6rem;
     }
-    
+
     .customer-location {
         width: 30%;
     }
-    
+
     .address-container {
         height: 30%;
         flex-direction: column;
     }
-    
-    .address-container > h4 {
+
+    .address-container>h4 {
         font-size: 1.4rem;
     }
-    
-    .address-container > p {
+
+    .address-container>p {
         font-size: 1rem;
         line-height: 1.3;
     }
-    
+
     .food-reached-status {
         height: 35%;
         width: 90%;
         flex-direction: column;
     }
-    
+
     .customer-contact {
         width: 25%;
         order: 2;
     }
-    
+
     .customer-payment {
         width: 45%;
         order: -1;
     }
-    
+
     .customer-payment h4 {
         font-size: 1.3rem;
     }
-    
+
     .customer-payment h3 {
         font-size: 1.7rem;
     }
-    
+
     .customer-status {
         width: 22%;
     }
-    
-    .customer-status button, .customer-contact button, .customer-location button {
+
+    .customer-status button,
+    .customer-contact button,
+    .customer-location button {
         font-size: 0.9rem;
     }
 }
@@ -237,43 +237,46 @@ body {
         height: 60vh;
         min-height: 420px;
     }
+
     .customer-banner h3 {
         font-size: 1.4rem;
     }
-    
+
     .customer-location {
         width: 35%;
     }
-    
-    .address-container > h4 {
+
+    .address-container>h4 {
         font-size: 1.2rem;
     }
-    
-    .address-container > p {
+
+    .address-container>p {
         font-size: 0.9rem;
     }
-    
+
     .customer-contact {
         width: 35%;
     }
-    
+
     .customer-payment {
         width: 50%;
     }
-    
+
     .customer-payment h4 {
         font-size: 1.2rem;
     }
-    
+
     .customer-payment h3 {
         font-size: 1.3rem;
     }
-    
+
     .customer-status {
         width: 35%;
     }
-    
-    .customer-status button, .customer-contact button, .customer-location button {
+
+    .customer-status button,
+    .customer-contact button,
+    .customer-location button {
         font-size: 0.8rem;
     }
 

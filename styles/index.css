@@ -646,8 +646,10 @@
   }
 
   .top-items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    display: flex;
+    gap: 50px;
+    overflow: auto;
+    scrollbar-width: none;
   }
 
   .top-food-name p {

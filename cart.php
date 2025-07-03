@@ -24,14 +24,14 @@
     <div class="changeItems-popup">
         <div class="info-touser">
             <div class="heading">
-                <h2>Sorry, We are not available !</h2>
+                <h2>Sorry, We are'nt available !</h2>
             </div>
             <p></p>
-            <p>This website built only for tirumala.</p>
+            <p class="para">This website built only for tirumala.</p>
         </div>
         <div class="changeItems-btns">
             <a style="display: none;"><button style="display: none;"></button></a>
-            <a><button class="close-btn">Close</button></a>
+            <a><button class="close-btn close-btn-available">Close</button></a>
         </div>
     </div>
 
