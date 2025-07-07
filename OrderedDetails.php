@@ -52,8 +52,8 @@
     </div>
   </div>
 
-  <a href="myOrders.html" class="goback-btn"><img src="img/out-arrow.png" alt=""></a>
-  <a class="goback-span" href="myOrders.html">My Orders</a>
+  <a href="myOrders.php" class="goback-btn"><img src="img/out-arrow.png" alt=""></a>
+  <a class="goback-span" href="myOrders.php">My Orders</a>
   <div class="ordered-details">
     <!-- js code comes here -->
   </div>

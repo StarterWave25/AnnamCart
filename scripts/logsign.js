@@ -16,3 +16,5 @@ inputMobile.addEventListener('input', () => {
     }
     inputMobile.value = mobileValue;
 });
+
+sessionStorage.setItem('prev-link', document.referrer);

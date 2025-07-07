@@ -63,7 +63,7 @@ async function getOrderDetails() {
 
             <div class="buttons-container">
                 <button onclick="location.href = 'cart.php?order-id=${orderedDetails.restaurant.order_id}'" class="reorder-btn">Reorder</button>
-                <button onclick="location.href = 'order-help.php?order-id=${orderedDetails.restaurant.order_id}'">Help</button>
+                <button onclick="location.href = 'order-help.php?order-id=${orderedDetails.restaurant.order_id}'" class='help-btn'>Help</button>
                 <a href="tel: +91 ${orderedDetails.restaurant.dmobile}"><button class="call-btn">Call&nbsp;Agent</button></a>
             </div>
 
@@ -187,6 +187,12 @@ async function statusFromBase() {
                 }
             }, 1000);
             forStatus();
+        }
+        else if(response.status === 'cancelled'){
+            const trackingStatus = document.querySelector('.tracking-status');
+            trackingStatus.innerHTML = "<h3 class='order-cancle'>Your Order is Cancelled !</h3>";
+            document.querySelector('.call-btn').style.display = 'none';
+            document.querySelector('.help-btn').style.display = 'none';
         }
         else {
             forStatus();

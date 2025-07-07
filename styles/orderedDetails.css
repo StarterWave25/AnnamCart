@@ -586,7 +586,7 @@ form .btn button:hover {
 
 /* Desktop styles (original) - unchanged */
 body {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 60px;
   height: 100vh;
   display: flex;
@@ -722,6 +722,13 @@ body {
   height: 50%;
   display: flex;
   position: relative;
+}
+
+.tracking-status h3{
+  color: red;
+  text-align: center;
+  width: 100%;
+
 }
 
 .tracking-route {
@@ -1565,10 +1572,6 @@ form .btn button:hover {
 
 /* Extra small devices (max-width: 320px) */
 @media screen and (max-width: 320px) {
-  .body {
-    padding-top: 50px !important;
-  }
-
   .ordered-details {
     padding: 15px 8px;
   }

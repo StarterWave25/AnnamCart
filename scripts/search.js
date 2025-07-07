@@ -44,11 +44,10 @@ const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 
 searchInput.addEventListener('input', () => {
+
     let nameValue = searchInput.value.replace(/[^a-zA-Z\s]/g, '');
     searchInput.value = nameValue;
-})
 
-searchInput.addEventListener('input', () => {
     if (searchInput.value.length < 3) {
         searchBtn.style.opacity = '0.5';
         searchBtn.style.pointerEvents = 'none';
@@ -77,8 +76,13 @@ function checkKey(event) {
 
 async function searchAction(query) {
 
-    let nameValue = query.replace(/[^a-zA-Z\s]/g, '');
-    query = nameValue;
+    try {
+        let nameValue = query.replace(/[^a-zA-Z\s]/g, '');
+        query = nameValue;
+    }
+    catch(e){
+        
+    }
 
     popularContainer.style.display = 'none';
     popularHeading.style.display = 'none';

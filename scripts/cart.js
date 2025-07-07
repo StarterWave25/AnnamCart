@@ -452,8 +452,7 @@ function cancelAlert(orderId) {
                             <div class="timer"></div>
                         </div>
                         <h2>Don't change your mind !</h2>
-                        <p>Your meal is almost ready for you. Cancelling now stops us from serving your
-                            cravings — trust us, it’ll be worth the wait !</p>
+                        <p>Your Tirumala meal is almost ready ! Don’t miss it.</p>
                         <button class="popup-btn cancel-btn">Cancel Order</button>
                     </div>`;
     let placeOrder = true;
@@ -479,7 +478,7 @@ function cancelAlert(orderId) {
                                 style="width: 200px; height: 200px; margin: auto;" autoplay></lottie-player>
                             </div>
                             <h2>Your order’s been Cancelled !</h2>
-                            <p>We respect your choice—your happiness comes first. Whenever you’re ready, we’ll be here to serve you a delicious meal with care.</p>
+                            <p>No worries! We’ll always be here with a delicious meal when you’re ready.</p>
                         </div>`;
             generateOrderPopups(popupHTML, true);
             setTimeout(() => {
@@ -559,11 +558,11 @@ function connectToServer(orderId) {
                         <div class="popup">
                             <div class="lottie-container">
                                 <lottie-player src="animations/Animation - 1747320405248.json" background="transparent" speed="1"
-                                style="width: 300px; height: 300px; margin: auto;" autoplay></lottie-player>
+                                style="width: 200px; height: 200px; margin: auto;" autoplay></lottie-player>
                             </div>
                             <h2>Oops, Order Declined !</h2>
                             <p>This restaurant couldn’t take your order. Try another one nearby it’s just a click away.</p>
-                            <button class="popup-btn" onclick="location.reload()">Reorder</button>
+                            <button class="popup-btn track-order" onclick="location.reload()">Reorder</button>
                         </div>
                 `;
             generateOrderPopups(popupHTML, true);
@@ -574,7 +573,7 @@ function connectToServer(orderId) {
                             <div class="popup">
                                 <div class="lottie-container">
                                     <lottie-player src="animations/Animation - 1747307351888.json" background="transparent" speed="1"
-                                        style="width: 300px; height: 300px; margin: auto;" autoplay>
+                                        style="width: 200px; height: 200px; margin: auto;" autoplay>
                                     </lottie-player>
                                 </div>
                                 <h2>Great News !</h2>

@@ -20,7 +20,7 @@
             <h3 class="user-name"></h3>
             <div class="profile-menu">
                 <a href="profile.php">My Profile</a>
-                <a href="myOrders.html">My Orders</a>
+                <a href="myOrders.php">My Orders</a>
                 <a class="logout-btn">Log Out</a>
             </div>
         </div>
