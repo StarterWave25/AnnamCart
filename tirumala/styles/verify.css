@@ -1,0 +1,268 @@
+/* It's good practice to define your variables at the root */
+:root {
+    --brown: #8B4513;
+    /* A sample brown color */
+}
+
+/* Universal box-sizing for easier layout math */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Use min-height to ensure it fills the viewport but can grow if needed */
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+}
+
+.gotoCart-popup {
+    display: none !important;
+}
+
+.verify-main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* Use padding instead of margin-top for better control on mobile */
+    padding: 2rem 0;
+    min-height: 90vh;
+    /* Ensures it takes up most of the screen */
+}
+
+/* The original styles for the container are now the "desktop" view */
+.verify-container {
+    background-color: white;
+    width: 90%;
+    /* Use max-width to prevent it from getting too large on very wide screens */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    /* Padding provides internal spacing and replaces fixed heights */
+    padding: 2.5rem;
+    align-self: center;
+}
+
+.verify-head {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    /* Spacing between sections */
+}
+
+.verify-head h2 {
+    color: var(--brown);
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.verify-head h4 {
+    font-size: 1.1rem;
+    width: 85%;
+    line-height: 1.4;
+    color: black;
+}
+
+.verify-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Gap is a modern way to add space between flex items */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    /* Spacing between sections */
+}
+
+.form-otp {
+    width: 100%;
+    position: relative;
+}
+
+.form-otp input {
+    font-family: 'alata';
+    color: var(--brown);
+    width: 100%;
+    height: 50px;
+    /* Use a fixed, accessible height */
+    border-radius: 12px;
+    padding: 0 20px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid gainsboro;
+    transition: all 0.2s ease;
+}
+
+.form-otp input:focus {
+    border-color: var(--brown);
+    box-shadow: 0px 0px 5px var(--brown);
+}
+
+.form-otp input:valid {
+    border-color: var(--brown);
+}
+
+.instruction-cont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.instruction-cont a {
+    color: var(--brown);
+    font-family: 'alata';
+    font-size: 0.85rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.instruction-cont h5 {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.instruction-cont a::after {
+    content: '';
+    height: 1px;
+    width: 0%;
+    background-color: var(--brown);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.instruction-cont a:hover::after {
+    width: 100%;
+}
+
+.verify-container input[type="submit"] {
+    font-family: 'alata';
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.verify-container input[type="submit"]:hover {
+    filter: brightness(1.2);
+}
+
+.legal-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    /* Space between "Do you want to know" and the links */
+    margin-top: auto;
+    /* Pushes this to the bottom of the flex container */
+    padding-top: 1rem;
+}
+
+.legal-container h5 {
+    color: var(--brown);
+    font-weight: 500;
+}
+
+.legal-links {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+    /* Space between links and separator */
+}
+
+.legal-links a {
+    position: relative;
+    font-size: 0.8rem;
+    color: black;
+    text-decoration: none;
+}
+
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================= */
+/*      RESPONSIVE STYLES START HERE         */
+/* ========================================= */
+
+/* For Tablets */
+@media (max-width: 1024px) {
+    .verify-container {
+        width: 60%;
+        /* Make the container wider on tablets */
+        max-width: 500px;
+    }
+}
+
+
+/* For Mobile Phones */
+@media (max-width: 768px) {
+    body{
+        overflow-y: hidden;
+        height: 90vh;
+        justify-content: center;
+    }
+
+    .verify-main {
+        padding: 1.5rem 0;
+        /* Align to the top on mobile instead of center */
+    }
+
+    .verify-container {
+        width: 90%;
+        /* Take up most of the screen width */
+        padding: 2rem 2.5rem;
+        /* Adjust padding for smaller screens */
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-self: center;
+    }
+
+    .verify-head h2 {
+        font-size: 1.5rem;
+        /* Slightly smaller heading */
+    }
+
+    .verify-head h4 {
+        font-size: 1rem;
+        /* Slightly smaller sub-heading */
+        width: 100%;
+    }
+
+    .legal-links {
+        /* Stack links vertically on very small screens if needed */
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .legal-links span {
+        display: none;
+        /* Hide the separator when stacked */
+    }
+
+    .instruction-cont a {
+        font-size: .65rem;
+    }
+}

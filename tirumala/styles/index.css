@@ -1,0 +1,695 @@
+.offer-container {
+  width: 100%;
+  height: 23vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--lpeach);
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+}
+
+.offer-container:hover {
+  filter: brightness(1.3);
+}
+
+.items {
+  width: 100%;
+  height: min(30vw, 100vh);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--lpeach);
+}
+
+.top-head {
+  width: 93%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.top-head h2 {
+  width: 100%;
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+.top-items {
+  width: 96%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-food-info {
+  width: 18%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.top-food-name {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-food-name p {
+  text-align: center;
+  color: var(--brown);
+  font-weight: 400;
+}
+
+.top-food-image {
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  width: 73%;
+  height: 60%;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.top-food-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.top-food-image:hover,
+.top-food-image:active {
+  scale: 0.97;
+}
+
+.food-restaurant {
+  width: 100%;
+  height: min(30vw, 100vh);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.restaurant-head {
+  width: 90%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-head h2 {
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+.restaurants-container {
+  width: 90%;
+  height: 65%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.restaurant-info {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-self: flex-end;
+  background-color: white;
+  border-radius: 17px;
+  justify-content: center;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.restaurant-info:hover,
+.restaurant-info:active {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+  scale: 0.97;
+}
+
+.restaurant-photo {
+  height: 70%;
+  width: 90%;
+  border-radius: 20px;
+  position: relative;
+}
+
+.restaurant-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-photo h4 {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(135deg, #FFD700 0%, #FFED4A 25%, #d79e0d 50%, #FFD700 75%, #DAA520 100%);
+  padding: 3px 10px;
+  font-family: 'outfit';
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.restaurant-details {
+  height: 20%;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.restaurant-name {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.restaurant-name h3 {
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: black;
+}
+
+.restaurant-name p {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.restaurant-ratings {
+  width: 25%;
+  height: 70%;
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+}
+
+.restaurant-ratings h4 {
+  color: black;
+}
+
+.restaurant-ratings>img {
+  width: 27%;
+}
+
+.most-ordered {
+  width: 100%;
+  height: min(30vw, 100vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--lpeach);
+}
+
+.most-head {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.most-head h2 {
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+.ordered-food {
+  width: 90%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.most-ordered-foods {
+  width: 21%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.most-ordered-foods:hover {
+  scale: 0.97;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+}
+
+.ordered-foods-image {
+  width: 90%;
+  height: 65%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ordered-foods-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ordered-foods-name {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+}
+
+.most-order-details {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.most-order-food-name {
+  width: 100%;
+  font-size: 1.15rem;
+  height: 50%;
+}
+
+.order-place {
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: gray;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orginal-price {
+  font-size: 0.75rem;
+}
+
+.offer-price {
+  font-size: 1.2rem;
+  color: var(--brown);
+}
+
+.order-ratings {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.order-price {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  align-items: last baseline;
+  justify-content: space-around;
+}
+
+.star-rating {
+  width: 90%;
+  height: 43%;
+  display: flex;
+  align-items: last baseline;
+  justify-content: end;
+}
+
+.star-rating img {
+  width: 20%;
+  height: 70%;
+}
+
+.star-rating h4{
+  color: black;
+}
+
+.customer-review {
+  width: 100%;
+  height: min(30vw, 100vh);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.review-head {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.review-head h2 {
+  font-size: 3rem;
+  color: var(--brown);
+}
+
+.review-info {
+  width: 90%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customer-review-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 90%;
+  border-radius: 25px;
+  background: linear-gradient(130deg, var(--brown) 70%, #ff520282);
+}
+
+.customer-review-card {
+  height: 60%;
+  width: 85%;
+}
+
+.customer-review-card>p {
+  color: var(--lpeach);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.review-details {
+  height: 20%;
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--peach);
+}
+
+.review-details>h5 {
+  font-size: 1.3rem;
+  color: white;
+}
+
+.rating-stars img {
+  width: 20px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .offer-container {
+    height: 180px;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .items {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .top-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .top-head h2 {
+    font-size: 2rem;
+  }
+
+  .top-items {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .top-food-info {
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .top-food-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .top-food-name p {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .food-restaurant {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .restaurant-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .restaurant-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurants-container {
+    width: 90%;
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .restaurant-info {
+    height: auto;
+    min-height: 300px;
+    padding: 15px;
+  }
+
+  .restaurant-photo {
+    height: 200px;
+    width: 100%;
+  }
+
+  .restaurant-photo h4 {
+    font-size: 1rem;
+    padding: 5px 12px;
+  }
+
+  .restaurant-details {
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .restaurant-name h4 {
+    font-size: 1rem;
+  }
+
+  .restaurant-name p {
+    font-size: 0.9rem;
+  }
+
+  .most-ordered {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .most-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .most-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .ordered-food {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 0px;
+  }
+
+  .most-ordered-foods {
+    width: 95%;
+    height: auto;
+    min-height: 280px;
+    padding: 15px;
+  }
+
+  .ordered-foods-image {
+    height: 200px;
+    width: 100%;
+  }
+
+  .ordered-foods-name {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .most-order-details {
+    height: 50px;
+  }
+
+  .order-ratings {
+    height: 50px;
+  }
+
+  .most-order-food-name {
+    font-size: 1rem;
+    height: auto;
+  }
+
+  .order-place {
+    font-size: 0.8rem;
+  }
+
+  .order-price {
+    height: auto;
+    gap: 8px;
+  }
+
+  .offer-price {
+    font-size: 1.1rem;
+  }
+
+  .customer-review {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .review-head {
+    width: 85%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .review-head h3 {
+    font-size: 1.8rem;
+  }
+
+  .review-info {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .customer-review-data {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .customer-review-card {
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .customer-review-card>p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .review-details {
+    height: auto;
+    width: 100%;
+    padding-top: 15px;
+  }
+
+  .review-details>h5 {
+    font-size: 1.1rem;
+  }
+
+  .rating-stars img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .offer-container {
+    font-size: 0.9rem;
+  }
+
+  .top-items {
+    display: flex;
+    gap: 50px;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .top-food-name p {
+    font-size: 0.9rem;
+  }
+
+  .restaurant-head h2,
+  .most-head h2,
+  .review-head h2,
+  .top-head h2 {
+    font-size: 1.2rem;
+  }
+
+  .ordered-food {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    place-items: center;
+  }
+
+  .most-ordered-foods {
+    min-height: 250px;
+  }
+
+  .ordered-foods-image {
+    height: 170px;
+  }
+
+  .customer-review-card>p {
+    font-size: 0.8rem;
+  }
+
+  .restaurant-info {
+    min-height: 250px;
+  }
+
+  .restaurant-photo {
+    height: 180px;
+  }
+}

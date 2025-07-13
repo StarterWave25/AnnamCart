@@ -1,0 +1,351 @@
+/* Your existing desktop CSS remains unchanged */
+nav>ul span {
+    left: 37.5%;
+}
+
+ul>li:hover~span {
+    left: 4.3%;
+}
+
+nav ul>li:nth-child(2) {
+    pointer-events: none;
+    opacity: 1;
+}
+
+.food-restaurant {
+    width: 100%;
+    height: min(55vw, 120vh);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.restaurant-head {
+    width: 90%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-head h1 {
+    font-size: 3rem;
+    color: var(--brown);
+}
+
+.restaurants-container {
+    width: 90%;
+    height: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.restaurant-info {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-self: flex-end;
+    background-color: white;
+    border-radius: 17px;
+    justify-content: center;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.restaurant-info:hover,
+.restaurant-info:active {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    scale: 0.97;
+}
+
+.restaurant-photo {
+    height: 70%;
+    width: 90%;
+    border-radius: 20px;
+    position: relative;
+}
+
+.restaurant-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-photo h4 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(135deg, #FFD700 0%, #FFED4A 25%, #d79e0d 50%, #FFD700 75%, #DAA520 100%);
+    padding: 3px 10px;
+    font-family: 'outfit';
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.restaurant-details {
+    height: 20%;
+    width: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.restaurant-name {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.restaurant-name h2 {
+    font-size: 1.05rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    color: black;
+}
+
+.restaurant-name h3 {
+    font-size: 0.85rem;
+    color: gray;
+    font-weight: 400;
+}
+
+.restaurant-ratings {
+    width: 25%;
+    height: 70%;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.restaurant-ratings h5 {
+    color: black;
+}
+
+.restaurant-ratings>img {
+    width: 27%;
+}
+
+
+.restaurant-seo-section {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dropdown-block {
+    border-radius: 12px;
+    background-color: var(--lpeach);
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-toggle {
+    width: 100%;
+    background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+    color: var(--white);
+    padding: 16px 20px;
+    font-size: 1.2rem;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+    background-color: #5e1e0f;
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    background-color: var(--white);
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.dropdown-block.active .dropdown-content {
+    max-height: 400px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .dropdown-toggle {
+        font-size: 1rem;
+        padding: 14px 16px;
+    }
+
+    .dropdown-content {
+        font-size: 0.95rem;
+    }
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Large tablets and small laptops (1024px and below) */
+@media screen and (max-width: 1024px) {
+    .restaurants-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .restaurant-head h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+    .food-restaurant {
+        height: min(80vw, 140vh);
+        justify-content: flex-start;
+        gap: 30px;
+        padding: 30px 0;
+    }
+
+    .restaurant-head {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .restaurant-head h1 {
+        font-size: 2.2rem;
+    }
+
+    .restaurants-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        height: auto;
+    }
+
+    .restaurant-info {
+        height: 280px;
+    }
+
+    .restaurant-photo h4 {
+        font-size: 1rem;
+        padding: 2px 8px;
+    }
+
+    .restaurant-name h4 {
+        font-size: 1rem;
+    }
+
+    .restaurant-name p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Large mobile devices (600px and below) */
+@media screen and (max-width: 600px) {
+    .food-restaurant {
+        height: auto;
+        min-height: 100vh;
+        padding: 25px 0;
+    }
+
+    .restaurant-head {
+        width: 90%;
+    }
+
+    .restaurant-head h1 {
+        font-size: 1.9rem;
+    }
+
+    .restaurants-container {
+        width: 95%;
+        gap: 25px;
+    }
+
+    .restaurant-info {
+        height: 260px;
+    }
+
+    .restaurant-photo h4 {
+        font-size: 0.9rem;
+    }
+
+    .restaurant-name h4 {
+        font-size: 0.95rem;
+    }
+
+    .restaurant-name p {
+        font-size: 0.75rem;
+    }
+
+    .restaurant-ratings h5 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small mobile devices (480px and below) */
+@media screen and (max-width: 480px) {
+    .restaurants-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        width: 85%;
+    }
+
+    .restaurant-head h1 {
+        font-size: 1.5rem;
+    }
+
+    .restaurant-info {
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    .restaurant-photo h4 {
+        font-size: 0.85rem;
+        padding: 2px 6px;
+    }
+
+    .restaurant-name h4 {
+        font-size: 0.95rem;
+    }
+
+    .restaurant-name p {
+        font-size: 0.7rem;
+    }
+
+    .restaurant-ratings h5 {
+        font-size: 0.85rem;
+    }
+
+    .restaurant-ratings>img {
+        width: 25%;
+    }
+}
+
+/* Extra small devices (360px and below) */
+@media screen and (max-width: 360px) {
+    .restaurant-head h1 {
+        font-size: 1.2rem;
+    }
+
+    .restaurant-info {
+        height: 250px;
+    }
+
+    .restaurant-photo h4 {
+        font-size: 0.8rem;
+    }
+
+    .restaurant-name p {
+        font-size: 0.8rem;
+    }
+}

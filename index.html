@@ -2,129 +2,636 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnnamCart</title>
-  <link rel="icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles/header.css">
-  <link rel="stylesheet" href="styles/footer.css">
-  <link rel="stylesheet" href="styles/index.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="scripts/headfoot.js"></script>
-  <style>
-    nav ul>li:first-child {
-      opacity: 1;
-      pointer-events: none;
-    }
-
-    .food-restaurant {
-      min-height: 45vh;
-    }
-
-    .restaurants-container {
-      min-height: 30%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnnamCart - Delivering Pure Veg Food from Tirumala Restaurants</title>
+    <meta name="description"
+        content="Walking tired after darshan ? ⏳ Don’t wait in lines. Order hygienic, pure-veg meals from Best Restaurants in Tirumala. Delivery in 30 mins. Sign up & Get ₹100 OFF now!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Alata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex, nofollow">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                "@type": "Question",
+                "name": "Can we order food in Tirumala?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! AnnamCart lets you order sattvik vegetarian food from trusted Tirumala restaurants, delivered right to your location."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "Is Swiggy or Zomato available in Tirumala?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, Swiggy and Zomato do not operate in Tirumala. AnnamCart is the dedicated local food delivery service here."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "How long does delivery take in Tirumala?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most orders arrive within 30 minutes after confirmation. You can also track or ask Vasuki for live updates via WhatsApp."
+                }
+                },
+                {
+                "@type": "Question",
+                "name": "How do I pay for my order?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pay via UPI or cash on delivery. No hidden charges — what you see is what you pay."
+                }
+            }
+            {
+                "@type": "Question",
+                "name": "Which Tirumala restaurants can I order from?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We partner with top-rated, TTD-approved restaurants like Srivari Naivedyam, Saarangi, Devaragam, SV Food Plaza, and Hotel Radhe."
+                }
+                },
+            ]
+        }
+    </script>
 </head>
 
 <body>
-  <header id="header"></header>
-  <a href="search.html" class="search-container">
-    <input type="text" name="search" placeholder="Search for your next delicous bite...">
-    <button class="search-btn"><img src="img/search.png" alt=""></button>
-  </a>
-
-  <div class="offer-container">
-    <h3>Use NEWUSER Coupon to Get 30% Off !</h3>
-  </div>
-
-  <div class="items">
-    <div class="top-head">
-      <h3>Top Picks For you !</h3>
+    <!-- Top Scrolling Banner -->
+    <div class="top-banner">
+        <marquee class="banner-content" scrollamount="7">
+            <span class="banner-text">
+                ⏰ Only <span class="countdown" id="countdown">33:33</span> minutes left! 🎉 <strong
+                    style="color: #ffd4a2;font-size: 22px;">₹100 Off</strong> on orders above ₹250 ! — Delicious
+                Tirumala meals, just a
+                tap away.
+            </span>
+        </marquee>
     </div>
 
-    <div class="top-items">
-      <!-- js code comes here -->
-    </div>
-  </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>AnnamCart</span>
+            </div>
+            <a href="tirumala/signup.php"><button class="nav-cta">Sign Up</button></a>
+        </div>
+    </nav>
 
-  <div class="food-restaurant">
-    <div class="restaurant-head">
-      <h3>Top Restaurants in Tirumala</h3>
-    </div>
-    <div class="restaurants-container">
-      <!--js code comes here-->
-    </div>
-  </div>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="bg-elements">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="floating-element element-4"></div>
+        </div>
 
-  <div class="most-ordered">
-    <div class="most-head">
-      <h3>Most Ordered Foods</h3>
-    </div>
-    <div class="ordered-food">
-      <!--js code comes here-->
-    </div>
-  </div>
-  <div class="customer-review">
-    <div class="review-head">
-      <h3>Our Customer Reviews</h3>
-    </div>
-    <div class="review-info">
-      <div class="customer-review-data">
-        <div class="customer-review-card">
-          <p>"Great experience! The website is easy to
-            use, and my food arrived hot and on time.
-            Loved the quick service and clean layout.
-            Definitely ordering again ! "</p>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">✨</span>
+                        <span class="badge-text">Pure & High Quality Vegetarian Food</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Order food from the
+                        <strong class="highlight-text">Top 5 Restaurants</strong>
+                        <br>in Tirumala
+                    </h1>
+
+                    <p class="hero-description">
+                        Skip the queues and get pure veg meals from top-rated Tirumala Restaurants delivered to your
+                        doorstep.
+                    </p>
+
+                    <div class="cta-container">
+                        <a href="tirumala/signup.php"><button class="primary-cta" id="primaryCta">
+                                <div class="cta-content">
+                                    <div class="cta-main">
+                                        <span class="cta-text">Sign Up & Get ₹100 OFF</span>
+                                        <span class="cta-subtext">Pure Veg Meals from Best Restaurants in
+                                            Tirumala</span>
+                                    </div>
+                                    <div class="cta-icon">
+                                        <span class="arrow">→</span>
+                                    </div>
+                                </div>
+                                <div class="cta-glow"></div>
+                            </button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="value-boxes">
+                    <div class="value-box">
+                        <div class="box-icon">🚶‍♂️</div>
+                        <div class="box-content">
+                            <h3>No More Waiting</h3>
+                            <p>Skip long queues at Tirumala Restaurants</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="box-icon">💸</div>
+                        <div class="box-content">
+                            <h3>Fair Pricing</h3>
+                            <p>Say goodbye to overpriced, unhygienic food</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="box-icon">🌿</div>
+                        <div class="box-content">
+                            <h3>100% Pure Veg</h3>
+                            <p>Hygiene guaranteed from trusted kitchens</p>
+                        </div>
+                    </div>
+
+                    <div class="value-box">
+                        <div class="box-icon">🏠</div>
+                        <div class="box-content">
+                            <h3>Doorstep Delivery</h3>
+                            <p>Delivering the Fresh Food in Tirumala</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="review-details">
-          <h5>K Prasad</h5>
-          <div class="rating-stars">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-          </div>
+    </section>
+
+    <!-- Trust Standards Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-header">
+                    <h2>🛡️Our Restaurants are Trusted by the Highest Standards in Tirumala</h2>
+                    <p>Your safety and satisfaction are guaranteed by official certifications</p>
+                </div>
+
+                <div class="trust-logos">
+                    <div class="trust-logo-item">
+                        <div class="logo-container">
+                            <div class="logo-image">
+                                <img src="img/TTD-Logo.png" alt="TTD Logo" class="trust-logo-img" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3>TTD Approved</h3>
+                            <p>Officially certified by Tirumala Tirupati Devasthanams</p>
+                        </div>
+                    </div>
+
+                    <div class="trust-logo-item">
+                        <div class="logo-container">
+                            <div class="logo-image">
+                                <img src="img/fssai.png" alt="FSSAI Logo" class="trust-logo-img fssai-logo-img"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="logo-info">
+                            <h3>FSSAI Certified</h3>
+                            <p>Food Safety and Standards Authority of India licensed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trust-features">
+                    <div class="trust-feature">
+                        <span class="feature-icon">✅</span>
+                        <span>100% Hygiene Guaranteed</span>
+                    </div>
+                    <div class="trust-feature">
+                        <span class="feature-icon">🔒</span>
+                        <span>Secure & Safe Delivery</span>
+                    </div>
+                    <div class="trust-feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Quality Assured</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="customer-review-data">
-        <div class="customer-review-card">
-          <p>"Absolutely loved the service, Fast delivery and hot food! Made our Tirumala visit more
-            comfortable. Highly recommend for anyone craving tasty meals without leaving their stay."</p>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Benefits of AnnamCart's Tirumala Food Delivery</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-gradient bg-gradient-1"></div>
+                    <div class="benefit-icon">⏱️</div>
+                    <h3>Skip the Qs, Keep the Peace</h3>
+                    <p>No lines. No crowds. Just hot meals within 30 mins.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-gradient bg-gradient-2"></div>
+                    <div class="benefit-icon">🌿</div>
+                    <h3>100% Pure Veg & Premium Quality</h3>
+                    <p>High Quality & Licensed Food and sealed with care.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-gradient bg-gradient-3"></div>
+                    <div class="benefit-icon">👴</div>
+                    <h3>For Elders, Moms & Tired Devotees</h3>
+                    <p>We prioritize senior pilgrims and pregnant
+                        women—because their peace matters most.</p>
+                </div>
+
+                <div class="benefit-card special-card">
+                    <div class="benefit-gradient bg-gradient-special"></div>
+                    <div class="special-badge">🎁 Bonus for you</div>
+                    <div class="benefit-icon">💰</div>
+                    <h3>Order, Refer & Get Cashback</h3>
+                    <p>Send food experience to a friend, and get <strong>20% Cashback</strong> on your order.</p>
+                    <div class="special-glow"></div>
+                </div>
+            </div>
         </div>
-        <div class="review-details">
-          <h5>T Ananya</h5>
-          <div class="rating-stars">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-          </div>
+    </section>
+
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="urgency-banner">
+                <div class="urgency-content">
+                    <h2>⏳ You will miss <strong
+                            style="font-weight: 900; font-size: clamp(3.5rem, 7vw, 4rem)">₹100</strong> in <span
+                            id="urgencyCountdown">33:33</span> Minutes!</h2>
+                    <p>Sign up now and get <strong>₹100 OFF</strong> your first order above ₹250. No delays. No queues.
+                        Just hot meals at your door.</p>
+                    <a href="tirumala/signup.php"><button class="primary-cta">
+                            <div class="cta-content">
+                                <div class="cta-main">
+                                    <span class="cta-text">🎯 Sign Up & Claim Your ₹100 OFF</span>
+                                </div>
+                                <div class="cta-icon">
+                                    <span class="arrow">→</span>
+                                </div>
+                            </div>
+                            <div class="cta-glow"></div>
+                        </button></a>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>Don't Trust Us... Trust the Food-Lovers of Tirumala!</h2>
+                <p>These Real Google Reviews speak about the taste, hygiene, and heartwarming service.</p>
+            </div>
+
+            <div class="reviews-scroll-container">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-gradient bg-review-1"></div>
+                        <div class="google-badge-review">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                alt="Google" class="google-logo">
+                            <span>Google Review</span>
+                        </div>
+                        <div class="quote-icon">"</div>
+                        <p>Food was hot, fresh, and clean—easily one of the best vegetarian meals in Tirumala.</p>
+                        <div class="testimonial-footer">
+                            <h4>– Sasi Kumar Rajendran</h4>
+                            <span class="stars">⭐️⭐️⭐️⭐️</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-gradient bg-review-2"></div>
+                        <div class="google-badge-review">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                alt="Google" class="google-logo">
+                            <span>Google Review</span>
+                        </div>
+                        <div class="quote-icon">"</div>
+                        <p>The taste was excellent and the hygiene was visibly maintained throughout.</p>
+                        <div class="testimonial-footer">
+                            <h4>– Yuvan Kollipara</h4>
+                            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-gradient bg-review-3"></div>
+                        <div class="google-badge-review">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                alt="Google" class="google-logo">
+                            <span>Google Review</span>
+                        </div>
+                        <div class="quote-icon">"</div>
+                        <p>Unexpectedly great quality and pure veg food—no onion, no garlic, just perfect.</p>
+                        <div class="testimonial-footer">
+                            <h4>– K Prasad</h4>
+                            <span class="stars">⭐️⭐️⭐️⭐️</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-gradient bg-review-4"></div>
+                        <div class="google-badge-review">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                alt="Google" class="google-logo">
+                            <span>Google Review</span>
+                        </div>
+                        <div class="quote-icon">"</div>
+                        <p>Hygienic food and authentic South Indian flavors. Great for Maharashtrian pilgrims too!</p>
+                        <div class="testimonial-footer">
+                            <h4>– Atharva Tipre</h4>
+                            <span class="stars">⭐️⭐️⭐️⭐️</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-gradient bg-review-5"></div>
+                        <div class="google-badge-review">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                alt="Google" class="google-logo">
+                            <span>Google Review</span>
+                        </div>
+                        <div class="quote-icon">"</div>
+                        <p>Oil-free, diet-friendly meals with traditional taste. Loved every bite!</p>
+                        <div class="testimonial-footer">
+                            <h4>– Chaithra</h4>
+                            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="customer-review-data">
-        <div class="customer-review-card">
-          <p>"Delicious local dishes delivered right on time. Great variety and very affordable. Perfect for pilgrims
-            who
-            want to avoid long queues and enjoy hassle-free meals."</p>
+    </section>
+
+    <!-- Licenses Section -->
+    <section id="licenses" class="licenses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Partnered with <strong class="highlight-text">Highly Rated Restaurants</strong><br>at Tirumala</h2>
+            </div>
+
+            <div class="restaurants-scroll-container">
+                <div class="restaurants-grid">
+                    <div class="restaurant-card">
+                        <div class="restaurant-gradient"></div>
+                        <div class="restaurant-image">
+                            <img src="img/South Indian Feast.png" alt="Srivari Naivedyam Restaurant" loading="lazy">
+                        </div>
+                        <h3>Srivari Naivedyam</h3>
+                        <div class="rating">
+                            <span class="stars">⭐</span>
+                            <span class="rating-text">4.5/5 (2K+)</span>
+                            <div class="google-badge">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                    alt="Google" class="google-logo">
+                                <span>Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <div class="restaurant-gradient"></div>
+                        <div class="restaurant-image">
+                            <img src="img/Idly.png" alt="Saarangi Fine Dine Restaurant" loading="lazy">
+                        </div>
+                        <h3>Saarangi Fine Dine Restaurant</h3>
+                        <div class="rating">
+                            <span class="stars">⭐</span>
+                            <span class="rating-text">4/5 (4K+)</span>
+                            <div class="google-badge">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                    alt="Google" class="google-logo">
+                                <span>Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <div class="restaurant-gradient"></div>
+                        <div class="restaurant-image">
+                            <img src="img/Masala Dosa.png" alt="Devaragam Fine Dine Restaurant" loading="lazy">
+                        </div>
+                        <h3>Devaragam Fine Dine Restaurant</h3>
+                        <div class="rating">
+                            <span class="stars">⭐</span>
+                            <span class="rating-text">4.1/5 (1K+)</span>
+                            <div class="google-badge">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                    alt="Google" class="google-logo">
+                                <span>Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <div class="restaurant-gradient"></div>
+                        <div class="restaurant-image">
+                            <img src="img/Veg Noodles.png" alt="SV Food Plaza" loading="lazy">
+                        </div>
+                        <h3>SV Food Plaza</h3>
+                        <div class="rating">
+                            <span class="stars">⭐</span>
+                            <span class="rating-text">4.4/5 (150+)</span>
+                            <div class="google-badge">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                    alt="Google" class="google-logo">
+                                <span>Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <div class="restaurant-gradient"></div>
+                        <div class="restaurant-image">
+                            <img src="img/Pulihora.png" alt="Hotel Radhe" loading="lazy">
+                        </div>
+                        <h3>Hotel Radhe</h3>
+                        <div class="rating">
+                            <span class="stars">⭐</span>
+                            <span class="rating-text">4.5/5 (100+)</span>
+                            <div class="google-badge">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234285F4'%3E%3Cpath d='M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z'/%3E%3Cpath d='M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z' fill='%2334A853'/%3E%3Cpath d='M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z' fill='%23FBBC05'/%3E%3Cpath d='M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z' fill='%23EA4335'/%3E%3C/svg%3E"
+                                    alt="Google" class="google-logo">
+                                <span>Google Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="licenses-cta">
+                <a href="tirumala/signup.php"><button class="primary-cta">
+                        <div class="cta-content">
+                            <div class="cta-main">
+                                <span class="cta-text">🍽️ Sign Up & Order from Highly Rated Veg Restaurants in
+                                    Tirumala</span>
+                            </div>
+                            <div class="cta-icon">
+                                <span class="arrow">→</span>
+                            </div>
+                        </div>
+                        <div class="cta-glow"></div>
+                    </button></a>
+            </div>
         </div>
-        <div class="review-details">
-          <h5>P Ramesh</h5>
-          <div class="rating-stars">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-            <img src="img/star.png" alt="" srcset="">
-          </div>
+    </section>
+
+    <!-- Not Satisfied Section -->
+    <section id="not-satisfied" class="not-satisfied-section">
+        <div class="container">
+            <div class="not-satisfied-content">
+                <h2>Still not Convinced? Even Lord Venkateswara didn't skip meals... why should you? 😇</h2>
+                <p>We may not perform miracles but we do deliver hot, clean, pure veg food faster than most queues move
+                    at Tirumala. Try us once, Govinda!</p>
+                <a href="tirumala/signup.php"><button class="primary-cta">
+                        <div class="cta-content">
+                            <div class="cta-main">
+                                <span class="cta-text">🙏 Sign Up & Taste the Devotion</span>
+                            </div>
+                            <div class="cta-icon">
+                                <span class="arrow">→</span>
+                            </div>
+                        </div>
+                        <div class="cta-glow"></div>
+                    </button></a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <footer id="footer"></footer>
-  <script src="scripts/index.js"></script>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="faqs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>1. Which Tirumala restaurants can I order from?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We partner with the top-rated veg restaurants in Tirumala — Srivari Naivedyam, Saarangi Fine
+                            Dine Restaurant, Devaragam Fine Dine Restaurant, SV Food Plaza and Hotel Radhe. Every
+                            kitchen is TTD-approved and FSSAI-certified.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>2. Can I order from multiple restaurants in Tirumala at once?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Not yet. To keep your food piping hot and delivery fast, each order must come from a single
+                            Tirumala restaurant of your choice.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>3. How long does delivery take in Tirumala?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most orders arrive within <strong>30 minutes</strong> after confirmation. You can always ask
+                            Vasuki for live updates via WhatsApp or on your tracking page.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>4. Are these meals truly hygienic and pure veg?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. All our partner restaurants follow strict "Sathvik" recipes and maintain
+                            hotel-grade hygiene.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>5. How do I pay for my order?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer Cash on Delivery (UPI or cash) when your food arrives. No hidden fees — what you see
+                            on screen is what you pay.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>6. Can I cancel my order?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You have <strong>30 seconds</strong> after you tap "Order Now" to cancel. After that, the
+                            kitchen starts your meal and refunds aren't possible.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>7. What if my food is spoiled or items are missing?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're sorry if that happens! Report it immediately on your order tracking page. Vasuki will
+                            verify and process a refund (partial or full) within 7 business days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>8. How do I track my Tirumala food delivery?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Open your orders page and tap "View more." You'll see real-time updates of the order.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>9. Is AnnamCart approved by TTD and local authorities?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. All partner restaurants are officially approved by TTD and bear the FSSAI license. We
+                            only work with the most trusted Tirumala restaurants for your peace of mind.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>10. How can I give feedback or get more help?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your feedback helps us serve you better. Use the "Help" button on your order page or simply
+                            message Vasuki on WhatsApp. We're here to make your Tirumala feast flawless.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
 
 </html>

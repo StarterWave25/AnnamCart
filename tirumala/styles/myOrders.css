@@ -1,0 +1,285 @@
+body {
+  min-height: 100vh;
+  height: auto;
+}
+
+
+.gotoCart-popup {
+  display: none !important;
+}
+
+.orders-heading {
+  height: 10vh;
+  width: 77%;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--brown);
+}
+
+.orders-container {
+  min-height: 80vh;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow: scroll;
+  scrollbar-width: none;
+  height: fit-content;
+  padding-bottom: 40px;
+  padding-top: 10px;
+  gap: 40px 0;
+}
+
+.orders-container>h2 {
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.orders-container>a>button {
+  width: 250px;
+  height: 50px;
+  background: linear-gradient(130deg, var(--brown) 30%, #ff520271);
+  color: white;
+  border-radius: 7px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.order {
+  background-color: white;
+  height: 38vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.447);
+  width: 90%;
+}
+
+.order-cont {
+  height: 55%;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-details {
+  width: 70%;
+  height: 95%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.order-details>h2 {
+  color: var(--brown);
+}
+
+.order-details>p:nth-child(4) {
+  color: green;
+  font-weight: 400;
+}
+
+.order-details>a {
+  color: var(--brown);
+  font-weight: 400;
+}
+
+.reorder-options {
+  width: 30%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.delivered-date>p {
+  color: green;
+  font-weight: 400;
+}
+
+.reorder-button {
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reorder-button>a {
+  width: 40%;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.reorder-button a button {
+  width: 100%;
+  border-radius: 7px;
+  font-weight: 400;
+  height: 100%;
+  cursor: pointer;
+}
+
+.reorder-button>a:nth-child(2) button {
+  background: linear-gradient(130deg, var(--brown), #ff520271);
+  color: white;
+  font-size: 1rem;
+}
+
+.reorder-button>a:nth-child(1) button:hover {
+  background: var(--lpeach);
+}
+
+.reorder-button>a:nth-child(1) button:active {
+  background: rgb(250, 241, 231);
+}
+
+.reorder-button>a:nth-child(1) button {
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  font-size: 1rem;
+  background-color: white;
+}
+
+.reorder-button>a:nth-child(2) button:hover {
+  filter: brightness(1.2);
+}
+
+.order-help {
+  height: 30%;
+  border-top: 1px solid var(--orange);
+  width: 95%;
+  display: flex;
+  align-items: center;
+}
+
+.help-button {
+  padding: 15px 25px;
+  background: linear-gradient(130deg, var(--brown), #ff520271);
+  color: var(--lpeach);
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.help-button:hover {
+  filter: brightness(1.2);
+}
+
+/* Mind-blowing Mobile Design */
+@media (max-width: 768px) {
+  .orders-heading {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 90%;
+  }
+
+  .orders-container {
+    width: 100%;
+    padding: 20px 15px;
+    /* Add some padding to the container */
+  }
+
+  .order {
+    width: 100%;
+    /* Make the card take the full width */
+    max-width: 400px;
+    /* But not too wide on larger mobile screens */
+    height: auto;
+    /* Let the height be determined by the content */
+    padding: 25px 15px;
+    /* Add generous padding inside the card */
+    gap: 20px;
+    /* Add space between the main content and the help section */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Softer shadow for a modern look */
+  }
+
+  .order-cont {
+    flex-direction: column;
+    align-items: center;
+    /* Center all content */
+    text-align: center;
+    width: 100%;
+    height: auto;
+    gap: 15px;
+    /* Space between elements */
+  }
+
+  .order-details {
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    /* Space between text lines */
+    align-items: center;
+  }
+
+  .order-details>h2 {
+    font-size: 1.7rem;
+    /* Adjust font size for better readability */
+    line-height: 1.2;
+    /* Improve line spacing for multi-line titles */
+  }
+
+  .order-details>p {
+    font-size: 0.95rem;
+  }
+
+  .reorder-options {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    gap: 15px;
+    /* Space between delivered date and buttons */
+  }
+
+  .delivered-date {
+    margin-bottom: 10px;
+    /* Add some space below the delivery date */
+  }
+
+  .reorder-button {
+    flex-direction: row;
+    width: 90%;
+    /* Buttons take up 90% of the card width */
+    height: auto;
+    gap: 40px;
+    /* Space between the buttons */
+  }
+
+  .reorder-button>a {
+    width: 100%;
+    height: auto;
+  }
+
+  .reorder-button a button {
+    height: 45px;
+    /* A comfortable, tappable height */
+    font-size: 1rem;
+    /* Slightly bolder font */
+  }
+
+  .order-help {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    /* Space above the help button */
+    justify-content: center;
+    border-top: 1px solid #ddd;
+    /* A subtle separator line */
+  }
+
+  .help-button {
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    /* Remove padding to use height and flex for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}
