@@ -712,17 +712,17 @@ nav ul li a {
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 390px) {
     .gotoCart-popup {
         width: 67%;
     }
 
     .gotoCart-popup h2 {
-        font-size: .75rem;
+        font-size: .8rem;
     }
 
     .gotoCart-popup button {
-        font-size: .75rem;
+        font-size: .8rem;
     }
 
     .gotoCart-popup button img {

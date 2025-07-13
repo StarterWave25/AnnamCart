@@ -11,7 +11,7 @@ fetch('data/most-ordered-items.php')
       mostOrderedContainer.innerHTML += `
         <a href="restaurants-in-tirumala/${item.res_URL}" class="most-ordered-foods">
         <div class="ordered-foods-image">
-          <img src="img/poori.jpg" alt="">
+          <img src="img/poori.jpg" alt="food item image">
         </div>
         <div class="ordered-foods-name">
           <div class="most-order-details">
@@ -24,7 +24,7 @@ fetch('data/most-ordered-items.php')
               <h4 class="offer-price">₹${item.price}</h4>
             </div>
             <div class="star-rating">
-              <img src="img/star2.png" alt="">
+              <img src="img/star2.png" alt="ratings image" loading="lazy">
               <h4>${item.ratings}</h4>
             </div>
           </div>
@@ -45,7 +45,7 @@ fetch('data/restaurants.php')
       restaurantsContainer.innerHTML += `
         <a href="restaurants-in-tirumala/${restaurant.res_URL}" class="restaurant-info">
             <div class="restaurant-photo">
-                <img src="img/osa.png" alt="" srcset="">
+                <img src="img/osa.png" alt="tirumala restaurant image" loading="lazy">
                 <h4>${restaurant.offer}</h4>
             </div>
             <div class="restaurant-details">
@@ -54,7 +54,7 @@ fetch('data/restaurants.php')
                     <p>${restaurant.item_name}</p>
                 </div>
                 <div class="restaurant-ratings">
-                    <img src="img/star2.png" alt="">
+                    <img src="img/star2.png" alt="ratings image" loading="lazy">
                     <h4>${restaurant.ratings}</h4>
                 </div>
             </div>
@@ -73,7 +73,7 @@ async function getTopPicks() {
     topPicksHTML += `
       <div class="top-food-info" data-item-name="${item.item_name}">
         <div class="top-food-image">
-          <img src="img/topPick.jpeg" alt="">
+          <img src="img/topPick.jpeg" alt="food item image" loading="lazy">
         </div>
         <div class="top-food-name">
           <p>${item.item_name}</p>

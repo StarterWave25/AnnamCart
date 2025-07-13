@@ -452,7 +452,7 @@ function cancelAlert(orderId) {
                         <div class="lottie-container">
                             <div class="timer"></div>
                         </div>
-                        <h2>Don't change your mind !</h2>
+                        <h2>Don't Change your Mind !</h2>
                         <p>Your Tirumala meal is almost ready ! Don’t miss it.</p>
                         <button class="popup-btn cancel-btn">Cancel Order</button>
                     </div>`;
@@ -579,7 +579,7 @@ function connectToServer(orderId) {
                                 </div>
                                 <h2>Great News !</h2>
                                 <p>Your order is confirmed and getting ready. It’ll be at your doorstep soon !</p>
-                                <button class="popup-btn track-order" onclick="location.href = 'OrderedDetails.php?order-id=${orderId}'">Track Order</button>
+                                <button class="popup-btn track-order" onclick="location.href = 'order-details.php?order-id=${orderId}'">Track Order</button>
                             </div>
                 `;
             generateOrderPopups(popupHTML, true);

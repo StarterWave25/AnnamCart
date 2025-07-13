@@ -1,3 +1,10 @@
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted || (window.performance && performance.navigation.type === 2)) {
+        // Force reload if user navigated back to login page
+        window.location.reload();
+    }
+});
+
 const inputName = document.getElementById('input-name');
 const inputMobile = document.getElementById('input-mobile');
 
@@ -17,8 +24,8 @@ inputMobile.addEventListener('input', () => {
     inputMobile.value = mobileValue;
 });
 
-if (location.href.includes('signup.php') || location.href.includes('login.php') || location.href.includes('verify.html')) {
-    sessionStorage.setItem('prev-link', 'http://localhost/AnnamCart/tirumala/index.html');
+if (document.referrer.includes('signup.php') || document.referrer.includes('login.php') || document.referrer.includes('verify-otp.html')) {
+    sessionStorage.setItem('prev-link', 'index.html');
 }
 else {
     sessionStorage.setItem('prev-link', document.referrer);

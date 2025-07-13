@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']) &&  !isset($_SESSION['mobile'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Profile</title>
+    <title>My Profile</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/profile.css">

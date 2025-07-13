@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Orders</title>
+  <title>Order Details</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts/headfoot.js"></script>
   <meta name="robots" content="noindex, nofollow">
@@ -52,8 +52,8 @@
     </div>
   </div>
 
-  <a href="myOrders.php" class="goback-btn"><img src="img/out-arrow.png" alt=""></a>
-  <a class="goback-span" href="myOrders.php">My Orders</a>
+  <a href="my-orders.php" class="goback-btn"><img src="img/out-arrow.png" alt=""></a>
+  <a class="goback-span" href="my-orders.php">My Orders</a>
   <div class="ordered-details">
     <!-- js code comes here -->
   </div>

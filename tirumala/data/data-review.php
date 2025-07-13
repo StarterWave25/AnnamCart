@@ -18,7 +18,7 @@ elseif(isset($_POST['description'])){
   $sql = "INSERT INTO reviews (order_id, stars, description) VALUES ('$order_id', '$stars', '$description')";
   $result = mysqli_query($conn, $sql);
 
-  header("Location: ../orderedDetails.php?order-id=$order_id");
+  header("Location: ../order-details.php?order-id=$order_id");
 }
 
 elseif(isset($_GET['order-id'])){

@@ -22,7 +22,7 @@ try {
                     $_SESSION['mobile'] = $row['mobile'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['address'] = $row['address'];
-                    header("Location: ../verify.html");
+                    header("Location: ../verify-otp.html");
                 } else {
                     header("Location: ../login.php?emob=Your account does'nt exists, Signup Now !");
                 }

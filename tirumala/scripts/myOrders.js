@@ -26,7 +26,7 @@ async function getOrdersData() {
                         </div>
                         <div class="reorder-button">
                             <a href="cart.php?order-id=${order.order_id}"><button class="reorder-btn">Reorder</button></a>
-                            <a href="orderedDetails.php?order-id=${order.order_id}"><button class="viewmore-btn">View More</button></a>
+                            <a href="order-details.php?order-id=${order.order_id}"><button class="viewmore-btn">View More</button></a>
                         </div>
                     </div>
                 </div>

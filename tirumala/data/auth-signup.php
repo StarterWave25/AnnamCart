@@ -24,7 +24,7 @@ try {
                 $_SESSION['mobile'] = $mobile;
                 $_SESSION['email'] = '';
                 $_SESSION['address'] = '';
-                header("Location: ../verify.html");
+                header("Location: ../verify-otp.html");
             } catch (mysqli_sql_exception) {
                 header("Location: ../signup.php?emob=Your account already exists, Login Now !");
             }

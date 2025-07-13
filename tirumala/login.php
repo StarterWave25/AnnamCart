@@ -1,10 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['username']) &&  isset($_SESSION['mobile'])) {
+    header('Location: index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnnamCart</title>
+    <title>Login</title>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/login.css">
@@ -29,7 +35,7 @@
         .signup {
             border: 1px solid var(--brown);
             background: transparent;
-            color:var(--brown);
+            color: var(--brown);
         }
     </style>
 </head>

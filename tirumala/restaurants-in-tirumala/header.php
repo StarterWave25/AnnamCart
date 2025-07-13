@@ -8,7 +8,7 @@
         <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="index.html">Restaurants</a></li>
-            <li><a href="../contactus.php">Contact us</a></li>
+            <li><a href="../contact-us.php">Contact us</a></li>
             <span></span>
         </ul>
     </nav>
@@ -20,7 +20,7 @@
             <h3 class="user-name"></h3>
             <div class="profile-menu">
                 <a href="../profile.php">My Profile</a>
-                <a href="../myOrders.php">My Orders</a>
+                <a href="../my-orders.php">My Orders</a>
                 <a class="logout-btn">Log Out</a>
             </div>
         </div>
