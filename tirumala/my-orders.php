@@ -14,7 +14,6 @@ if (!isset($_SESSION['username']) &&  !isset($_SESSION['mobile'])) {
   <title>My Orders</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts/headfoot.js"></script>
-  <script src=""></script>
   <link rel="icon" href="img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/footer.css">

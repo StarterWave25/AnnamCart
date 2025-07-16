@@ -7,7 +7,7 @@
   }
 
   $today = date('Y-m-d');
-  $sql = "SELECT * FROM orders WHERE status = 'delivered' AND res_status = 'delivered' AND res_id = $resId AND DATE(Time) = $today";
+  $sql = "SELECT * FROM orders WHERE status = 'delivered' AND res_status = 'delivered' AND res_id = $resId AND DATE(Time) = '$today'";
 
   $result = mysqli_query($conn, $sql);
   $orders = [];

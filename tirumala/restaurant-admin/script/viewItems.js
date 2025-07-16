@@ -5,7 +5,7 @@ async function getItems() {
   response.forEach((item) => {
     itemsHTML += `
     <div class="item-card">
-      <div class="image"><img src="../img/dosa.jpg" alt="food-item"></div>
+      <div class="image"><img src="../img/dosa.jpg" alt="${item.item_name} image"></div>
       <div class="details">
         <h4>${item.item_name}</h4>
         <del>₹${item.dprice}</del>
@@ -15,7 +15,7 @@ async function getItems() {
         <button class="edit-btn" data-item-id=${item.item_id}>
           <span>Edit</span> 
           <div class="image2">
-            <img src="../img/pen.png" alt="edit-symbol">
+            <img src="../img/pen.png" alt="edit symbol">
           </div>
         </button>
         <button class="avail-btn" data-item-id=${item.item_id}>${item.status}</button>

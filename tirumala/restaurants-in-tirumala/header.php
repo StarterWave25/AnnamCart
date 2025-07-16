@@ -16,7 +16,7 @@
         <a href="../login.php" class="user-links"><button class="login">Log in</button></a>
         <a href="../signup.php" class="user-links"><button class="signup">Sign Up</button></a>
         <div class="user-profile">
-            <img src="../img/user.png" alt="" srcset="">
+            <img src="../img/user.png" alt="user profile icon">
             <h3 class="user-name"></h3>
             <div class="profile-menu">
                 <a href="../profile.php">My Profile</a>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <a href="cart.php" class="cart-label">
-            <img src="../img/cart.png" alt="">
+            <img src="../img/cart.png" alt="cart symbol">
             <h3>Cart</h3>
             <span class="cart-label-quantity"></span>
         </a>
@@ -47,7 +47,7 @@
             <span>Restaurants</span>
         </a>
         <a href="../login.php" class="mobile-nav-item mobile-login-link">
-            <img src="../img/account_circle.svg" alt="">
+            <img src="../img/account_circle.svg" alt="user profile icon">
             <span>Login</span>
         </a>
         <a href="../cart.php" class="mobile-nav-item mobile-cart-link" style="display: none;">
@@ -62,7 +62,7 @@
 
 <a href="../cart.php" class="gotoCart-popup">
     <h2 class="goto-heading"></h2>
-    <button>View&nbsp;Cart<img src="../img/next.png" alt=""></button>
+    <button>View&nbsp;Cart<img src="../img/next.png" alt="arrow symbol"></button>
 </a>
 
 <div class="logout-popup-overlay"></div>

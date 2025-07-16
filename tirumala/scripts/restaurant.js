@@ -57,7 +57,7 @@ async function getRestaurantData(restaurantId) {
     resBody.innerHTML += `
     <div class="card-food-item js-food-card-${item.item_id}">
         <div class="item-image">
-          <img src="../img/dosa.jpg" alt="">
+          <img src="../img/dosa.jpg" alt="${item.item_name} image">
         </div>
         <div class="item-details">
           <div class="item-name">
@@ -68,7 +68,7 @@ async function getRestaurantData(restaurantId) {
             <h2>₹${item.price}</h2>
           </div>
           <div class="item-review">
-            <img src="../img/star2.png" alt="">
+            <img src="../img/star2.png" alt="star symbol">
             <h4>${item.ratings}</h4>
           </div>
           <div class="item-add js-add-${item.item_id}">

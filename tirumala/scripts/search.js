@@ -29,7 +29,7 @@ function getPopularItems() {
                 popularContainer.innerHTML += `
                     <div class="food-name" onclick="searchAction('${item.item_name}')">
                         <a class="food">
-                            <img src="img/img7.jpeg" alt="food-item">
+                            <img src="img/img7.jpeg" alt="food item">
                         </a>
                         <div class="name">
                             ${item.item_name}
@@ -102,7 +102,7 @@ async function searchAction(query) {
             <div class="restaurant-card">
                 <div class="food-details">
                     <div class="res-name-img-con">
-                        <img src="img/meals.jpg" alt="">
+                        <img src="img/meals.jpg" alt="${searchItem.item_name}">
                     </div>
                     <div class="res-details">
                         <div class="heading">
@@ -112,7 +112,7 @@ async function searchAction(query) {
                         <h2>₹${searchItem.price}</h2>
                         <div class="review">
                             <div class="star">
-                                <img src="img/star2.png" alt="">
+                                <img src="img/star2.png" alt="star image">
                                 <p>${searchItem.ratings}</p>
                                 <p>&nbsp;&nbsp;(${searchItem.rperson})</p>
                             </div>

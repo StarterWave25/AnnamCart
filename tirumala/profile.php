@@ -29,7 +29,7 @@ if (!isset($_SESSION['username']) &&  !isset($_SESSION['mobile'])) {
         <h2>My Profile:</h2>
     </div>
     <div class="image-container">
-        <img src="img/user.png" alt="">
+        <img src="img/user.png" alt="profile icon">
     </div>
     <h3 class="onsucess-head"><?php if (isset($_SESSION['updated'])) {
                                     echo $_SESSION['updated'];

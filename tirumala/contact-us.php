@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Need help with your food order in Tirumala? Don’t wait — contact AnnamCart now for instant support, fast resolutions, and quick answers!">
   <title>Contact Us</title>
   <link rel="icon" href="img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="styles/header.css">
@@ -46,16 +47,16 @@
       <div class="inner-info">
         <h2>Company</h2>
         <div class="social-modes">
-          <a href="" class="social"><img src="img/instagram.png" alt="instagram-symbol"></a>
-          <a href="" class="social"><img src="img/facebook.png" alt="facebook-symbol"></a>
-          <a href="" class="social"><img src="img/linkedin.png" alt="linkedin-symbol"></a>
+          <a href="" class="social"><img src="img/instagram.png" alt="instagram symbol"></a>
+          <a href="" class="social"><img src="img/facebook.png" alt="facebook symbol"></a>
+          <a href="" class="social"><img src="img/linkedin.png" alt="linkedin symbol"></a>
         </div>
         <div class="mobile-mail">
-          <img src="img/phone.png" alt="Phone-symbol">
+          <img src="img/phone.png" alt="Phone symbol">
           <a href="tel:+91 9014745388">+91 9014745388</a>
         </div>
         <div class="mobile-mail">
-          <img src="img/mail.png" alt="Mail-symbol">
+          <img src="img/mail.png" alt="Mail symbol">
           <a href="mailto:starterwave25@gmail.com">starterwave25@gmail.com</a>
         </div>
       </div>

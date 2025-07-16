@@ -72,14 +72,14 @@ if (!isset($_SESSION['username']) &&  !isset($_SESSION['mobile'])) {
             <h2 class="contact-heading">
                 Add Your Address
             </h2>
-            <button class="address-close-btn"><img class="close-btn-img" src="img/cross.png" alt="close-btn"></button>
+            <button class="address-close-btn"><img class="close-btn-img" src="img/cross.png" alt="close btn"></button>
         </div>
         <div class="input-fields">
             <input type="text" placeholder="Room no, Flat no, Door no" class="address-room-no">
             <input type="text" placeholder="Area, Street, Place" class="address-area">
             <input type="text" placeholder="Near to You" class="address-landmark">
             <button class="location-container" title="Add your live location">
-                <img src="img/place_brown.png" alt="location-image">
+                <img src="img/place_brown.png" alt="location image">
                 <span>Add Location</span>
             </button>
             <div class="save-change-btns">

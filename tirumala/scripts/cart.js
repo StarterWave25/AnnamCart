@@ -123,20 +123,20 @@ async function getCart() {
             cartHTML = `
             <div class="restaurant-name-container">
                 <a id="img-con" href="restaurants-in-tirumala/${restaurantData.resHead.res_URL}">
-                    <img class="cart-back" src="img/out-arrow.png" alt="out-cart-symbol">
+                    <img class="cart-back" src="img/out-arrow.png" alt="out cart symbol">
                 </a>
                 <h3>${restaurantData.resHead.res_name}</h3>
             </div>
             <div class="saved-container">
                 <div class="img-con-saved">
-                    <img src="img/rupee (2).png" alt="saved-icon">
+                    <img src="img/rupee (2).png" alt="saved icon">
                 </div>
                 <h3>You have Saved ₹${dummyTotal - total} !</h3>
             </div>
             <div class="cart-items">
                 <div class="timing">
                     <div class="img-timing">
-                        <img src="img/time-check.png" alt="clock-symbol">
+                        <img src="img/time-check.png" alt="clock symbol">
                     </div>
                     <h3>Delivering in 40 mins</h3>
                 </div>
@@ -151,7 +151,7 @@ async function getCart() {
                 </div>
                 <div class="coupon-card">
                     <div class="coupon-img">
-                        <img src="img/coupon.png" alt="coupon-img">
+                        <img src="img/coupon.png" alt="coupon img">
                     </div>
                     <div class="coupon">
                         <h4>Save ₹100 on this order !</h4>
@@ -162,7 +162,7 @@ async function getCart() {
             </div>
             <details>
                 <summary class="bill-container">
-                    <div class="bill-img"><img src="img/invoice.png" alt="bill-image"></div>
+                    <div class="bill-img"><img src="img/invoice.png" alt="bill image"></div>
                     <div class="bill-saving">
                         <h3>To Pay</h3>
                         <h4>Saved ₹${dummyTotal - total} !</h4>
@@ -172,8 +172,8 @@ async function getCart() {
                         <h2>₹${total}</h2>
                     </div>
                     <div class="arrows">
-                        <img src="img/arrow-down.png" alt="down-arrow">
-                        <img src="img/up-arrow.png" alt="up-arrow">
+                        <img src="img/arrow-down.png" alt="down arrow">
+                        <img src="img/up-arrow.png" alt="up arrow">
                     </div>
                 </summary>
                 <div class="order-summary">
@@ -465,7 +465,7 @@ function cancelAlert(orderId) {
         if (placeOrder) {
             assigningDelivery(orderId);
         }
-    }, 30000);
+    }, 15000);
 
     const cancelBtn = document.querySelector('.cancel-btn');
     cancelBtn.addEventListener('click', async () => {
@@ -492,7 +492,7 @@ function cancelAlert(orderId) {
 
 function cancelTimer() {
     const timerContainer = document.querySelector('.timer');
-    let timer = 30;
+    let timer = 15;
     setInterval(() => {
         if (timer >= 0) {
             if (timer < 10) {
@@ -604,7 +604,7 @@ async function getLocation() {
 
             if (city) {
                 locationBtn.innerHTML = `
-                    <img src="img/checked.png" alt="location-image">
+                    <img src="img/checked.png" alt="location image">
                     <span class="added">Location Added !</span>
                 `;
                 locationBtn.style.border = 'none';

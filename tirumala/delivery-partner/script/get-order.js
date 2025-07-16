@@ -40,18 +40,18 @@ export async function getOrder() {
         let orderHTML = `
         <div class="resutrantname-order">
             <div class="resturant-name-location">
-                <p><img src="../img/store.png" alt="customer-image" width="20"> ${orderDetails.res_name}</p>
+                <p><img src="../img/store.png" alt="customer image" width="20"> ${orderDetails.res_name}</p>
             </div>
             <a href="${orderDetails.res_location}" target="_blank" class="resturant-name-location-button">
-                <button><img src="../img/place.png" alt="customer-image" width="20"> Location</button>
+                <button><img src="../img/place.png" alt="customer image" width="20"> Location</button>
             </a>
         </div>
         <div class="customername-order">
             <div class="Coustomer-Name-Location">
-                <p><img src="../img/customer.png" alt="customer-image" width="20"> ${orderDetails.username}</p>
+                <p><img src="../img/customer.png" alt="customer image" width="20"> ${orderDetails.username}</p>
             </div>
             <a href="${orderDetails.location}" target="_blank" class="Coustomer-Name-Location-button">
-                <button><img src="../img/place.png" alt="customer-image" width="20"> Location</button>
+                <button><img src="../img/place.png" alt="customer image" width="20"> Location</button>
             </a>
 
         </div>

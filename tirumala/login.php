@@ -10,6 +10,7 @@ if (isset($_SESSION['username']) &&  isset($_SESSION['mobile'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hurry! Login to AnnamCart and grab your favorite Tirumala meals. Track orders, reorder fast, and never miss a delivery again!">
     <title>Login</title>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/header.css">

@@ -1,8 +1,6 @@
 async function generateCompleteOrders() {
   let request = await fetch('data/data-complete-orders.php');
-  console.log(request);
   let response = await request.json();
-  console.log(response);
   let completedOrders = '';
   response.forEach(order => {
     completedOrders += `
