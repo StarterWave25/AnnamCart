@@ -1,6 +1,5 @@
 window.addEventListener('pageshow', function (event) {
     if (event.persisted || (window.performance && performance.navigation.type === 2)) {
-        // Force reload if user navigated back to login page
         window.location.reload();
     }
 });
@@ -24,7 +23,7 @@ inputMobile.addEventListener('input', () => {
     inputMobile.value = mobileValue;
 });
 
-if (document.referrer.includes('signup.php') || document.referrer.includes('login.php') || document.referrer.includes('verify-otp.html')) {
+if (document.referrer.includes('signup.php') || document.referrer.includes('login.php') || document.referrer.includes('verify-otp.html') || document.referrer.includes('index.html')) {
     sessionStorage.setItem('prev-link', 'index.html');
 }
 else {

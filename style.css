@@ -128,7 +128,7 @@ body {
     color: var(--white);
     border: none;
     padding: 14px 32px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
