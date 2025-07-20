@@ -1,0 +1,621 @@
+/* In your CSS file */
+html {
+  scroll-padding-top: 80px; /* Adjust this value to match your header's height. */
+}
+
+.restaurant-main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Outfit';
+}
+
+.restaurant-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 40vh;
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+  justify-content: space-around;
+}
+
+.restaurant-head:hover {
+  filter: brightness(1.3);
+}
+
+.title-offer {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.title-offer>h4 {
+  color: white;
+  font-size: 1.5rem;
+  width: 32%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-offer>h2 {
+  font-size: 2.5rem;
+  color: var(--peach);
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.offer {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.offer>img {
+  width: 8%;
+}
+
+.offer>h4 {
+  font-size: 1.5rem;
+  width: 40%;
+  color: white;
+}
+
+.details-restaurant {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-restaurant ul {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.certifications {
+  width: 85%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 3%;
+}
+
+.ratings-container {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratings-container>img {
+  width: 5%;
+}
+
+.ratings-container>h3 {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.res-certify {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.res-certify>img {
+  width: 17%;
+}
+
+.res-certify>h3 {
+  color: var(--lpeach);
+  font-size: 1.2rem;
+  font-family: 'outfit';
+}
+
+.res-certify>p {
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 400;
+}
+
+.restaurant-body {
+  min-height: 90vh;
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 280px;
+  gap: 5em 10em;
+  padding: 6em;
+}
+
+.card-food-item {
+  position: relative;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  width: 58%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-image>img {
+  width: 85%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-details {
+  width: 40%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-name {
+  width: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.item-name>h3 {
+  font-size: 1.2rem;
+}
+
+.item-cost {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 50%;
+}
+
+.item-cost>h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--brown);
+}
+
+.item-cost>del {
+  font-family: 'alata';
+  font-size: .9rem;
+}
+
+.item-review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 25%;
+}
+
+.item-review>h4 {
+  font-size: 1rem;
+}
+
+.item-review>img {
+  width: 38%;
+}
+
+.item-add {
+  width: 40%;
+  height: 20%;
+  background-color: var(--peach);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-add>span {
+  font-size: 1.1rem;
+  font-weight: 450;
+  font-family: system-ui;
+}
+
+.wait-animation {
+  width: 20%;
+  height: 0%;
+  background-color: var(--brown);
+  position: absolute;
+  bottom: 0%;
+  left: 3%;
+  border-radius: 10px;
+}
+
+@keyframes waiter {
+  from {
+    left: 3%;
+  }
+
+  to {
+    left: 77%;
+  }
+}
+
+.addBtn {
+  background: linear-gradient(130deg, var(--brown) 40%, #ff520271);
+  color: white;
+  border-radius: 7px;
+  font-size: .9rem;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addBtn:hover {
+  font-size: 0.8rem;
+  filter: brightness(1.3);
+}
+
+.quantity-btn {
+  height: 100%;
+  justify-content: space-around;
+  font-family: 'Outfit';
+  cursor: default;
+  font-weight: 500;
+}
+
+.min-btn,
+.max-btn {
+  color: var(--brown);
+  background-color: transparent;
+  font-size: 1rem;
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid var(--brown);
+  padding-bottom: 1px;
+  font-weight: 500;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.min-btn {
+  padding-bottom: 3px;
+}
+
+.min-btn:active,
+.max-btn:active {
+  background-color: var(--brown);
+  color: var(--peach);
+}
+
+#popular-item {
+  background: linear-gradient(160deg, white 40%, #ff520241) !important;
+  position: relative;
+}
+
+#popular-item::before {
+  top: 15%;
+  left: 7%;
+  content: "Most Ordered";
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(135deg, #FFD700 0%, #FFED4A 25%, #f2bb2f 50%, #FFD700 75%, #DAA520 100%);
+  padding: 3px 15px;
+  border-radius: 5px;
+}
+
+/* ========================================= */
+/*           RESPONSIVE CSS STYLES           */
+/* ========================================= */
+
+/* For Tablets and Small Desktops */
+@media screen and (max-width: 1200px) {
+  .restaurant-body {
+    gap: 4em 6em;
+    padding: 5em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .restaurant-head {
+    min-height: 35vh;
+  }
+
+  .title-offer>h2 {
+    font-size: 2rem;
+  }
+
+  .title-offer>h4,
+  .offer>h4 {
+    font-size: 1.2rem;
+  }
+
+  .details-restaurant ul {
+    list-style: none;
+    width: 80%;
+    font-size: 1.1rem;
+  }
+
+  .restaurant-body {
+    padding: 4em 3em;
+    gap: 3em 4em;
+    grid-auto-rows: 260px;
+  }
+
+  .item-name>h3 {
+    font-size: 1.1rem;
+  }
+
+  .item-cost>h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* For Large Mobile Phones and Small Tablets */
+@media screen and (max-width: 768px) {
+  .restaurant-head {
+    min-height: auto;
+    /* Allow height to be determined by content */
+    padding: 1.5em 1em;
+    gap: 2em;
+  }
+
+  .title-offer,
+  .details-restaurant ul,
+  .certifications {
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+  }
+
+  .title-offer>h4,
+  .title-offer>h2,
+  .offer {
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .title-offer>h2 {
+    order: -1;
+  }
+
+  .offer>img, .ratings-container>img {
+    width: 8%;
+  }
+
+  .details-restaurant ul {
+    width: 100%;
+  }
+
+  .certifications {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ratings-container,
+  .res-certify {
+    width: 80%;
+    justify-content: center;
+  }
+
+  .res-certify {
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow text to wrap if needed */
+  }
+
+  /* --- Main change: Switch to a single column grid --- */
+  .restaurant-body {
+    grid-template-columns: 1fr;
+    padding: 4em 2em;
+    gap: 4em;
+    grid-auto-rows: 250px;
+  }
+
+  #popular-item::before {
+    top: 10%;
+    left: 5%;
+  }
+}
+
+
+/* For Standard Mobile Phones */
+@media screen and (max-width: 480px) {
+
+  .food-restaurant,
+  .restaurants-container {
+    height: auto;
+    /* Let content define height */
+  }
+
+  .restaurant-head {
+    justify-content: space-between;
+  }
+
+  .title-offer>h2 {
+    font-size: 1.3rem;
+  }
+
+  .title-offer>h4,
+  .offer>h4 {
+    font-size: .8rem;
+  }
+
+  .details-restaurant ul {
+    font-size: .8rem;
+    width: 50%;
+  }
+
+  /* --- Main change: Stack card items vertically --- */
+  .card-food-item {
+    flex-direction: row;
+    height: auto;
+    padding: 1.5em 0.5em;
+    gap: 1em;
+  }
+
+  .restaurant-body {
+    padding: 3em 1em;
+    gap: 2em;
+    grid-auto-rows: auto;
+    /* Let card height be automatic */
+  }
+
+  .card-food-item {
+    width: 95%;
+    margin: 0 auto;
+    /* Center the card */
+    height: 200px;
+    border-radius: 14px;
+  }
+
+  .item-image {
+    width: 80%;
+    height: 150px;
+    /* Give a fixed height for consistency */
+    display: flex;
+    align-items: center;
+  }
+
+  .item-image>img {
+    width: 80%;
+    border-radius: 12px;
+  }
+
+  .item-details {
+    width: 40%;
+    align-items: left;
+    /* Center the details content */
+    text-align: left;
+    justify-content: space-around;
+    height: 100%;
+    gap: 0.5em;
+  }
+
+  .item-name {
+    width: 100%;
+    justify-content: left;
+    gap: 8px;
+    /* Add gap between name and fav icon */
+    order: 1;
+    /* Change order if needed */
+    font-size: .2rem !important;
+  }
+
+  .item-name img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .item-cost {
+    width: 100%;
+    justify-content: left;
+    order: 2;
+    font-size: .2rem !important;
+  }
+
+  .item-review {
+    width: auto;
+    order: 3;
+  }
+
+  .item-name>h3 {
+    font-size: 0.7rem;
+  }
+
+  .item-cost>h2 {
+    font-size: 1rem;
+  }
+
+  .item-cost>del {
+    font-size: 0.7rem;
+  }
+
+  .item-review>h4 {
+    font-size: 0.7rem;
+  }
+
+  .item-review img {
+    width: 15px;
+    /* Adjust size for mobile */
+    height: 15px;
+    /* Adjust size for mobile */
+  }
+
+  .item-add {
+    width: 70%;
+    height: 35px;
+    order: 4;
+  }
+
+  .addBtn {
+    border-radius: 5px;
+    font-size: .8rem;
+  }
+
+  .min-btn,
+  .max-btn {
+    width: 17px;
+    height: 17px;
+  }
+
+  .addBtn span {
+    font-size: .7rem;
+  }
+
+  #popular-item::before {
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center the tag */
+    font-size: 0.8rem;
+    padding: 3px 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card-food-item {
+    height: 180px;
+  }
+
+  .item-image {
+    height: 130px;
+  }
+
+  .item-add {
+    width: 80%;
+  }
+}

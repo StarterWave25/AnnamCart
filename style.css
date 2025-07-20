@@ -131,7 +131,6 @@ body {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-size: 16px;
     letter-spacing: 0.5px
 }
@@ -272,7 +271,6 @@ body {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s ease;
     box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
     max-width: 500px;
     min-height: 80px;
@@ -319,12 +317,10 @@ body {
     height: 40px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    transition: all 0.3s ease
 }
 
 .arrow {
     font-size: 20px;
-    transition: transform 0.3s ease
 }
 
 .primary-cta:hover .arrow {
@@ -339,7 +335,6 @@ body {
     height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
     opacity: 0;
-    transition: opacity 0.4s ease;
     pointer-events: none
 }
 
@@ -364,7 +359,6 @@ body {
     border: 1.5px dashed var(--brown);
     position: relative;
     overflow: hidden;
-    transition: all 0.4s ease;
     box-shadow: var(--shadow-soft);
 }
 
@@ -407,7 +401,6 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(118, 46, 20, 0.08);
-    transition: all 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
     min-height: 280px
 }
@@ -531,7 +524,6 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
     min-width: 280px;
     position: relative;
     overflow: hidden
@@ -787,7 +779,6 @@ body {
     padding: 28px;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(118, 46, 20, 0.08);
-    transition: all 0.3s ease;
     min-width: 320px;
     max-width: 320px;
     position: relative;
@@ -925,7 +916,6 @@ body {
     align-items: center;
     padding: 20px 0;
     cursor: pointer;
-    transition: all 0.3s ease
 }
 
 .faq-question h3 {
@@ -939,7 +929,6 @@ body {
     font-size: 24px;
     color: var(--brown);
     font-weight: 300;
-    transition: transform 0.3s ease
 }
 
 .faq-item.active .faq-toggle {
@@ -949,7 +938,6 @@ body {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
     padding: 0 0
 }
 

@@ -1,7 +1,7 @@
 function checkCookie() {
     let cookie = (document.cookie);
     if (cookie.includes('LpOpened=true')) {
-        location.href = 'tirumala/';
+        location.href = 'tirumala-food-delivery/';
     }
 }
 
