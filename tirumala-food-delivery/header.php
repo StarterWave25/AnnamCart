@@ -75,23 +75,24 @@
     </div>
 
     <script>
-        // Simulate PHP session data for demo
+        <?php session_start(); ?>
         const username = '<?php if (isset($_SESSION['username'])) {
                                 echo $_SESSION['username'];
                             } else {
-                                echo '';
+                                echo 'null';
                             } ?>';
         const headerUserMobile = <?php if (isset($_SESSION['mobile'])) {
                                         echo $_SESSION['mobile'];
                                     } else {
                                         echo 0;
                                     } ?>;
-        if (headerUserMobile) {
+                                    
+        if (headerUserMobile != 0) {
             sessionStorage.setItem('userMobile', JSON.stringify(headerUserMobile));
         }
 
         function initializeHeader() {
-            if (username && headerUserMobile) {
+            if (username !== 'null' && headerUserMobile !== 0) {
                 // User is logged in
                 const userProfile = document.querySelector('.user-profile');
                 const userLinks = document.querySelectorAll('.user-links');

@@ -78,13 +78,23 @@
 <script>
     // Simulate PHP session data for demo
     <?php session_start(); ?>
-    const username = '<?php echo $_SESSION['username']; ?>';
-    const headerUserMobile = <?php echo $_SESSION['mobile']; ?>;
+    const username = '<?php if (isset($_SESSION['username'])) {
+                            echo $_SESSION['username'];
+                        } else {
+                            echo 'null';
+                        } ?>';
+    const headerUserMobile = <?php if (isset($_SESSION['mobile'])) {
+                                    echo $_SESSION['mobile'];
+                                } else {
+                                    echo 0;
+                                } ?>;
 
-    sessionStorage.setItem('userMobile', JSON.stringify(headerUserMobile));
+    if (headerUserMobile != 0) {
+        sessionStorage.setItem('userMobile', JSON.stringify(headerUserMobile));
+    }
 
     function initializeHeader() {
-        if (username && headerUserMobile) {
+        if (username !== 'null' && headerUserMobile !== 0) {
             // User is logged in
             const userProfile = document.querySelector('.user-profile');
             const userLinks = document.querySelectorAll('.user-links');
@@ -152,7 +162,7 @@
             cartQuantityLabel.textContent = cartItems.length;
             if (window.innerWidth <= 768) {
                 gotoCart.style.bottom = '80px';
-                gotoCart.style.animation = 'gotoCartMobani 0.4s ease-in-out'
+                gotoCart.style.animation = 'gotoCartMobani 0.4s ease-in-out';
             } else {
                 gotoCart.style.bottom = '10px';
                 gotoCart.style.animation = 'gotoCartAni 0.4s ease-in-out';
